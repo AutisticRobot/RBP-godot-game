@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://brhosk7gg0d81"]
+
+[ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Assets/Placeholders/ShipPlaceholder1.png" id="1_mmu0o"]
+[ext_resource type="Script" path="res://Scripts/PlayerShip.cs" id="2_648oo"]
+[ext_resource type="Texture2D" uid="uid://d3686dp3xa2a6" path="res://Assets/Placeholders/ArrowG.png" id="2_gj613"]
+
+[node name="ShipPlaceholder1" type="Sprite2D"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_mmu0o")
+script = ExtResource("2_648oo")
+
+[node name="ArrowG" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, -512)
+texture = ExtResource("2_gj613")

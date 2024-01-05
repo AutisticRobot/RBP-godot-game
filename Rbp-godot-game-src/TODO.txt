@@ -53,6 +53,8 @@
 
 - Flag selection
 
+- steam Achivements
+
 -Draw path for ship
 -- for both immediate movement and long term planning.// --*-- can be a lot of fun
 --// also allows for exploreing the ship while in transit.
@@ -62,6 +64,9 @@
 |	--------	  TODO  	--------	|
 |		         MAYBE				|
 *=======================================================*
+
+- If you win too many battles, enemys will have counter measures for you
+-- in part because people started to copy the player
 
 -AI Generated Cathulu
 -- using bad AI immage gen
