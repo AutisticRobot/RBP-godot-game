@@ -6,3 +6,6 @@
 
 [node name="ShipPlaceholder1" parent="." instance=ExtResource("1_r5ep4")]
 position = Vector2(526, 325)
+speed = 100.0
+Minspeed = -50.0
+Maxspeed = 50.0

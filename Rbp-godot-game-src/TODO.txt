@@ -1,10 +1,10 @@
 *=======================================================*
-|							|
-|	--------	  TODO  	--------	|
-|		       IMMEDIATELY			|
+|                                                       |
+|            --------     TODO     --------             |
+|                      IMMEDIATELY                      |
 *=======================================================*
 
-1. Add ship as sprite
+1. (Add ship as sprite) done
 
 2.add island as sprite
 
@@ -24,16 +24,16 @@
 
 ------BASIC MOVEMENT
 
-1.WASD as tank controlls (W/S front/back - A/D turn Left/Right)
+1.//(WASD as tank controlls)   Done!!
 
 2.collect floating loot
 
 3. open island as menu
 
 *=======================================================*
-|							|
-|	--------	  TODO  	--------	|
-|		          SOON				|
+|                                                       |
+|            --------     TODO     --------             |
+|                         SOON                          |
 *=======================================================*
 
 - Basic island funcinality
@@ -46,9 +46,9 @@
 
 
 *=======================================================*
-|							|
-|	--------	  TODO  	--------	|
-|		       EVENTUALLY			|
+|                                                       |
+|            --------     TODO     --------             |
+|                      EVENTUALLY                       |
 *=======================================================*
 
 - Flag selection
@@ -60,9 +60,9 @@
 --// also allows for exploreing the ship while in transit.
 
 *=======================================================*
-|							|
-|	--------	  TODO  	--------	|
-|		         MAYBE				|
+|                                                       |
+|            --------     TODO     --------             |
+|                        MAYBE                          |
 *=======================================================*
 
 - If you win too many battles, enemys will have counter measures for you
