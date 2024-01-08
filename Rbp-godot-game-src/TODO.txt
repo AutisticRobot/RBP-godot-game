@@ -4,13 +4,13 @@
 |                      IMMEDIATELY                      |
 *=======================================================*
 
-1. (Add ship as sprite) done
+                                                                         1. (Add ship as sprite) done
 
 2.add island as sprite
 
 3.Draw needed assets
 --1.Gray Box Island (Island icon)
---2.The Endless Oceans (Ocean background)
+                                                                            --2.The Endless Oceans (Ocean background)
 --3.Loot (resource icons)
 ----1.Silver and Gold (for curentcy)
 ----2.Food (stuff like hard-tac)
@@ -24,7 +24,7 @@
 
 ------BASIC MOVEMENT
 
-1.//(WASD as tank controlls)   Done!!
+                                                                          1.//(WASD as tank controlls)   Done!!
 
 2.collect floating loot
 
