@@ -4,13 +4,13 @@
 |                      IMMEDIATELY                      |
 *=======================================================*
 
-                                                                         1. (Add ship as sprite) done
+																		 1. (Add ship as sprite) done
 
 2.add island as sprite
 
 3.Draw needed assets
-                                                                         --1.Gray Box Island (Island icon)
-                                                                            --2.The Endless Oceans (Ocean background)
+																		 --1.Gray Box Island (Island icon)
+																			--2.The Endless Oceans (Ocean background)
 --3.Loot (resource icons)
 ----1.Silver and Gold (for curentcy)
 ----2.Food (stuff like hard-tac)
@@ -24,21 +24,40 @@
 
 ------BASIC MOVEMENT
 
-                                                                          1.//(WASD as tank controlls)   Done!!
+																		  1.//(WASD as tank controlls)   Done!!
+- spacebar to brake
 
 2.collect floating loot
 
 3. open island as menu
+
+- add resource counters
+--Money
+--Food
+--Rum
+--Linens
+--Spices
+--jewlery
 
 *=======================================================*
 |                                                       |
 |            --------     TODO     --------             |
 |                         SOON                          |
 *=======================================================*
+   
+   add ocean obsicales
+   --Whrilwind
+   --wind
+   --current
+
+   add ocean detail
+   --rocks()
+   --waves()
 
 - Basic island funcinality
 
 - Basic market funcinality
+
 
 - Simple ship upgrades
 
@@ -53,7 +72,10 @@
 
 - Flag selection
 
+- resource specific floating loot
+
 - steam Achivements
+-- Land at an island for the first time
 
 -Draw path for ship
 -- for both immediate movement and long term planning.// --*-- can be a lot of fun
