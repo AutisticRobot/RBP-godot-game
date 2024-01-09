@@ -9,7 +9,7 @@
 2.add island as sprite
 
 3.Draw needed assets
---1.Gray Box Island (Island icon)
+                                                                         --1.Gray Box Island (Island icon)
                                                                             --2.The Endless Oceans (Ocean background)
 --3.Loot (resource icons)
 ----1.Silver and Gold (for curentcy)
