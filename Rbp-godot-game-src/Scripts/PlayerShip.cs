@@ -13,6 +13,19 @@ public partial class PlayerShip : Sprite2D
 	[Export]
 	public float dir;//in Dagrees
 
+	[Export]
+	public int Money;
+	[Export]
+	public int Food;
+	[Export]
+	public int Rum;
+	[Export]
+	public int Linens;
+	[Export]
+	public int Spices;
+	[Export]
+	public int Jewlery;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

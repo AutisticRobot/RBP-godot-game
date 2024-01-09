@@ -31,13 +31,13 @@
 
 3. open island as menu
 
-- add resource counters
---Money
---Food
---Rum
---Linens
---Spices
---jewlery
+                                                       - add resource counters
+                                                       --Money
+                                                       --Food
+                                                       --Rum
+                                                       --Linens
+                                                       --Spices
+                                                       --jewlery
 
 *=======================================================*
 |                                                       |

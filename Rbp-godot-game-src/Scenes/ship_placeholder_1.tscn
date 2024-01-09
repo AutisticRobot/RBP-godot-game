@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d3686dp3xa2a6" path="res://Assets/Placeholders/ArrowG.png" id="2_gj613"]
 [ext_resource type="Script" path="res://Scripts/ArrowG.cs" id="4_oankr"]
 
-[node name="ShipPlaceholder1" type="Sprite2D"]
+[node name="PlayerShip" type="Sprite2D"]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_mmu0o")
 script = ExtResource("2_648oo")
