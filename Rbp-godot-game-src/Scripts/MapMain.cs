@@ -16,14 +16,4 @@ public partial class MapMain : Node2D
 	{
 	}
 
-	public void getLoot(LootFloat loot)
-	{
-		playerHit.Money   += loot.Money;
-		playerHit.Food    += loot.Food;
-		playerHit.Rum     += loot.Rum;
-		playerHit.Linens  += loot.Linens;
-		playerHit.Spices  += loot.Spices;
-		playerHit.Jewlery += loot.Jewlery;
-		loot.QueueFree();
-	}
 }

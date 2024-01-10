@@ -25,7 +25,7 @@
 ------BASIC MOVEMENT
 
 																		  1.//(WASD as tank controlls)   Done!!
-- spacebar to brake
+                                                       - spacebar to brake
 
                                                          2.collect floating loot
 

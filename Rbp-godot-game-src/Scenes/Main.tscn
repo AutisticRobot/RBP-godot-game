@@ -47,5 +47,3 @@ position = Vector2(899, -203)
 position = Vector2(799, 257)
 Money = 20
 Jewlery = 5
-
-[connection signal="PickedLoot" from="Sprite2D" to="." method="getLoot"]

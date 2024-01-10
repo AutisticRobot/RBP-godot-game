@@ -82,4 +82,17 @@ public partial class PlayerShip : Sprite2D
 		speed = Math.Clamp(speed, Minspeed, Maxspeed);
 	}
 
+	public void getLoot(Area2D LBB)
+	{
+		LootFloat loot = LBB.GetParent<LootFloat>();
+
+		Money   += loot.Money;
+		Food    += loot.Food;
+		Rum     += loot.Rum;
+		Linens  += loot.Linens;
+		Spices  += loot.Spices;
+		Jewlery += loot.Jewlery;
+		loot.QueueFree();
+	}
+
 }
