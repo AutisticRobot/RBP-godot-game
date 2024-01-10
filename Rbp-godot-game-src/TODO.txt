@@ -6,7 +6,7 @@
 
 																		 1. (Add ship as sprite) done
 
-2.add island as sprite
+                                                       2.add island as sprite
 
 3.Draw needed assets
 																		 --1.Gray Box Island (Island icon)
@@ -27,7 +27,7 @@
 																		  1.//(WASD as tank controlls)   Done!!
 - spacebar to brake
 
-2.collect floating loot
+                                                         2.collect floating loot
 
 3. open island as menu
 

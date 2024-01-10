@@ -1,9 +1,18 @@
 using Godot;
 using System;
+using System.ComponentModel;
 
 public partial class PlayerShip : Sprite2D
 {
+	[Export]
+	public bool debug;
 
+	[Export]
+	public float brakeSpeed;
+	[Export]
+	public float Acc;
+	[Export]
+	public float TurnAcc;
 	[Export]
 	public float speed;
 	[Export]
@@ -48,20 +57,29 @@ public partial class PlayerShip : Sprite2D
 	{
 		if(Input.IsActionPressed("ui_up"))
 		{
-			speed += 1;
+			speed += Acc;
 		}
 		if(Input.IsActionPressed("ui_down"))
 		{
-			speed -= 1;
+			speed -= Acc;
 		}
 		if(Input.IsActionPressed("ui_left"))
 		{
-			dir += 1;
+			dir += TurnAcc;
 		}
 		if(Input.IsActionPressed("ui_right"))
 		{
-			dir -= 1;
+			dir -= TurnAcc;
 		}
-		Math.Clamp(speed, Minspeed, Maxspeed);
+		if(Input.IsActionPressed("Brake"))
+		{
+			if(-brakeSpeed <= speed && speed <= brakeSpeed){speed = 0;}
+			if(speed < 0){brakeSpeed = -brakeSpeed;}
+			if(speed == 0){speed += brakeSpeed;}
+			speed -= brakeSpeed;
+			
+		}
+		speed = Math.Clamp(speed, Minspeed, Maxspeed);
 	}
+
 }

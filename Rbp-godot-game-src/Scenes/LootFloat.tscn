@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqjgej3qvkd4c"]
+
+[ext_resource type="Texture2D" uid="uid://ch5uimt2gqv86" path="res://Assets/Placeholders/DebrieAtlasV1.png" id="1_et5fi"]
+[ext_resource type="Script" path="res://Scripts/LootFloat.cs" id="2_7utlw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqwpk"]
+atlas = ExtResource("1_et5fi")
+region = Rect2(1094.5, 97.6016, 676.736, 439.347)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmwdf"]
+radius = 165.076
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(0.2, 0.2)
+texture = SubResource("AtlasTexture_fqwpk")
+script = ExtResource("2_7utlw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_tmwdf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_pickedUp"]
