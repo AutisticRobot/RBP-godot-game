@@ -11,13 +11,13 @@
 3.Draw needed assets
 																		 --1.Gray Box Island (Island icon)
 																			--2.The Endless Oceans (Ocean background)
---3.Loot (resource icons)
-----1.Silver and Gold (for curentcy)
-----2.Food (stuff like hard-tac)
-----3.Rum (both needed for travel and can be traded)
-----4.Linens
-----5.Spices
-----6.jewlery
+                                                       --3.Loot (resource icons)
+                                                       ----1.Silver and Gold (for curentcy)
+                                                       ----2.Food (stuff like hard-tac)
+                                                       ----3.Rum (both needed for travel and can be traded)
+                                                       ----4.Linens
+                                                       ----5.Spices
+                                                       ----6.jewlery
 --4.Trading Post (menu Assets)
 ----1.1x1,1x2,1x3,1x4 boards
 ----2.background
