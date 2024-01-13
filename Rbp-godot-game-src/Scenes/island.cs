@@ -32,4 +32,22 @@ public partial class island : Sprite2D
 	public override void _Process(double delta)
 	{
 	}
+
+	public void AreaEntered(Area2D area)
+	{
+		PlayerShip ship = area.GetParent<PlayerShip>();
+		if(ship.player)
+		{
+			GetChild<Sprite2D>(1).Visible = true;
+		}
+	}
+	public void AreaExited(Area2D area)
+	{
+		PlayerShip ship = area.GetParent<PlayerShip>();
+		if(ship.player)
+		{
+			GetChild<Sprite2D>(1).Visible = false;
+		}
+
+	}
 }

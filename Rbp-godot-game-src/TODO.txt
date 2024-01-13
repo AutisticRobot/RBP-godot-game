@@ -29,7 +29,14 @@
 
                                                          2.collect floating loot
 
-3. open island as menu
+3. open island as menua
+--change dock sprite to button
+--reparent dock button to player
+
+
+- setup menu system
+--startup menu
+--options
 
                                                        - add resource counters
                                                        --Money

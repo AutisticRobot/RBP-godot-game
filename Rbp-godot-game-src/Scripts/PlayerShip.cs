@@ -5,6 +5,8 @@ using System.ComponentModel;
 public partial class PlayerShip : Sprite2D
 {
 	[Export]
+	public bool player;
+	[Export]
 	public bool debug;
 
 	[Export]
@@ -84,6 +86,8 @@ public partial class PlayerShip : Sprite2D
 
 	public void getLoot(Area2D LBB)
 	{
+		if(LBB.Name == "Loot")
+		{
 		LootFloat loot = LBB.GetParent<LootFloat>();
 
 		Money   += loot.Money;
@@ -93,6 +97,7 @@ public partial class PlayerShip : Sprite2D
 		Spices  += loot.Spices;
 		Jewlery += loot.Jewlery;
 		loot.QueueFree();
+		}
 	}
 
 }

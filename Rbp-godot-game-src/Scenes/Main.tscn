@@ -13,6 +13,7 @@ playerHit = NodePath("PlayerShip")
 
 [node name="PlayerShip" parent="." instance=ExtResource("1_r5ep4")]
 z_index = 1
+player = true
 brakeSpeed = 3.0
 Acc = 1.0
 TurnAcc = 1.0
