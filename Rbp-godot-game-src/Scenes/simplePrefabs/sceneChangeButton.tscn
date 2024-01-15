@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbyrmnivy13ks"]
+
+[ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="1_gtc56"]
+[ext_resource type="Script" path="res://Scenes/sceneChanger.cs" id="2_42248"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fj3ka"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[node name="start" type="Sprite2D"]
+scale = Vector2(1, 0.511719)
+texture = ExtResource("1_gtc56")
+script = ExtResource("2_42248")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -213.0
+offset_top = -101.618
+offset_right = 221.0
+offset_bottom = 62.3817
+text = "Debug Error:
+Text not set
+by script"
+label_settings = SubResource("LabelSettings_fj3ka")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -255.0
+offset_top = -121.16
+offset_right = -247.0
+offset_bottom = -113.16
+scale = Vector2(61.36, 27.7334)
+
+[connection signal="pressed" from="Button" to="." method="onButtonPress"]

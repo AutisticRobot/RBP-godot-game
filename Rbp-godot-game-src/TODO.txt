@@ -93,7 +93,11 @@
 -crewmembers work based on ther job
 -- job is list of duties ranked in order of prioroty.
 --- once a month type duties can have their prioroty changed based on a timer.
---- prioroty caanges based on events.
+--- prioroty caanges based on events
+
+- local maps show up on main map as if their parchment has 
+been placed on top of the main map like on a busy table.
+--// this item is very rambly, but it is not ment to be seen by the end user so I don't care.
 
 *=======================================================*
 |                                                       |
