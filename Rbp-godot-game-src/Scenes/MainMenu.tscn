@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqelfwpusv3j"]
+[gd_scene load_steps=8 format=3 uid="uid://cqelfwpusv3j"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_ah15m"]
 [ext_resource type="Texture2D" uid="uid://cf8qoq8xdh56d" path="res://Assets/Placeholders/MenuBackground.png" id="1_uojjj"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="2_f5bt7"]
 [ext_resource type="PackedScene" uid="uid://cbyrmnivy13ks" path="res://Scenes/simplePrefabs/sceneChangeButton.tscn" id="4_2dr02"]
 [ext_resource type="PackedScene" uid="uid://18bfxerx8qpp" path="res://Scenes/Main.tscn" id="5_3vv75"]
+[ext_resource type="PackedScene" uid="uid://p38oynyqoiqc" path="res://Scenes/options_screen.tscn" id="5_ub0tp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fj3ka"]
 font_size = 50
@@ -36,6 +37,7 @@ vertical_alignment = 1
 
 [node name="Option" parent="." instance=ExtResource("4_2dr02")]
 position = Vector2(593, 271)
+changToScene = ExtResource("5_ub0tp")
 text = "Options"
 
 [node name="start" parent="." instance=ExtResource("4_2dr02")]

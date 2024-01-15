@@ -4,30 +4,14 @@
 |                      IMMEDIATELY                      |
 *=======================================================*
 
-																		 1. (Add ship as sprite) done
-
-                                                       2.add island as sprite
-
-3.Draw needed assets
-																		 --1.Gray Box Island (Island icon)
-																			--2.The Endless Oceans (Ocean background)
-                                                       --3.Loot (resource icons)
-                                                       ----1.Silver and Gold (for curentcy)
-                                                       ----2.Food (stuff like hard-tac)
-                                                       ----3.Rum (both needed for travel and can be traded)
-                                                       ----4.Linens
-                                                       ----5.Spices
-                                                       ----6.jewlery
 --4.Trading Post (menu Assets)
 ----1.1x1,1x2,1x3,1x4 boards
 ----2.background
 
+redo scene switcher to allow for data transfer
+
 ------BASIC MOVEMENT
 
-																		  1.//(WASD as tank controlls)   Done!!
-                                                       - spacebar to brake
-
-                                                         2.collect floating loot
 
 3. open island as menua
 --change dock sprite to button
@@ -37,14 +21,6 @@
 - setup menu system
 --startup menu
 --options
-
-                                                       - add resource counters
-                                                       --Money
-                                                       --Food
-                                                       --Rum
-                                                       --Linens
-                                                       --Spices
-                                                       --jewlery
 
 *=======================================================*
 |                                                       |
@@ -98,6 +74,9 @@
 - local maps show up on main map as if their parchment has 
 been placed on top of the main map like on a busy table.
 --// this item is very rambly, but it is not ment to be seen by the end user so I don't care.
+
+- story
+-- player can be refered to by custom pronouns (512 char limit or picture(cuz funny go brrrrrrrr))
 
 *=======================================================*
 |                                                       |
