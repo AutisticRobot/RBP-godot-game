@@ -4,7 +4,7 @@ using System;
 public partial class sceneChanger : Sprite2D
 {
 	[Export]
-	public PackedScene changToScene;
+	public string changToScene;
 	[Export]
 	public string text;
 
@@ -17,6 +17,6 @@ public partial class sceneChanger : Sprite2D
 
 	public void onButtonPress()
 	{
-		GetTree().ChangeSceneToPacked(changToScene);
+		GetTree().ChangeSceneToFile(changToScene);
 	}
 }

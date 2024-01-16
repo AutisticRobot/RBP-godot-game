@@ -4,7 +4,7 @@ using System;
 public partial class options_screen : Node2D
 {
 	[Export]
-	public PackedScene lastScene;
+	public string lastScene;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

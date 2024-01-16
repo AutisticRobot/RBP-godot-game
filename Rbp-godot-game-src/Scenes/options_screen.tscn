@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://p38oynyqoiqc"]
+[gd_scene load_steps=3 format=3 uid="uid://p38oynyqoiqc"]
 
 [ext_resource type="Script" path="res://Scripts/options_screen.cs" id="1_hvuab"]
 [ext_resource type="PackedScene" uid="uid://cbyrmnivy13ks" path="res://Scenes/simplePrefabs/sceneChangeButton.tscn" id="2_basv1"]
-[ext_resource type="PackedScene" uid="uid://cqelfwpusv3j" path="res://Scenes/MainMenu.tscn" id="2_hjire"]
 
 [node name="OptionsScreen" type="Node2D"]
 script = ExtResource("1_hvuab")
-lastScene = ExtResource("2_hjire")
+lastScene = "res://Scenes/MainMenu.tscn"
 
 [node name="Back" parent="." instance=ExtResource("2_basv1")]
 position = Vector2(265, 70)
+changToScene = "res://Scenes/MainMenu.tscn"
 text = "<- back"

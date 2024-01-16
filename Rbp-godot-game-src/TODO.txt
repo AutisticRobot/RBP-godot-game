@@ -10,6 +10,12 @@
 
 redo scene switcher to allow for data transfer
 
+- save system
+
+- inventory module
+
+- cleanup file structure
+
 ------BASIC MOVEMENT
 
 
