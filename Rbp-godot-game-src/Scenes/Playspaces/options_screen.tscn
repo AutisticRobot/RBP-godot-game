@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://p38oynyqoiqc"]
 
-[ext_resource type="Script" path="res://Scripts/options_screen.cs" id="1_hvuab"]
-[ext_resource type="PackedScene" uid="uid://cbyrmnivy13ks" path="res://Scenes/simplePrefabs/sceneChangeButton.tscn" id="2_basv1"]
+[ext_resource type="Script" path="res://Scripts/SceneScripts/options_screen.cs" id="1_hvuab"]
+[ext_resource type="PackedScene" uid="uid://cbyrmnivy13ks" path="res://Scenes/Prefabs/simplePrefabs/sceneChangeButton.tscn" id="2_basv1"]
 
 [node name="OptionsScreen" type="Node2D"]
 script = ExtResource("1_hvuab")

@@ -16,6 +16,8 @@ redo scene switcher to allow for data transfer
 
 - cleanup file structure
 
+- pause game compatability
+
 ------BASIC MOVEMENT
 
 

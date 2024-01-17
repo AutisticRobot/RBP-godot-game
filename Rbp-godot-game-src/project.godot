@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Rbp-godot-game-src"
-run/main_scene="res://Scenes/MainMenu.tscn"
+run/main_scene="res://Scenes/Playspaces/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Scripts/Global.cs"
+Global="*res://Scripts/SceneScripts/Global.cs"
 
 [dotnet]
 

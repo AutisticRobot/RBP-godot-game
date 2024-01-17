@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbyrmnivy13ks"]
 
-[ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="1_gtc56"]
-[ext_resource type="Script" path="res://Scenes/sceneChanger.cs" id="2_42248"]
+[ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="1_djiuq"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/sceneChanger.cs" id="2_nu3n4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fj3ka"]
 font_size = 50
@@ -10,8 +10,8 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="start" type="Sprite2D"]
 scale = Vector2(1, 0.511719)
-texture = ExtResource("1_gtc56")
-script = ExtResource("2_42248")
+texture = ExtResource("1_djiuq")
+script = ExtResource("2_nu3n4")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -213.0
