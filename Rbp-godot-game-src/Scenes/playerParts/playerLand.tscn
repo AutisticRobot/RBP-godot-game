@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf3wbghnlb262"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/playerLand.cs" id="1_pig2j"]
+[ext_resource type="Texture2D" uid="uid://dviuumctqbgu0" path="res://Assets/Placeholders/ARobot.png" id="2_5ye8j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqo8u"]
+atlas = ExtResource("2_5ye8j")
+region = Rect2(8.69208, 502.256, 498.872, 565.128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yj2j"]
+atlas = ExtResource("2_5ye8j")
+region = Rect2(19.2914, 5.99258, 380, 376.103)
+
+[node name="PlayerLand" type="Node2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_pig2j")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_bqo8u")
+
+[node name="Head" type="Sprite2D" parent="Body"]
+position = Vector2(-32, -322)
+texture = SubResource("AtlasTexture_5yj2j")

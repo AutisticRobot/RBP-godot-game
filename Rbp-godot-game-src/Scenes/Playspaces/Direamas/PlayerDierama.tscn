@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d035eqqb0j6ig"]
+
+[ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
+
+[node name="PlayerDierama" type="Node2D"]
+
+[node name="PlayerLand" parent="." instance=ExtResource("1_b1t7y")]
+position = Vector2(540, 360)
+Acc = Vector2(1, 1)
+Minspeed = Vector2(-5, -5)
+Maxspeed = Vector2(5, 5)
