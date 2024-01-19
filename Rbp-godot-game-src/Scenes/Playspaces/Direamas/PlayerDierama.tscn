@@ -6,6 +6,7 @@
 
 [node name="PlayerLand" parent="." instance=ExtResource("1_b1t7y")]
 position = Vector2(540, 360)
-Acc = Vector2(1, 1)
-Minspeed = Vector2(-5, -5)
-Maxspeed = Vector2(5, 5)
+Acc = Vector2(50, 50)
+Decel = Vector2(0.8, 0.8)
+clampMulti = 3.0
+DecelDeltaCounterBal = 30.0
