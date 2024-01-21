@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf3wbghnlb262"]
+[gd_scene load_steps=9 format=3 uid="uid://cf3wbghnlb262"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/playerLand.cs" id="1_pig2j"]
 [ext_resource type="Texture2D" uid="uid://dviuumctqbgu0" path="res://Assets/Placeholders/ARobot.png" id="2_5ye8j"]
@@ -11,6 +11,22 @@ region = Rect2(8.69208, 502.256, 498.872, 565.128)
 atlas = ExtResource("2_5ye8j")
 region = Rect2(19.2914, 5.99258, 380, 376.103)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mhof"]
+atlas = ExtResource("2_5ye8j")
+region = Rect2(929.891, 283.582, 116.923, 189.557)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abek4"]
+atlas = ExtResource("2_5ye8j")
+region = Rect2(727.925, 281.352, 129.324, 212.587)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6w7n"]
+atlas = ExtResource("2_5ye8j")
+region = Rect2(1638.02, 43.137, 113.61, 413.713)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jldl"]
+atlas = ExtResource("2_5ye8j")
+region = Rect2(1390.86, 124.144, 100.749, 387.99)
+
 [node name="PlayerLand" type="Node2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_pig2j")
@@ -21,3 +37,19 @@ texture = SubResource("AtlasTexture_bqo8u")
 [node name="Head" type="Sprite2D" parent="Body"]
 position = Vector2(-32, -322)
 texture = SubResource("AtlasTexture_5yj2j")
+
+[node name="LegR" type="Sprite2D" parent="Body"]
+position = Vector2(40, 304)
+texture = SubResource("AtlasTexture_6mhof")
+
+[node name="LegL" type="Sprite2D" parent="Body"]
+position = Vector2(-144, 304)
+texture = SubResource("AtlasTexture_abek4")
+
+[node name="ArmR" type="Sprite2D" parent="Body"]
+position = Vector2(196, 48)
+texture = SubResource("AtlasTexture_l6w7n")
+
+[node name="ArmL" type="Sprite2D" parent="Body"]
+position = Vector2(-208, 56)
+texture = SubResource("AtlasTexture_6jldl")

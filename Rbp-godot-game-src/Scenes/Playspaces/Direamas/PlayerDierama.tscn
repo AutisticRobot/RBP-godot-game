@@ -1,12 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://d035eqqb0j6ig"]
+[gd_scene load_steps=3 format=3 uid="uid://d035eqqb0j6ig"]
 
 [ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
+[ext_resource type="PackedScene" uid="uid://bv6i4kqm6opd7" path="res://Scenes/Playspaces/Direamas/GrayBoxDirama.tscn" id="2_gran4"]
 
 [node name="PlayerDierama" type="Node2D"]
 
 [node name="PlayerLand" parent="." instance=ExtResource("1_b1t7y")]
 position = Vector2(540, 360)
+scale = Vector2(0.1, 0.1)
 Acc = Vector2(50, 50)
+DecelDeltaCounterBal = 30.0
 Decel = Vector2(0.8, 0.8)
 clampMulti = 3.0
-DecelDeltaCounterBal = 30.0
+
+[node name="Camera2D" type="Camera2D" parent="PlayerLand"]
+position_smoothing_enabled = true
+drag_left_margin = 0.32
+drag_top_margin = 0.32
+drag_right_margin = 0.32
+drag_bottom_margin = 0.33
+
+[node name="GrayBoxDirama" parent="." instance=ExtResource("2_gran4")]
+show_behind_parent = true
+position = Vector2(475, -708)

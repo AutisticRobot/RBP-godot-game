@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv6i4kqm6opd7"]
+
+[ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Assets/Placeholders/GrayBoxIslandDirama.png" id="1_oetnv"]
+
+[node name="GrayBoxDirama" type="Node2D"]
+
+[node name="GrayBoxIslandDirama" type="Sprite2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("1_oetnv")

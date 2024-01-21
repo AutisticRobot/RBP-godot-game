@@ -45,6 +45,9 @@ redo scene switcher to allow for data transfer
    --rocks()
    --waves()
 
+- Day/night system?
+-- needs to be deiced as to start work on shadows system(fake in art, or render after)
+
 - Basic island funcinality
 
 - Basic market funcinality
