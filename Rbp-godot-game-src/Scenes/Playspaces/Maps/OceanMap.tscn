@@ -29,11 +29,11 @@ Jewlery = 4
 [node name="Camera2D" type="Camera2D" parent="PlayerShip"]
 
 [node name="Control" parent="PlayerShip/Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("2_woff1")]
-offset_left = -5500.0
-offset_top = -3030.0
-offset_right = -5500.0
-offset_bottom = -3030.0
-scale = Vector2(5.8, 5.79999)
+offset_left = -5740.0
+offset_top = -3220.0
+offset_right = -5740.0
+offset_bottom = -3220.0
+scale = Vector2(10, 10)
 player = NodePath("../..")
 
 [node name="OceanMapV1" type="Sprite2D" parent="."]

@@ -1,15 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct77st4wccs35"]
+[gd_scene load_steps=4 format=3 uid="uid://ct77st4wccs35"]
 
 [ext_resource type="Texture2D" uid="uid://bxhnl6qgu8c36" path="res://Assets/Placeholders/GrayBoxIsleV1.png" id="1_glkvu"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/island.cs" id="2_mcg2j"]
-[ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="3_76m8s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l46yo"]
 radius = 261.008
-
-[sub_resource type="LabelSettings" id="LabelSettings_v8tha"]
-font_size = 85
-font_color = Color(0, 0, 0, 1)
 
 [node name="GrayBoxIsleV1" type="Sprite2D"]
 position = Vector2(-1, -2)
@@ -22,21 +17,6 @@ script = ExtResource("2_mcg2j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, 2)
 shape = SubResource("CircleShape2D_l46yo")
-
-[node name="DockButtion" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(10, -372)
-texture = ExtResource("3_76m8s")
-
-[node name="Label" type="Label" parent="DockButtion"]
-offset_left = -136.0
-offset_top = -80.0
-offset_right = 119.0
-offset_bottom = 49.0
-text = "DOCK"
-label_settings = SubResource("LabelSettings_v8tha")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="area_entered" from="Area2D" to="." method="AreaEntered"]
 [connection signal="area_exited" from="Area2D" to="." method="AreaExited"]

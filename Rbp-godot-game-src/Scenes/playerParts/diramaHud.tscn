@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvonwlfpak3nx"]
+
+[ext_resource type="PackedScene" uid="uid://cbyrmnivy13ks" path="res://Scenes/Prefabs/simplePrefabs/sceneChangeButton.tscn" id="1_lvbrg"]
+
+[node name="DiramaHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="start" parent="." instance=ExtResource("1_lvbrg")]
+position = Vector2(131, 37)
+scale = Vector2(0.5, 0.256)
+changToScene = "res://Scenes/Playspaces/Maps/OceanMap.tscn"
+text = "To Map"

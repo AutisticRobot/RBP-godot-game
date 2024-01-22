@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d035eqqb0j6ig"]
+[gd_scene load_steps=4 format=3 uid="uid://d035eqqb0j6ig"]
 
 [ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
+[ext_resource type="PackedScene" uid="uid://bvonwlfpak3nx" path="res://Scenes/playerParts/diramaHud.tscn" id="2_8gvm5"]
 [ext_resource type="PackedScene" uid="uid://bv6i4kqm6opd7" path="res://Scenes/Playspaces/Direamas/GrayBoxDirama.tscn" id="2_gran4"]
 
 [node name="PlayerDierama" type="Node2D"]
@@ -20,6 +21,14 @@ drag_top_margin = 0.32
 drag_right_margin = 0.32
 drag_bottom_margin = 0.33
 
+[node name="DiramaHud" parent="PlayerLand/Camera2D" instance=ExtResource("2_8gvm5")]
+offset_left = -5750.0
+offset_top = -3210.0
+offset_right = -5750.0
+offset_bottom = -3210.0
+scale = Vector2(10, 10)
+
 [node name="GrayBoxDirama" parent="." instance=ExtResource("2_gran4")]
 show_behind_parent = true
 position = Vector2(475, -708)
+scale = Vector2(1, 1)
