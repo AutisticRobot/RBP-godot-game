@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://brhosk7gg0d81"]
+[gd_scene load_steps=7 format=3 uid="uid://brhosk7gg0d81"]
 
 [ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Assets/Placeholders/ShipPlaceholder1.png" id="1_d8swp"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerShip.cs" id="2_wk8c6"]
 [ext_resource type="Texture2D" uid="uid://d3686dp3xa2a6" path="res://Assets/Placeholders/ArrowG.png" id="3_pxyi1"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ArrowG.cs" id="4_iq5ar"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="5_f1bhc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_28l88"]
 radius = 270.185
@@ -25,5 +26,11 @@ Distance = 600
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 9.09495e-13)
 shape = SubResource("CircleShape2D_28l88")
+
+[node name="inventoryNode" type="Node" parent="."]
+script = ExtResource("5_f1bhc")
+HeldResources = {
+"Money": 27
+}
 
 [connection signal="area_entered" from="Area2D" to="." method="getLoot"]

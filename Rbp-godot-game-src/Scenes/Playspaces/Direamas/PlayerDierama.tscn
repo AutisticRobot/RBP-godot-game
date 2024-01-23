@@ -15,7 +15,6 @@ Decel = Vector2(0.8, 0.8)
 clampMulti = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="PlayerLand"]
-position_smoothing_enabled = true
 drag_left_margin = 0.32
 drag_top_margin = 0.32
 drag_right_margin = 0.32
@@ -31,4 +30,3 @@ scale = Vector2(10, 10)
 [node name="GrayBoxDirama" parent="." instance=ExtResource("2_gran4")]
 show_behind_parent = true
 position = Vector2(475, -708)
-scale = Vector2(1, 1)
