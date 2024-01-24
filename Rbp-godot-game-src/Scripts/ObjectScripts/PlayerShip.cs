@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.CodeDom.Compiler;
 using System.ComponentModel;
 
 public partial class PlayerShip : Sprite2D
@@ -37,10 +38,19 @@ public partial class PlayerShip : Sprite2D
 	[Export]
 	public int Jewlery;
 
+
+	private Global global; 
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		dir = -dir + 180;
+		if(player)
+		{
+			global = GetNode<Global>("/root/Global");
+			dir = global.ShipDir;
+			Position = global.ShipPos;
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,6 +63,12 @@ public partial class PlayerShip : Sprite2D
             Y = ((float)(Math.Cos(dir * (Math.PI / 180)) * speed * delta))
         };
         Position += vel;
+		if(player)
+		{
+			global.ShipDir = dir;
+			global.ShipPos = Position;
+
+		}
 	}
 
 	private void Pinput()
