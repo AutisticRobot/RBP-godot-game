@@ -12,6 +12,7 @@ public partial class playerLand : Node2D
 	[Export]
 	public float clampMulti;
 	public Vector2 speed;
+	private Global global; 
 	//[Export]
 	//public Vector2 Minspeed;
 	//[Export]
@@ -19,6 +20,8 @@ public partial class playerLand : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		global = GetNode<Global>("/root/Global");
+		Position = global.DollPos;
 		Decel.X = (float)Math.Pow(Decel.X,DecelDeltaCounterBal);
 		Decel.Y = (float)Math.Pow(Decel.Y,DecelDeltaCounterBal);
 	}
@@ -36,6 +39,9 @@ public partial class playerLand : Node2D
 		Position += DeltaModifiedSpeed;
 		speed.X *= (float)Math.Pow(Decel.X,delta);
 		speed.Y *= (float)Math.Pow(Decel.Y,delta);
+
+		// Save per frame
+		global.DollPos = Position;
 	}
 
 
