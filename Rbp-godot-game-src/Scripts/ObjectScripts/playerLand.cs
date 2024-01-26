@@ -41,7 +41,13 @@ public partial class playerLand : Node2D
 		speed.Y *= (float)Math.Pow(Decel.Y,delta);
 
 		// Save per frame
+		Save();
+	}
+
+	public void Save()
+	{
 		global.DollPos = Position;
+
 	}
 
 

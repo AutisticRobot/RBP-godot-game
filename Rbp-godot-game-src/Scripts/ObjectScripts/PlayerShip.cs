@@ -65,10 +65,15 @@ public partial class PlayerShip : Sprite2D
         Position += vel;
 		if(player)
 		{
-			global.ShipDir = dir;
-			global.ShipPos = Position;
-
+			Save();
 		}
+	}
+
+	public void Save()
+	{
+		global.ShipDir = dir;
+		global.ShipPos = Position;
+
 	}
 
 	private void Pinput()
