@@ -1,0 +1,298 @@
+[gd_scene load_steps=11 format=3 uid="uid://cpxrf3hii40p0"]
+
+[ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="1_uyu8b"]
+[ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="2_nbd3p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dodxq"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(517.642, 64.5129, 270.872, 229.949)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1rv0"]
+font_size = 56
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc5o7"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(1417.95, 58.6681, 263.077, 233.846)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7hwyh"]
+font_size = 128
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_370tr"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(952.206, 356.821, 274.769, 259.179)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukgc7"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(899.595, 56.7172, 274.769, 245.538)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6gyj"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(537.129, 376.308, 263.077, 251.385)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkoo5"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(1433.54, 401.641, 276.718, 253.333)
+
+[node name="ShopMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Coin" type="Sprite2D" parent="."]
+position = Vector2(152, 106)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_dodxq")
+
+[node name="Buy" type="Label" parent="Coin"]
+offset_left = 332.0
+offset_top = -48.0
+offset_right = 652.0
+offset_bottom = 29.0
+text = "$123456789"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="Coin" type="Label" parent="Coin"]
+offset_left = 172.0
+offset_top = -46.0
+offset_right = 334.0
+offset_bottom = 31.0
+text = "Coin:"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="Rum" type="Sprite2D" parent="."]
+position = Vector2(1021, 102)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_rc5o7")
+
+[node name="Buy" type="Label" parent="Rum"]
+offset_left = -486.0
+offset_top = -100.0
+offset_right = -166.0
+offset_bottom = -23.0
+text = "$123456789"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="Button" type="Sprite2D" parent="Rum/Buy"]
+position = Vector2(-112, 40)
+scale = Vector2(0.425781, 0.445312)
+texture = ExtResource("2_nbd3p")
+
+[node name="Buy" type="Label" parent="Rum/Buy/Button"]
+offset_left = -122.0
+offset_top = -112.0
+offset_right = 169.0
+offset_bottom = 63.0
+text = "Buy:"
+label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="Sell" type="Label" parent="Rum"]
+offset_left = -492.0
+offset_top = 16.0
+offset_right = -172.0
+offset_bottom = 93.0
+text = "$123456789"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="Button" type="Sprite2D" parent="Rum/Sell"]
+position = Vector2(-112, 40)
+scale = Vector2(0.425781, 0.445312)
+texture = ExtResource("2_nbd3p")
+
+[node name="Sell" type="Label" parent="Rum/Sell/Button"]
+offset_left = -122.0
+offset_top = -112.0
+offset_right = 169.0
+offset_bottom = 63.0
+text = "Sell:"
+label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="Spices" type="Sprite2D" parent="."]
+position = Vector2(146, 310)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_370tr")
+
+[node name="Buy" type="Label" parent="Spices"]
+offset_left = 354.0
+offset_top = -108.0
+offset_right = 674.0
+offset_bottom = -31.0
+text = "$123456789"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="Button" type="Sprite2D" parent="Spices/Buy"]
+position = Vector2(-112, 40)
+scale = Vector2(0.425781, 0.445312)
+texture = ExtResource("2_nbd3p")
+
+[node name="Buy" type="Label" parent="Spices/Buy/Button"]
+offset_left = -122.0
+offset_top = -112.0
+offset_right = 169.0
+offset_bottom = 63.0
+text = "Buy:"
+label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="Sell" type="Label" parent="Spices"]
+offset_left = 348.0
+offset_top = 8.0
+offset_right = 668.0
+offset_bottom = 85.0
+text = "$123456789"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="Button" type="Sprite2D" parent="Spices/Sell"]
+position = Vector2(-112, 40)
+scale = Vector2(0.425781, 0.445312)
+texture = ExtResource("2_nbd3p")
+
+[node name="Sell" type="Label" parent="Spices/Sell/Button"]
+offset_left = -122.0
+offset_top = -112.0
+offset_right = 169.0
+offset_bottom = 63.0
+text = "Sell:"
+label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="Food" type="Sprite2D" parent="."]
+position = Vector2(1021, 290)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_ukgc7")
+
+[node name="Buy" type="Label" parent="Food"]
+offset_left = -486.0
+offset_top = -100.0
+offset_right = -166.0
+offset_bottom = -23.0
+text = "$123456789"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="Button" type="Sprite2D" parent="Food/Buy"]
+position = Vector2(-112, 40)
+scale = Vector2(0.425781, 0.445312)
+texture = ExtResource("2_nbd3p")
+
+[node name="Buy" type="Label" parent="Food/Buy/Button"]
+offset_left = -122.0
+offset_top = -112.0
+offset_right = 169.0
+offset_bottom = 63.0
+text = "Buy:"
+label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="Sell" type="Label" parent="Food"]
+offset_left = -492.0
+offset_top = 16.0
+offset_right = -172.0
+offset_bottom = 93.0
+text = "$123456789"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="Button" type="Sprite2D" parent="Food/Sell"]
+position = Vector2(-112, 40)
+scale = Vector2(0.425781, 0.445312)
+texture = ExtResource("2_nbd3p")
+
+[node name="Sell" type="Label" parent="Food/Sell/Button"]
+offset_left = -122.0
+offset_top = -112.0
+offset_right = 169.0
+offset_bottom = 63.0
+text = "Sell:"
+label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="Fabrics" type="Sprite2D" parent="."]
+position = Vector2(149, 494)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_q6gyj")
+
+[node name="Buy" type="Label" parent="Fabrics"]
+offset_left = 354.0
+offset_top = -108.0
+offset_right = 674.0
+offset_bottom = -31.0
+text = "$123456789"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="Button" type="Sprite2D" parent="Fabrics/Buy"]
+position = Vector2(-112, 40)
+scale = Vector2(0.425781, 0.445312)
+texture = ExtResource("2_nbd3p")
+
+[node name="Buy" type="Label" parent="Fabrics/Buy/Button"]
+offset_left = -122.0
+offset_top = -112.0
+offset_right = 169.0
+offset_bottom = 63.0
+text = "Buy:"
+label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="Sell" type="Label" parent="Fabrics"]
+offset_left = 348.0
+offset_top = 8.0
+offset_right = 668.0
+offset_bottom = 85.0
+text = "$123456789"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="Button" type="Sprite2D" parent="Fabrics/Sell"]
+position = Vector2(-112, 40)
+scale = Vector2(0.425781, 0.445312)
+texture = ExtResource("2_nbd3p")
+
+[node name="Sell" type="Label" parent="Fabrics/Sell/Button"]
+offset_left = -122.0
+offset_top = -112.0
+offset_right = 169.0
+offset_bottom = 63.0
+text = "Sell:"
+label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="Jewelry" type="Sprite2D" parent="."]
+position = Vector2(996, 492)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_mkoo5")
+
+[node name="Buy" type="Label" parent="Jewelry"]
+offset_left = -486.0
+offset_top = -100.0
+offset_right = -166.0
+offset_bottom = -23.0
+text = "$123456789"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="Button" type="Sprite2D" parent="Jewelry/Buy"]
+position = Vector2(-112, 40)
+scale = Vector2(0.425781, 0.445312)
+texture = ExtResource("2_nbd3p")
+
+[node name="Buy" type="Label" parent="Jewelry/Buy/Button"]
+offset_left = -122.0
+offset_top = -112.0
+offset_right = 169.0
+offset_bottom = 63.0
+text = "Buy:"
+label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="Sell" type="Label" parent="Jewelry"]
+offset_left = -492.0
+offset_top = 16.0
+offset_right = -172.0
+offset_bottom = 93.0
+text = "$123456789"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="Button" type="Sprite2D" parent="Jewelry/Sell"]
+position = Vector2(-112, 40)
+scale = Vector2(0.425781, 0.445312)
+texture = ExtResource("2_nbd3p")
+
+[node name="Sell" type="Label" parent="Jewelry/Sell/Button"]
+offset_left = -122.0
+offset_top = -112.0
+offset_right = 169.0
+offset_bottom = 63.0
+text = "Sell:"
+label_settings = SubResource("LabelSettings_7hwyh")

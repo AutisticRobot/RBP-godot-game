@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvonwlfpak3nx"]
+[gd_scene load_steps=3 format=3 uid="uid://bvonwlfpak3nx"]
 
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/diramaHud.cs" id="1_jiejm"]
 [ext_resource type="PackedScene" uid="uid://cbyrmnivy13ks" path="res://Scenes/Prefabs/simplePrefabs/sceneChangeButton.tscn" id="1_lvbrg"]
 
 [node name="DiramaHud" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jiejm")
 
 [node name="start" parent="." instance=ExtResource("1_lvbrg")]
 position = Vector2(131, 37)
