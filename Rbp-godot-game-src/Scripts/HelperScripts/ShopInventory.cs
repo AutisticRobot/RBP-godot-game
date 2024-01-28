@@ -1,9 +1,7 @@
 using Godot;
-using Godot.Collections;
 using System;
-using System.Data.SqlTypes;
 
-public partial class inventory : Node
+public partial class ShopInventory : Node
 {
 	[Export]
 	public int Money;
@@ -18,5 +16,5 @@ public partial class inventory : Node
 	[Export]
 	public int Jewlery;
 
-    
+
 }

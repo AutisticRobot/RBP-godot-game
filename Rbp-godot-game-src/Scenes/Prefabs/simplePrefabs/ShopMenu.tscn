@@ -1,6 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpxrf3hii40p0"]
+[gd_scene load_steps=13 format=3 uid="uid://cpxrf3hii40p0"]
 
 [ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="1_uyu8b"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/ShopMenu.cs" id="1_yli72"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="2_i5w4l"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="2_nbd3p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dodxq"]
@@ -40,6 +42,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yli72")
+
+[node name="ShopInventory" type="Node" parent="."]
+script = ExtResource("2_i5w4l")
 
 [node name="Coin" type="Sprite2D" parent="."]
 position = Vector2(152, 106)
