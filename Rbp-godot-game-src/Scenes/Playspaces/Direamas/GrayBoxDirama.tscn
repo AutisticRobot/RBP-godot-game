@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv6i4kqm6opd7"]
+[gd_scene load_steps=4 format=3 uid="uid://bv6i4kqm6opd7"]
 
 [ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Assets/Placeholders/GrayBoxIslandDirama.png" id="1_oetnv"]
 [ext_resource type="PackedScene" uid="uid://cftkdghcpt8w8" path="res://Scenes/Prefabs/simplePrefabs/ShopTemplate0.tscn" id="2_vljx4"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="3_2d5d7"]
 
 [node name="GrayBoxDirama" type="Node2D"]
 
@@ -10,5 +11,8 @@ position = Vector2(-1, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("1_oetnv")
 
-[node name="ShopTemplate0" parent="." instance=ExtResource("2_vljx4")]
+[node name="Shop0" parent="." instance=ExtResource("2_vljx4")]
 position = Vector2(1030, -304)
+
+[node name="ShopInventory0" type="Node" parent="Shop0"]
+script = ExtResource("3_2d5d7")

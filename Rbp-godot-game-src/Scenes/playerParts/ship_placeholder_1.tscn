@@ -16,9 +16,6 @@ script = ExtResource("2_wk8c6")
 
 [node name="inventoryNode" type="Node" parent="."]
 script = ExtResource("5_f1bhc")
-HeldResources = {
-"Money": 27
-}
 
 [node name="ArrowG" type="Sprite2D" parent="."]
 show_behind_parent = true

@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpxrf3hii40p0"]
+[gd_scene load_steps=14 format=3 uid="uid://cpxrf3hii40p0"]
 
 [ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="1_uyu8b"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShopMenu.cs" id="1_yli72"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="2_i5w4l"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="2_nbd3p"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="3_81hlh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dodxq"]
 atlas = ExtResource("1_uyu8b")
@@ -35,7 +36,7 @@ region = Rect2(537.129, 376.308, 263.077, 251.385)
 atlas = ExtResource("1_uyu8b")
 region = Rect2(1433.54, 401.641, 276.718, 253.333)
 
-[node name="ShopMenu" type="Control"]
+[node name="ShopMenu" type="Control" node_paths=PackedStringArray("shop")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,29 +44,70 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yli72")
+shop = NodePath("ShopTestInventory")
 
-[node name="ShopInventory" type="Node" parent="."]
+[node name="ShopTestInventory" type="Node" parent="."]
 script = ExtResource("2_i5w4l")
+Money = 2000
+Food = 100
+Rum = 100
+Linens = 75
+Spices = 50
+Jewlery = 10
+FoodSell = 5
+RumSell = 7
+LinensSell = 10
+SpicesSell = 20
+JewlerySell = 100
+RumBuy = 5
+LinensBuy = 8
+SpicesBuy = 15
+JewleryBuy = 90
+
+[node name="PlayerTestInventory" type="Node" parent="."]
+script = ExtResource("3_81hlh")
+Money = 200
+Food = 100
+Rum = 75
+Linens = 50
+Spices = 25
+Jewlery = 10
 
 [node name="Coin" type="Sprite2D" parent="."]
 position = Vector2(152, 106)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_dodxq")
 
-[node name="Buy" type="Label" parent="Coin"]
-offset_left = 332.0
-offset_top = -48.0
-offset_right = 652.0
-offset_bottom = 29.0
+[node name="PlayerMoney" type="Label" parent="Coin"]
+offset_left = 156.0
+offset_top = -76.0
+offset_right = 318.0
+offset_bottom = 1.0
+text = "Player:"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="PlayerMoneyCount" type="Label" parent="Coin/PlayerMoney"]
+offset_left = 188.0
+offset_top = 4.0
+offset_right = 508.0
+offset_bottom = 81.0
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Coin" type="Label" parent="Coin"]
-offset_left = 172.0
-offset_top = -46.0
-offset_right = 334.0
-offset_bottom = 31.0
-text = "Coin:"
+[node name="ShopMoney" type="Label" parent="Coin"]
+offset_left = 176.0
+offset_top = 10.0
+offset_right = 338.0
+offset_bottom = 87.0
+text = "Shop:"
+label_settings = SubResource("LabelSettings_q1rv0")
+
+[node name="ShopMoneyCount" type="Label" parent="Coin/ShopMoney"]
+offset_left = 168.0
+offset_top = -4.0
+offset_right = 488.0
+offset_bottom = 73.0
+text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
 [node name="Rum" type="Sprite2D" parent="."]
