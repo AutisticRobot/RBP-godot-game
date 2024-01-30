@@ -11,7 +11,7 @@ atlas = ExtResource("1_uyu8b")
 region = Rect2(517.642, 64.5129, 270.872, 229.949)
 
 [sub_resource type="LabelSettings" id="LabelSettings_q1rv0"]
-font_size = 56
+font_size = 128
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rc5o7"]
 atlas = ExtResource("1_uyu8b")
@@ -36,7 +36,7 @@ region = Rect2(537.129, 376.308, 263.077, 251.385)
 atlas = ExtResource("1_uyu8b")
 region = Rect2(1433.54, 401.641, 276.718, 253.333)
 
-[node name="ShopMenu" type="Control" node_paths=PackedStringArray("shop")]
+[node name="ShopMenu" type="Control" node_paths=PackedStringArray("shop", "player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yli72")
 shop = NodePath("ShopTestInventory")
+player = NodePath("PlayerTestInventory")
 
 [node name="ShopTestInventory" type="Node" parent="."]
 script = ExtResource("2_i5w4l")
@@ -83,16 +84,17 @@ offset_left = 156.0
 offset_top = -76.0
 offset_right = 318.0
 offset_bottom = 1.0
+theme_override_font_sizes/font_size = 64
 text = "Player:"
-label_settings = SubResource("LabelSettings_q1rv0")
 
 [node name="PlayerMoneyCount" type="Label" parent="Coin/PlayerMoney"]
+layout_mode = 0
 offset_left = 188.0
 offset_top = 4.0
 offset_right = 508.0
 offset_bottom = 81.0
+theme_override_font_sizes/font_size = 64
 text = "$123456789"
-label_settings = SubResource("LabelSettings_q1rv0")
 
 [node name="ShopMoney" type="Label" parent="Coin"]
 offset_left = 176.0
@@ -103,6 +105,7 @@ text = "Shop:"
 label_settings = SubResource("LabelSettings_q1rv0")
 
 [node name="ShopMoneyCount" type="Label" parent="Coin/ShopMoney"]
+layout_mode = 0
 offset_left = 168.0
 offset_top = -4.0
 offset_right = 488.0
@@ -162,26 +165,36 @@ position = Vector2(146, 310)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_370tr")
 
-[node name="Buy" type="Label" parent="Spices"]
-offset_left = 354.0
-offset_top = -108.0
-offset_right = 674.0
-offset_bottom = -31.0
+[node name="Button" type="Sprite2D" parent="Spices"]
+position = Vector2(278, -68)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nbd3p")
+
+[node name="BuyCost" type="Label" parent="Spices/Button"]
+offset_left = 263.046
+offset_top = -89.8247
+offset_right = 583.046
+offset_bottom = -12.8247
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Button" type="Sprite2D" parent="Spices/Buy"]
-position = Vector2(-112, 40)
-scale = Vector2(0.425781, 0.445312)
-texture = ExtResource("2_nbd3p")
-
-[node name="Buy" type="Label" parent="Spices/Buy/Button"]
+[node name="Buy" type="Label" parent="Spices/Button"]
 offset_left = -122.0
 offset_top = -112.0
 offset_right = 169.0
 offset_bottom = 63.0
 text = "Buy:"
 label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="Button2" type="Button" parent="Spices/Button"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -230.165
+offset_top = -103.298
+offset_right = -222.165
+offset_bottom = -95.2985
+scale = Vector2(24.3929, 11.6392)
+flat = true
 
 [node name="Sell" type="Label" parent="Spices"]
 offset_left = 348.0
