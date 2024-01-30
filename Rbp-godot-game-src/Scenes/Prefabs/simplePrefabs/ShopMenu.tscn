@@ -1,21 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://cpxrf3hii40p0"]
+[gd_scene load_steps=15 format=3 uid="uid://cpxrf3hii40p0"]
 
 [ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="1_uyu8b"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShopMenu.cs" id="1_yli72"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="2_i5w4l"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="2_nbd3p"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="3_81hlh"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/shopListing.cs" id="6_dutg0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dodxq"]
 atlas = ExtResource("1_uyu8b")
 region = Rect2(517.642, 64.5129, 270.872, 229.949)
 
-[sub_resource type="LabelSettings" id="LabelSettings_q1rv0"]
-font_size = 128
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_rc5o7"]
 atlas = ExtResource("1_uyu8b")
 region = Rect2(1417.95, 58.6681, 263.077, 233.846)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1rv0"]
+font_size = 128
 
 [sub_resource type="LabelSettings" id="LabelSettings_7hwyh"]
 font_size = 128
@@ -89,10 +90,10 @@ text = "Player:"
 
 [node name="PlayerMoneyCount" type="Label" parent="Coin/PlayerMoney"]
 layout_mode = 0
-offset_left = 188.0
-offset_top = 4.0
-offset_right = 508.0
-offset_bottom = 81.0
+offset_left = 216.0
+offset_top = 10.0
+offset_right = 586.0
+offset_bottom = 98.0
 theme_override_font_sizes/font_size = 64
 text = "$123456789"
 
@@ -101,17 +102,17 @@ offset_left = 176.0
 offset_top = 10.0
 offset_right = 338.0
 offset_bottom = 87.0
+theme_override_font_sizes/font_size = 64
 text = "Shop:"
-label_settings = SubResource("LabelSettings_q1rv0")
 
 [node name="ShopMoneyCount" type="Label" parent="Coin/ShopMoney"]
 layout_mode = 0
-offset_left = 168.0
-offset_top = -4.0
-offset_right = 488.0
-offset_bottom = 73.0
+offset_left = 198.0
+offset_top = -2.0
+offset_right = 568.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 64
 text = "$123456789"
-label_settings = SubResource("LabelSettings_q1rv0")
 
 [node name="Rum" type="Sprite2D" parent="."]
 position = Vector2(1021, 102)
@@ -164,9 +165,10 @@ label_settings = SubResource("LabelSettings_7hwyh")
 position = Vector2(146, 310)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_370tr")
+script = ExtResource("6_dutg0")
 
 [node name="Button" type="Sprite2D" parent="Spices"]
-position = Vector2(278, -68)
+position = Vector2(272, -66)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_nbd3p")
 
@@ -189,33 +191,43 @@ label_settings = SubResource("LabelSettings_7hwyh")
 [node name="Button2" type="Button" parent="Spices/Button"]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
-offset_left = -230.165
-offset_top = -103.298
-offset_right = -222.165
-offset_bottom = -95.2985
+offset_left = -230.0
+offset_top = -103.0
+offset_right = -211.0
+offset_bottom = -86.0
 scale = Vector2(24.3929, 11.6392)
 flat = true
 
-[node name="Sell" type="Label" parent="Spices"]
-offset_left = 348.0
-offset_top = 8.0
-offset_right = 668.0
-offset_bottom = 85.0
+[node name="Button2" type="Sprite2D" parent="Spices"]
+position = Vector2(268, 56)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nbd3p")
+
+[node name="SellCost" type="Label" parent="Spices/Button2"]
+offset_left = 263.046
+offset_top = -89.8246
+offset_right = 993.046
+offset_bottom = 85.1754
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Button" type="Sprite2D" parent="Spices/Sell"]
-position = Vector2(-112, 40)
-scale = Vector2(0.425781, 0.445312)
-texture = ExtResource("2_nbd3p")
-
-[node name="Sell" type="Label" parent="Spices/Sell/Button"]
+[node name="Sell" type="Label" parent="Spices/Button2"]
 offset_left = -122.0
 offset_top = -112.0
 offset_right = 169.0
 offset_bottom = 63.0
 text = "Sell:"
 label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="Button2" type="Button" parent="Spices/Button2"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -230.0
+offset_top = -103.0
+offset_right = -211.0
+offset_bottom = -86.0
+scale = Vector2(24.3929, 11.6392)
+flat = true
 
 [node name="Food" type="Sprite2D" parent="."]
 position = Vector2(1021, 290)
