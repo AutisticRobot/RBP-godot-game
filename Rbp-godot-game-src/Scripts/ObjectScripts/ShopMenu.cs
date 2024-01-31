@@ -25,4 +25,14 @@ public partial class ShopMenu : Control
 	{
 
 	}
+
+	public int getShopInv(string type, int valState)
+	{
+		return 0;
+	}
+	public int getPlayerInv(string type)
+	{
+		return 0;
+	}
+
 }

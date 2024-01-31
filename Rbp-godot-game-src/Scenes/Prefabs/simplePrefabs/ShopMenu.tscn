@@ -167,12 +167,12 @@ scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_370tr")
 script = ExtResource("6_dutg0")
 
-[node name="Button" type="Sprite2D" parent="Spices"]
+[node name="BuyButton" type="Sprite2D" parent="Spices"]
 position = Vector2(272, -66)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_nbd3p")
 
-[node name="BuyCost" type="Label" parent="Spices/Button"]
+[node name="Cost" type="Label" parent="Spices/BuyButton"]
 offset_left = 263.046
 offset_top = -89.8247
 offset_right = 583.046
@@ -180,15 +180,7 @@ offset_bottom = -12.8247
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Buy" type="Label" parent="Spices/Button"]
-offset_left = -122.0
-offset_top = -112.0
-offset_right = 169.0
-offset_bottom = 63.0
-text = "Buy:"
-label_settings = SubResource("LabelSettings_7hwyh")
-
-[node name="Button2" type="Button" parent="Spices/Button"]
+[node name="Button" type="Button" parent="Spices/BuyButton"]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 offset_left = -230.0
@@ -198,12 +190,20 @@ offset_bottom = -86.0
 scale = Vector2(24.3929, 11.6392)
 flat = true
 
-[node name="Button2" type="Sprite2D" parent="Spices"]
+[node name="Tag" type="Label" parent="Spices/BuyButton"]
+offset_left = -122.0
+offset_top = -112.0
+offset_right = 169.0
+offset_bottom = 63.0
+text = "Buy"
+label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="SellButton" type="Sprite2D" parent="Spices"]
 position = Vector2(268, 56)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_nbd3p")
 
-[node name="SellCost" type="Label" parent="Spices/Button2"]
+[node name="Cost" type="Label" parent="Spices/SellButton"]
 offset_left = 263.046
 offset_top = -89.8246
 offset_right = 993.046
@@ -211,15 +211,7 @@ offset_bottom = 85.1754
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Sell" type="Label" parent="Spices/Button2"]
-offset_left = -122.0
-offset_top = -112.0
-offset_right = 169.0
-offset_bottom = 63.0
-text = "Sell:"
-label_settings = SubResource("LabelSettings_7hwyh")
-
-[node name="Button2" type="Button" parent="Spices/Button2"]
+[node name="Button" type="Button" parent="Spices/SellButton"]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 offset_left = -230.0
@@ -228,6 +220,14 @@ offset_right = -211.0
 offset_bottom = -86.0
 scale = Vector2(24.3929, 11.6392)
 flat = true
+
+[node name="Tag" type="Label" parent="Spices/SellButton"]
+offset_left = -122.0
+offset_top = -112.0
+offset_right = 169.0
+offset_bottom = 63.0
+text = "Sell"
+label_settings = SubResource("LabelSettings_7hwyh")
 
 [node name="Food" type="Sprite2D" parent="."]
 position = Vector2(1021, 290)

@@ -11,7 +11,7 @@ public partial class shopListing : Sprite2D
 
 	public override void _Ready()
 	{
-
+		shopMan = GetParent<ShopMenu>();
 	}
 
 	public void Buy()
