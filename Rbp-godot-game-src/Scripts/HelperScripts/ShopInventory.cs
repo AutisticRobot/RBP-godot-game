@@ -1,40 +1,40 @@
 using Godot;
+using Godot.Collections;
 using System;
+using System.Collections.Generic;
 
 public partial class ShopInventory : Node
-{
+{	
 	[Export]
-	public int Money;
+	public Godot.Collections.Dictionary<string, int> inv = new()
+    {
+		{"Money", 0},
+		{"Food", 0},
+		{"Rum", 0},
+		{"Linens", 0},
+		{"Spices", 0},
+		{"Jewlery", 0},
+	};
 	[Export]
-	public int Food;
+	public Godot.Collections.Dictionary<string, int> sell = new()
+    {
+		{"Money", 0},
+		{"Food", 0},
+		{"Rum", 0},
+		{"Linens", 0},
+		{"Spices", 0},
+		{"Jewlery", 0},
+	};
 	[Export]
-	public int Rum;
-	[Export]
-	public int Linens;
-	[Export]
-	public int Spices;
-	[Export]
-	public int Jewlery;
-	[Export]
-	public int FoodSell;
-	[Export]
-	public int RumSell;
-	[Export]
-	public int LinensSell;
-	[Export]
-	public int SpicesSell;
-	[Export]
-	public int JewlerySell;
-	[Export]
-	public int FoodBuy;
-	[Export]
-	public int RumBuy;
-	[Export]
-	public int LinensBuy;
-	[Export]
-	public int SpicesBuy;
-	[Export]
-	public int JewleryBuy;
+	public Godot.Collections.Dictionary<string, int> buy = new()
+    {
+		{"Money", 0},
+		{"Food", 0},
+		{"Rum", 0},
+		{"Linens", 0},
+		{"Spices", 0},
+		{"Jewlery", 0},
+	};
 
 
 }

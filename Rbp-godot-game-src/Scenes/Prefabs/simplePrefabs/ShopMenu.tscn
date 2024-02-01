@@ -65,6 +65,14 @@ RumBuy = 5
 LinensBuy = 8
 SpicesBuy = 15
 JewleryBuy = 90
+invDic = {
+"Food": 1,
+"Jewlery": 5,
+"Linens": 3,
+"Money": 0,
+"Rum": 2,
+"Spices": 4
+}
 
 [node name="PlayerTestInventory" type="Node" parent="."]
 script = ExtResource("3_81hlh")
