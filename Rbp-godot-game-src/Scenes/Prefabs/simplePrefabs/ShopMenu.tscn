@@ -47,46 +47,56 @@ grow_vertical = 2
 script = ExtResource("1_yli72")
 shop = NodePath("ShopTestInventory")
 player = NodePath("PlayerTestInventory")
+buyMulti = 1
 
 [node name="ShopTestInventory" type="Node" parent="."]
 script = ExtResource("2_i5w4l")
-Money = 2000
-Food = 100
-Rum = 100
-Linens = 75
-Spices = 50
-Jewlery = 10
-FoodSell = 5
-RumSell = 7
-LinensSell = 10
-SpicesSell = 20
-JewlerySell = 100
-RumBuy = 5
-LinensBuy = 8
-SpicesBuy = 15
-JewleryBuy = 90
-invDic = {
+inv = {
+"Food": 9999,
+"Jewlery": 50,
+"Linens": 500,
+"Money": 9999,
+"Rum": 1000,
+"Spices": 100
+}
+sell = {
+"Food": 0,
+"Jewlery": 100,
+"Linens": 10,
+"Money": 1,
+"Rum": 5,
+"Spices": 50
+}
+buy = {
 "Food": 1,
-"Jewlery": 5,
-"Linens": 3,
-"Money": 0,
-"Rum": 2,
-"Spices": 4
+"Jewlery": 125,
+"Linens": 15,
+"Money": 1,
+"Rum": 7,
+"Spices": 75
 }
 
 [node name="PlayerTestInventory" type="Node" parent="."]
 script = ExtResource("3_81hlh")
-Money = 200
-Food = 100
-Rum = 75
-Linens = 50
-Spices = 25
-Jewlery = 10
+inv = {
+"Food": 5,
+"Jewlery": 5,
+"Linens": 5,
+"Money": 9999,
+"Rum": 20,
+"Spices": 5
+}
 
-[node name="Coin" type="Sprite2D" parent="."]
+[node name="Coin" type="Sprite2D" parent="." node_paths=PackedStringArray("shopMan", "playerStock", "shopStock")]
 position = Vector2(152, 106)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_dodxq")
+script = ExtResource("6_dutg0")
+shopMan = NodePath("..")
+type = "Money"
+playerStock = NodePath("PlayerMoney/PlayerMoneyCount")
+shopStock = NodePath("ShopMoney/ShopMoneyCount")
+onlyShow = true
 
 [node name="PlayerMoney" type="Label" parent="Coin"]
 offset_left = 156.0
@@ -122,58 +132,107 @@ offset_bottom = 86.0
 theme_override_font_sizes/font_size = 64
 text = "$123456789"
 
-[node name="Rum" type="Sprite2D" parent="."]
+[node name="Rum" type="Sprite2D" parent="." node_paths=PackedStringArray("shopMan", "playerStock", "buyPrice", "sellPrice", "shopStock")]
 position = Vector2(1021, 102)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_rc5o7")
+script = ExtResource("6_dutg0")
+shopMan = NodePath("..")
+type = "Rum"
+playerStock = NodePath("PlayerCount")
+buyPrice = NodePath("BuyButton/Cost")
+sellPrice = NodePath("SellButton/Cost")
+shopStock = NodePath("ShopCount")
 
-[node name="Buy" type="Label" parent="Rum"]
-offset_left = -486.0
-offset_top = -100.0
-offset_right = -166.0
-offset_bottom = -23.0
+[node name="BuyButton" type="Sprite2D" parent="Rum"]
+position = Vector2(-668, -60)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nbd3p")
+
+[node name="Cost" type="Label" parent="Rum/BuyButton"]
+offset_left = 263.046
+offset_top = -89.8247
+offset_right = 583.046
+offset_bottom = -12.8247
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Button" type="Sprite2D" parent="Rum/Buy"]
-position = Vector2(-112, 40)
-scale = Vector2(0.425781, 0.445312)
-texture = ExtResource("2_nbd3p")
+[node name="Button" type="Button" parent="Rum/BuyButton"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -230.0
+offset_top = -103.0
+offset_right = -211.0
+offset_bottom = -86.0
+scale = Vector2(24.3929, 11.6392)
+flat = true
 
-[node name="Buy" type="Label" parent="Rum/Buy/Button"]
+[node name="Tag" type="Label" parent="Rum/BuyButton"]
 offset_left = -122.0
 offset_top = -112.0
 offset_right = 169.0
 offset_bottom = 63.0
-text = "Buy:"
+text = "Buy"
 label_settings = SubResource("LabelSettings_7hwyh")
 
-[node name="Sell" type="Label" parent="Rum"]
-offset_left = -492.0
-offset_top = 16.0
-offset_right = -172.0
-offset_bottom = 93.0
+[node name="SellButton" type="Sprite2D" parent="Rum"]
+position = Vector2(-672, 62)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nbd3p")
+
+[node name="Cost" type="Label" parent="Rum/SellButton"]
+offset_left = 263.046
+offset_top = -89.8246
+offset_right = 993.046
+offset_bottom = 85.1754
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Button" type="Sprite2D" parent="Rum/Sell"]
-position = Vector2(-112, 40)
-scale = Vector2(0.425781, 0.445312)
-texture = ExtResource("2_nbd3p")
+[node name="Button" type="Button" parent="Rum/SellButton"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -230.0
+offset_top = -103.0
+offset_right = -211.0
+offset_bottom = -86.0
+scale = Vector2(24.3929, 11.6392)
+flat = true
 
-[node name="Sell" type="Label" parent="Rum/Sell/Button"]
+[node name="Tag" type="Label" parent="Rum/SellButton"]
 offset_left = -122.0
 offset_top = -112.0
 offset_right = 169.0
 offset_bottom = 63.0
-text = "Sell:"
+text = "Sell"
 label_settings = SubResource("LabelSettings_7hwyh")
 
-[node name="Spices" type="Sprite2D" parent="."]
+[node name="PlayerCount" type="Label" parent="Rum"]
+offset_left = -488.0
+offset_top = -198.0
+offset_right = -155.0
+offset_bottom = -110.0
+theme_override_font_sizes/font_size = 64
+text = "123456789"
+
+[node name="ShopCount" type="Label" parent="Rum"]
+offset_left = -488.0
+offset_top = 122.0
+offset_right = -155.0
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 64
+text = "123456789"
+
+[node name="Spices" type="Sprite2D" parent="." node_paths=PackedStringArray("shopMan", "playerStock", "buyPrice", "sellPrice", "shopStock")]
 position = Vector2(146, 310)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_370tr")
 script = ExtResource("6_dutg0")
+shopMan = NodePath("..")
+type = "Spices"
+playerStock = NodePath("PlayerCount")
+buyPrice = NodePath("BuyButton/Cost")
+sellPrice = NodePath("SellButton/Cost")
+shopStock = NodePath("ShopCount")
 
 [node name="BuyButton" type="Sprite2D" parent="Spices"]
 position = Vector2(272, -66)
@@ -237,143 +296,299 @@ offset_bottom = 63.0
 text = "Sell"
 label_settings = SubResource("LabelSettings_7hwyh")
 
-[node name="Food" type="Sprite2D" parent="."]
+[node name="PlayerCount" type="Label" parent="Spices"]
+offset_left = 144.0
+offset_top = -204.0
+offset_right = 477.0
+offset_bottom = -116.0
+theme_override_font_sizes/font_size = 64
+text = "123456789"
+
+[node name="ShopCount" type="Label" parent="Spices"]
+offset_left = 144.0
+offset_top = 116.0
+offset_right = 477.0
+offset_bottom = 204.0
+theme_override_font_sizes/font_size = 64
+text = "123456789"
+
+[node name="Food" type="Sprite2D" parent="." node_paths=PackedStringArray("shopMan", "playerStock", "buyPrice", "sellPrice", "shopStock")]
 position = Vector2(1021, 290)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_ukgc7")
+script = ExtResource("6_dutg0")
+shopMan = NodePath("..")
+type = "Food"
+playerStock = NodePath("PlayerCount")
+buyPrice = NodePath("BuyButton/Cost")
+sellPrice = NodePath("SellButton/Cost")
+shopStock = NodePath("ShopCount")
 
-[node name="Buy" type="Label" parent="Food"]
-offset_left = -486.0
-offset_top = -100.0
-offset_right = -166.0
-offset_bottom = -23.0
+[node name="BuyButton" type="Sprite2D" parent="Food"]
+position = Vector2(-668, -60)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nbd3p")
+
+[node name="Cost" type="Label" parent="Food/BuyButton"]
+offset_left = 263.046
+offset_top = -89.8247
+offset_right = 583.046
+offset_bottom = -12.8247
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Button" type="Sprite2D" parent="Food/Buy"]
-position = Vector2(-112, 40)
-scale = Vector2(0.425781, 0.445312)
-texture = ExtResource("2_nbd3p")
+[node name="Button" type="Button" parent="Food/BuyButton"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -230.0
+offset_top = -103.0
+offset_right = -211.0
+offset_bottom = -86.0
+scale = Vector2(24.3929, 11.6392)
+flat = true
 
-[node name="Buy" type="Label" parent="Food/Buy/Button"]
+[node name="Tag" type="Label" parent="Food/BuyButton"]
 offset_left = -122.0
 offset_top = -112.0
 offset_right = 169.0
 offset_bottom = 63.0
-text = "Buy:"
+text = "Buy"
 label_settings = SubResource("LabelSettings_7hwyh")
 
-[node name="Sell" type="Label" parent="Food"]
-offset_left = -492.0
-offset_top = 16.0
-offset_right = -172.0
-offset_bottom = 93.0
+[node name="SellButton" type="Sprite2D" parent="Food"]
+position = Vector2(-672, 62)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nbd3p")
+
+[node name="Cost" type="Label" parent="Food/SellButton"]
+offset_left = 263.046
+offset_top = -89.8246
+offset_right = 993.046
+offset_bottom = 85.1754
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Button" type="Sprite2D" parent="Food/Sell"]
-position = Vector2(-112, 40)
-scale = Vector2(0.425781, 0.445312)
-texture = ExtResource("2_nbd3p")
+[node name="Button" type="Button" parent="Food/SellButton"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -230.0
+offset_top = -103.0
+offset_right = -211.0
+offset_bottom = -86.0
+scale = Vector2(24.3929, 11.6392)
+flat = true
 
-[node name="Sell" type="Label" parent="Food/Sell/Button"]
+[node name="Tag" type="Label" parent="Food/SellButton"]
 offset_left = -122.0
 offset_top = -112.0
 offset_right = 169.0
 offset_bottom = 63.0
-text = "Sell:"
+text = "Sell"
 label_settings = SubResource("LabelSettings_7hwyh")
 
-[node name="Fabrics" type="Sprite2D" parent="."]
+[node name="PlayerCount" type="Label" parent="Food"]
+offset_left = -488.0
+offset_top = -198.0
+offset_right = -155.0
+offset_bottom = -110.0
+theme_override_font_sizes/font_size = 64
+text = "123456789"
+
+[node name="ShopCount" type="Label" parent="Food"]
+offset_left = -488.0
+offset_top = 122.0
+offset_right = -155.0
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 64
+text = "123456789"
+
+[node name="Fabrics" type="Sprite2D" parent="." node_paths=PackedStringArray("shopMan", "playerStock", "buyPrice", "sellPrice", "shopStock")]
 position = Vector2(149, 494)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_q6gyj")
+script = ExtResource("6_dutg0")
+shopMan = NodePath("..")
+type = "Linens"
+playerStock = NodePath("PlayerCount")
+buyPrice = NodePath("BuyButton/Cost")
+sellPrice = NodePath("SellButton/Cost")
+shopStock = NodePath("ShopCount")
 
-[node name="Buy" type="Label" parent="Fabrics"]
-offset_left = 354.0
-offset_top = -108.0
-offset_right = 674.0
-offset_bottom = -31.0
+[node name="BuyButton" type="Sprite2D" parent="Fabrics"]
+position = Vector2(272, -66)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nbd3p")
+
+[node name="Cost" type="Label" parent="Fabrics/BuyButton"]
+offset_left = 263.046
+offset_top = -89.8247
+offset_right = 583.046
+offset_bottom = -12.8247
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Button" type="Sprite2D" parent="Fabrics/Buy"]
-position = Vector2(-112, 40)
-scale = Vector2(0.425781, 0.445312)
-texture = ExtResource("2_nbd3p")
+[node name="Button" type="Button" parent="Fabrics/BuyButton"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -230.0
+offset_top = -103.0
+offset_right = -211.0
+offset_bottom = -86.0
+scale = Vector2(24.3929, 11.6392)
+flat = true
 
-[node name="Buy" type="Label" parent="Fabrics/Buy/Button"]
+[node name="Tag" type="Label" parent="Fabrics/BuyButton"]
 offset_left = -122.0
 offset_top = -112.0
 offset_right = 169.0
 offset_bottom = 63.0
-text = "Buy:"
+text = "Buy"
 label_settings = SubResource("LabelSettings_7hwyh")
 
-[node name="Sell" type="Label" parent="Fabrics"]
-offset_left = 348.0
-offset_top = 8.0
-offset_right = 668.0
-offset_bottom = 85.0
+[node name="SellButton" type="Sprite2D" parent="Fabrics"]
+position = Vector2(268, 56)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nbd3p")
+
+[node name="Cost" type="Label" parent="Fabrics/SellButton"]
+offset_left = 263.046
+offset_top = -89.8246
+offset_right = 993.046
+offset_bottom = 85.1754
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Button" type="Sprite2D" parent="Fabrics/Sell"]
-position = Vector2(-112, 40)
-scale = Vector2(0.425781, 0.445312)
-texture = ExtResource("2_nbd3p")
+[node name="Button" type="Button" parent="Fabrics/SellButton"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -230.0
+offset_top = -103.0
+offset_right = -211.0
+offset_bottom = -86.0
+scale = Vector2(24.3929, 11.6392)
+flat = true
 
-[node name="Sell" type="Label" parent="Fabrics/Sell/Button"]
+[node name="Tag" type="Label" parent="Fabrics/SellButton"]
 offset_left = -122.0
 offset_top = -112.0
 offset_right = 169.0
 offset_bottom = 63.0
-text = "Sell:"
+text = "Sell"
 label_settings = SubResource("LabelSettings_7hwyh")
 
-[node name="Jewelry" type="Sprite2D" parent="."]
+[node name="PlayerCount" type="Label" parent="Fabrics"]
+offset_left = 144.0
+offset_top = -204.0
+offset_right = 477.0
+offset_bottom = -116.0
+theme_override_font_sizes/font_size = 64
+text = "123456789"
+
+[node name="ShopCount" type="Label" parent="Fabrics"]
+offset_left = 144.0
+offset_top = 116.0
+offset_right = 477.0
+offset_bottom = 204.0
+theme_override_font_sizes/font_size = 64
+text = "123456789"
+
+[node name="Jewelry" type="Sprite2D" parent="." node_paths=PackedStringArray("shopMan", "playerStock", "buyPrice", "sellPrice", "shopStock")]
 position = Vector2(996, 492)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_mkoo5")
+script = ExtResource("6_dutg0")
+shopMan = NodePath("..")
+type = "Jewlery"
+playerStock = NodePath("PlayerCount")
+buyPrice = NodePath("BuyButton/Cost")
+sellPrice = NodePath("SellButton/Cost")
+shopStock = NodePath("ShopCount")
 
-[node name="Buy" type="Label" parent="Jewelry"]
-offset_left = -486.0
-offset_top = -100.0
-offset_right = -166.0
-offset_bottom = -23.0
+[node name="BuyButton" type="Sprite2D" parent="Jewelry"]
+position = Vector2(-668, -60)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nbd3p")
+
+[node name="Cost" type="Label" parent="Jewelry/BuyButton"]
+offset_left = 263.046
+offset_top = -89.8247
+offset_right = 583.046
+offset_bottom = -12.8247
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Button" type="Sprite2D" parent="Jewelry/Buy"]
-position = Vector2(-112, 40)
-scale = Vector2(0.425781, 0.445312)
-texture = ExtResource("2_nbd3p")
+[node name="Button" type="Button" parent="Jewelry/BuyButton"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -230.0
+offset_top = -103.0
+offset_right = -211.0
+offset_bottom = -86.0
+scale = Vector2(24.3929, 11.6392)
+flat = true
 
-[node name="Buy" type="Label" parent="Jewelry/Buy/Button"]
+[node name="Tag" type="Label" parent="Jewelry/BuyButton"]
 offset_left = -122.0
 offset_top = -112.0
 offset_right = 169.0
 offset_bottom = 63.0
-text = "Buy:"
+text = "Buy"
 label_settings = SubResource("LabelSettings_7hwyh")
 
-[node name="Sell" type="Label" parent="Jewelry"]
-offset_left = -492.0
-offset_top = 16.0
-offset_right = -172.0
-offset_bottom = 93.0
+[node name="SellButton" type="Sprite2D" parent="Jewelry"]
+position = Vector2(-672, 62)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nbd3p")
+
+[node name="Cost" type="Label" parent="Jewelry/SellButton"]
+offset_left = 263.046
+offset_top = -89.8246
+offset_right = 993.046
+offset_bottom = 85.1754
 text = "$123456789"
 label_settings = SubResource("LabelSettings_q1rv0")
 
-[node name="Button" type="Sprite2D" parent="Jewelry/Sell"]
-position = Vector2(-112, 40)
-scale = Vector2(0.425781, 0.445312)
-texture = ExtResource("2_nbd3p")
+[node name="Button" type="Button" parent="Jewelry/SellButton"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -230.0
+offset_top = -103.0
+offset_right = -211.0
+offset_bottom = -86.0
+scale = Vector2(24.3929, 11.6392)
+flat = true
 
-[node name="Sell" type="Label" parent="Jewelry/Sell/Button"]
+[node name="Tag" type="Label" parent="Jewelry/SellButton"]
 offset_left = -122.0
 offset_top = -112.0
 offset_right = 169.0
 offset_bottom = 63.0
-text = "Sell:"
+text = "Sell"
 label_settings = SubResource("LabelSettings_7hwyh")
+
+[node name="PlayerCount" type="Label" parent="Jewelry"]
+offset_left = -488.0
+offset_top = -198.0
+offset_right = -155.0
+offset_bottom = -110.0
+theme_override_font_sizes/font_size = 64
+text = "123456789"
+
+[node name="ShopCount" type="Label" parent="Jewelry"]
+offset_left = -488.0
+offset_top = 122.0
+offset_right = -155.0
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 64
+text = "123456789"
+
+[connection signal="pressed" from="Rum/BuyButton/Button" to="Rum" method="Buy"]
+[connection signal="pressed" from="Rum/SellButton/Button" to="Rum" method="Sell"]
+[connection signal="pressed" from="Spices/BuyButton/Button" to="Spices" method="Buy"]
+[connection signal="pressed" from="Spices/SellButton/Button" to="Spices" method="Sell"]
+[connection signal="pressed" from="Food/BuyButton/Button" to="Food" method="Buy"]
+[connection signal="pressed" from="Food/SellButton/Button" to="Food" method="Sell"]
+[connection signal="pressed" from="Fabrics/BuyButton/Button" to="Fabrics" method="Buy"]
+[connection signal="pressed" from="Fabrics/SellButton/Button" to="Fabrics" method="Sell"]
+[connection signal="pressed" from="Jewelry/BuyButton/Button" to="Fabrics" method="Buy"]
+[connection signal="pressed" from="Jewelry/SellButton/Button" to="Jewelry" method="Sell"]
