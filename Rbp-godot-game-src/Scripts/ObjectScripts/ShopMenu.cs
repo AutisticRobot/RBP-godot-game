@@ -71,7 +71,13 @@ public partial class ShopMenu : Control
 			seller -= buyMulti;
 		}else{
 			int curMulti;
-			int canAfford = buyerWallet / price;
+			int canAfford;
+			if(price != 0)
+			{
+				canAfford = buyerWallet / price;
+			}else{
+				canAfford = 99999;
+			}
 
 			GD.Print(buyerWallet);
 			GD.Print(price);

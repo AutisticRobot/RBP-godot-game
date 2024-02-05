@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://d035eqqb0j6ig"]
+[gd_scene load_steps=8 format=3 uid="uid://d035eqqb0j6ig"]
 
+[ext_resource type="Script" path="res://Scripts/SceneScripts/PlayerDierama.cs" id="1_02cwl"]
 [ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
 [ext_resource type="PackedScene" uid="uid://bvonwlfpak3nx" path="res://Scenes/playerParts/diramaHud.tscn" id="2_8gvm5"]
 [ext_resource type="PackedScene" uid="uid://bv6i4kqm6opd7" path="res://Scenes/Playspaces/Direamas/GrayBoxDirama.tscn" id="2_gran4"]
@@ -7,7 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Assets/Placeholders/ShipPlaceholder1.png" id="5_n0evv"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="6_u6kax"]
 
-[node name="PlayerDierama" type="Node2D"]
+[node name="PlayerDierama" type="Node2D" node_paths=PackedStringArray("hud", "shopMenu")]
+script = ExtResource("1_02cwl")
+hud = NodePath("PlayerLand/Camera2D/DiramaHud")
+shopMenu = NodePath("PlayerLand/Camera2D/ShopMenu")
 
 [node name="PlayerLand" parent="." instance=ExtResource("1_b1t7y")]
 z_index = 100
@@ -38,7 +42,6 @@ offset_top = -2620.0
 offset_right = -5690.0
 offset_bottom = -2620.0
 scale = Vector2(10, 10)
-shop = NodePath("")
 player = NodePath("../../../Ship/ShipInventory")
 
 [node name="GrayBoxDirama" parent="." instance=ExtResource("2_gran4")]
