@@ -11,9 +11,55 @@ position = Vector2(-1, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("1_oetnv")
 
-[node name="Shop0" parent="." node_paths=PackedStringArray("inv") instance=ExtResource("2_vljx4")]
+[node name="Shop0" parent="." instance=ExtResource("2_vljx4")]
 position = Vector2(1030, -304)
-inv = NodePath("ShopInventory0")
+inv = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("3_2d5d7"),"inv":{
+"Food": 999,
+"Jewlery": 10,
+"Linens": 50,
+"Money": 1000,
+"Rum": 100,
+"Spices": 20
+},"sell":{
+"Food": 0,
+"Jewlery": 20,
+"Linens": 5,
+"Money": 1,
+"Rum": 3,
+"Spices": 10
+},"buy":{
+"Food": 1,
+"Jewlery": 25,
+"Linens": 7,
+"Money": 1,
+"Rum": 5,
+"Spices": 13
+})
+
 
 [node name="ShopInventory0" type="Node" parent="Shop0"]
 script = ExtResource("3_2d5d7")
+inv = {
+"Food": 999,
+"Jewlery": 10,
+"Linens": 50,
+"Money": 1000,
+"Rum": 100,
+"Spices": 20
+}
+sell = {
+"Food": 0,
+"Jewlery": 20,
+"Linens": 5,
+"Money": 1,
+"Rum": 3,
+"Spices": 10
+}
+buy = {
+"Food": 1,
+"Jewlery": 25,
+"Linens": 7,
+"Money": 1,
+"Rum": 5,
+"Spices": 13
+}

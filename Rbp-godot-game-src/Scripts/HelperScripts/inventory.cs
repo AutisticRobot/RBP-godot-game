@@ -3,7 +3,8 @@ using Godot.Collections;
 using System;
 using System.Data.SqlTypes;
 
-public partial class inventory : Node
+[GlobalClass]
+public partial class inventory : Resource
 {
 	[Export]
 	public Godot.Collections.Dictionary<string, int> inv = new()

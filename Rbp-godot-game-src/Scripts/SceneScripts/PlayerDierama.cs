@@ -9,7 +9,7 @@ public partial class PlayerDierama : Node2D
 	[Export]
 	public Control hud;
 	[Export]
-	public Control shopMenu;
+	public ShopMenu shopMenu;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -33,8 +33,7 @@ public partial class PlayerDierama : Node2D
 
 	public void OpenShop()
 	{
-		ShopMenu shopScript = (ShopMenu)shopMenu;
-		shopScript.shop = nearShop;
+		shopMenu.shop = nearShop;
 		hud.Visible = false;
 		shopMenu.Visible = true;
 	}

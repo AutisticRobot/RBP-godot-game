@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cd0jvawro4j3u"]
+
+[ext_resource type="Script" path="res://Scripts/HelperScripts/inventoryResTest.cs" id="1_lgl8o"]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "InventoryRes"
+script = ExtResource("1_lgl8o")
+inv = {
+"Food": 0,
+"Jewlery": 0,
+"Linens": 0,
+"Money": 0,
+"Rum": 0,
+"Spices": 0
+}

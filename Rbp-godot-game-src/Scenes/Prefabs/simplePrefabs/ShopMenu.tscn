@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="1_uyu8b"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShopMenu.cs" id="1_yli72"]
-[ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="2_i5w4l"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="2_nbd3p"]
-[ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="3_81hlh"]
+[ext_resource type="Resource" uid="uid://bght0is6l6et7" path="res://Resorces/TestingResources/ShopTestInventory.tres" id="2_tgmsi"]
+[ext_resource type="Resource" uid="uid://pvbb3jf3emau" path="res://Resorces/TestingResources/PlayerTestInventory.tres" id="3_rkjuu"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/shopListing.cs" id="6_dutg0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dodxq"]
@@ -37,7 +37,7 @@ region = Rect2(537.129, 376.308, 263.077, 251.385)
 atlas = ExtResource("1_uyu8b")
 region = Rect2(1433.54, 401.641, 276.718, 253.333)
 
-[node name="ShopMenu" type="Control" node_paths=PackedStringArray("shop", "player")]
+[node name="ShopMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,47 +45,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yli72")
-shop = NodePath("ShopTestInventory")
-player = NodePath("PlayerTestInventory")
+shop = ExtResource("2_tgmsi")
+player = ExtResource("3_rkjuu")
 buyMulti = 1
-
-[node name="ShopTestInventory" type="Node" parent="."]
-script = ExtResource("2_i5w4l")
-inv = {
-"Food": 9999,
-"Jewlery": 50,
-"Linens": 500,
-"Money": 9999,
-"Rum": 1000,
-"Spices": 100
-}
-sell = {
-"Food": 0,
-"Jewlery": 100,
-"Linens": 10,
-"Money": 1,
-"Rum": 5,
-"Spices": 50
-}
-buy = {
-"Food": 1,
-"Jewlery": 125,
-"Linens": 15,
-"Money": 1,
-"Rum": 7,
-"Spices": 75
-}
-
-[node name="PlayerTestInventory" type="Node" parent="."]
-script = ExtResource("3_81hlh")
-inv = {
-"Food": 5,
-"Jewlery": 5,
-"Linens": 5,
-"Money": 9999,
-"Rum": 20,
-"Spices": 5
-}
 
 [node name="Coin" type="Sprite2D" parent="." node_paths=PackedStringArray("shopMan", "playerStock", "shopStock")]
 position = Vector2(152, 106)

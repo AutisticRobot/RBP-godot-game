@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ShopInventory" load_steps=2 format=3 uid="uid://bght0is6l6et7"]
+
+[ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="1_julwq"]
+
+[resource]
+script = ExtResource("1_julwq")
+inv = {
+"Food": 9999,
+"Jewlery": 50,
+"Linens": 500,
+"Money": 9999,
+"Rum": 1000,
+"Spices": 100
+}
+sell = {
+"Food": 0,
+"Jewlery": 100,
+"Linens": 10,
+"Money": 1,
+"Rum": 5,
+"Spices": 50
+}
+buy = {
+"Food": 1,
+"Jewlery": 125,
+"Linens": 15,
+"Money": 1,
+"Rum": 7,
+"Spices": 75
+}

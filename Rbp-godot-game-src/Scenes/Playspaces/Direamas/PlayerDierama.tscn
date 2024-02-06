@@ -35,14 +35,45 @@ offset_right = -5750.0
 offset_bottom = -3210.0
 scale = Vector2(10, 10)
 
-[node name="ShopMenu" parent="PlayerLand/Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("3_oq0pg")]
+[node name="ShopMenu" parent="PlayerLand/Camera2D" instance=ExtResource("3_oq0pg")]
 visible = false
 offset_left = -5690.0
 offset_top = -2620.0
 offset_right = -5690.0
 offset_bottom = -2620.0
 scale = Vector2(10, 10)
-player = NodePath("../../../Ship/ShipInventory")
+shop = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":Resource("res://Scripts/HelperScripts/ShopInventory.cs"),"inv":{
+"Food": 9999,
+"Jewlery": 50,
+"Linens": 500,
+"Money": 9999,
+"Rum": 1000,
+"Spices": 100
+},"sell":{
+"Food": 0,
+"Jewlery": 100,
+"Linens": 10,
+"Money": 1,
+"Rum": 5,
+"Spices": 50
+},"buy":{
+"Food": 1,
+"Jewlery": 125,
+"Linens": 15,
+"Money": 1,
+"Rum": 7,
+"Spices": 75
+})
+
+player = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("6_u6kax"),"inv":{
+"Food": 100,
+"Jewlery": 5,
+"Linens": 20,
+"Money": 1000,
+"Rum": 90,
+"Spices": 10
+})
+
 
 [node name="GrayBoxDirama" parent="." instance=ExtResource("2_gran4")]
 show_behind_parent = true
