@@ -14,7 +14,7 @@ public partial class PlayerDierama : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		nearShop = GetNode<ShopInventory>("GrayBoxDirama/Shop0/ShopInventory0");
+		nearShop = GetNode<shopObject>("GrayBoxDirama/Shop0").inv;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
