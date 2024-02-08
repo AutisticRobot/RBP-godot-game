@@ -4,17 +4,7 @@ using System;
 public partial class LootFloat : Sprite2D
 {
 	[Export]
-	public int Money;
-	[Export]
-	public int Food;
-	[Export]
-	public int Rum;
-	[Export]
-	public int Linens;
-	[Export]
-	public int Spices;
-	[Export]
-	public int Jewlery;
+	public inventory inv;
 
 
 

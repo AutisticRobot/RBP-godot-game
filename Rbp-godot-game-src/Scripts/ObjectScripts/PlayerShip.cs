@@ -26,17 +26,7 @@ public partial class PlayerShip : Sprite2D
 	public float dir;//in Dagrees
 
 	[Export]
-	public int Money;
-	[Export]
-	public int Food;
-	[Export]
-	public int Rum;
-	[Export]
-	public int Linens;
-	[Export]
-	public int Spices;
-	[Export]
-	public int Jewlery;
+	public inventory inv;
 
 
 	private Global global; 
@@ -111,12 +101,12 @@ public partial class PlayerShip : Sprite2D
 		{
 		LootFloat loot = LBB.GetParent<LootFloat>();
 
-		Money   += loot.Money;
-		Food    += loot.Food;
-		Rum     += loot.Rum;
-		Linens  += loot.Linens;
-		Spices  += loot.Spices;
-		Jewlery += loot.Jewlery;
+		inv.inv["Money"]   += loot.inv.inv["Money"];
+		inv.inv["Food"]    += loot.inv.inv["Food"];
+		inv.inv["Rum"]     += loot.inv.inv["Rum"];
+		inv.inv["Linens"]  += loot.inv.inv["Linens"];
+		inv.inv["Spices"]  += loot.inv.inv["Spices"];
+		inv.inv["Jewlery"] += loot.inv.inv["Jewlery"];
 		loot.QueueFree();
 		}
 	}
