@@ -19,22 +19,15 @@ Acc = 1.0
 TurnAcc = 1.0
 Minspeed = -200.0
 Maxspeed = 200.0
-Money = 50
-Food = 27
-Rum = 127
-Linens = 78
-Spices = 12
-Jewlery = 4
 
 [node name="Camera2D" type="Camera2D" parent="PlayerShip"]
 
-[node name="Control" parent="PlayerShip/Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("2_woff1")]
+[node name="Control" parent="PlayerShip/Camera2D" instance=ExtResource("2_woff1")]
 offset_left = -5740.0
 offset_top = -3220.0
 offset_right = -5740.0
 offset_bottom = -3220.0
 scale = Vector2(10, 10)
-player = NodePath("../..")
 
 [node name="OceanMapV1" type="Sprite2D" parent="."]
 show_behind_parent = true
@@ -46,5 +39,3 @@ position = Vector2(899, -203)
 
 [node name="Sprite2D" parent="." instance=ExtResource("5_2xt25")]
 position = Vector2(799, 257)
-Money = 20
-Jewlery = 5

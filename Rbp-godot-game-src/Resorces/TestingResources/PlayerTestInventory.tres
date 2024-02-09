@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://pvbb3jf3emau"]
+[gd_resource type="Resource" script_class="inventory" load_steps=2 format=3 uid="uid://pvbb3jf3emau"]
 
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="1_5lfky"]
 
