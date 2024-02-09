@@ -6,16 +6,25 @@ using System.Data.SqlTypes;
 [GlobalClass]
 public partial class inventory : Resource
 {
-	[Export]
-	public Godot.Collections.Dictionary<string, int> inv = new()
-    {
-		{"Money", 0},
-		{"Food", 0},
-		{"Rum", 0},
-		{"Linens", 0},
-		{"Spices", 0},
-		{"Jewlery", 0},
-	};
+	#region RESOURCES
+	[Export] public int Money;
+	[Export] public int Food;
+	[Export] public int Rum;
+	[Export] public int Linens;
+	[Export] public int Spices;
+	[Export] public int Jewlery;
+	#endregion
 
-    
+	public int this[int i]
+	{
+		get
+		{
+			return 0;
+		}
+		set
+		{
+			
+		}
+	}
 }
+ 
