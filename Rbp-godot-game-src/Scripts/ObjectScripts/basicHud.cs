@@ -15,13 +15,13 @@ public partial class basicHud : Control
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		var player = ship.inv.inv;
-		setLabelCont(0, "Gold", player["Money"]);
-		setLabelCont(1, "Food", player["Food"]);
-		setLabelCont(2, "Rum", player["Rum"]);
-		setLabelCont(3, "Linens", player["Linens"]);
-		setLabelCont(4, "Spices", player["Spices"]);
-		setLabelCont(5, "Jewlery", player["Jewlery"]);
+		var player = ship.inv;
+		setLabelCont(0, "Gold", player.Money);
+		setLabelCont(1, "Food", player.Food);
+		setLabelCont(2, "Rum", player.Rum);
+		setLabelCont(3, "Linens", player.Linens);
+		setLabelCont(4, "Spices", player.Spices);
+		setLabelCont(5, "Jewlery", player.Jewlery);
 	}
 
 	private void setLabelCont(int index, string res, int cnt)
