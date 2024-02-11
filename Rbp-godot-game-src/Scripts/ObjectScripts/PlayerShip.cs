@@ -101,12 +101,12 @@ public partial class PlayerShip : Sprite2D
 		{
 		LootFloat loot = LBB.GetParent<LootFloat>();
 
-		inv.inv["Money"]   += loot.inv.inv["Money"];
-		inv.inv["Food"]    += loot.inv.inv["Food"];
-		inv.inv["Rum"]     += loot.inv.inv["Rum"];
-		inv.inv["Linens"]  += loot.inv.inv["Linens"];
-		inv.inv["Spices"]  += loot.inv.inv["Spices"];
-		inv.inv["Jewlery"] += loot.inv.inv["Jewlery"];
+		inv["Money"]   += loot.inv["Money"];
+		inv["Food"]    += loot.inv["Food"];
+		inv["Rum"]     += loot.inv["Rum"];
+		inv["Linens"]  += loot.inv["Linens"];
+		inv["Spices"]  += loot.inv["Spices"];
+		inv["Jewlery"] += loot.inv["Jewlery"];
 		loot.QueueFree();
 		}
 	}

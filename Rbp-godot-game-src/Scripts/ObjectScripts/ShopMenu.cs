@@ -8,19 +8,10 @@ public partial class ShopMenu : Control
 	[Export]
 	public ShopInventory shop;
 	[Export]
-	public inventory player;
+	public ShipDoll player;
 
 	[Export]
 	public int buyMulti;
-	public Godot.Collections.Dictionary<string, int> indexList = new()
-    {
-		{"Food", 0},
-		{"Jewlery", 1},
-		{"Linens", 2},
-		{"Money", 3},
-		{"Rum", 4},
-		{"Spices", 5},
-	};
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

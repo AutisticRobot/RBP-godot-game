@@ -63,5 +63,55 @@ public partial class inventory : Resource
 			}
 		}
 	}
+	public int this[string i]
+	{
+		get
+		{
+			i = i.ToLower();
+			return i switch
+			{
+				"money" => Money,
+				"food" =>Food,
+				"rum" =>Rum,
+				"linens" =>Linens,
+				"spices" =>Spices,
+				"jewlery" =>Jewlery,
+				_ => 0
+			};
+		}
+		set
+		{
+			i = i.ToLower();
+			switch(i)
+			{
+                case "money":
+					Money = value;
+				break;
+
+                case "food":
+					Food = value;
+				break;
+
+                case "rum":
+					Rum = value;
+				break;
+
+                case "linens":
+					Linens = value;
+				break;
+
+                case "spices":
+					Spices = value;
+				break;
+
+                case "jewlery":
+					Jewlery = value;
+				break;
+				
+				default:
+				break;
+			}
+		}
+	}
 }
  

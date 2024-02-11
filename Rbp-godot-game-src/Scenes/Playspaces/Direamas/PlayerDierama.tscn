@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Assets/Placeholders/ShipPlaceholder1.png" id="5_n0evv"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="5_vi5g5"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="6_u6kax"]
-[ext_resource type="Script" path="res://Scenes/Playspaces/Direamas/ShipDoll.cs" id="9_u8sq5"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/ShipDoll.cs" id="9_u8sq5"]
 
 [sub_resource type="Resource" id="Resource_feuvl"]
 script = ExtResource("5_vi5g5")

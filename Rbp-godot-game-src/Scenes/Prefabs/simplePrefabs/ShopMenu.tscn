@@ -1,11 +1,21 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpxrf3hii40p0"]
+[gd_scene load_steps=17 format=3 uid="uid://cpxrf3hii40p0"]
 
 [ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="1_uyu8b"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShopMenu.cs" id="1_yli72"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="2_nbd3p"]
 [ext_resource type="Resource" uid="uid://bght0is6l6et7" path="res://Resorces/TestingResources/ShopTestInventory.tres" id="2_tgmsi"]
-[ext_resource type="Resource" uid="uid://pvbb3jf3emau" path="res://Resorces/TestingResources/PlayerTestInventory.tres" id="3_rkjuu"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/ShipDoll.cs" id="3_lym2e"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_rqc0q"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/shopListing.cs" id="6_dutg0"]
+
+[sub_resource type="Resource" id="Resource_233nn"]
+script = ExtResource("4_rqc0q")
+Money = 100
+Food = 1
+Rum = 2
+Linens = 3
+Spices = 4
+Jewlery = 5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dodxq"]
 atlas = ExtResource("1_uyu8b")
@@ -46,8 +56,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yli72")
 shop = ExtResource("2_tgmsi")
-player = ExtResource("3_rkjuu")
 buyMulti = 1
+
+[node name="PlayerTestInv" type="Node2D" parent="."]
+script = ExtResource("3_lym2e")
+inv = SubResource("Resource_233nn")
 
 [node name="Coin" type="Sprite2D" parent="." node_paths=PackedStringArray("shopMan", "playerStock", "shopStock")]
 position = Vector2(152, 106)
