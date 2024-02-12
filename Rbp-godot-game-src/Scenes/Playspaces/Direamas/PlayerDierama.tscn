@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d035eqqb0j6ig"]
+[gd_scene load_steps=13 format=3 uid="uid://d035eqqb0j6ig"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/PlayerDierama.cs" id="1_02cwl"]
 [ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
+[ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="2_1ndpu"]
 [ext_resource type="PackedScene" uid="uid://bvonwlfpak3nx" path="res://Scenes/playerParts/diramaHud.tscn" id="2_8gvm5"]
 [ext_resource type="PackedScene" uid="uid://bv6i4kqm6opd7" path="res://Scenes/Playspaces/Direamas/GrayBoxDirama.tscn" id="2_gran4"]
 [ext_resource type="PackedScene" uid="uid://cpxrf3hii40p0" path="res://Scenes/Prefabs/simplePrefabs/ShopMenu.tscn" id="3_oq0pg"]
@@ -12,46 +13,23 @@
 
 [sub_resource type="Resource" id="Resource_feuvl"]
 script = ExtResource("5_vi5g5")
-inv = {
-"Food": 99,
-"Jewlery": 99,
-"Linens": 99,
-"Money": 99,
-"Rum": 99,
-"Spices": 99
-}
-sell = {
-"Food": 9,
-"Jewlery": 9,
-"Linens": 9,
-"Money": 1,
-"Rum": 9,
-"Spices": 9
-}
-buy = {
-"Food": 1,
-"Jewlery": 1,
-"Linens": 1,
-"Money": 1,
-"Rum": 1,
-"Spices": 1
-}
 
 [sub_resource type="Resource" id="Resource_gm18n"]
 script = ExtResource("6_u6kax")
-inv = {
-"Food": 100,
-"Jewlery": 5,
-"Linens": 20,
-"Money": 1000,
-"Rum": 90,
-"Spices": 10
-}
+Money = 0
+Food = 0
+Rum = 0
+Linens = 0
+Spices = 0
+Jewlery = 0
 
 [node name="PlayerDierama" type="Node2D" node_paths=PackedStringArray("hud", "shopMenu")]
 script = ExtResource("1_02cwl")
 hud = NodePath("PlayerLand/Camera2D/DiramaHud")
 shopMenu = NodePath("PlayerLand/Camera2D/ShopMenu")
+
+[node name="SceneSave" type="Node" parent="."]
+script = ExtResource("2_1ndpu")
 
 [node name="PlayerLand" parent="." instance=ExtResource("1_b1t7y")]
 z_index = 100
@@ -83,14 +61,13 @@ offset_right = -5690.0
 offset_bottom = -2620.0
 scale = Vector2(10, 10)
 shop = SubResource("Resource_feuvl")
-player = SubResource("Resource_gm18n")
 
 [node name="GrayBoxDirama" parent="." instance=ExtResource("2_gran4")]
 show_behind_parent = true
-position = Vector2(475, -708)
+position = Vector2(317, -769)
 
 [node name="Ship" type="Sprite2D" parent="."]
-position = Vector2(70, -43)
+position = Vector2(89, -103)
 texture = ExtResource("5_n0evv")
 script = ExtResource("9_u8sq5")
 inv = SubResource("Resource_gm18n")
