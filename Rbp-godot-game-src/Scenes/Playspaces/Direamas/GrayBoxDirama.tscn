@@ -6,30 +6,6 @@
 
 [sub_resource type="Resource" id="Resource_8mnvg"]
 script = ExtResource("3_2d5d7")
-inv = {
-"Food": 999,
-"Jewlery": 10,
-"Linens": 50,
-"Money": 1000,
-"Rum": 100,
-"Spices": 20
-}
-sell = {
-"Food": 0,
-"Jewlery": 20,
-"Linens": 5,
-"Money": 1,
-"Rum": 3,
-"Spices": 10
-}
-buy = {
-"Food": 1,
-"Jewlery": 25,
-"Linens": 7,
-"Money": 1,
-"Rum": 5,
-"Spices": 13
-}
 
 [node name="GrayBoxDirama" type="Node2D"]
 
