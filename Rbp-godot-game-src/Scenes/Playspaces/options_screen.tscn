@@ -18,5 +18,5 @@ offset_top = 149.0
 offset_right = 628.0
 offset_bottom = 197.0
 theme_override_font_sizes/font_size = 16
-text = "res://Saves/sav-1/"
+text = "user://saves/sav-1/"
 placeholder_text = "Path For Save:"
