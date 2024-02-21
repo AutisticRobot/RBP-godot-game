@@ -8,13 +8,19 @@ public partial class SceneSave : Resource
 	[Export] public string SaveFile;
 
 
-	public FileAccess File;
 	public Global global;
 
-// this function defently need to be reworked
-public void OpenFile()
-{
-	File = FileAccess.Open(global.savePrefix + SaveFolder + SaveFile, FileAccess.ModeFlags.ReadWrite);
-}
+
+	public void Save(Variant data)
+	{
+		using FileAccess file = FileAccess.Open(SaveFolder + SaveFile, FileAccess.ModeFlags.Write);
+		file.StoreVar(data);
+	}
+	public Variant Load()
+	{
+		using FileAccess file = FileAccess.Open(SaveFolder + SaveFile, FileAccess.ModeFlags.Read);
+		return file.GetVar();
+	}
+
 
 }
