@@ -57,6 +57,10 @@ redo scene switcher to allow for data transfer
 
 - Automate moving ship
 
+- controll the ship form the helm
+-- command the crew and also decorate the ship
+-- i.e. the helm allows you to enter god view
+
 
 *=======================================================*
 |                                                       |

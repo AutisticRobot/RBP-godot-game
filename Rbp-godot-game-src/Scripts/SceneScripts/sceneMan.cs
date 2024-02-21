@@ -11,7 +11,6 @@ public partial class sceneMan : Node2D
 	{
 		global = GetNode<Global>("/root/Global");
 		save.global = global;
-		save.OpenFile();// this function defently need to be reworked
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
