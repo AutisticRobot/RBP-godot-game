@@ -20,6 +20,11 @@ public partial class options_screen : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+	}
+
+	public void Apply()
+	{
+		if(!SavePath.Text.EndsWith('/')) SavePath.Text += '/';
 		global.savePrefix = SavePath.Text;
 	}
 }

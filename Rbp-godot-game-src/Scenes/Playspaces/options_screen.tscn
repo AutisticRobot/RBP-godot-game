@@ -20,3 +20,12 @@ offset_bottom = 197.0
 theme_override_font_sizes/font_size = 16
 text = "user://saves/sav-1/"
 placeholder_text = "Path For Save:"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 34.0
+offset_top = 586.0
+offset_right = 86.0
+offset_bottom = 617.0
+text = "Apply"
+
+[connection signal="pressed" from="Button" to="." method="Apply"]

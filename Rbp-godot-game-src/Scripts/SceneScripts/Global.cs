@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public partial class Global : Node
 {
 	//Save Options
-	public string savePrefix;
+	public string savePrefix = "user://saves/sav-1/";
 
 
 	//player ship data
