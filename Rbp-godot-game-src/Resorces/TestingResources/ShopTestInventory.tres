@@ -4,27 +4,3 @@
 
 [resource]
 script = ExtResource("1_julwq")
-inv = {
-"Food": 9999,
-"Jewlery": 50,
-"Linens": 500,
-"Money": 9999,
-"Rum": 1000,
-"Spices": 100
-}
-sell = {
-"Food": 0,
-"Jewlery": 100,
-"Linens": 10,
-"Money": 1,
-"Rum": 5,
-"Spices": 50
-}
-buy = {
-"Food": 1,
-"Jewlery": 125,
-"Linens": 15,
-"Money": 1,
-"Rum": 7,
-"Spices": 75
-}
