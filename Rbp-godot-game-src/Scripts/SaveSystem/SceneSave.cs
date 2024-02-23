@@ -11,6 +11,11 @@ public partial class SceneSave : Resource
 	public Global global;
 
 
+	public bool Exists()
+	{
+		return FileAccess.FileExists(global.savePrefix + SaveFolder + SaveFile);
+	}
+
 	public void Save(Variant data)
 	{
 		using FileAccess file = FileAccess.Open(SaveFolder + SaveFile, FileAccess.ModeFlags.Write);
