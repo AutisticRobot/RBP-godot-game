@@ -6,10 +6,9 @@ using System.Net;
 public partial class PlayerDierama : Node2D
 {
 	public ShopInventory nearShop;
-	[Export]
-	public Control hud;
-	[Export]
-	public ShopMenu shopMenu;
+	[Export] public Control hud;
+	[Export] public ShopMenu shopMenu;
+	[Export] public SceneSave saveFile;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

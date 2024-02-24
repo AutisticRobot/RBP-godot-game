@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d035eqqb0j6ig"]
+[gd_scene load_steps=14 format=3 uid="uid://d035eqqb0j6ig"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/PlayerDierama.cs" id="1_02cwl"]
 [ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
@@ -10,6 +10,11 @@
 [ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="5_vi5g5"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="6_u6kax"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShipDoll.cs" id="9_u8sq5"]
+
+[sub_resource type="Resource" id="Resource_endbr"]
+script = ExtResource("2_1ndpu")
+SaveFolder = "enviroments/"
+SaveFile = "dirama.sav"
 
 [sub_resource type="Resource" id="Resource_feuvl"]
 script = ExtResource("5_vi5g5")
@@ -27,9 +32,7 @@ Jewlery = 0
 script = ExtResource("1_02cwl")
 hud = NodePath("PlayerLand/Camera2D/DiramaHud")
 shopMenu = NodePath("PlayerLand/Camera2D/ShopMenu")
-
-[node name="SceneSave" type="Node" parent="."]
-script = ExtResource("2_1ndpu")
+saveFile = SubResource("Resource_endbr")
 
 [node name="PlayerLand" parent="." instance=ExtResource("1_b1t7y")]
 z_index = 100
