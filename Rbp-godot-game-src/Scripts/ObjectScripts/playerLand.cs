@@ -3,14 +3,11 @@ using System;
 
 public partial class playerLand : Node2D
 {
-	[Export]
-	public Vector2 Acc;
-	[Export]
-	public float DecelDeltaCounterBal;
-	[Export]
-	public Vector2 Decel;
-	[Export]
-	public float clampMulti;
+	[Export] public Vector2 Acc;
+	[Export] public float DecelDeltaCounterBal;
+	[Export] public Vector2 Decel;
+	[Export] public float clampMulti;
+	[Export] public inventory inv;//no use now, might be useful later
 	public Vector2 speed;
 	private Global global; 
 	//[Export]

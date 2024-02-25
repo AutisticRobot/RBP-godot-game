@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d035eqqb0j6ig"]
+[gd_scene load_steps=18 format=3 uid="uid://d035eqqb0j6ig"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/PlayerDierama.cs" id="1_02cwl"]
 [ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
@@ -16,8 +16,47 @@ script = ExtResource("2_1ndpu")
 SaveFolder = "enviroments/"
 SaveFile = "dirama.sav"
 
+[sub_resource type="Resource" id="Resource_jy2n6"]
+script = ExtResource("6_u6kax")
+Money = 0
+Food = 0
+Rum = 0
+Linens = 0
+Spices = 0
+Jewlery = 0
+
+[sub_resource type="Resource" id="Resource_j51il"]
+script = ExtResource("6_u6kax")
+Money = 0
+Food = 0
+Rum = 0
+Linens = 0
+Spices = 0
+Jewlery = 0
+
+[sub_resource type="Resource" id="Resource_oudmp"]
+script = ExtResource("6_u6kax")
+Money = 0
+Food = 0
+Rum = 0
+Linens = 0
+Spices = 0
+Jewlery = 0
+
+[sub_resource type="Resource" id="Resource_rqc1h"]
+script = ExtResource("6_u6kax")
+Money = 0
+Food = 0
+Rum = 0
+Linens = 0
+Spices = 0
+Jewlery = 0
+
 [sub_resource type="Resource" id="Resource_feuvl"]
 script = ExtResource("5_vi5g5")
+inv = SubResource("Resource_oudmp")
+sell = SubResource("Resource_rqc1h")
+buy = SubResource("Resource_j51il")
 
 [sub_resource type="Resource" id="Resource_gm18n"]
 script = ExtResource("6_u6kax")
@@ -42,6 +81,7 @@ Acc = Vector2(50, 50)
 DecelDeltaCounterBal = 30.0
 Decel = Vector2(0.8, 0.8)
 clampMulti = 3.0
+inv = SubResource("Resource_jy2n6")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerLand"]
 drag_left_margin = 0.32
@@ -56,7 +96,7 @@ offset_right = -5750.0
 offset_bottom = -3210.0
 scale = Vector2(10, 10)
 
-[node name="ShopMenu" parent="PlayerLand/Camera2D" instance=ExtResource("3_oq0pg")]
+[node name="ShopMenu" parent="PlayerLand/Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("3_oq0pg")]
 visible = false
 offset_left = -5690.0
 offset_top = -2620.0
@@ -64,6 +104,7 @@ offset_right = -5690.0
 offset_bottom = -2620.0
 scale = Vector2(10, 10)
 shop = SubResource("Resource_feuvl")
+player = NodePath("../../../Ship")
 
 [node name="GrayBoxDirama" parent="." instance=ExtResource("2_gran4")]
 show_behind_parent = true
