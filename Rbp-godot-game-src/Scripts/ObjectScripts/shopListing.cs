@@ -4,25 +4,18 @@ using System.Diagnostics;
 
 public partial class shopListing : Sprite2D
 {
-	[Export]
-	public ShopMenu shopMan;
-	[Export]
-	public string type;
-	[Export]
-	public Label playerStock;
-	[Export]
-	public Label buyPrice;
-	[Export]
-	public Label sellPrice;
-	[Export]
-	public Label shopStock;
-	[Export]
-	public bool onlyShow;
+	[Export] public ShopMenu shopMan;
+	[Export] public string type;
+	[Export] public Label playerStock;
+	[Export] public Label buyPrice;
+	[Export] public Label sellPrice;
+	[Export] public Label shopStock;
+	[Export] public bool onlyShow;
 
 
 	public override void _Ready()
 	{
-		shopMan = GetNode<ShopMenu>("PlayerLand/Camera2D/ShopMenu");
+		shopMan = GetParent<ShopMenu>();
 
 	}
 

@@ -32,7 +32,7 @@ public partial class PlayerDierama : Node2D
 
 	public void OpenShop()
 	{
-		shopMenu.shop = nearShop;
+		//shopMenu.shop = nearShop;// uncomment this when near shop is updated;
 		hud.Visible = false;
 		shopMenu.Visible = true;
 	}

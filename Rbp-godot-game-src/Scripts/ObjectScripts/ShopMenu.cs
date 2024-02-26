@@ -5,10 +5,8 @@ using System.Linq;
 
 public partial class ShopMenu : Control
 {
-	[Export]
-	public ShopInventory shop;
-	[Export]
-	public ShipDoll player;
+	[Export] public ShopInventory shop;// this is, when exported, the default until nearshop is updated;
+	[Export] public ShipDoll player;
 
 	[Export]
 	public int buyMulti;
