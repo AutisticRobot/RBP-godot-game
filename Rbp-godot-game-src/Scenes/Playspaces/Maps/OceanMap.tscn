@@ -9,7 +9,8 @@
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_p14fm"]
 [ext_resource type="PackedScene" uid="uid://dqjgej3qvkd4c" path="res://Scenes/Prefabs/simplePrefabs/LootFloat.tscn" id="5_2xt25"]
 
-[sub_resource type="Resource" id="Resource_kfb0e"]
+[sub_resource type="Resource" id="Resource_cr3kr"]
+resource_local_to_scene = true
 script = ExtResource("2_8fxjo")
 SaveFolder = "enviroments/"
 SaveFile = "Map.sav"
@@ -32,10 +33,10 @@ Linens = 30
 Spices = 5
 Jewlery = 2
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("playerHit")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_sfy0l")
-playerHit = NodePath("PlayerShip")
-saveFile = SubResource("Resource_kfb0e")
+player = NodePath("PlayerShip")
+saveFile = SubResource("Resource_cr3kr")
 data = {}
 
 [node name="PlayerShip" parent="." instance=ExtResource("1_r5ep4")]

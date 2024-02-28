@@ -14,4 +14,8 @@ public partial class Global : Node
 
 	//player doll data
 	public Vector2 DollPos;
+
+	//dirAcess
+	public DirAccess dir = DirAccess.Open("user://");
+
 }
