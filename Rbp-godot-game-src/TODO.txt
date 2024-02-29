@@ -4,31 +4,12 @@
 |                      IMMEDIATELY                      |
 *=======================================================*
 
---4.Trading Post (menu Assets)
-----1.1x1,1x2,1x3,1x4 boards
-----2.background
-
-redo scene switcher to allow for data transfer
-
-- save system
-
-- inventory module
-
-- cleanup file structure
-
 - pause game compatability
 
-------BASIC MOVEMENT
+- require the player to go into the ship to be able to travel on the map.
+-- draw a dirama-scale ship
 
-
-3. open island as menua
---change dock sprite to button
---reparent dock button to player
-
-
-- setup menu system
---startup menu
---options
+- fill out save system calls.
 
 *=======================================================*
 |                                                       |
@@ -48,9 +29,6 @@ redo scene switcher to allow for data transfer
 - Day/night system?
 -- needs to be deiced as to start work on shadows system(fake in art, or render after)
 
-- Basic island funcinality
-
-- Basic market funcinality
 
 
 - Simple ship upgrades
