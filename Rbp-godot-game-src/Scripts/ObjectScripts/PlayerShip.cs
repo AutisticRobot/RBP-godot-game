@@ -1,32 +1,25 @@
 using Godot;
+using Godot.Collections;
 using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 
 public partial class PlayerShip : Sprite2D
 {
-	[Export]
-	public bool player;
-	[Export]
-	public bool debug;
+	[Export] public bool player;
+	[Export] public bool debug;
 
-	[Export]
-	public float brakeSpeed;
-	[Export]
-	public float Acc;
-	[Export]
-	public float TurnAcc;
-	[Export]
-	public float speed;
-	[Export]
-	public float Minspeed;
-	[Export]
-	public float Maxspeed;
-	[Export]
-	public float dir;//in Dagrees
+	[Export] public float brakeSpeed;
+	[Export] public float Acc;
+	[Export] public float TurnAcc;
+	[Export] public float speed;
+	[Export] public float Minspeed;
+	[Export] public float Maxspeed;
+	[Export] public float dir;//in Dagrees
 
-	[Export]
-	public inventory inv;
+	[Export] public inventory inv;
+	[Export] public SceneSave save;
+		public Dictionary data;
 
 
 	private Global global; 
