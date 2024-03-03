@@ -34,6 +34,10 @@ public partial class PlayerShip : Sprite2D
 			dir = global.ShipDir;
 			Position = global.ShipPos;
 		}
+		if(global.playerHull != null)
+		{
+			inv = global.playerHull;
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,6 +54,7 @@ public partial class PlayerShip : Sprite2D
 		{
 			Save();
 		}
+		global.playerHull = inv;//this should use signals for the sake of expanability and performance;
 	}
 
 	public void Save()

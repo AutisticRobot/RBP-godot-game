@@ -11,6 +11,7 @@ public partial class Global : Node
 	//player ship data
 	public float ShipDir;//in dagrees
 	public Vector2 ShipPos;
+	public inventory playerHull;
 
 	//player doll data
 	public Vector2 DollPos;

@@ -27,30 +27,30 @@ Jewlery = 0
 
 [sub_resource type="Resource" id="Resource_j51il"]
 script = ExtResource("6_u6kax")
-Money = 0
-Food = 0
-Rum = 0
-Linens = 0
-Spices = 0
-Jewlery = 0
+Money = 1
+Food = 1
+Rum = 6
+Linens = 12
+Spices = 30
+Jewlery = 110
 
 [sub_resource type="Resource" id="Resource_oudmp"]
 script = ExtResource("6_u6kax")
-Money = 0
-Food = 0
-Rum = 0
-Linens = 0
-Spices = 0
-Jewlery = 0
+Money = 9999
+Food = 9999
+Rum = 500
+Linens = 100
+Spices = 20
+Jewlery = 10
 
 [sub_resource type="Resource" id="Resource_rqc1h"]
 script = ExtResource("6_u6kax")
-Money = 0
+Money = 1
 Food = 0
-Rum = 0
-Linens = 0
-Spices = 0
-Jewlery = 0
+Rum = 5
+Linens = 10
+Spices = 25
+Jewlery = 100
 
 [sub_resource type="Resource" id="Resource_feuvl"]
 script = ExtResource("5_vi5g5")

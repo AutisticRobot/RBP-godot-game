@@ -11,6 +11,8 @@
 
 - fill out save system calls.
 
+- learn how to make and use signals.
+
 *=======================================================*
 |                                                       |
 |            --------     TODO     --------             |
