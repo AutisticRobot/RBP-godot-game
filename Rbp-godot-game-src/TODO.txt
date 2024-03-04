@@ -13,6 +13,10 @@
 
 - learn how to make and use signals.
 
+- multi island funcinality
+
+- special item in shop compatability.
+
 *=======================================================*
 |                                                       |
 |            --------     TODO     --------             |
