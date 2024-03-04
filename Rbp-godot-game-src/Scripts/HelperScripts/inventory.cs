@@ -113,5 +113,18 @@ public partial class inventory : Resource
 			}
 		}
 	}
+
+	public Dictionary ToDic()
+	{
+		Dictionary tmp = new();
+		tmp.Add(0,Money);
+		tmp.Add(1,Food);
+		tmp.Add(2,Rum);
+		tmp.Add(3,Linens);
+		tmp.Add(4,Spices);
+		tmp.Add(5,Jewlery);
+
+		return tmp;
+	}
 }
  
