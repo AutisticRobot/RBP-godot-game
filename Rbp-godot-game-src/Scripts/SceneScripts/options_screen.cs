@@ -26,5 +26,7 @@ public partial class options_screen : Node2D
 	{
 		if(!SavePath.Text.EndsWith('/')) SavePath.Text += '/';
 		global.savePrefix = SavePath.Text;
+		global.Save();
+		global.Load();
 	}
 }

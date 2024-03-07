@@ -6,8 +6,8 @@ public partial class Global : Node
 {
 	//Save Options
 	public string savePrefix = "user://saves/sav-1/";
-	public SceneSave OptionsSave;
-	public Dictionary Options;
+	public SceneSave OptionsSave = new();
+	public Dictionary Options = new();
 
 
 	//player ship data
@@ -25,10 +25,23 @@ public partial class Global : Node
 	public override void _Ready()
 	{
 		OptionsSave.global = this;
-		OptionsSave.SaveFolder = "user://";
+		OptionsSave.SaveFolder = "";
 		OptionsSave.SaveFile = "Options.sav";
+
+		Load();
+	}
+
+	public void Save()
+	{
+		Options["savPre"] = savePrefix;
+		OptionsSave.Save(Options);
+
+	}
+	public void Load()
+	{
 		Options = (Dictionary)OptionsSave.Load();
 
+		savePrefix = (String)Options["savPre"];
 	}
 
 }
