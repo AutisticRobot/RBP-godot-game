@@ -19,15 +19,7 @@ public partial class PlayerDierama : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if(Input.IsActionJustPressed("ui_accept"))
-		{
-			if(shopMenu.Visible)
-			{
-				CloseShop();
-			}else{
-				OpenShop();
-			}
-		}
+		InputHandler();
 	}
 
 	public void OpenShop()
@@ -40,6 +32,24 @@ public partial class PlayerDierama : Node2D
 	{
 		hud.Visible = true;
 		shopMenu.Visible = false;
+	}
+
+	private void InputHandler()
+	{
+		if(Input.IsActionJustPressed("ui_accept"))
+		{
+			if(shopMenu.Visible)
+			{
+				CloseShop();
+			}else{
+				OpenShop();
+			}
+		}
+		if(Input.IsActionJustPressed("enterMenu"))
+		{
+			GetTree().ChangeSceneToFile("res://Scenes/Playspaces/options_screen.tscn");
+		}
+
 	}
 
 }
