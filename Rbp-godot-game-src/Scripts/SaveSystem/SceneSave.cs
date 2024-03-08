@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 [GlobalClass]
@@ -9,6 +10,7 @@ public partial class SceneSave : Resource
 
 
 	public Global global;
+	public Dictionary Data;
 
 
 	public bool Exists(bool dir)
@@ -22,7 +24,12 @@ public partial class SceneSave : Resource
 		return DirAccess.DirExistsAbsolute(path);
 	}
 
-	public void Save(Variant data)
+	
+	public void Save()// default function (default prameter dosent work on variants)
+	{
+		Save(Data);
+	}
+	public void Save(Variant inData)
 	{
 		if(!Exists(true))
 		{
@@ -30,7 +37,7 @@ public partial class SceneSave : Resource
 		}
 		
 		using FileAccess file = FileAccess.Open(global.savePrefix + SaveFolder + SaveFile, FileAccess.ModeFlags.Write);
-		file.StoreVar(data);
+		file.StoreVar(inData);
 		GD.Print(global.savePrefix + SaveFolder + SaveFile);
 	}
 	public Variant Load()
