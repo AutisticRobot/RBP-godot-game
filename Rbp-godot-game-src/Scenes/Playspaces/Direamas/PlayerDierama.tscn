@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bvonwlfpak3nx" path="res://Scenes/playerParts/diramaHud.tscn" id="2_8gvm5"]
 [ext_resource type="PackedScene" uid="uid://bv6i4kqm6opd7" path="res://Scenes/Playspaces/Direamas/GrayBoxDirama.tscn" id="2_gran4"]
 [ext_resource type="PackedScene" uid="uid://cpxrf3hii40p0" path="res://Scenes/Prefabs/simplePrefabs/ShopMenu.tscn" id="3_oq0pg"]
-[ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Assets/Placeholders/ShipPlaceholder1.png" id="5_n0evv"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="5_vi5g5"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="6_u6kax"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShipDoll.cs" id="9_u8sq5"]
+[ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_ur6o6"]
 
 [sub_resource type="Resource" id="Resource_endbr"]
 script = ExtResource("2_1ndpu")
@@ -75,7 +75,7 @@ saveFile = SubResource("Resource_endbr")
 
 [node name="PlayerLand" parent="." instance=ExtResource("1_b1t7y")]
 z_index = 100
-position = Vector2(540, 360)
+position = Vector2(102, -9.99997)
 scale = Vector2(0.1, 0.1)
 Acc = Vector2(50, 50)
 DecelDeltaCounterBal = 30.0
@@ -111,7 +111,8 @@ show_behind_parent = true
 position = Vector2(317, -769)
 
 [node name="Ship" type="Sprite2D" parent="."]
-position = Vector2(89, -103)
-texture = ExtResource("5_n0evv")
+position = Vector2(71, 29)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_ur6o6")
 script = ExtResource("9_u8sq5")
 inv = SubResource("Resource_gm18n")
