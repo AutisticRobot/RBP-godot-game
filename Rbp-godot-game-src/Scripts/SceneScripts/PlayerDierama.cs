@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Net;
 
-public partial class PlayerDierama : Node2D
+public partial class PlayerDierama : SceneMan
 {
 	public ShopInventory nearShop;
 	[Export] public Control hud;
@@ -51,5 +51,12 @@ public partial class PlayerDierama : Node2D
 		}
 
 	}
+
+
+	public override void _CloseScenePrep()
+	{
+		
+	}
+
 
 }

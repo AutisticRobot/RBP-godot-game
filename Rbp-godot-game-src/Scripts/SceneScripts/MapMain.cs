@@ -2,7 +2,7 @@ using Godot;
 using Godot.Collections;
 using System;
 
-public partial class MapMain : Node2D
+public partial class MapMain : SceneMan
 {
 	#region RESOURCES
 	[Export] public PlayerShip player;
@@ -37,6 +37,11 @@ public partial class MapMain : Node2D
 			data["shipinv"] = player.inv.ToDic();
 			saveFile.Save(data);
 		}
+	}
+
+	public override void _CloseScenePrep()
+	{
+		
 	}
 
 }

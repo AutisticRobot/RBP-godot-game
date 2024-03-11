@@ -1,9 +1,13 @@
 using Godot;
 using System;
 
-public partial class MainMenu : Node2D
+public partial class MainMenu : SceneMan
 {
 
 	
 
+	public override void _CloseScenePrep()
+	{
+		
+	}
 }

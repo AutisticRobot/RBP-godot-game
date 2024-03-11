@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class options_screen : Node2D
+public partial class options_screen : SceneMan
 {
 	[Export] public string lastScene;
 	[Export] public TextEdit SavePath;
@@ -28,5 +28,10 @@ public partial class options_screen : Node2D
 		global.savePrefix = SavePath.Text;
 		global.Save();
 		global.Load();
+	}
+
+	public override void _CloseScenePrep()
+	{
+		
 	}
 }

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Runtime.InteropServices;
 
 [GlobalClass]
 public partial class SceneMan : Node2D
@@ -14,5 +15,5 @@ public partial class SceneMan : Node2D
 		save.global = global;
 	}
 
-	extern public void _CloseScenePrep();
+	public virtual void _CloseScenePrep() {}
 }
