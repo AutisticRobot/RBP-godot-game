@@ -1,9 +1,14 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Collections.Generic;
 
 public partial class Global : Node
 {
+	public List<String> SceneList = new() {
+		"res://Scenes/Playspaces/MainMenu.tscn",
+	};
+
 	//Save Options
 	public string savePrefix = "user://saves/sav-1/";
 	public SceneSave OptionsSave = new();
@@ -42,6 +47,11 @@ public partial class Global : Node
 		Options = (Dictionary)OptionsSave.Load();
 
 		savePrefix = (String)Options["savPre"];
+	}
+
+	public void OpenScene(int ID)
+	{
+
 	}
 
 }
