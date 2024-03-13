@@ -7,6 +7,9 @@ public partial class Global : Node
 {
 	public List<String> SceneList = new() {
 		"res://Scenes/Playspaces/MainMenu.tscn",
+		"res://Scenes/Playspaces/options_screen.tscn",
+		"res://Scenes/Playspaces/Direamas/PlayerDierama.tscn",
+		"res://Scenes/Playspaces/Maps/OceanMap.tscn",
 	};
 
 	//Save Options
