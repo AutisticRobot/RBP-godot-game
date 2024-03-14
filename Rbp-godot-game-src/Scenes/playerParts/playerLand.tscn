@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cf3wbghnlb262"]
+[gd_scene load_steps=10 format=3 uid="uid://cf3wbghnlb262"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/playerLand.cs" id="1_pig2j"]
 [ext_resource type="Texture2D" uid="uid://dviuumctqbgu0" path="res://Assets/Placeholders/ARobot.png" id="2_5ye8j"]
@@ -27,6 +27,9 @@ region = Rect2(1638.02, 43.137, 113.61, 413.713)
 atlas = ExtResource("2_5ye8j")
 region = Rect2(1390.86, 124.144, 100.749, 387.99)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_spopj"]
+radius = 148.0
+
 [node name="PlayerLand" type="Node2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_pig2j")
@@ -42,8 +45,16 @@ texture = SubResource("AtlasTexture_5yj2j")
 position = Vector2(40, 304)
 texture = SubResource("AtlasTexture_6mhof")
 
+[node name="LegR2" type="Sprite2D" parent="Body/LegR"]
+position = Vector2(-8, 160)
+texture = SubResource("AtlasTexture_6mhof")
+
 [node name="LegL" type="Sprite2D" parent="Body"]
 position = Vector2(-144, 304)
+texture = SubResource("AtlasTexture_abek4")
+
+[node name="LegL2" type="Sprite2D" parent="Body/LegL"]
+position = Vector2(0, 172)
 texture = SubResource("AtlasTexture_abek4")
 
 [node name="ArmR" type="Sprite2D" parent="Body"]
@@ -53,3 +64,9 @@ texture = SubResource("AtlasTexture_l6w7n")
 [node name="ArmL" type="Sprite2D" parent="Body"]
 position = Vector2(-208, 56)
 texture = SubResource("AtlasTexture_6jldl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-56, 588)
+shape = SubResource("CircleShape2D_spopj")
