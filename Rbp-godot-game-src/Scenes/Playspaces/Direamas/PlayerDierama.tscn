@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d035eqqb0j6ig"]
+[gd_scene load_steps=20 format=3 uid="uid://d035eqqb0j6ig"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/PlayerDierama.cs" id="1_02cwl"]
 [ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="6_u6kax"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShipDoll.cs" id="9_u8sq5"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_ur6o6"]
+[ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="11_yyv6u"]
 
 [sub_resource type="Resource" id="Resource_endbr"]
 script = ExtResource("2_1ndpu")
@@ -67,6 +68,10 @@ Linens = 0
 Spices = 0
 Jewlery = 0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s55wh"]
+radius = 75.0
+height = 260.0
+
 [node name="PlayerDierama" type="Node2D" node_paths=PackedStringArray("hud", "shopMenu")]
 script = ExtResource("1_02cwl")
 hud = NodePath("PlayerLand/Camera2D/DiramaHud")
@@ -116,3 +121,10 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("9_ur6o6")
 script = ExtResource("9_u8sq5")
 inv = SubResource("Resource_gm18n")
+
+[node name="GroundButton" type="Area2D" parent="."]
+script = ExtResource("11_yyv6u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundButton"]
+position = Vector2(73, 45)
+shape = SubResource("CapsuleShape2D_s55wh")

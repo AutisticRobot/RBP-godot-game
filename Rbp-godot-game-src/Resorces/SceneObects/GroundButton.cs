@@ -9,4 +9,9 @@ public partial class GroundButton : Area2D
 	public override void _Process(double delta)
 	{
 	}
+
+	public void onAreaEnter()
+	{
+		
+	}
 }
