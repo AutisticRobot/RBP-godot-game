@@ -95,18 +95,18 @@ drag_right_margin = 0.32
 drag_bottom_margin = 0.33
 
 [node name="DiramaHud" parent="PlayerLand/Camera2D" instance=ExtResource("2_8gvm5")]
-offset_left = -5750.0
-offset_top = -3210.0
-offset_right = -5750.0
-offset_bottom = -3210.0
+offset_left = -9460.0
+offset_top = -5280.0
+offset_right = -9460.0
+offset_bottom = -5280.0
 scale = Vector2(10, 10)
 
 [node name="ShopMenu" parent="PlayerLand/Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("3_oq0pg")]
 visible = false
-offset_left = -5690.0
-offset_top = -2620.0
-offset_right = -5690.0
-offset_bottom = -2620.0
+offset_left = -9520.0
+offset_top = -5390.0
+offset_right = -9520.0
+offset_bottom = -5390.0
 scale = Vector2(10, 10)
 shop = SubResource("Resource_feuvl")
 player = NodePath("../../../Ship")

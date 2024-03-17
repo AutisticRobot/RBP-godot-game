@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cbyrmnivy13ks" path="res://Scenes/Prefabs/simplePrefabs/sceneChangeButton.tscn" id="4_2dr02"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fj3ka"]
-font_size = 50
+font_size = 85
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
@@ -14,31 +14,36 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_ah15m")
 
 [node name="MenuBackground" type="Sprite2D" parent="."]
-position = Vector2(578.5, 325)
-scale = Vector2(0.593229, 0.588889)
+position = Vector2(966, 544)
+scale = Vector2(0.996875, 0.994445)
 texture = ExtResource("1_uojjj")
 
 [node name="ButtionBoaard" type="Sprite2D" parent="."]
-position = Vector2(585, 98)
-scale = Vector2(1, 0.511719)
+position = Vector2(1049, 115)
+scale = Vector2(3.01562, 0.511719)
 texture = ExtResource("2_f5bt7")
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="ButtionBoaard"]
 offset_left = -213.0
-offset_top = -101.618
-offset_right = 221.0
-offset_bottom = 62.3817
+offset_top = -102.0
+offset_right = 666.0
+offset_bottom = 62.0
+scale = Vector2(0.5, 1)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
 text = "Endless Ocean"
 label_settings = SubResource("LabelSettings_fj3ka")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_group_ = true
 
 [node name="Option" parent="." instance=ExtResource("4_2dr02")]
-position = Vector2(593, 271)
+position = Vector2(983, 459)
 changToScene = "res://Scenes/Playspaces/options_screen.tscn"
 text = "Options"
 
 [node name="start" parent="." instance=ExtResource("4_2dr02")]
-position = Vector2(592, 444)
+position = Vector2(989, 708)
 changToScene = "res://Scenes/Playspaces/Direamas/PlayerDierama.tscn"
 text = "Ready?"
