@@ -6,7 +6,7 @@ public partial class options_screen : SceneMan
 	[Export] public string lastScene;
 	[Export] public TextEdit SavePath;
 
-	public Global global;
+	public new Global global;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
