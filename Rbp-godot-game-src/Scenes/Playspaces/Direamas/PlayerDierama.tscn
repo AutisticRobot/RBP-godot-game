@@ -122,9 +122,13 @@ texture = ExtResource("9_ur6o6")
 script = ExtResource("9_u8sq5")
 inv = SubResource("Resource_gm18n")
 
-[node name="GroundButton" type="Area2D" parent="."]
+[node name="GroundButton" type="Area2D" parent="Ship"]
+position = Vector2(-355, -145)
+scale = Vector2(5, 5)
 script = ExtResource("11_yyv6u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundButton"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/GroundButton"]
 position = Vector2(73, 45)
 shape = SubResource("CapsuleShape2D_s55wh")
+
+[connection signal="buttonPressed" from="Ship/GroundButton" to="Ship" method="onPress"]

@@ -23,4 +23,9 @@ public partial class ShipDoll : Node2D
 	{
 		global.playerHull = inv;//this should use signals for the sake of expanability and performance;
 	}
+
+	public void onPress()
+	{
+		GD.Print("Open Seaseme!");
+	}
 }

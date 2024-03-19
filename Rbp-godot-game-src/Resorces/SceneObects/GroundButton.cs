@@ -7,7 +7,7 @@ public partial class GroundButton : Area2D
 	[Signal] public delegate Signal buttonPressedEventHandler();
 
 	public bool PlayerOnButton = false;
-	public string inputInteract = "interact";
+	[Export] public string inputInteract = "interact";
 
 	
 	public override void _Ready()
