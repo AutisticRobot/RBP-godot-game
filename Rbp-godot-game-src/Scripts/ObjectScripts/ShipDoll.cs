@@ -3,8 +3,8 @@ using System;
 
 public partial class ShipDoll : Node2D
 {
-	[Export]
-	public inventory inv;
+	[Export] public inventory inv;
+	[Export] public int targeSceneID;
 
 
 	private Global global; 
@@ -27,5 +27,7 @@ public partial class ShipDoll : Node2D
 	public void onPress()
 	{
 		GD.Print("Open Seaseme!");
+
+		global.OpenScene(targeSceneID);
 	}
 }

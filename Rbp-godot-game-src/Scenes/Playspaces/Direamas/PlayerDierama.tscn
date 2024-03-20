@@ -121,6 +121,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("9_ur6o6")
 script = ExtResource("9_u8sq5")
 inv = SubResource("Resource_gm18n")
+targeSceneID = 3
 
 [node name="GroundButton" type="Area2D" parent="Ship"]
 position = Vector2(-355, -145)
