@@ -3,7 +3,7 @@ using System;
 
 public partial class options_screen : SceneMan
 {
-	[Export] public string lastScene;
+	[Export] public int lastSceneID;
 	[Export] public TextEdit SavePath;
 
 	public new Global global;
@@ -12,7 +12,7 @@ public partial class options_screen : SceneMan
 	public override void _Ready()
 	{
 		global = GetNode<Global>("/root/Global");
-		GetChild<sceneChanger>(0).changToScene = lastScene;
+		GetChild<sceneChanger>(0).changToSceneID = lastSceneID;
 		SavePath = GetNode<TextEdit>("savePrefix");
 		SavePath.Text = global.savePrefix;
 	}

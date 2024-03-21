@@ -5,11 +5,9 @@
 
 [node name="OptionsScreen" type="Node2D"]
 script = ExtResource("1_hvuab")
-lastScene = "res://Scenes/Playspaces/MainMenu.tscn"
 
 [node name="Back" parent="." instance=ExtResource("2_basv1")]
 position = Vector2(265, 70)
-changToScene = "res://Scenes/Playspaces/MainMenu.tscn"
 text = "<- back"
 
 [node name="savePrefix" type="TextEdit" parent="."]

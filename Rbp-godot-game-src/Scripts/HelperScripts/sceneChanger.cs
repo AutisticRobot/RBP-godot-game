@@ -4,12 +4,15 @@ using System;
 public partial class sceneChanger : Sprite2D
 {
 	[Export]
-	public string changToScene;
+	public int changToSceneID;
 	[Export]
 	public string text;
 
+	private Global global; 
+
     public override void _Ready()
     {
+		global = GetNode<Global>("/root/Global");
 		GetChild<Label>(0).Text = text;
     }
 
@@ -17,6 +20,6 @@ public partial class sceneChanger : Sprite2D
 
 	public void onButtonPress()
 	{
-		GetTree().ChangeSceneToFile(changToScene);
+		global.OpenScene(changToSceneID);
 	}
 }

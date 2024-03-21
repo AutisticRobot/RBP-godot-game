@@ -61,5 +61,5 @@ text = "Jewlery:"
 [node name="start" parent="." instance=ExtResource("2_2s1w5")]
 position = Vector2(1013, 43)
 scale = Vector2(0.5, 0.256)
-changToScene = "res://Scenes/Playspaces/Direamas/PlayerDierama.tscn"
+changToSceneID = 2
 text = "To Dirama"

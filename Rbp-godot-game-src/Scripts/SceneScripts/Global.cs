@@ -55,6 +55,7 @@ public partial class Global : Node
 	public void OpenScene(int ID)
 	{
 		GD.Print("Go To Scene:" + SceneList[ID]);
+		GetTree().ChangeSceneToFile(SceneList[ID]);
 	}
 
 }
