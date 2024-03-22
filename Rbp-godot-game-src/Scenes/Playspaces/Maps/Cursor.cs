@@ -11,6 +11,9 @@ public partial class Cursor : Sprite2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		Position = GetViewport().GetMousePosition() * new Vector2(10,10);
+		if(Input.IsActionPressed("L-click"))
+		{
+			Position = GetViewport().GetMousePosition() * new Vector2(10,10);
+		}
 	}
 }

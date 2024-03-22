@@ -31,7 +31,7 @@ public partial class MapMain : SceneMan
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if(Input.IsActionJustPressed("ui_accept"))
+		if(Input.IsActionJustPressed("Save"))
 		{
 			data["shipPos"] = player.Position;
 			data["shipinv"] = player.inv.ToDic();
