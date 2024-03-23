@@ -1,26 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://brhosk7gg0d81"]
+[gd_scene load_steps=10 format=3 uid="uid://brhosk7gg0d81"]
 
 [ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Assets/Placeholders/ShipPlaceholder1.png" id="1_d8swp"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="2_klbbm"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerShip.cs" id="2_wk8c6"]
+[ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="3_mwkln"]
 [ext_resource type="Texture2D" uid="uid://d3686dp3xa2a6" path="res://Assets/Placeholders/ArrowG.png" id="3_pxyi1"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ArrowG.cs" id="4_iq5ar"]
+
+[sub_resource type="Resource" id="Resource_iuffe"]
+script = ExtResource("2_klbbm")
+Money = 0
+Food = 0
+Rum = 0
+Linens = 0
+Spices = 0
+Jewlery = 0
+
+[sub_resource type="Resource" id="Resource_b0qps"]
+script = ExtResource("3_mwkln")
+SaveFolder = ""
+SaveFile = ""
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_28l88"]
 radius = 270.185
 
-[node name="PlayerShip" type="Sprite2D"]
+[node name="PlayerShip" type="Node2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("2_wk8c6")
+player = true
+debug = true
+inv = SubResource("Resource_iuffe")
+save = SubResource("Resource_b0qps")
+
+[node name="ShipSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_d8swp")
-script = ExtResource("2_wk8c6")
 
 [node name="ArrowG" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(0, -512)
+position = Vector2(0, -60)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_pxyi1")
 script = ExtResource("4_iq5ar")
-Distance = 600
+Distance = 60
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.1, 0.1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 9.09495e-13)

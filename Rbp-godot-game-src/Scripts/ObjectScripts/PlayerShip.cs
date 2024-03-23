@@ -4,7 +4,7 @@ using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 
-public partial class PlayerShip : Sprite2D
+public partial class PlayerShip : Node2D
 {
 	[Export] public bool player;
 	[Export] public bool debug;

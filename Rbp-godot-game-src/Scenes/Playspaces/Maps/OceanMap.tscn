@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://18bfxerx8qpp"]
+[gd_scene load_steps=17 format=3 uid="uid://18bfxerx8qpp"]
 
 [ext_resource type="PackedScene" uid="uid://brhosk7gg0d81" path="res://Scenes/playerParts/ship_placeholder_1.tscn" id="1_r5ep4"]
 [ext_resource type="Script" path="res://Scripts/SceneScripts/MapMain.cs" id="1_sfy0l"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_p14fm"]
 [ext_resource type="PackedScene" uid="uid://dqjgej3qvkd4c" path="res://Scenes/Prefabs/simplePrefabs/LootFloat.tscn" id="5_2xt25"]
 [ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="6_tni2x"]
+[ext_resource type="Script" path="res://Scenes/Playspaces/Maps/NavMan.cs" id="6_xkesc"]
 [ext_resource type="Script" path="res://Scenes/Playspaces/Maps/Cursor.cs" id="7_cy6ny"]
 
 [sub_resource type="Resource" id="Resource_cr3kr"]
@@ -52,8 +53,8 @@ data = {}
 
 [node name="PlayerShip" parent="." instance=ExtResource("1_r5ep4")]
 z_index = 1
+position = Vector2(960, 540)
 scale = Vector2(1, 1)
-player = true
 brakeSpeed = 3.0
 Acc = 1.0
 TurnAcc = 1.0
@@ -63,32 +64,36 @@ inv = SubResource("Resource_lad2y")
 save = SubResource("Resource_uw4md")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerShip"]
-zoom = Vector2(0.1, 0.1)
+position = Vector2(-3.05176e-05, 0)
 
 [node name="Control" parent="PlayerShip/Camera2D" node_paths=PackedStringArray("ship") instance=ExtResource("2_woff1")]
-offset_left = -5740.0
-offset_top = -3220.0
-offset_right = -5740.0
-offset_bottom = -3220.0
-scale = Vector2(10, 10)
+offset_left = -722.0
+offset_top = -448.0
+offset_right = -722.0
+offset_bottom = -448.0
 ship = NodePath("../..")
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerShip/Camera2D"]
-position = Vector2(10293, 5423)
+[node name="Navigation" type="Node2D" parent="." node_paths=PackedStringArray("PlayerShip")]
+script = ExtResource("6_xkesc")
+PlayerShip = NodePath("../PlayerShip")
+
+[node name="Cursor" type="Sprite2D" parent="Navigation" node_paths=PackedStringArray("nav")]
+position = Vector2(-5.96046e-08, 2.38419e-07)
+scale = Vector2(0.1, 0.1)
 texture = SubResource("AtlasTexture_eup1r")
-offset = Vector2(-10259, -5389)
+offset = Vector2(7.00195, -8.99902)
 script = ExtResource("7_cy6ny")
+nav = NodePath("..")
 
 [node name="OceanMapV1" type="Sprite2D" parent="."]
 show_behind_parent = true
-scale = Vector2(100, 100)
+scale = Vector2(10, 10)
 texture = ExtResource("2_guiuy")
 
 [node name="GrayBoxIsleV1" parent="." instance=ExtResource("3_0yxn1")]
-position = Vector2(3692, -5851)
-scale = Vector2(10, 10)
+position = Vector2(3058, -534)
 
-[node name="Sprite2D" parent="." instance=ExtResource("5_2xt25")]
-position = Vector2(4494, 2156)
+[node name="LootFloat" parent="." instance=ExtResource("5_2xt25")]
+position = Vector2(2205, 1748)
 scale = Vector2(2, 2)
 inv = SubResource("Resource_geylh")
