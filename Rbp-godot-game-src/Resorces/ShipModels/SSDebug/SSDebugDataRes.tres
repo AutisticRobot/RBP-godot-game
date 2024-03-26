@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="shipModelData" load_steps=6 format=3 uid="uid://lh76rxh01ag7"]
+
+[ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Resorces/ShipModels/SSDebug/ShipPlaceholder1.png" id="1_mdpx6"]
+[ext_resource type="Script" path="res://Resorces/ShipModels/shipModelData.cs" id="1_uaen8"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="2_i33n3"]
+
+[sub_resource type="Resource" id="Resource_wibis"]
+script = ExtResource("2_i33n3")
+Money = 0
+Food = 1
+Rum = 1
+Linens = 5
+Spices = 3
+Jewlery = 1
+
+[sub_resource type="Resource" id="Resource_sg8sb"]
+script = ExtResource("2_i33n3")
+Money = 0
+Food = 3
+Rum = 5
+Linens = 1
+Spices = 2
+Jewlery = 10
+
+[resource]
+script = ExtResource("1_uaen8")
+icoSprite = ExtResource("1_mdpx6")
+brakeSpeed = 5.0
+Acc = 1.0
+TurnAcc = 1.0
+Minspeed = -200.0
+Maxspeed = 300.0
+maxHealth = 2000
+maxWeight = 9999
+maxVolume = 9999
+LoadWeight = SubResource("Resource_sg8sb")
+LoadVolume = SubResource("Resource_wibis")
