@@ -1,10 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cftkdghcpt8w8"]
+[gd_scene load_steps=5 format=3 uid="uid://cftkdghcpt8w8"]
 
 [ext_resource type="Texture2D" uid="uid://dccyvd0xtu1rc" path="res://Assets/Placeholders/Shop0.png" id="1_o8hj5"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/shopObject.cs" id="2_k8rat"]
+[ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="3_d3twc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e31sp"]
+size = Vector2(816, 632)
 
 [node name="ShopTemplate0" type="Sprite2D"]
 position = Vector2(-1, -1)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_o8hj5")
 script = ExtResource("2_k8rat")
+
+[node name="GroundButton" type="Area2D" parent="."]
+script = ExtResource("3_d3twc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundButton"]
+position = Vector2(36, 44)
+shape = SubResource("RectangleShape2D_e31sp")
+
+[connection signal="buttonPressed" from="GroundButton" to="." method="onShopOpen"]

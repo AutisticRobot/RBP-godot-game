@@ -132,4 +132,5 @@ script = ExtResource("11_yyv6u")
 position = Vector2(73, 45)
 shape = SubResource("CapsuleShape2D_s55wh")
 
+[connection signal="shopOpen" from="GrayBoxDirama" to="." method="OpenShop"]
 [connection signal="buttonPressed" from="Ship/GroundButton" to="Ship" method="onPress"]

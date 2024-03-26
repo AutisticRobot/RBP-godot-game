@@ -22,9 +22,9 @@ public partial class PlayerDierama : SceneMan
 		InputHandler();
 	}
 
-	public void OpenShop()
+	public void OpenShop(ShopInventory shopInv)
 	{
-		//shopMenu.shop = nearShop;// uncomment this when near shop is updated;
+		shopMenu.shop = shopInv;
 		hud.Visible = false;
 		shopMenu.Visible = true;
 	}
@@ -36,18 +36,14 @@ public partial class PlayerDierama : SceneMan
 
 	private void InputHandler()
 	{
-		if(Input.IsActionJustPressed("ui_accept"))
+		if(Input.IsActionJustPressed("enterMenu"))
 		{
 			if(shopMenu.Visible)
 			{
 				CloseShop();
 			}else{
-				OpenShop();
+				GetTree().ChangeSceneToFile("res://Scenes/Playspaces/options_screen.tscn");
 			}
-		}
-		if(Input.IsActionJustPressed("enterMenu"))
-		{
-			GetTree().ChangeSceneToFile("res://Scenes/Playspaces/options_screen.tscn");
 		}
 
 	}
@@ -57,6 +53,7 @@ public partial class PlayerDierama : SceneMan
 	{
 		
 	}
+
 
 
 }

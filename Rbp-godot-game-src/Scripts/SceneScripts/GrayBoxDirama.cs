@@ -1,11 +1,8 @@
 using Godot;
 using System;
 
-public partial class shopObject : Sprite2D
+public partial class GrayBoxDirama : Node2D
 {
-	[Export]
-	public ShopInventory inv;
-
 	[Signal] public delegate Signal shopOpenEventHandler(ShopInventory shopInv);
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -17,8 +14,9 @@ public partial class shopObject : Sprite2D
 	{
 	}
 
-	public void onShopOpen()
+	public void onShopOpen(ShopInventory shopInv)
 	{
-		EmitSignal(SignalName.shopOpen, inv);
+
+		EmitSignal(SignalName.shopOpen, shopInv);
 	}
 }
