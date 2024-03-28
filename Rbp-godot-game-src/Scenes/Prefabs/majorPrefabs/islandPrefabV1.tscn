@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ct77st4wccs35"]
+[gd_scene load_steps=5 format=3 uid="uid://ct77st4wccs35"]
 
 [ext_resource type="Texture2D" uid="uid://bxhnl6qgu8c36" path="res://Assets/Placeholders/GrayBoxIsleV1.png" id="1_glkvu"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/island.cs" id="2_mcg2j"]
+[ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="3_jyyde"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l46yo"]
-radius = 261.008
+[sub_resource type="CircleShape2D" id="CircleShape2D_fiw2l"]
+radius = 245.1
 
 [node name="GrayBoxIsleV1" type="Sprite2D"]
 position = Vector2(-1, -2)
@@ -12,8 +13,10 @@ texture = ExtResource("1_glkvu")
 offset = Vector2(88, 119)
 script = ExtResource("2_mcg2j")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="GroundButton" type="Area2D" parent="."]
+script = ExtResource("3_jyyde")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 2)
-shape = SubResource("CircleShape2D_l46yo")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundButton"]
+shape = SubResource("CircleShape2D_fiw2l")
+
+[connection signal="buttonPressed" from="GroundButton" to="." method="onDock"]
