@@ -14,6 +14,7 @@ public partial class Global : Node
 
 	//Save Options
 	public string savePrefix = "user://saves/sav-1/";
+	public string saveIslandFolder;
 	public SceneSave OptionsSave = new();
 	public Dictionary Options = new();
 
