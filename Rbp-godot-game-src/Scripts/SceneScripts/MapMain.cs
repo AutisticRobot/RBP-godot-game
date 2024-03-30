@@ -1,5 +1,6 @@
 using Godot;
 using Godot.Collections;
+using Microsoft.Win32.SafeHandles;
 using System;
 
 public partial class MapMain : SceneMan
@@ -33,15 +34,26 @@ public partial class MapMain : SceneMan
 	{
 		if(Input.IsActionJustPressed("Save"))
 		{
-			data["shipPos"] = player.Position;
-			data["shipinv"] = player.inv.ToDic();
-			saveFile.Save(data);
+			save();
 		}
 	}
 
 	public override void _CloseScenePrep()
 	{
 		
+	}
+
+	public void playerDock(string IslandID)
+	{
+		saveFile.global.OpenScene(2);
+	}
+
+	public void save()
+	{
+			data["shipPos"] = player.Position;
+			data["shipinv"] = player.inv.ToDic();
+			saveFile.Save(data);
+
 	}
 
 }

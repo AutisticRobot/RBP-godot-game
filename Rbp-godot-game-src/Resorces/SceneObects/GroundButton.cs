@@ -28,14 +28,14 @@ public partial class GroundButton : Area2D
 
 	public void onAreaEnter(Area2D enteredBody)
 	{
-		if(enteredBody.Name == "PlayerArea")
+		if(true)//enteredBody.Name == TargetName)
 		{
 			PlayerOnButton = true;
 		}
 	}
 	public void onAreaExit(Area2D enteredBody)
 	{
-		if(enteredBody.Name == "PlayerArea")
+		if(true)//enteredBody.Name == TargetName)
 		{
 			PlayerOnButton = false;
 		}

@@ -98,3 +98,5 @@ islandID = "GBI001"
 position = Vector2(2205, 1748)
 scale = Vector2(2, 2)
 inv = SubResource("Resource_geylh")
+
+[connection signal="dock" from="GrayBoxIsleV1" to="." method="playerDock"]

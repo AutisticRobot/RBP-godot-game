@@ -13,5 +13,6 @@ public partial class island : Sprite2D
 	public void onDock()
 	{
 		EmitSignal(SignalName.dock, islandID);
+		GD.Print("dock at island");
 	}
 }
