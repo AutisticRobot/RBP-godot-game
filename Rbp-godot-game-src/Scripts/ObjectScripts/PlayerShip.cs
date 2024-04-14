@@ -84,10 +84,9 @@ public partial class PlayerShip : Node2D
 		}
 		if(Input.IsActionPressed("Brake"))
 		{
-			if(-brakeSpeed <= speed && speed <= brakeSpeed){speed = 0;}
-			if(speed < 0){brakeSpeed = -brakeSpeed;}
-			if(speed == 0){speed += brakeSpeed;}
-			speed -= brakeSpeed;
+			if(-brakeSpeed <= speed && speed <= brakeSpeed){speed = 0;}//set speed to 0 when braking at low speeds
+			if(speed > 0){speed -= brakeSpeed;}//brake when reversing
+			if(speed < 0){speed += brakeSpeed;}//brake when going forwoard
 			
 		}
 		speed = Math.Clamp(speed, Minspeed, Maxspeed);

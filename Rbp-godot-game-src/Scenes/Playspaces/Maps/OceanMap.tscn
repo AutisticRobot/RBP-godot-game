@@ -58,8 +58,9 @@ scale = Vector2(1, 1)
 brakeSpeed = 3.0
 Acc = 1.0
 TurnAcc = 1.0
-Minspeed = -200.0
+Minspeed = -10.0
 Maxspeed = 200.0
+dir = 180.0
 inv = SubResource("Resource_lad2y")
 save = SubResource("Resource_uw4md")
 
