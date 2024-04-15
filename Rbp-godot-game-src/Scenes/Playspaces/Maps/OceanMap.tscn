@@ -9,8 +9,8 @@
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_p14fm"]
 [ext_resource type="PackedScene" uid="uid://dqjgej3qvkd4c" path="res://Scenes/Prefabs/simplePrefabs/LootFloat.tscn" id="5_2xt25"]
 [ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="6_tni2x"]
-[ext_resource type="Script" path="res://Scenes/Playspaces/Maps/NavMan.cs" id="6_xkesc"]
-[ext_resource type="Script" path="res://Scenes/Playspaces/Maps/Cursor.cs" id="7_cy6ny"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/NavMan.cs" id="6_xkesc"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/Cursor.cs" id="7_cy6ny"]
 
 [sub_resource type="Resource" id="Resource_cr3kr"]
 resource_local_to_scene = true
@@ -51,16 +51,16 @@ player = NodePath("PlayerShip")
 saveFile = SubResource("Resource_cr3kr")
 data = {}
 
-[node name="PlayerShip" parent="." instance=ExtResource("1_r5ep4")]
+[node name="PlayerShip" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("1_r5ep4")]
 z_index = 1
 position = Vector2(960, 540)
 scale = Vector2(1, 1)
+cursor = NodePath("../Navigation/Cursor")
 brakeSpeed = 3.0
 Acc = 1.0
 TurnAcc = 1.0
 Minspeed = -10.0
 Maxspeed = 200.0
-dir = 180.0
 inv = SubResource("Resource_lad2y")
 save = SubResource("Resource_uw4md")
 

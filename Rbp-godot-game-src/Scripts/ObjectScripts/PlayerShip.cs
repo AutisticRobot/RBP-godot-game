@@ -6,6 +6,8 @@ using System.ComponentModel;
 
 public partial class PlayerShip : Node2D
 {
+	[Export] public Cursor cursor;
+
 	[Export] public bool player;
 	[Export] public bool debug;
 
@@ -27,7 +29,6 @@ public partial class PlayerShip : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		dir = -dir + 180;
 		if(player)
 		{
 			global = GetNode<Global>("/root/Global");
@@ -89,6 +90,10 @@ public partial class PlayerShip : Node2D
 			if(speed < 0){speed += brakeSpeed;}//brake when going forwoard
 			
 		}
+		if(Input.IsActionPressed("L-click"))
+		{
+			MoveTowardCursor();
+		}
 		speed = Math.Clamp(speed, Minspeed, Maxspeed);
 	}
 
@@ -106,6 +111,14 @@ public partial class PlayerShip : Node2D
 		inv["Jewlery"] += loot.inv["Jewlery"];
 		loot.QueueFree();
 		}
+	}
+
+	public void MoveTowardCursor()
+	{
+		Vector2 relTar = (cursor.Position - Position);//.Normalized();
+
+		dir = (float)(Math.Atan2(relTar.X, relTar.Y) * (180/Math.PI));
+
 	}
 
 }
