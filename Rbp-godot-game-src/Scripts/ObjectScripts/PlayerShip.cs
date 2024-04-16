@@ -67,19 +67,19 @@ public partial class PlayerShip : Node2D
 
 	private void Pinput()
 	{
-		if(Input.IsActionPressed("ui_up"))
+		if(Input.IsActionPressed("Accelerate"))
 		{
 			speed += Acc;
 		}
-		if(Input.IsActionPressed("ui_down"))
+		if(Input.IsActionPressed("Reverse"))
 		{
 			speed -= Acc;
 		}
-		if(Input.IsActionPressed("ui_left"))
+		if(Input.IsActionPressed("Tccw"))
 		{
 			dir += TurnAcc;
 		}
-		if(Input.IsActionPressed("ui_right"))
+		if(Input.IsActionPressed("Tcw"))
 		{
 			dir -= TurnAcc;
 		}
