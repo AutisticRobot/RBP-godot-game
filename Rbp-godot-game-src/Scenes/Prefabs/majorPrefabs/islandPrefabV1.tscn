@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ct77st4wccs35"]
 
-[ext_resource type="Texture2D" uid="uid://bxhnl6qgu8c36" path="res://Assets/Placeholders/GrayBoxIsleV1.png" id="1_glkvu"]
+[ext_resource type="Texture2D" uid="uid://bxhnl6qgu8c36" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxIsleV1.png" id="1_glkvu"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/island.cs" id="2_mcg2j"]
 [ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="3_jyyde"]
 

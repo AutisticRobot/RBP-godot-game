@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxhnl6qgu8c36"
-path="res://.godot/imported/GrayBoxIsleV1.png-68417818477a07ecd0303fc77bb8e083.ctex"
+path="res://.godot/imported/GrayBoxIsleV1.png-8f9591f023b1df53271787fe2a9bd269.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Placeholders/GrayBoxIsleV1.png"
-dest_files=["res://.godot/imported/GrayBoxIsleV1.png-68417818477a07ecd0303fc77bb8e083.ctex"]
+source_file="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxIsleV1.png"
+dest_files=["res://.godot/imported/GrayBoxIsleV1.png-8f9591f023b1df53271787fe2a9bd269.ctex"]
 
 [params]
 
