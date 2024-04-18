@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class GrayBoxDirama : Node2D
+public partial class GrayBoxDirama : IslandClass
 {
 	[Signal] public delegate Signal shopOpenEventHandler(ShopInventory shopInv);
 	// Called when the node enters the scene tree for the first time.
