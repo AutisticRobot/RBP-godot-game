@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bv6i4kqm6opd7"]
+[gd_scene load_steps=11 format=3 uid="uid://bv6i4kqm6opd7"]
 
 [ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Assets/Placeholders/GrayBoxIslandDirama.png" id="1_oetnv"]
 [ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_y01yf"]
 [ext_resource type="PackedScene" uid="uid://cftkdghcpt8w8" path="res://Scenes/Prefabs/simplePrefabs/ShopTemplate0.tscn" id="2_vljx4"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="3_2d5d7"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_bx5vy"]
+[ext_resource type="Texture2D" uid="uid://b4nk1wa0hfo3c" path="res://icon.svg" id="6_s6ch2"]
 
 [sub_resource type="Resource" id="Resource_j51il"]
 script = ExtResource("4_bx5vy")
@@ -39,8 +40,9 @@ inv = SubResource("Resource_oudmp")
 sell = SubResource("Resource_rqc1h")
 buy = SubResource("Resource_j51il")
 
-[node name="GrayBoxDirama" type="Node2D"]
+[node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee")]
 script = ExtResource("1_y01yf")
+playerStandee = NodePath("PlayerStart")
 
 [node name="GrayBoxIslandDirama" type="Sprite2D" parent="."]
 position = Vector2(-1, 1)
@@ -50,5 +52,9 @@ texture = ExtResource("1_oetnv")
 [node name="Shop0" parent="." instance=ExtResource("2_vljx4")]
 position = Vector2(1030, -304)
 inv = SubResource("Resource_mw23p")
+
+[node name="PlayerStart" type="Sprite2D" parent="."]
+position = Vector2(-45, 822)
+texture = ExtResource("6_s6ch2")
 
 [connection signal="shopOpen" from="Shop0" to="." method="onShopOpen"]

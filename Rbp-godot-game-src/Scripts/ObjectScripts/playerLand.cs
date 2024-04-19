@@ -18,7 +18,7 @@ public partial class playerLand : Node2D
 	public override void _Ready()
 	{
 		global = GetNode<Global>("/root/Global");
-		Position = global.DollPos;
+		//Position = global.DollPos;
 		Decel.X = (float)Math.Pow(Decel.X,DecelDeltaCounterBal);
 		Decel.Y = (float)Math.Pow(Decel.Y,DecelDeltaCounterBal);
 	}

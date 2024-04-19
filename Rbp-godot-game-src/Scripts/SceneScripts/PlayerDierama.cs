@@ -9,11 +9,18 @@ public partial class PlayerDierama : SceneMan
 	[Export] public Control hud;
 	[Export] public ShopMenu shopMenu;
 	[Export] public SceneSave saveFile;
+	[Export] public playerLand player;
+	[Export] public Vector2 playerSartSpot;
+	[Export] public IslandClass localIsland;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		nearShop = GetNode<shopObject>("GrayBoxDirama/Shop0").inv;
+		//nearShop = GetNode<shopObject>("GrayBoxDirama/Shop0").inv;//--------------------------------------------------NEEDS TO BE CHANGED!!!!!!!!
+
+		playerSartSpot = localIsland.GetPlayerStartPos();
+
+		player.Position = playerSartSpot;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
