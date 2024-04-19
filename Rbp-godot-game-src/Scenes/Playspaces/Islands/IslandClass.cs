@@ -8,6 +8,12 @@ public partial class IslandClass : Node2D
 	public virtual Vector2 GetPlayerStartPos()
 	{
 		return playerStandee.GlobalPosition;
+
+	}
+
+	public void hideStandee()
+	{
+		playerStandee.Visible = false;
 	}
 
 }
