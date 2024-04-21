@@ -13,7 +13,6 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Cursor.cs" id="7_cy6ny"]
 
 [sub_resource type="Resource" id="Resource_cr3kr"]
-resource_local_to_scene = true
 script = ExtResource("2_8fxjo")
 SaveFolder = "enviroments/"
 SaveFile = "Map.sav"

@@ -13,6 +13,11 @@ public partial class SceneSave : Resource
 	public Dictionary Data;
 
 
+	public string Path()
+	{
+		return global.savePrefix + SaveFolder;
+	}
+
 	public bool Exists(bool dir)
 	{
 		string path = global.savePrefix + SaveFolder;

@@ -15,18 +15,7 @@ public partial class MapMain : SceneMan
 	public override void _Ready()
 	{
 		saveFile.global = GetNode<Global>("/root/Global");
-		data = (Dictionary)saveFile.Load();
-		player.Position = (Vector2)data["shipPos"];
-		if((Dictionary)data["shipinv"] != null)
-		{
-			Dictionary temp = (Dictionary)data["shipinv"];
-			player.inv[0] = (int)temp[0];
-			player.inv[1] = (int)temp[1];
-			player.inv[2] = (int)temp[2];
-			player.inv[3] = (int)temp[3];
-			player.inv[4] = (int)temp[4];
-			player.inv[5] = (int)temp[5];
-		}
+		load();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,6 +29,7 @@ public partial class MapMain : SceneMan
 
 	public override void _CloseScenePrep()
 	{
+		save();
 		
 	}
 
@@ -53,6 +43,22 @@ public partial class MapMain : SceneMan
 			data["shipPos"] = player.Position;
 			data["shipinv"] = player.inv.ToDic();
 			saveFile.Save(data);
+
+	}
+
+	public void load()
+	{
+		data = (Dictionary)saveFile.Load();
+
+
+		player.Position = (Vector2)data["shipPos"];
+
+		foreach(var i in (Dictionary)data["shipinv"])
+		{
+			player.inv[(int)i.Key] = (int)i.Value;
+
+		}
+
 
 	}
 
