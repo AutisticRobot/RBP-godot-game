@@ -12,11 +12,14 @@ public partial class PlayerDierama : SceneMan
 	[Export] public playerLand player;
 	[Export] public Vector2 playerSartSpot;
 	[Export] public IslandClass localIsland;
+	[Export] public string IslandDiramaUID;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
-	{
-		//nearShop = GetNode<shopObject>("GrayBoxDirama/Shop0").inv;//--------------------------------------------------NEEDS TO BE CHANGED!!!!!!!!
+	{	
+		localIsland = loadIslandToScene(IslandDiramaUID);
+			//nearShop = GetNode<shopObject>("GrayBoxDirama/Shop0").inv;//--------------------------------------------------NEEDS TO BE CHANGED!!!!!!!!
+
 
 		playerSartSpot = localIsland.GetPlayerStartPos();
 
@@ -53,6 +56,20 @@ public partial class PlayerDierama : SceneMan
 			}
 		}
 
+	}
+
+	public IslandClass loadIslandToScene(string IslandSceneUID)
+	{
+		string IslandPath = ResourceUid.GetIdPath(ResourceUid.TextToId(IslandDiramaUID));
+
+		Node Island = ResourceLoader.Load<PackedScene>(IslandPath).Instantiate();
+
+		AddChild(Island);
+
+		GD.Print("Island Loaded");
+		GD.Print(Island.Name);
+
+		return (IslandClass)Island;
 	}
 
 
