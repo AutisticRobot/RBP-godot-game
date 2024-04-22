@@ -53,11 +53,8 @@ public partial class MapMain : SceneMan
 
 		player.Position = (Vector2)data["shipPos"];
 
-		foreach(var i in (Dictionary)data["shipinv"])
-		{
-			player.inv[(int)i.Key] = (int)i.Value;
 
-		}
+		player.inv.FromDic((Dictionary)data["shipinv"]);
 
 
 	}

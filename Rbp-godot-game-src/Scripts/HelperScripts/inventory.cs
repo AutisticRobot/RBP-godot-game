@@ -126,5 +126,15 @@ public partial class inventory : Resource
 
 		return tmp;
 	}
+
+	public void FromDic(Dictionary inDic)
+	{
+
+		foreach(var i in inDic)
+		{
+			this[(int)i.Key] = (int)i.Value;
+		}
+
+	}
 }
  
