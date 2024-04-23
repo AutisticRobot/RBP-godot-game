@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv6i4kqm6opd7"]
+[gd_scene load_steps=14 format=3 uid="uid://bv6i4kqm6opd7"]
 
 [ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Assets/Placeholders/GrayBoxIslandDirama.png" id="1_oetnv"]
 [ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_y01yf"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="3_2d5d7"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_bx5vy"]
 [ext_resource type="Texture2D" uid="uid://b4nk1wa0hfo3c" path="res://icon.svg" id="6_s6ch2"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/portCaptain.cs" id="7_j67o5"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_fv6ac"]
+[ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_ar8t7"]
 
 [sub_resource type="Resource" id="Resource_j51il"]
 script = ExtResource("4_bx5vy")
@@ -56,5 +59,20 @@ inv = SubResource("Resource_mw23p")
 [node name="PlayerStart" type="Sprite2D" parent="."]
 position = Vector2(-45, 822)
 texture = ExtResource("6_s6ch2")
+
+[node name="PortCaptian" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("7_j67o5")
+
+[node name="DockSpotA" type="Node2D" parent="PortCaptian"]
+modulate = Color(0.917647, 0.619608, 0.462745, 0.407843)
+position = Vector2(-207, 819)
+rotation = -3.14159
+script = ExtResource("8_fv6ac")
+
+[node name="Sprite2D" type="Sprite2D" parent="PortCaptian/DockSpotA"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_ar8t7")
 
 [connection signal="shopOpen" from="Shop0" to="." method="onShopOpen"]
