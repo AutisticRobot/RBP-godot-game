@@ -12,7 +12,7 @@ public partial class PlayerDierama : SceneMan
 	[Export] public playerLand player;
 	[Export] public ShipDoll shipDoll;
 	[Export] public Vector2 playerSartSpot;
-	[Export] public IslandClass localIsland;
+			 public IslandClass localIsland;
 	[Export] public string IslandDiramaUID;
 
 	// Called when the node enters the scene tree for the first time.

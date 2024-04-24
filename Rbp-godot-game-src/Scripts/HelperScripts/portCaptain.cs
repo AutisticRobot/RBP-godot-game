@@ -4,16 +4,19 @@ using System.Collections.Generic;
 
 public partial class portCaptain : Control
 {
-    public List<DockSpot> allDocks;
+    public List<Node> allDocks;
 	public override void _Ready()
 	{
+        allDocks = new();
+        allDocks.EnsureCapacity(4);
         Visible = false;
 
         foreach(Node child in GetChildren())
         {
+            GD.Print(child.GetClass());
             if(child.GetType().ToString() == "DockSpot")
             {
-                allDocks.Add((DockSpot)child);
+                allDocks.Add(GetChild(child.GetIndex()));
             }
         }
 	}
@@ -24,8 +27,11 @@ public partial class portCaptain : Control
 
         if(length > 0)
         {
-            return allDocks[length];
+        
+            GD.Print("Dock found");
+            return (DockSpot)allDocks[length -1];
         }
+        GD.Print("No Docks?");
         return null;
     }
 }
