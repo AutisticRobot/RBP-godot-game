@@ -10,6 +10,7 @@ public partial class PlayerDierama : SceneMan
 	[Export] public ShopMenu shopMenu;
 	[Export] public SceneSave saveFile;
 	[Export] public playerLand player;
+	[Export] public ShipDoll shipDoll;
 	[Export] public Vector2 playerSartSpot;
 	[Export] public IslandClass localIsland;
 	[Export] public string IslandDiramaUID;
@@ -24,6 +25,10 @@ public partial class PlayerDierama : SceneMan
 		playerSartSpot = localIsland.GetPlayerStartPos();
 
 		player.Position = playerSartSpot;
+
+		shipDoll.Position = localIsland.GetDockingPos();
+
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

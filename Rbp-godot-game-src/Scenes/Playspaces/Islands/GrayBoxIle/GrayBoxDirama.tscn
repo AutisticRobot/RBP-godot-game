@@ -43,9 +43,10 @@ inv = SubResource("Resource_oudmp")
 sell = SubResource("Resource_rqc1h")
 buy = SubResource("Resource_j51il")
 
-[node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee")]
+[node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal")]
 script = ExtResource("1_y01yf")
 playerStandee = NodePath("PlayerStart")
+PortCaptainLocal = NodePath("PortCaptian")
 
 [node name="GrayBoxIslandDirama" type="Sprite2D" parent="."]
 position = Vector2(-1, 1)

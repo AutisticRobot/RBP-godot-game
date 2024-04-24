@@ -71,13 +71,13 @@ Jewlery = 0
 radius = 75.0
 height = 260.0
 
-[node name="PlayerDierama" type="Node2D" node_paths=PackedStringArray("hud", "shopMenu", "player", "localIsland")]
+[node name="PlayerDierama" type="Node2D" node_paths=PackedStringArray("hud", "shopMenu", "player", "dingy")]
 script = ExtResource("1_02cwl")
 hud = NodePath("PlayerLand/Camera2D/DiramaHud")
 shopMenu = NodePath("PlayerLand/Camera2D/ShopMenu")
 saveFile = SubResource("Resource_endbr")
 player = NodePath("PlayerLand")
-localIsland = NodePath("")
+dingy = NodePath("Ship")
 IslandDiramaUID = "uid://bv6i4kqm6opd7"
 
 [node name="PlayerLand" parent="." instance=ExtResource("1_b1t7y")]
