@@ -12,10 +12,10 @@
 [ext_resource type="Script" path="res://Scripts/HelperScripts/NavMan.cs" id="6_xkesc"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Cursor.cs" id="7_cy6ny"]
 
-[sub_resource type="Resource" id="Resource_cr3kr"]
+[sub_resource type="Resource" id="Resource_wrsn8"]
 script = ExtResource("2_8fxjo")
-SaveFolder = "enviroments/"
-SaveFile = "Map.sav"
+SaveFolder = ""
+SaveFile = "OceanMap.sav"
 
 [sub_resource type="Resource" id="Resource_lad2y"]
 script = ExtResource("4_p14fm")
@@ -44,11 +44,11 @@ Linens = 30
 Spices = 5
 Jewlery = 2
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="OceanMap" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_sfy0l")
 player = NodePath("PlayerShip")
-saveFile = SubResource("Resource_cr3kr")
 data = {}
+saveF = SubResource("Resource_wrsn8")
 
 [node name="PlayerShip" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("1_r5ep4")]
 z_index = 1

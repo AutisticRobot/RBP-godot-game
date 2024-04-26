@@ -8,7 +8,6 @@ public partial class PlayerDierama : SceneMan
 	public ShopInventory nearShop;
 	[Export] public Control hud;
 	[Export] public ShopMenu shopMenu;
-	[Export] public SceneSave saveFile;
 	[Export] public playerLand player;
 	[Export] public ShipDoll shipDoll;
 	[Export] public Vector2 playerSartSpot;
@@ -18,6 +17,8 @@ public partial class PlayerDierama : SceneMan
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{	
+		ScenePrep();
+
 		localIsland = loadIslandToScene(IslandDiramaUID);
 			//nearShop = GetNode<shopObject>("GrayBoxDirama/Shop0").inv;//--------------------------------------------------NEEDS TO BE CHANGED!!!!!!!!
 

@@ -12,6 +12,8 @@ public partial class Global : Node
 		"res://Scenes/Playspaces/Maps/OceanMap.tscn",
 	};
 
+	public SceneMan curSceneMan;
+
 	//Save Options
 	public string savePrefix = "user://saves/sav-1/";
 	public string saveIslandFolder;
@@ -55,6 +57,8 @@ public partial class Global : Node
 
 	public void OpenScene(int ID)
 	{
+		curSceneMan._CloseScenePrep();
+
 		GD.Print("Go To Scene:" + SceneList[ID]);
 		GetTree().ChangeSceneToFile(SceneList[ID]);
 	}
