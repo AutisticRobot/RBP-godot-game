@@ -92,7 +92,7 @@ texture = ExtResource("2_guiuy")
 
 [node name="GrayBoxIsleV1" parent="." instance=ExtResource("3_0yxn1")]
 position = Vector2(3058, -534)
-islandID = "GBI001"
+diramaUID = "uid://bv6i4kqm6opd7"
 
 [node name="LootFloat" parent="." instance=ExtResource("5_2xt25")]
 position = Vector2(2205, 1748)

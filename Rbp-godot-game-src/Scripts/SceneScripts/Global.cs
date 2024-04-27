@@ -13,6 +13,7 @@ public partial class Global : Node
 	};
 
 	public SceneMan curSceneMan;
+	public string spawnDiramaUID;
 
 	//Save Options
 	public string savePrefix = "user://saves/sav-1/";

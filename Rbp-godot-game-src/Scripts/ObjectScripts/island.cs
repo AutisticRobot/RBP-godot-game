@@ -4,7 +4,7 @@ using System;
 
 public partial class island : Sprite2D
 {
-	[Export] public string islandID;
+	[Export] public string diramaUID;
 
 
 	public Dictionary Data;
@@ -12,7 +12,7 @@ public partial class island : Sprite2D
 
 	public void onDock()
 	{
-		EmitSignal(SignalName.dock, islandID);
+		EmitSignal(SignalName.dock, diramaUID);
 		GD.Print("dock at island");
 	}
 }

@@ -35,7 +35,8 @@ public partial class MapMain : SceneMan
 
 	public void playerDock(string IslandID)
 	{
-		saveF.global.OpenScene(2);
+		global.OpenScene(2);
+		global.spawnDiramaUID = IslandID;
 	}
 
 	public void save()
