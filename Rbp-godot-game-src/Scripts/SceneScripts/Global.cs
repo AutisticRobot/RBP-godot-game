@@ -46,11 +46,16 @@ public partial class Global : Node
 	public void Save()
 	{
 		Options["savPre"] = savePrefix;
-		OptionsSave.Save(Options);
+		OptionsSave.Data = Options;
+		OptionsSave.Save();
 
 	}
 	public void Load()
 	{
+		if(!OptionsSave.Exists())
+		{
+			Save();
+		}
 		Options = (Dictionary)OptionsSave.Load();
 
 		savePrefix = (String)Options["savPre"];

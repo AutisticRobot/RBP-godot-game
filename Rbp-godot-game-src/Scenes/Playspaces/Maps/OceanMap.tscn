@@ -11,11 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="6_tni2x"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/NavMan.cs" id="6_xkesc"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Cursor.cs" id="7_cy6ny"]
-
-[sub_resource type="Resource" id="Resource_wrsn8"]
-script = ExtResource("2_8fxjo")
-SaveFolder = ""
-SaveFile = "OceanMap.sav"
+[ext_resource type="Texture2D" uid="uid://dwd8lkkitdnh0" path="res://Scenes/Playspaces/Islands/GrayBoxIle2/GrayBoxIsleV2.png" id="12_o12d5"]
 
 [sub_resource type="Resource" id="Resource_lad2y"]
 script = ExtResource("4_p14fm")
@@ -48,7 +44,6 @@ Jewlery = 2
 script = ExtResource("1_sfy0l")
 player = NodePath("PlayerShip")
 data = {}
-saveF = SubResource("Resource_wrsn8")
 
 [node name="PlayerShip" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("1_r5ep4")]
 z_index = 1
@@ -99,4 +94,10 @@ position = Vector2(2205, 1748)
 scale = Vector2(2, 2)
 inv = SubResource("Resource_geylh")
 
+[node name="GrayBoxIsleV2" parent="." instance=ExtResource("3_0yxn1")]
+position = Vector2(2880, 590)
+texture = ExtResource("12_o12d5")
+diramaUID = "uid://cmtqlcyybilf5"
+
 [connection signal="dock" from="GrayBoxIsleV1" to="." method="playerDock"]
+[connection signal="dock" from="GrayBoxIsleV2" to="." method="playerDock"]

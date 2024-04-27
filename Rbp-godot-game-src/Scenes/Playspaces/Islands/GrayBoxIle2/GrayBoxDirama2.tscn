@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cl042laebya8k"]
+[gd_scene load_steps=14 format=3 uid="uid://cmtqlcyybilf5"]
 
 [ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_mplko"]
-[ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Assets/Placeholders/GrayBoxIslandDirama.png" id="2_d6pds"]
+[ext_resource type="Texture2D" uid="uid://bge6ycox8or4t" path="res://Scenes/Playspaces/Islands/GrayBoxIle2/GrayBoxIsland2Dirama.png" id="2_sxlud"]
 [ext_resource type="PackedScene" uid="uid://cftkdghcpt8w8" path="res://Scenes/Prefabs/simplePrefabs/ShopTemplate0.tscn" id="3_f8are"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_q45bl"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="5_jgk76"]
@@ -51,7 +51,7 @@ PortCaptainLocal = NodePath("PortCaptian")
 [node name="GrayBoxIslandDirama" type="Sprite2D" parent="."]
 position = Vector2(-1, 1)
 scale = Vector2(2, 2)
-texture = ExtResource("2_d6pds")
+texture = ExtResource("2_sxlud")
 
 [node name="Shop0" parent="." instance=ExtResource("3_f8are")]
 position = Vector2(1030, -304)

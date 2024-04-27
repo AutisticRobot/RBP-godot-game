@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bv6i4kqm6opd7"]
 
-[ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Assets/Placeholders/GrayBoxIslandDirama.png" id="1_oetnv"]
+[ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxIslandDirama.png" id="1_oetnv"]
 [ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_y01yf"]
 [ext_resource type="PackedScene" uid="uid://cftkdghcpt8w8" path="res://Scenes/Prefabs/simplePrefabs/ShopTemplate0.tscn" id="2_vljx4"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="3_2d5d7"]

@@ -11,6 +11,7 @@ public partial class options_screen : SceneMan
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		ScenePrep();
 		global = GetNode<Global>("/root/Global");
 		GetChild<sceneChanger>(0).changToSceneID = lastSceneID;
 		SavePath = GetNode<TextEdit>("savePrefix");

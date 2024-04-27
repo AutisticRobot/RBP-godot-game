@@ -18,10 +18,10 @@ public partial class SceneSave : Resource
 		return global.savePrefix + SaveFolder;
 	}
 
-	public bool Exists(bool dir)
+	public bool Exists(bool checkDir = false)
 	{
 		string path = global.savePrefix + SaveFolder;
-		if(!dir)
+		if(!checkDir)
 		{
 			path += SaveFile;
 			return FileAccess.FileExists(path);
