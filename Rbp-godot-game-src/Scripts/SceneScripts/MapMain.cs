@@ -7,14 +7,14 @@ public partial class MapMain : SceneMan
 {
 	#region RESOURCES
 	[Export] public PlayerShip player;
-	[Export] public SceneSave saveFile;
 	#endregion
 	[Export] public Dictionary data;
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		saveFile.global = GetNode<Global>("/root/Global");
+		ScenePrep();
 		load();
 	}
 
@@ -35,20 +35,21 @@ public partial class MapMain : SceneMan
 
 	public void playerDock(string IslandID)
 	{
-		saveFile.global.OpenScene(2);
+		global.OpenScene(2);
+		global.spawnDiramaUID = IslandID;
 	}
 
 	public void save()
 	{
 			data["shipPos"] = player.Position;
 			data["shipinv"] = player.inv.ToDic();
-			saveFile.Save(data);
+			saveF.Save(data);
 
 	}
 
 	public void load()
 	{
-		data = (Dictionary)saveFile.Load();
+		data = (Dictionary)saveF.Load();
 
 
 		player.Position = (Vector2)data["shipPos"];

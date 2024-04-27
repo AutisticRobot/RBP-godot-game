@@ -75,10 +75,10 @@ height = 260.0
 script = ExtResource("1_02cwl")
 hud = NodePath("PlayerLand/Camera2D/DiramaHud")
 shopMenu = NodePath("PlayerLand/Camera2D/ShopMenu")
-saveFile = SubResource("Resource_endbr")
 player = NodePath("PlayerLand")
 shipDoll = NodePath("Ship")
 IslandDiramaUID = "uid://bv6i4kqm6opd7"
+saveF = SubResource("Resource_endbr")
 
 [node name="PlayerLand" parent="." instance=ExtResource("1_b1t7y")]
 z_index = 100
