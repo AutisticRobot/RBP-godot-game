@@ -1,0 +1,79 @@
+[gd_scene load_steps=14 format=3 uid="uid://cl042laebya8k"]
+
+[ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_mplko"]
+[ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Assets/Placeholders/GrayBoxIslandDirama.png" id="2_d6pds"]
+[ext_resource type="PackedScene" uid="uid://cftkdghcpt8w8" path="res://Scenes/Prefabs/simplePrefabs/ShopTemplate0.tscn" id="3_f8are"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_q45bl"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="5_jgk76"]
+[ext_resource type="Texture2D" uid="uid://b4nk1wa0hfo3c" path="res://icon.svg" id="6_30hx7"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/portCaptain.cs" id="7_aebhm"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_i3nax"]
+[ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_reo54"]
+
+[sub_resource type="Resource" id="Resource_j51il"]
+script = ExtResource("4_q45bl")
+Money = 1
+Food = 1
+Rum = 6
+Linens = 12
+Spices = 30
+Jewlery = 110
+
+[sub_resource type="Resource" id="Resource_oudmp"]
+script = ExtResource("4_q45bl")
+Money = 9999
+Food = 9999
+Rum = 500
+Linens = 100
+Spices = 20
+Jewlery = 10
+
+[sub_resource type="Resource" id="Resource_rqc1h"]
+script = ExtResource("4_q45bl")
+Money = 1
+Food = 0
+Rum = 5
+Linens = 10
+Spices = 25
+Jewlery = 100
+
+[sub_resource type="Resource" id="Resource_mw23p"]
+script = ExtResource("5_jgk76")
+inv = SubResource("Resource_oudmp")
+sell = SubResource("Resource_rqc1h")
+buy = SubResource("Resource_j51il")
+
+[node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal")]
+script = ExtResource("1_mplko")
+playerStandee = NodePath("PlayerStart")
+PortCaptainLocal = NodePath("PortCaptian")
+
+[node name="GrayBoxIslandDirama" type="Sprite2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("2_d6pds")
+
+[node name="Shop0" parent="." instance=ExtResource("3_f8are")]
+position = Vector2(1030, -304)
+inv = SubResource("Resource_mw23p")
+
+[node name="PlayerStart" type="Sprite2D" parent="."]
+position = Vector2(-45, 822)
+texture = ExtResource("6_30hx7")
+
+[node name="PortCaptian" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("7_aebhm")
+
+[node name="DockSpotA" type="Node2D" parent="PortCaptian"]
+modulate = Color(0.917647, 0.619608, 0.462745, 0.407843)
+position = Vector2(-207, 819)
+rotation = -3.14159
+script = ExtResource("8_i3nax")
+
+[node name="Sprite2D" type="Sprite2D" parent="PortCaptian/DockSpotA"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_reo54")
+
+[connection signal="shopOpen" from="Shop0" to="." method="onShopOpen"]
