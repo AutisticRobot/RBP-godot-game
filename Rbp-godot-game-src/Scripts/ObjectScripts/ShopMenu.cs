@@ -5,7 +5,7 @@ using System.Linq;
 
 public partial class ShopMenu : Control
 {
-	[Export] public ShopInventory shop;// this is, when exported, the default until nearshop is updated;
+	[Export] public ShopInventory shop;
 	[Export] public ShipDoll player;
 
 	[Export]
@@ -13,8 +13,6 @@ public partial class ShopMenu : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		//shop = GetChild<ShopInventory>(0);
-		//player = GetChild<inventory>(1);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

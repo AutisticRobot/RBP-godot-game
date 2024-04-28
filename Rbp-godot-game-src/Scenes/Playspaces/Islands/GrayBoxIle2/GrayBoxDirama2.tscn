@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_reo54"]
 
 [sub_resource type="Resource" id="Resource_j51il"]
+resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 1
 Food = 1
@@ -20,6 +21,7 @@ Spices = 30
 Jewlery = 110
 
 [sub_resource type="Resource" id="Resource_oudmp"]
+resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 9999
 Food = 9999
@@ -29,6 +31,7 @@ Spices = 20
 Jewlery = 10
 
 [sub_resource type="Resource" id="Resource_rqc1h"]
+resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 1
 Food = 0
@@ -38,6 +41,7 @@ Spices = 25
 Jewlery = 100
 
 [sub_resource type="Resource" id="Resource_mw23p"]
+resource_local_to_scene = true
 script = ExtResource("5_jgk76")
 inv = SubResource("Resource_oudmp")
 sell = SubResource("Resource_rqc1h")

@@ -5,7 +5,6 @@ using System.Net;
 
 public partial class PlayerDierama : SceneMan
 {
-	public ShopInventory nearShop;
 	[Export] public Control hud;
 	[Export] public ShopMenu shopMenu;
 	[Export] public playerLand player;
@@ -21,7 +20,9 @@ public partial class PlayerDierama : SceneMan
 		IslandDiramaUID = global.spawnDiramaUID;
 
 		localIsland = loadIslandToScene(IslandDiramaUID);
-			//nearShop = GetNode<shopObject>("GrayBoxDirama/Shop0").inv;//--------------------------------------------------NEEDS TO BE CHANGED!!!!!!!!
+
+		//localIsland.shopOpen += (shop) => {OpenShop(shop);};
+		localIsland.Connect("shopOpen", new Callable(this, MethodName.OpenShop));
 
 
 		playerSartSpot = localIsland.GetPlayerStartPos();

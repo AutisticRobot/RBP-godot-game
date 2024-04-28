@@ -3,7 +3,6 @@ using System;
 
 public partial class GrayBoxDirama : IslandClass
 {
-	[Signal] public delegate Signal shopOpenEventHandler(ShopInventory shopInv);
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -15,9 +14,4 @@ public partial class GrayBoxDirama : IslandClass
 	{
 	}
 
-	public void onShopOpen(ShopInventory shopInv)
-	{
-
-		EmitSignal(SignalName.shopOpen, shopInv);
-	}
 }

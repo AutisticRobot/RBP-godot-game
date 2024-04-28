@@ -11,6 +11,7 @@ public partial class SceneMan : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public void ScenePrep()
 	{
+		if(saveF == null){GD.Print("saveFile resource not set in " + Name);}
 		global = GetNode<Global>("/root/Global");
 		saveF.global = global;
 		global.curSceneMan = this;

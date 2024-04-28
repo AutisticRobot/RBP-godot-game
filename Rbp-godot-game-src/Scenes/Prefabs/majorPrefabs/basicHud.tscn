@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0h1hd8wuaxly"]
+[gd_scene load_steps=2 format=3 uid="uid://c0h1hd8wuaxly"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/basicHud.cs" id="1_u3u4q"]
-[ext_resource type="PackedScene" uid="uid://cbyrmnivy13ks" path="res://Scenes/Prefabs/simplePrefabs/sceneChangeButton.tscn" id="2_2s1w5"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -57,9 +56,3 @@ offset_top = 4.0
 offset_right = 616.0
 offset_bottom = 27.0
 text = "Jewlery:"
-
-[node name="start" parent="." instance=ExtResource("2_2s1w5")]
-position = Vector2(1013, 43)
-scale = Vector2(0.5, 0.256)
-changToSceneID = 2
-text = "To Dirama"
