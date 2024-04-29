@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 public partial class SceneMan : Node2D
 {
 	[Export] public SceneSave saveF;
+	[Export] public bool pausedScene;
 
 	public Global global;
 	// Called when the node enters the scene tree for the first time.

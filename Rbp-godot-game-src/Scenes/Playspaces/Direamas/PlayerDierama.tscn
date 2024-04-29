@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://d035eqqb0j6ig"]
+[gd_scene load_steps=14 format=3 uid="uid://d035eqqb0j6ig"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/PlayerDierama.cs" id="1_02cwl"]
 [ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
 [ext_resource type="PackedScene" uid="uid://bvonwlfpak3nx" path="res://Scenes/playerParts/diramaHud.tscn" id="2_8gvm5"]
 [ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="2_tl3r2"]
 [ext_resource type="PackedScene" uid="uid://cpxrf3hii40p0" path="res://Scenes/Prefabs/simplePrefabs/ShopMenu.tscn" id="3_oq0pg"]
-[ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="5_vi5g5"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="6_u6kax"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShipDoll.cs" id="9_u8sq5"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_ur6o6"]
@@ -24,39 +23,6 @@ Rum = 0
 Linens = 0
 Spices = 0
 Jewlery = 0
-
-[sub_resource type="Resource" id="Resource_j51il"]
-script = ExtResource("6_u6kax")
-Money = 1
-Food = 1
-Rum = 6
-Linens = 12
-Spices = 30
-Jewlery = 110
-
-[sub_resource type="Resource" id="Resource_oudmp"]
-script = ExtResource("6_u6kax")
-Money = 9999
-Food = 9999
-Rum = 500
-Linens = 100
-Spices = 20
-Jewlery = 10
-
-[sub_resource type="Resource" id="Resource_rqc1h"]
-script = ExtResource("6_u6kax")
-Money = 1
-Food = 0
-Rum = 5
-Linens = 10
-Spices = 25
-Jewlery = 100
-
-[sub_resource type="Resource" id="Resource_feuvl"]
-script = ExtResource("5_vi5g5")
-inv = SubResource("Resource_oudmp")
-sell = SubResource("Resource_rqc1h")
-buy = SubResource("Resource_j51il")
 
 [sub_resource type="Resource" id="Resource_gm18n"]
 script = ExtResource("6_u6kax")
@@ -102,15 +68,13 @@ offset_right = -9460.0
 offset_bottom = -5280.0
 scale = Vector2(10, 10)
 
-[node name="ShopMenu" parent="PlayerLand/Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("3_oq0pg")]
+[node name="ShopMenu" parent="PlayerLand/Camera2D" instance=ExtResource("3_oq0pg")]
 visible = false
 offset_left = -9520.0
 offset_top = -5390.0
 offset_right = -9520.0
 offset_bottom = -5390.0
 scale = Vector2(10, 10)
-shop = SubResource("Resource_feuvl")
-player = NodePath("../../../Ship")
 
 [node name="Ship" type="Sprite2D" parent="."]
 z_index = 3

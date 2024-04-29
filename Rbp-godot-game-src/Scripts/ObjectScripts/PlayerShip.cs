@@ -6,6 +6,7 @@ using System.ComponentModel;
 
 public partial class PlayerShip : Node2D
 {
+			 public SceneMan manager;
 	[Export] public Cursor cursor;
 
 	[Export] public bool player;
@@ -29,6 +30,7 @@ public partial class PlayerShip : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		manager = GetOwner<SceneMan>();
 		if(player)
 		{
 			global = GetNode<Global>("/root/Global");
@@ -44,13 +46,16 @@ public partial class PlayerShip : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		Pinput();
-        Vector2 vel = new()
-        {
-            X = ((float)(Math.Sin(dir * (Math.PI / 180)) * speed * delta)),
-            Y = ((float)(Math.Cos(dir * (Math.PI / 180)) * speed * delta))
-        };
-        Position += vel;
+		if(!manager.pausedScene)
+		{
+			Pinput();
+        	Vector2 vel = new()
+        	{
+        	    X = ((float)(Math.Sin(dir * (Math.PI / 180)) * speed * delta)),
+        	    Y = ((float)(Math.Cos(dir * (Math.PI / 180)) * speed * delta))
+        	};
+        	Position += vel;
+		}
 		if(player)
 		{
 			Save();

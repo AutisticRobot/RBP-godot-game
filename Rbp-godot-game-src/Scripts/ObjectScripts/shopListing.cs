@@ -15,14 +15,17 @@ public partial class shopListing : Sprite2D
 
 	public override void _Ready()
 	{
-		shopMan = GetParent<ShopMenu>();
+		shopMan = GetOwner<ShopMenu>();
 
 	}
 
 	
 	public override void _Process(double delta)
 	{
-		Update();
+		if(shopMan.Visible)
+		{
+			Update();
+		}
 	}
 
 	public void Update()

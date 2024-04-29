@@ -17,6 +17,7 @@ public partial class PlayerDierama : SceneMan
 	public override void _Ready()
 	{	
 		ScenePrep();
+		player.manager = this;
 		IslandDiramaUID = global.spawnDiramaUID;
 
 		localIsland = loadIslandToScene(IslandDiramaUID);
@@ -31,6 +32,7 @@ public partial class PlayerDierama : SceneMan
 
 		shipDoll.Position = localIsland.GetDockingPos();
 
+		shopMenu.player = shipDoll;
 
 	}
 
@@ -42,6 +44,7 @@ public partial class PlayerDierama : SceneMan
 
 	public void OpenShop(ShopInventory shopInv)
 	{
+		pausedScene = true;
 		shopMenu.shop = shopInv;
 		hud.Visible = false;
 		shopMenu.Visible = true;
@@ -50,6 +53,7 @@ public partial class PlayerDierama : SceneMan
 	{
 		hud.Visible = true;
 		shopMenu.Visible = false;
+		pausedScene = false;
 	}
 
 	private void InputHandler()

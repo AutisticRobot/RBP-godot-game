@@ -5,8 +5,8 @@ using System.Linq;
 
 public partial class ShopMenu : Control
 {
-	[Export] public ShopInventory shop;
-	[Export] public ShipDoll player;
+	public ShopInventory shop;
+	public ShipDoll player;
 
 	[Export]
 	public int buyMulti;

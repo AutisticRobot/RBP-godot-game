@@ -25,6 +25,11 @@ public partial class MapMain : SceneMan
 		{
 			save();
 		}
+
+		if(Input.IsActionJustPressed("enterMenu"))
+		{
+			pausedScene = !pausedScene;
+		}
 	}
 
 	public override void _CloseScenePrep()
