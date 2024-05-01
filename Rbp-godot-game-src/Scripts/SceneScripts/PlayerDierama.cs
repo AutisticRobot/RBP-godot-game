@@ -5,6 +5,7 @@ using System.Net;
 
 public partial class PlayerDierama : SceneMan
 {
+	[Export] public string islandSaveFolder;
 	[Export] public Control hud;
 	[Export] public ShopMenu shopMenu;
 	[Export] public playerLand player;
@@ -21,6 +22,10 @@ public partial class PlayerDierama : SceneMan
 		IslandDiramaUID = global.spawnDiramaUID;
 
 		localIsland = loadIslandToScene(IslandDiramaUID);
+		localIsland.fileSave.global = global;
+		islandSaveFolder = "islands/";
+		localIsland.fileSave.SaveFolder = islandSaveFolder;
+		localIsland.prepIsland();
 
 		//localIsland.shopOpen += (shop) => {OpenShop(shop);};
 		localIsland.Connect("shopOpen", new Callable(this, MethodName.OpenShop));
