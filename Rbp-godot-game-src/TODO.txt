@@ -4,16 +4,10 @@
 |                      IMMEDIATELY                      |
 *=======================================================*
 
-- pause game compatability
 
 - require the player to go into the ship to be able to travel on the map.
 -- draw a dirama-scale ship
 
-- fill out save system calls.
-
-- learn how to make and use signals.
-
-- multi island funcinality
 
 - special item in shop compatability.
 
@@ -44,6 +38,9 @@
 - controll the ship form the helm
 -- command the crew and also decorate the ship
 -- i.e. the helm allows you to enter god view
+
+-Factions/reputation system
+
 
 
 *=======================================================*
