@@ -29,7 +29,9 @@ public partial class portCaptain : Control
         {
         
             GD.Print("Dock found");
-            return (DockSpot)allDocks[length -1];
+            uint randSpot = GD.Randi() % (uint)length;
+            GD.Print("Dosck Spot: " + (int)randSpot);
+            return (DockSpot)allDocks[(int)randSpot];
         }
         GD.Print("No Docks?");
         return null;

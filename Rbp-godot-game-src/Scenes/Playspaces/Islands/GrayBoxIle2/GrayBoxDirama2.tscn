@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_i3nax"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_reo54"]
 
-[sub_resource type="Resource" id="Resource_l5gg5"]
+[sub_resource type="Resource" id="Resource_acg2b"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 1
@@ -20,7 +20,7 @@ Linens = 12
 Spices = 30
 Jewlery = 110
 
-[sub_resource type="Resource" id="Resource_203v0"]
+[sub_resource type="Resource" id="Resource_wts8r"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 9999
@@ -30,7 +30,7 @@ Linens = 100
 Spices = 20
 Jewlery = 10
 
-[sub_resource type="Resource" id="Resource_qc2ic"]
+[sub_resource type="Resource" id="Resource_pi25q"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 1
@@ -40,12 +40,12 @@ Linens = 10
 Spices = 25
 Jewlery = 100
 
-[sub_resource type="Resource" id="Resource_830vd"]
+[sub_resource type="Resource" id="Resource_d7wl2"]
 resource_local_to_scene = true
 script = ExtResource("5_jgk76")
-inv = SubResource("Resource_203v0")
-sell = SubResource("Resource_qc2ic")
-buy = SubResource("Resource_l5gg5")
+inv = SubResource("Resource_wts8r")
+sell = SubResource("Resource_pi25q")
+buy = SubResource("Resource_acg2b")
 
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal")]
 script = ExtResource("1_mplko")
@@ -60,7 +60,7 @@ texture = ExtResource("2_sxlud")
 
 [node name="Shop0" parent="." instance=ExtResource("3_f8are")]
 position = Vector2(1030, -304)
-inv = SubResource("Resource_830vd")
+inv = SubResource("Resource_d7wl2")
 
 [node name="PlayerStart" type="Sprite2D" parent="."]
 position = Vector2(-45, 822)
@@ -78,6 +78,16 @@ rotation = -3.14159
 script = ExtResource("8_i3nax")
 
 [node name="Sprite2D" type="Sprite2D" parent="PortCaptian/DockSpotA"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_reo54")
+
+[node name="DockSpotB" type="Node2D" parent="PortCaptian"]
+modulate = Color(0.917647, 0.619608, 0.462745, 0.407843)
+position = Vector2(143, 819)
+rotation = -3.14159
+script = ExtResource("8_i3nax")
+
+[node name="Sprite2D" type="Sprite2D" parent="PortCaptian/DockSpotB"]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("9_reo54")
 

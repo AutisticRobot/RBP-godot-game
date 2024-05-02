@@ -1,0 +1,1 @@
+-Spamming interact when changing scene can cause a crash.

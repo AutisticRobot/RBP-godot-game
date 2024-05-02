@@ -11,6 +11,7 @@ public partial class Global : Node
 		"res://Scenes/Playspaces/Direamas/PlayerDierama.tscn",
 		"res://Scenes/Playspaces/Maps/OceanMap.tscn",
 	};
+	public int sceneChangeCount;
 
 	public SceneMan curSceneMan;
 	public string spawnDiramaUID;
@@ -36,6 +37,8 @@ public partial class Global : Node
 
 	public override void _Ready()
 	{
+		GD.Randomize();
+
 		OptionsSave.global = this;
 		OptionsSave.SaveFolder = "";
 		OptionsSave.SaveFile = "Options.sav";
