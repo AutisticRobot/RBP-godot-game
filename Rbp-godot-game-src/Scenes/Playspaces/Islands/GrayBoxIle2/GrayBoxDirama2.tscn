@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmtqlcyybilf5"]
+[gd_scene load_steps=15 format=3 uid="uid://cmtqlcyybilf5"]
 
-[ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_mplko"]
+[ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle2/GrayBoxDirama2.cs" id="1_w87fs"]
 [ext_resource type="Texture2D" uid="uid://bge6ycox8or4t" path="res://Scenes/Playspaces/Islands/GrayBoxIle2/GrayBoxIsland2Dirama.png" id="2_sxlud"]
 [ext_resource type="PackedScene" uid="uid://cftkdghcpt8w8" path="res://Scenes/Prefabs/simplePrefabs/ShopTemplate0.tscn" id="3_f8are"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/shopMan.cs" id="4_d16ii"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_q45bl"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="5_jgk76"]
 [ext_resource type="Texture2D" uid="uid://b4nk1wa0hfo3c" path="res://icon.svg" id="6_30hx7"]
@@ -10,7 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_i3nax"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_reo54"]
 
-[sub_resource type="Resource" id="Resource_r6lxc"]
+[sub_resource type="Resource" id="Resource_2h036"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 1
@@ -20,7 +21,7 @@ Linens = 12
 Spices = 30
 Jewlery = 110
 
-[sub_resource type="Resource" id="Resource_db36d"]
+[sub_resource type="Resource" id="Resource_ludyg"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 9999
@@ -30,7 +31,7 @@ Linens = 100
 Spices = 20
 Jewlery = 10
 
-[sub_resource type="Resource" id="Resource_mnfo7"]
+[sub_resource type="Resource" id="Resource_llgut"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 1
@@ -40,31 +41,40 @@ Linens = 10
 Spices = 25
 Jewlery = 100
 
-[sub_resource type="Resource" id="Resource_niu7i"]
+[sub_resource type="Resource" id="Resource_4de3x"]
 resource_local_to_scene = true
 script = ExtResource("5_jgk76")
-inv = SubResource("Resource_db36d")
-sell = SubResource("Resource_mnfo7")
-buy = SubResource("Resource_r6lxc")
+inv = SubResource("Resource_ludyg")
+sell = SubResource("Resource_llgut")
+buy = SubResource("Resource_2h036")
 
-[node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal")]
-script = ExtResource("1_mplko")
+[node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
+script = ExtResource("1_w87fs")
 playerStandee = NodePath("PlayerStart")
 PortCaptainLocal = NodePath("PortCaptian")
-SaveFileName = "Graybox2.sav"
+ShopManLocal = NodePath("ShopMan")
+SaveFileName = "grayBoxIle2"
 
 [node name="GrayBoxIslandDirama" type="Sprite2D" parent="."]
 position = Vector2(-1, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("2_sxlud")
 
-[node name="Shop0" parent="." instance=ExtResource("3_f8are")]
-position = Vector2(1030, -304)
-inv = SubResource("Resource_niu7i")
-
 [node name="PlayerStart" type="Sprite2D" parent="."]
 position = Vector2(-45, 822)
 texture = ExtResource("6_30hx7")
+
+[node name="ShopMan" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_d16ii")
+
+[node name="Shop0" parent="ShopMan" instance=ExtResource("3_f8are")]
+position = Vector2(1030, -304)
+inv = SubResource("Resource_4de3x")
+ShopID = "BUIsfw4"
 
 [node name="PortCaptian" type="Control" parent="."]
 layout_mode = 3
@@ -91,4 +101,4 @@ script = ExtResource("8_i3nax")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("9_reo54")
 
-[connection signal="shopOpen" from="Shop0" to="." method="onShopOpen"]
+[connection signal="shopOpen" from="ShopMan/Shop0" to="." method="onShopOpen"]

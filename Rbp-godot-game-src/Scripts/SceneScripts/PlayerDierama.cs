@@ -92,6 +92,8 @@ public partial class PlayerDierama : SceneMan
 
 	public override void _CloseScenePrep()
 	{
+		localIsland.shutDown();
+		shipDoll.closeShip();
 		
 	}
 

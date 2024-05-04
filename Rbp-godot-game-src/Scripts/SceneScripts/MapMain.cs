@@ -1,7 +1,5 @@
 using Godot;
 using Godot.Collections;
-using Microsoft.Win32.SafeHandles;
-using System;
 
 public partial class MapMain : SceneMan
 {
@@ -59,8 +57,11 @@ public partial class MapMain : SceneMan
 
 		player.Position = (Vector2)data["shipPos"];
 
-
-		player.inv.FromDic((Dictionary)data["shipinv"]);
+		if(global.playerHull == null)
+		{
+			player.inv.FromDic((Dictionary)data["shipinv"]);
+			global.playerHull = player.inv;
+		}
 
 
 	}

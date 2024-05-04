@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public partial class GrayBoxDirama : IslandClass
@@ -13,5 +14,16 @@ public partial class GrayBoxDirama : IslandClass
 	public override void _Process(double delta)
 	{
 	}
+	public override void Save()
+	{
+		fileSave.Data["shops"] = ShopManLocal.getShposSaveData();
 
+	}
+/*
+	public override void Load()
+	{
+		fileSave.Load();
+		ShopManLocal.loadShopsSaveData((Dictionary)fileSave.Data["shops"]);
+	}
+	*/
 }

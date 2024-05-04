@@ -11,4 +11,21 @@ public partial class ShopInventory : Resource
 	[Export] public inventory buy;
 
 
+	public Dictionary ToDic()
+	{
+		Dictionary data = new();
+
+		data["inv"] = inv.ToDic();
+		data["sell"] = sell.ToDic();
+		data["buy"] = buy.ToDic();
+
+		return data;
+	}
+	public void FromDic(Dictionary inDic)
+	{
+		inv.FromDic((Dictionary)inDic["inv"]);
+		sell.FromDic((Dictionary)inDic["sell"]);
+		buy.FromDic((Dictionary)inDic["buy"]);
+	}
+
 }

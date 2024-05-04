@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bv6i4kqm6opd7"]
+[gd_scene load_steps=18 format=3 uid="uid://bv6i4kqm6opd7"]
 
 [ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxIslandDirama.png" id="1_oetnv"]
 [ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_y01yf"]
 [ext_resource type="PackedScene" uid="uid://cftkdghcpt8w8" path="res://Scenes/Prefabs/simplePrefabs/ShopTemplate0.tscn" id="2_vljx4"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/ShopInventory.cs" id="3_2d5d7"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/shopMan.cs" id="3_jw8mq"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_bx5vy"]
 [ext_resource type="Texture2D" uid="uid://b4nk1wa0hfo3c" path="res://icon.svg" id="6_s6ch2"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/portCaptain.cs" id="7_j67o5"]
@@ -12,7 +13,7 @@
 [ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="10_qw2hi"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="11_b4e8y"]
 
-[sub_resource type="Resource" id="Resource_0t6iu"]
+[sub_resource type="Resource" id="Resource_141pm"]
 resource_local_to_scene = true
 script = ExtResource("4_bx5vy")
 Money = 1
@@ -22,7 +23,7 @@ Linens = 12
 Spices = 30
 Jewlery = 110
 
-[sub_resource type="Resource" id="Resource_6pemf"]
+[sub_resource type="Resource" id="Resource_uyuc5"]
 resource_local_to_scene = true
 script = ExtResource("4_bx5vy")
 Money = 9999
@@ -32,7 +33,7 @@ Linens = 100
 Spices = 20
 Jewlery = 10
 
-[sub_resource type="Resource" id="Resource_w46xu"]
+[sub_resource type="Resource" id="Resource_h00gf"]
 resource_local_to_scene = true
 script = ExtResource("4_bx5vy")
 Money = 1
@@ -42,12 +43,12 @@ Linens = 10
 Spices = 25
 Jewlery = 100
 
-[sub_resource type="Resource" id="Resource_wsbrg"]
+[sub_resource type="Resource" id="Resource_dy4t4"]
 resource_local_to_scene = true
 script = ExtResource("3_2d5d7")
-inv = SubResource("Resource_6pemf")
-sell = SubResource("Resource_w46xu")
-buy = SubResource("Resource_0t6iu")
+inv = SubResource("Resource_uyuc5")
+sell = SubResource("Resource_h00gf")
+buy = SubResource("Resource_141pm")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfxuw"]
 radius = 124.844
@@ -63,9 +64,16 @@ position = Vector2(-1, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("1_oetnv")
 
-[node name="Shop0" parent="." instance=ExtResource("2_vljx4")]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_jw8mq")
+
+[node name="Shop0" parent="Control" instance=ExtResource("2_vljx4")]
 position = Vector2(1030, -304)
-inv = SubResource("Resource_wsbrg")
+inv = SubResource("Resource_dy4t4")
 
 [node name="PlayerStart" type="Sprite2D" parent="."]
 position = Vector2(-42, 821)
@@ -97,4 +105,4 @@ texture = ExtResource("11_b4e8y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundButton"]
 shape = SubResource("CircleShape2D_dfxuw")
 
-[connection signal="shopOpen" from="Shop0" to="." method="onShopOpen"]
+[connection signal="shopOpen" from="Control/Shop0" to="." method="onShopOpen"]

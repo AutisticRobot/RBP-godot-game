@@ -21,7 +21,12 @@ public partial class ShipDoll : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		global.playerHull = inv;//this should use signals for the sake of expanability and performance;
+	}
+
+	public void closeShip()
+	{
+		global.playerHull = inv;
+		GD.Print("close shop" + inv.Money);
 	}
 
 	public void onPress()

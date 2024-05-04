@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public partial class portCaptain : Control
 {
-    public List<Node> allDocks;
+    public List<DockSpot> allDocks;
 	public override void _Ready()
 	{
         allDocks = new();
@@ -16,7 +16,7 @@ public partial class portCaptain : Control
             GD.Print(child.GetClass());
             if(child.GetType().ToString() == "DockSpot")
             {
-                allDocks.Add(GetChild(child.GetIndex()));
+                allDocks.Add((DockSpot)GetChild(child.GetIndex()));
             }
         }
 	}

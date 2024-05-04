@@ -52,7 +52,7 @@ scale = Vector2(0.1, 0.1)
 Acc = Vector2(50, 50)
 DecelDeltaCounterBal = 30.0
 Decel = Vector2(0.8, 0.8)
-clampMulti = 3.0
+clampMulti = 8.0
 inv = SubResource("Resource_jy2n6")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerLand"]

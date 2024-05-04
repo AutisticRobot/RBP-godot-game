@@ -40,6 +40,7 @@ public partial class PlayerShip : Node2D
 		if(global.playerHull != null)
 		{
 			inv = global.playerHull;
+			GD.Print("get Inv Global" + inv.Money);
 		}
 	}
 

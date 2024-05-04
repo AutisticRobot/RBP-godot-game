@@ -1,11 +1,11 @@
 using Godot;
-using System;
 
 [GlobalClass]
 public partial class IslandClass : Node2D
 {
-	[Export] private Node2D playerStandee;
-	[Export] private portCaptain PortCaptainLocal;
+	[Export] public Node2D playerStandee;
+	[Export] public portCaptain PortCaptainLocal;
+	[Export] public shopMan ShopManLocal;
 	[Signal] public delegate Signal shopOpenEventHandler(ShopInventory shopInv);
 	[Export] public string SaveFileName;
 			 public SceneSave fileSave = new();
@@ -37,6 +37,12 @@ public partial class IslandClass : Node2D
 	{
 
 		EmitSignal(SignalName.shopOpen, shopInv);
+	}
+
+	public virtual void shutDown()
+	{
+		Save();
+
 	}
 
 

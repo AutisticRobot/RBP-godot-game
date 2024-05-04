@@ -45,11 +45,14 @@ public partial class SceneSave : Resource
 		file.StoreVar(inData);
 		GD.Print(global.savePrefix + SaveFolder + SaveFile);
 	}
-	public Variant Load()
+	public Dictionary Load()
 	{
-		if(!Exists(false)) return 0;
+		if(!Exists(false)) return null;
 		using FileAccess file = FileAccess.Open(global.savePrefix + SaveFolder + SaveFile, FileAccess.ModeFlags.Read);
-		return file.GetVar();
+
+
+		Data = (Dictionary)file.GetVar();
+		return Data;
 	}
 
 

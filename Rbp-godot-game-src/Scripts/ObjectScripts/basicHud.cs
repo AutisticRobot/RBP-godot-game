@@ -4,8 +4,7 @@ using System;
 public partial class basicHud : Control
 {
 
-	[Export]
-	public PlayerShip ship;
+	[Export] public PlayerShip ship;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

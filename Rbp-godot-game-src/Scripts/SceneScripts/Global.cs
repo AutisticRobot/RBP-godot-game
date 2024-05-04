@@ -58,7 +58,6 @@ public partial class Global : Node
 		}else{
 			buttonColldown = 0;
 		}
-		GD.Print(buttonColldown);
 	}
 
 	public void Save()
