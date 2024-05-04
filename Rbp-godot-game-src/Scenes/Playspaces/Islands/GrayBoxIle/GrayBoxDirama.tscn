@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bv6i4kqm6opd7"]
+[gd_scene load_steps=17 format=3 uid="uid://bv6i4kqm6opd7"]
 
 [ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxIslandDirama.png" id="1_oetnv"]
 [ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_y01yf"]
@@ -9,8 +9,10 @@
 [ext_resource type="Script" path="res://Scripts/HelperScripts/portCaptain.cs" id="7_j67o5"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_fv6ac"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_ar8t7"]
+[ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="10_qw2hi"]
+[ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="11_b4e8y"]
 
-[sub_resource type="Resource" id="Resource_ubsq5"]
+[sub_resource type="Resource" id="Resource_0t6iu"]
 resource_local_to_scene = true
 script = ExtResource("4_bx5vy")
 Money = 1
@@ -20,7 +22,7 @@ Linens = 12
 Spices = 30
 Jewlery = 110
 
-[sub_resource type="Resource" id="Resource_a6kuy"]
+[sub_resource type="Resource" id="Resource_6pemf"]
 resource_local_to_scene = true
 script = ExtResource("4_bx5vy")
 Money = 9999
@@ -30,7 +32,7 @@ Linens = 100
 Spices = 20
 Jewlery = 10
 
-[sub_resource type="Resource" id="Resource_kxu40"]
+[sub_resource type="Resource" id="Resource_w46xu"]
 resource_local_to_scene = true
 script = ExtResource("4_bx5vy")
 Money = 1
@@ -40,12 +42,15 @@ Linens = 10
 Spices = 25
 Jewlery = 100
 
-[sub_resource type="Resource" id="Resource_f2qp7"]
+[sub_resource type="Resource" id="Resource_wsbrg"]
 resource_local_to_scene = true
 script = ExtResource("3_2d5d7")
-inv = SubResource("Resource_a6kuy")
-sell = SubResource("Resource_kxu40")
-buy = SubResource("Resource_ubsq5")
+inv = SubResource("Resource_6pemf")
+sell = SubResource("Resource_w46xu")
+buy = SubResource("Resource_0t6iu")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dfxuw"]
+radius = 124.844
 
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal")]
 script = ExtResource("1_y01yf")
@@ -60,10 +65,10 @@ texture = ExtResource("1_oetnv")
 
 [node name="Shop0" parent="." instance=ExtResource("2_vljx4")]
 position = Vector2(1030, -304)
-inv = SubResource("Resource_f2qp7")
+inv = SubResource("Resource_wsbrg")
 
 [node name="PlayerStart" type="Sprite2D" parent="."]
-position = Vector2(-45, 822)
+position = Vector2(-42, 821)
 texture = ExtResource("6_s6ch2")
 
 [node name="PortCaptian" type="Control" parent="."]
@@ -80,5 +85,16 @@ script = ExtResource("8_fv6ac")
 [node name="Sprite2D" type="Sprite2D" parent="PortCaptian/DockSpotA"]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("9_ar8t7")
+
+[node name="GroundButton" type="Area2D" parent="."]
+script = ExtResource("10_qw2hi")
+
+[node name="Sprite2D" type="Sprite2D" parent="GroundButton"]
+position = Vector2(0, -2.5)
+scale = Vector2(0.503906, 1.10547)
+texture = ExtResource("11_b4e8y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundButton"]
+shape = SubResource("CircleShape2D_dfxuw")
 
 [connection signal="shopOpen" from="Shop0" to="." method="onShopOpen"]

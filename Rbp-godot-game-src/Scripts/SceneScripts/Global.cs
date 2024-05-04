@@ -15,6 +15,8 @@ public partial class Global : Node
 
 	public SceneMan curSceneMan;
 	public string spawnDiramaUID;
+	//temp fix for scene Change crash
+	public double buttonColldown;
 
 	//Save Options
 	public string savePrefix = "user://saves/sav-1/";
@@ -44,6 +46,19 @@ public partial class Global : Node
 		OptionsSave.SaveFile = "Options.sav";
 
 		Load();
+	}
+	public override void _Process(double delta)
+	{
+
+	//temp fix for scene Change crash
+		if(buttonColldown > 0)
+		{
+			buttonColldown -= delta;
+		
+		}else{
+			buttonColldown = 0;
+		}
+		GD.Print(buttonColldown);
 	}
 
 	public void Save()
