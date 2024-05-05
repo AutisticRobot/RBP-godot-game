@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="10_qw2hi"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="11_b4e8y"]
 
-[sub_resource type="Resource" id="Resource_141pm"]
+[sub_resource type="Resource" id="Resource_ytnn6"]
 resource_local_to_scene = true
 script = ExtResource("4_bx5vy")
 Money = 1
@@ -23,7 +23,7 @@ Linens = 12
 Spices = 30
 Jewlery = 110
 
-[sub_resource type="Resource" id="Resource_uyuc5"]
+[sub_resource type="Resource" id="Resource_xwken"]
 resource_local_to_scene = true
 script = ExtResource("4_bx5vy")
 Money = 9999
@@ -33,7 +33,7 @@ Linens = 100
 Spices = 20
 Jewlery = 10
 
-[sub_resource type="Resource" id="Resource_h00gf"]
+[sub_resource type="Resource" id="Resource_ac5da"]
 resource_local_to_scene = true
 script = ExtResource("4_bx5vy")
 Money = 1
@@ -43,20 +43,21 @@ Linens = 10
 Spices = 25
 Jewlery = 100
 
-[sub_resource type="Resource" id="Resource_dy4t4"]
+[sub_resource type="Resource" id="Resource_jplee"]
 resource_local_to_scene = true
 script = ExtResource("3_2d5d7")
-inv = SubResource("Resource_uyuc5")
-sell = SubResource("Resource_h00gf")
-buy = SubResource("Resource_141pm")
+inv = SubResource("Resource_xwken")
+sell = SubResource("Resource_ac5da")
+buy = SubResource("Resource_ytnn6")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfxuw"]
 radius = 124.844
 
-[node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal")]
+[node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
 script = ExtResource("1_y01yf")
 playerStandee = NodePath("PlayerStart")
 PortCaptainLocal = NodePath("PortCaptian")
+ShopManLocal = NodePath("Shop Manager")
 SaveFileName = "GrayBox.sav"
 
 [node name="GrayBoxIslandDirama" type="Sprite2D" parent="."]
@@ -64,16 +65,16 @@ position = Vector2(-1, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("1_oetnv")
 
-[node name="Control" type="Control" parent="."]
+[node name="Shop Manager" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_jw8mq")
 
-[node name="Shop0" parent="Control" instance=ExtResource("2_vljx4")]
+[node name="Shop0" parent="Shop Manager" instance=ExtResource("2_vljx4")]
 position = Vector2(1030, -304)
-inv = SubResource("Resource_dy4t4")
+inv = SubResource("Resource_jplee")
 
 [node name="PlayerStart" type="Sprite2D" parent="."]
 position = Vector2(-42, 821)
@@ -105,4 +106,4 @@ texture = ExtResource("11_b4e8y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundButton"]
 shape = SubResource("CircleShape2D_dfxuw")
 
-[connection signal="shopOpen" from="Control/Shop0" to="." method="onShopOpen"]
+[connection signal="shopOpen" from="Shop Manager/Shop0" to="." method="onShopOpen"]

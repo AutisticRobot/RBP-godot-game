@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 [GlobalClass]
@@ -13,7 +14,12 @@ public partial class IslandClass : Node2D
 	public virtual void prepIsland()
 	{
 		fileSave.SaveFile = SaveFileName;
+		try
+		{
 		Load();
+		}catch(Exception e){
+			GD.PrintRich("[color=red][b]Error Loading " + Name + ", " + e.ToString() + "[/b][/color]");
+		}
 
 	}
 

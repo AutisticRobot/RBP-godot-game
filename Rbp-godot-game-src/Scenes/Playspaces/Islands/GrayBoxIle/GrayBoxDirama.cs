@@ -16,14 +16,16 @@ public partial class GrayBoxDirama : IslandClass
 	}
 	public override void Save()
 	{
+		fileSave.Data = new();
 		fileSave.Data["shops"] = ShopManLocal.getShposSaveData();
 
+		fileSave.Save();
+
 	}
-/*
 	public override void Load()
 	{
 		fileSave.Load();
+		GD.Print(fileSave.Data);
 		ShopManLocal.loadShopsSaveData((Dictionary)fileSave.Data["shops"]);
 	}
-	*/
 }

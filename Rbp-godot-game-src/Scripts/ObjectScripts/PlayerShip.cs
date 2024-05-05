@@ -15,7 +15,7 @@ public partial class PlayerShip : Node2D
 	[Export] public float brakeSpeed;
 	[Export] public float Acc;
 	[Export] public float TurnAcc;
-	[Export] public float speed;
+			 public float speed;
 	[Export] public float Minspeed;
 	[Export] public float Maxspeed;
 	[Export] public float dir;//in Dagrees

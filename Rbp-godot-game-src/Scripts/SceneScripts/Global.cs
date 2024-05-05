@@ -80,10 +80,26 @@ public partial class Global : Node
 
 	public void OpenScene(int ID)
 	{
-		curSceneMan._CloseScenePrep();
+		closeCurentScene();
 
 		GD.Print("Go To Scene:" + SceneList[ID]);
 		GetTree().ChangeSceneToFile(SceneList[ID]);
+	}
+
+
+	public override void _Notification(int what)
+	{
+	    if (what == NotificationWMCloseRequest)
+		{
+			closeCurentScene();
+	        GetTree().Quit(); // default behavior
+		}
+	}
+
+	public void closeCurentScene()
+	{
+		curSceneMan._CloseScenePrep();
+
 	}
 
 }
