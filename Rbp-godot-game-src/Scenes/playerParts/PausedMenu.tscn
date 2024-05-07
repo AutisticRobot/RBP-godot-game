@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbk6pg52bu4a3"]
+
+[ext_resource type="Script" path="res://Scenes/playerParts/PausedMenu.cs" id="1_tkix0"]
+
+[node name="PausedMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tkix0")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.255659, 0.255659, 0.255659, 0.498039)

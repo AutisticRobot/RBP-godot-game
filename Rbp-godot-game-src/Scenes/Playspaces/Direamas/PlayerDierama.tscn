@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://d035eqqb0j6ig"]
+[gd_scene load_steps=15 format=3 uid="uid://d035eqqb0j6ig"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/PlayerDierama.cs" id="1_02cwl"]
 [ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
 [ext_resource type="PackedScene" uid="uid://bvonwlfpak3nx" path="res://Scenes/playerParts/diramaHud.tscn" id="2_8gvm5"]
 [ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="2_tl3r2"]
 [ext_resource type="PackedScene" uid="uid://cpxrf3hii40p0" path="res://Scenes/Prefabs/simplePrefabs/ShopMenu.tscn" id="3_oq0pg"]
+[ext_resource type="PackedScene" uid="uid://bbk6pg52bu4a3" path="res://Scenes/playerParts/PausedMenu.tscn" id="5_xyjwt"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="6_u6kax"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShipDoll.cs" id="9_u8sq5"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_ur6o6"]
@@ -37,9 +38,10 @@ Jewlery = 0
 radius = 75.0
 height = 260.0
 
-[node name="PlayerDierama" type="Node2D" node_paths=PackedStringArray("hud", "shopMenu", "player", "shipDoll")]
+[node name="PlayerDierama" type="Node2D" node_paths=PackedStringArray("hud", "pauseMenu", "shopMenu", "player", "shipDoll")]
 script = ExtResource("1_02cwl")
 hud = NodePath("PlayerLand/Camera2D/DiramaHud")
+pauseMenu = NodePath("PlayerLand/Camera2D/PausedMenu")
 shopMenu = NodePath("PlayerLand/Camera2D/ShopMenu")
 player = NodePath("PlayerLand")
 shipDoll = NodePath("Ship")
@@ -60,6 +62,10 @@ drag_left_margin = 0.32
 drag_top_margin = 0.32
 drag_right_margin = 0.32
 drag_bottom_margin = 0.33
+
+[node name="PausedMenu" parent="PlayerLand/Camera2D" node_paths=PackedStringArray("parent") instance=ExtResource("5_xyjwt")]
+visible = false
+parent = NodePath("../../..")
 
 [node name="DiramaHud" parent="PlayerLand/Camera2D" instance=ExtResource("2_8gvm5")]
 offset_left = -9460.0

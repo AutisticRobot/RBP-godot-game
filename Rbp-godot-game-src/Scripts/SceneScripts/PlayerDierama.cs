@@ -7,6 +7,7 @@ public partial class PlayerDierama : SceneMan
 {
 	[Export] public string islandSaveFolder;
 	[Export] public Control hud;
+	[Export] public PausedMenu pauseMenu;
 	[Export] public ShopMenu shopMenu;
 	[Export] public playerLand player;
 	[Export] public ShipDoll shipDoll;
@@ -69,7 +70,7 @@ public partial class PlayerDierama : SceneMan
 			{
 				CloseShop();
 			}else{
-				GetTree().ChangeSceneToFile("res://Scenes/Playspaces/options_screen.tscn");
+				pauseMenu.interactMenu();
 			}
 		}
 
