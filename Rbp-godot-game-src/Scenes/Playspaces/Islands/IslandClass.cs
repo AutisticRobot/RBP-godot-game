@@ -1,5 +1,6 @@
 using System;
 using Godot;
+using Godot.Collections;
 
 [GlobalClass]
 public partial class IslandClass : Node2D
@@ -13,6 +14,7 @@ public partial class IslandClass : Node2D
 
 	public virtual void prepIsland()
 	{
+		hideStandee();
 		fileSave.SaveFile = SaveFileName;
 		try
 		{
@@ -52,7 +54,17 @@ public partial class IslandClass : Node2D
 	}
 
 
-	public virtual void Save(){GD.Print("save function not used in " + Name);}
-	public virtual void Load(){GD.Print("load function not used in " + Name);}
+	public virtual void Save()
+	{
+		fileSave.Data = new();
+		fileSave.Data["shops"] = ShopManLocal.getShposSaveData();
+		fileSave.Save();
+	}
+	public virtual void Load()
+	{
+
+		fileSave.Load();
+		ShopManLocal.loadShopsSaveData((Dictionary)fileSave.Data["shops"]);
+	}
 
 }

@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_i3nax"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_reo54"]
 
-[sub_resource type="Resource" id="Resource_0vpxc"]
+[sub_resource type="Resource" id="Resource_lb23p"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 1
@@ -21,7 +21,7 @@ Linens = 12
 Spices = 30
 Jewlery = 110
 
-[sub_resource type="Resource" id="Resource_ml14l"]
+[sub_resource type="Resource" id="Resource_nl6bs"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 9999
@@ -31,7 +31,7 @@ Linens = 100
 Spices = 20
 Jewlery = 10
 
-[sub_resource type="Resource" id="Resource_kkhqn"]
+[sub_resource type="Resource" id="Resource_h4opi"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 1
@@ -41,12 +41,12 @@ Linens = 10
 Spices = 25
 Jewlery = 100
 
-[sub_resource type="Resource" id="Resource_hhi1g"]
+[sub_resource type="Resource" id="Resource_ilv5v"]
 resource_local_to_scene = true
 script = ExtResource("5_jgk76")
-inv = SubResource("Resource_ml14l")
-sell = SubResource("Resource_kkhqn")
-buy = SubResource("Resource_0vpxc")
+inv = SubResource("Resource_nl6bs")
+sell = SubResource("Resource_h4opi")
+buy = SubResource("Resource_lb23p")
 
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
 script = ExtResource("1_w87fs")
@@ -73,7 +73,7 @@ script = ExtResource("4_d16ii")
 
 [node name="Shop0" parent="ShopMan" instance=ExtResource("3_f8are")]
 position = Vector2(1030, -304)
-inv = SubResource("Resource_hhi1g")
+inv = SubResource("Resource_ilv5v")
 ShopID = "BUIsfw4"
 
 [node name="PortCaptian" type="Control" parent="."]

@@ -7,18 +7,7 @@ public partial class GrayBoxDirama2 : IslandClass
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		hideStandee();
 	}
 
-	public override void Save()
-	{
-		fileSave.Data["shops"] = ShopManLocal.getShposSaveData();
-
-	}
-	public override void Load()
-	{
-		fileSave.Load();
-		ShopManLocal.loadShopsSaveData((Dictionary)fileSave.Data["shops"]);
-	}
 
 }
