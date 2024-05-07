@@ -10,8 +10,6 @@ public partial class GroundButton : Area2D
 	[Export] public string inputInteract = "interact";
 	public Global global;
 
-	//temp fix for scene Change crash
-	public double colldown = 1.5;
 
 	
 	public override void _Ready()
@@ -24,10 +22,9 @@ public partial class GroundButton : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if(Input.IsActionJustPressed(inputInteract) && PlayerOnButton && global.buttonColldown <= 0)
+		if(Input.IsActionJustPressed(inputInteract) && PlayerOnButton)
 		{
 			GD.Print("Ground Button Pressed");
-			global.buttonColldown += colldown;
 			EmitSignal(SignalName.buttonPressed);
 		}
 	}

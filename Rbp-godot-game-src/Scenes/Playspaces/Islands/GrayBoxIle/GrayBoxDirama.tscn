@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="10_qw2hi"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="11_b4e8y"]
 
-[sub_resource type="Resource" id="Resource_ytnn6"]
+[sub_resource type="Resource" id="Resource_xhpe3"]
 resource_local_to_scene = true
 script = ExtResource("4_bx5vy")
 Money = 1
@@ -23,7 +23,7 @@ Linens = 12
 Spices = 30
 Jewlery = 110
 
-[sub_resource type="Resource" id="Resource_xwken"]
+[sub_resource type="Resource" id="Resource_msms8"]
 resource_local_to_scene = true
 script = ExtResource("4_bx5vy")
 Money = 9999
@@ -33,7 +33,7 @@ Linens = 100
 Spices = 20
 Jewlery = 10
 
-[sub_resource type="Resource" id="Resource_ac5da"]
+[sub_resource type="Resource" id="Resource_ntxe2"]
 resource_local_to_scene = true
 script = ExtResource("4_bx5vy")
 Money = 1
@@ -43,12 +43,12 @@ Linens = 10
 Spices = 25
 Jewlery = 100
 
-[sub_resource type="Resource" id="Resource_jplee"]
+[sub_resource type="Resource" id="Resource_xwiul"]
 resource_local_to_scene = true
 script = ExtResource("3_2d5d7")
-inv = SubResource("Resource_xwken")
-sell = SubResource("Resource_ac5da")
-buy = SubResource("Resource_ytnn6")
+inv = SubResource("Resource_msms8")
+sell = SubResource("Resource_ntxe2")
+buy = SubResource("Resource_xhpe3")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfxuw"]
 radius = 124.844
@@ -74,10 +74,10 @@ script = ExtResource("3_jw8mq")
 
 [node name="Shop0" parent="Shop Manager" instance=ExtResource("2_vljx4")]
 position = Vector2(1030, -304)
-inv = SubResource("Resource_jplee")
+inv = SubResource("Resource_xwiul")
 
 [node name="PlayerStart" type="Sprite2D" parent="."]
-position = Vector2(-42, 821)
+position = Vector2(-191, 802)
 texture = ExtResource("6_s6ch2")
 
 [node name="PortCaptian" type="Control" parent="."]

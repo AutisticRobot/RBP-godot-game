@@ -15,8 +15,10 @@ public partial class Global : Node
 
 	public SceneMan curSceneMan;
 	public string spawnDiramaUID;
-	//temp fix for scene Change crash
-	public double buttonColldown;
+
+	//spam open scene prevention
+	private bool callRealOpenScene = false;
+	private int OpenSceneID;
 
 	//Save Options
 	public string savePrefix = "user://saves/sav-1/";
@@ -49,14 +51,11 @@ public partial class Global : Node
 	}
 	public override void _Process(double delta)
 	{
-
-	//temp fix for scene Change crash
-		if(buttonColldown > 0)
+	//spam open scene prevention
+		if(callRealOpenScene)
 		{
-			buttonColldown -= delta;
-		
-		}else{
-			buttonColldown = 0;
+			callRealOpenScene = false;
+			RealOpenScene();
 		}
 	}
 
@@ -80,11 +79,18 @@ public partial class Global : Node
 
 	public void OpenScene(int ID)
 	{
-		closeCurentScene();
-
-		GD.Print("Go To Scene:" + SceneList[ID]);
-		GetTree().ChangeSceneToFile(SceneList[ID]);
+		OpenSceneID = ID;
+		callRealOpenScene = true;
 	}
+	private void RealOpenScene()
+	{
+			closeCurentScene();
+
+			GD.Print("Go To Scene:" + SceneList[OpenSceneID]);
+			GetTree().ChangeSceneToFile(SceneList[OpenSceneID]);
+
+	}
+
 
 
 	public override void _Notification(int what)

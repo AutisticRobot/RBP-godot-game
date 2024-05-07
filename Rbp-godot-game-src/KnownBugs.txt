@@ -1,3 +1,0 @@
-
-	//has temp fix for scene Change crash with a delay
--Spamming interact when changing scene can cause a crash.
