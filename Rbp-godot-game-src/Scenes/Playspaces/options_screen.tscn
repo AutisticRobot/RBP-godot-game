@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://p38oynyqoiqc"]
+[gd_scene load_steps=6 format=3 uid="uid://p38oynyqoiqc"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/options_screen.cs" id="1_hvuab"]
 [ext_resource type="PackedScene" uid="uid://cbyrmnivy13ks" path="res://Scenes/Prefabs/simplePrefabs/sceneChangeButton.tscn" id="2_basv1"]
 [ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="2_xpt27"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/buttionMan.cs" id="3_m7eu8"]
 
 [sub_resource type="Resource" id="Resource_xktgs"]
 script = ExtResource("2_xpt27")
@@ -13,10 +14,6 @@ SaveFile = ""
 script = ExtResource("1_hvuab")
 SavePath = NodePath("savePrefix")
 saveF = SubResource("Resource_xktgs")
-
-[node name="Back" parent="." instance=ExtResource("2_basv1")]
-position = Vector2(265, 70)
-text = "<- back"
 
 [node name="savePrefix" type="TextEdit" parent="."]
 offset_left = 116.0
@@ -33,5 +30,16 @@ offset_top = 586.0
 offset_right = 86.0
 offset_bottom = 617.0
 text = "Apply"
+
+[node name="ButtonMan" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_m7eu8")
+
+[node name="Back" parent="ButtonMan" instance=ExtResource("2_basv1")]
+position = Vector2(265, 70)
+text = "<- back"
 
 [connection signal="pressed" from="Button" to="." method="Apply"]

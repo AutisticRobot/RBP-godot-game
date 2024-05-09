@@ -5,8 +5,10 @@ public partial class MapMain : SceneMan
 {
 	#region RESOURCES
 	[Export] public PlayerShip player;
+
 	#endregion
 	[Export] public Dictionary data;
+	[Export] public PausedMenu pauseMenu;
 
 
 	// Called when the node enters the scene tree for the first time.
@@ -26,7 +28,7 @@ public partial class MapMain : SceneMan
 
 		if(Input.IsActionJustPressed("enterMenu"))
 		{
-			pausedScene = !pausedScene;
+			pauseMenu.interactMenu();
 		}
 	}
 

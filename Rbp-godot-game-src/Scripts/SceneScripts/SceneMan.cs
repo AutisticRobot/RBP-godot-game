@@ -19,8 +19,4 @@ public partial class SceneMan : Node2D
 	}
 
 	public virtual void _CloseScenePrep() {}
-	public virtual void changeToSceneID(int ID)
-	{
-		global.OpenScene(ID);
-	}
 }
