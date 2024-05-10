@@ -38,8 +38,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_m7eu8")
 
-[node name="Back" parent="ButtonMan" instance=ExtResource("2_basv1")]
+[node name="Back" parent="ButtonMan" node_paths=PackedStringArray("manager") instance=ExtResource("2_basv1")]
 position = Vector2(265, 70)
 text = "<- back"
+manager = NodePath("..")
 
 [connection signal="pressed" from="Button" to="." method="Apply"]
