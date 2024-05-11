@@ -3,6 +3,17 @@ using Godot.Collections;
 using System;
 using System.Collections.Generic;
 
+
+/*/---------------------------------------------\\\
+///---------------------------------------------\\\
+[[[                                             ]]]
+[[[                                             ]]]
+[[[                 Template Box                ]]]
+[[[                                             ]]]
+[[[                                             ]]]
+\\\---------------------------------------------///
+\\\---------------------------------------------/*/
+
 public partial class Global : Node
 {
 	public List<String> SceneList = new() {
@@ -11,8 +22,25 @@ public partial class Global : Node
 		"res://Scenes/Playspaces/Direamas/PlayerDierama.tscn",
 		"res://Scenes/Playspaces/Maps/OceanMap.tscn",
 	};
-	public int sceneChangeCount;
+/*/---------------------------------------------\\\
+///---------------------------------------------\\\
+[[[                                             ]]]
+[[[                                             ]]]
+[[[                 Varriables                  ]]]
+[[[                                             ]]]
+[[[                                             ]]]
+\\\---------------------------------------------///
+\\\---------------------------------------------/*/
 
+	//Economy
+
+
+	//Time Data
+	public uint dayCounter;
+	public float timeOfDay;
+		private float dayLength = 200;
+
+	//Scene Data
 	public SceneMan curSceneMan;
 	public string spawnDiramaUID;
 
@@ -38,6 +66,15 @@ public partial class Global : Node
 	//dirAcess
 	public DirAccess dir = DirAccess.Open("user://");
 
+/*/---------------------------------------------\\\
+///---------------------------------------------\\\
+[[[                                             ]]]
+[[[                                             ]]]
+[[[            Built In Functions               ]]]
+[[[                                             ]]]
+[[[                                             ]]]
+\\\---------------------------------------------///
+\\\---------------------------------------------/*/
 
 	public override void _Ready()
 	{
@@ -49,6 +86,7 @@ public partial class Global : Node
 
 		Load();
 	}
+
 	public override void _Process(double delta)
 	{
 	//spam open scene prevention
@@ -59,6 +97,25 @@ public partial class Global : Node
 		}
 	}
 
+	public override void _Notification(int what)
+	{
+	    if (what == NotificationWMCloseRequest)
+		{
+			closeCurentScene();
+	        GetTree().Quit(); // default behavior
+		}
+	}
+
+/*/---------------------------------------------\\\
+///---------------------------------------------\\\
+[[[                                             ]]]
+[[[                                             ]]]
+[[[                 Save/Load                   ]]]
+[[[                                             ]]]
+[[[                                             ]]]
+\\\---------------------------------------------///
+\\\---------------------------------------------/*/
+
 	public void Save()
 	{
 		Options["savPre"] = savePrefix;
@@ -66,6 +123,7 @@ public partial class Global : Node
 		OptionsSave.Save();
 
 	}
+
 	public void Load()
 	{
 		if(!OptionsSave.Exists())
@@ -76,6 +134,16 @@ public partial class Global : Node
 
 		savePrefix = (String)Options["savPre"];
 	}
+
+/*/---------------------------------------------\\\
+///---------------------------------------------\\\
+[[[                                             ]]]
+[[[                                             ]]]
+[[[             Scene Management                ]]]
+[[[                                             ]]]
+[[[                                             ]]]
+\\\---------------------------------------------///
+\\\---------------------------------------------/*/
 
 	public void OpenScene(int ID)
 	{
@@ -91,21 +159,34 @@ public partial class Global : Node
 
 	}
 
-
-
-	public override void _Notification(int what)
-	{
-	    if (what == NotificationWMCloseRequest)
-		{
-			closeCurentScene();
-	        GetTree().Quit(); // default behavior
-		}
-	}
-
 	public void closeCurentScene()
 	{
 		curSceneMan._CloseScenePrep();
 
 	}
+/*/---------------------------------------------\\\
+///---------------------------------------------\\\
+[[[                                             ]]]
+[[[                                             ]]]
+[[[                 Time Handlers               ]]]
+[[[                                             ]]]
+[[[                                             ]]]
+\\\---------------------------------------------///
+\\\---------------------------------------------/*/
+
+
+
+
+/*/---------------------------------------------\\\
+///---------------------------------------------\\\
+[[[                                             ]]]
+[[[                                             ]]]
+[[[              Economy Handlers               ]]]
+[[[                                             ]]]
+[[[                                             ]]]
+\\\---------------------------------------------///
+\\\---------------------------------------------/*/
+
+
 
 }
