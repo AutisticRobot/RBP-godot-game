@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbk6pg52bu4a3"]
 
-[ext_resource type="Script" path="res://Scenes/playerParts/PausedMenu.cs" id="1_tkix0"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/PausedMenu.cs" id="1_tkix0"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/buttionMan.cs" id="2_susfk"]
 [ext_resource type="PackedScene" uid="uid://cbyrmnivy13ks" path="res://Scenes/Prefabs/simplePrefabs/sceneChangeButton.tscn" id="2_whijw"]
 

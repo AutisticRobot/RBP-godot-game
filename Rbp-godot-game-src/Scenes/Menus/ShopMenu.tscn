@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=3 uid="uid://cpxrf3hii40p0"]
+
+[ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="1_uyu8b"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/ShopMenu.cs" id="1_yli72"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/ShipDoll.cs" id="3_lym2e"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_rqc0q"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/shopListing.cs" id="6_dutg0"]
+[ext_resource type="Theme" uid="uid://ck7rw28kr5b6w" path="res://Resorces/SimpleStyles/new_theme.tres" id="6_vsed3"]
+[ext_resource type="PackedScene" uid="uid://blpmhko0wc8wm" path="res://Scenes/Prefabs/simplePrefabs/ShopListing.tscn" id="7_wwaq2"]
+
+[sub_resource type="Resource" id="Resource_233nn"]
+script = ExtResource("4_rqc0q")
+Money = 100
+Food = 1
+Rum = 2
+Linens = 3
+Spices = 4
+Jewlery = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dodxq"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(517.642, 64.5129, 270.872, 229.949)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbteg"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(1391.08, 47.7506, 306.48, 253.333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukgc7"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(899.595, 56.7172, 274.769, 245.538)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_370tr"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(952.206, 356.821, 274.769, 259.179)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6gyj"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(537.129, 376.308, 263.077, 251.385)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkoo5"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(1433.54, 401.641, 276.718, 253.333)
+
+[node name="ShopMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yli72")
+buyMulti = 1
+
+[node name="PlayerTestInv" type="Node2D" parent="."]
+script = ExtResource("3_lym2e")
+inv = SubResource("Resource_233nn")
+
+[node name="Coin" type="Sprite2D" parent="." node_paths=PackedStringArray("shopMan", "playerStock", "shopStock")]
+position = Vector2(500, 140)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_dodxq")
+script = ExtResource("6_dutg0")
+shopMan = NodePath("..")
+type = "Money"
+playerStock = NodePath("PlayerMoney/PlayerMoneyCount")
+shopStock = NodePath("ShopMoney/ShopMoneyCount")
+onlyShow = true
+
+[node name="PlayerMoney" type="Label" parent="Coin"]
+offset_left = 156.0
+offset_top = -76.0
+offset_right = 318.0
+offset_bottom = 1.0
+theme = ExtResource("6_vsed3")
+theme_override_font_sizes/font_size = 64
+text = "Player:"
+
+[node name="PlayerMoneyCount" type="Label" parent="Coin/PlayerMoney"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 10.0
+offset_right = 586.0
+offset_bottom = 98.0
+theme = ExtResource("6_vsed3")
+theme_override_font_sizes/font_size = 64
+text = "$123456789"
+
+[node name="ShopMoney" type="Label" parent="Coin"]
+offset_left = 176.0
+offset_top = 10.0
+offset_right = 338.0
+offset_bottom = 87.0
+theme = ExtResource("6_vsed3")
+theme_override_font_sizes/font_size = 64
+text = "Shop:"
+
+[node name="ShopMoneyCount" type="Label" parent="Coin/ShopMoney"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = -2.0
+offset_right = 568.0
+offset_bottom = 86.0
+theme = ExtResource("6_vsed3")
+theme_override_font_sizes/font_size = 64
+text = "$123456789"
+
+[node name="Rum" parent="." node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
+position = Vector2(630, 419)
+texture = SubResource("AtlasTexture_gbteg")
+shopMan = NodePath("..")
+
+[node name="Food" parent="." node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
+position = Vector2(1209, 218)
+texture = SubResource("AtlasTexture_ukgc7")
+shopMan = NodePath("..")
+type = "Food"
+
+[node name="Spices" parent="." instance=ExtResource("7_wwaq2")]
+position = Vector2(887, 640)
+texture = SubResource("AtlasTexture_370tr")
+type = "Spices"
+
+[node name="Fabrics" parent="." instance=ExtResource("7_wwaq2")]
+position = Vector2(632, 905)
+texture = SubResource("AtlasTexture_q6gyj")
+type = "Linens"
+
+[node name="Jewlery" parent="." instance=ExtResource("7_wwaq2")]
+position = Vector2(1233, 912)
+texture = SubResource("AtlasTexture_mkoo5")
+type = "Jewlery"

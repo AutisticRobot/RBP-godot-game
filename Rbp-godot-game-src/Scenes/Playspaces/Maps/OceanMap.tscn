@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ct77st4wccs35" path="res://Scenes/Prefabs/majorPrefabs/islandPrefabV1.tscn" id="3_0yxn1"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_p14fm"]
 [ext_resource type="PackedScene" uid="uid://dqjgej3qvkd4c" path="res://Scenes/Prefabs/simplePrefabs/LootFloat.tscn" id="5_2xt25"]
-[ext_resource type="PackedScene" uid="uid://bbk6pg52bu4a3" path="res://Scenes/playerParts/PausedMenu.tscn" id="5_kljqs"]
+[ext_resource type="PackedScene" uid="uid://bbk6pg52bu4a3" path="res://Scenes/Menus/PausedMenu.tscn" id="5_kljqs"]
 [ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="6_tni2x"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/NavMan.cs" id="6_xkesc"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Cursor.cs" id="7_cy6ny"]

@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/PlayerDierama.cs" id="1_02cwl"]
 [ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
-[ext_resource type="PackedScene" uid="uid://bvonwlfpak3nx" path="res://Scenes/playerParts/diramaHud.tscn" id="2_8gvm5"]
+[ext_resource type="PackedScene" uid="uid://bvonwlfpak3nx" path="res://Scenes/Menus/diramaHud.tscn" id="2_8gvm5"]
 [ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="2_tl3r2"]
-[ext_resource type="PackedScene" uid="uid://cpxrf3hii40p0" path="res://Scenes/Prefabs/simplePrefabs/ShopMenu.tscn" id="3_oq0pg"]
-[ext_resource type="PackedScene" uid="uid://bbk6pg52bu4a3" path="res://Scenes/playerParts/PausedMenu.tscn" id="5_xyjwt"]
+[ext_resource type="PackedScene" uid="uid://cpxrf3hii40p0" path="res://Scenes/Menus/ShopMenu.tscn" id="3_oq0pg"]
+[ext_resource type="PackedScene" uid="uid://bbk6pg52bu4a3" path="res://Scenes/Menus/PausedMenu.tscn" id="5_xyjwt"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="6_u6kax"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShipDoll.cs" id="9_u8sq5"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_ur6o6"]

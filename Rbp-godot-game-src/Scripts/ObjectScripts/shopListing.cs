@@ -17,6 +17,7 @@ public partial class shopListing : Sprite2D
 	{
 		shopMan = GetOwner<ShopMenu>();
 
+
 	}
 
 	
@@ -34,8 +35,8 @@ public partial class shopListing : Sprite2D
 		shopStock.Text = shopMan.GetShopInv(type, 0).ToString();
 		if(!onlyShow)
 		{
-			buyPrice.Text = shopMan.GetShopInv(type, 1).ToString();
-			sellPrice.Text = shopMan.GetShopInv(type, 2).ToString();
+			buyPrice.Text = "$" + shopMan.GetShopInv(type, 1).ToString();
+			sellPrice.Text = "$" + shopMan.GetShopInv(type, 2).ToString();
 		}
 	}
 

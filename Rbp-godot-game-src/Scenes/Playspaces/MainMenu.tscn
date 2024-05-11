@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqelfwpusv3j"]
+[gd_scene load_steps=11 format=3 uid="uid://cqelfwpusv3j"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/MainMenu.cs" id="1_ah15m"]
 [ext_resource type="Texture2D" uid="uid://cf8qoq8xdh56d" path="res://Assets/Placeholders/MenuBackground.png" id="1_uojjj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/HelperScripts/buttionMan.cs" id="3_t33a4"]
 [ext_resource type="PackedScene" uid="uid://cbyrmnivy13ks" path="res://Scenes/Prefabs/simplePrefabs/sceneChangeButton.tscn" id="4_2dr02"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/QuitButton.cs" id="5_6ijow"]
+[ext_resource type="Theme" uid="uid://ck7rw28kr5b6w" path="res://Resorces/SimpleStyles/new_theme.tres" id="8_l46xy"]
 
 [sub_resource type="Resource" id="Resource_p8p3x"]
 script = ExtResource("2_tneip")
@@ -65,8 +66,9 @@ offset_right = 666.0
 offset_bottom = 62.0
 scale = Vector2(0.5, 1)
 size_flags_horizontal = 4
+theme = ExtResource("8_l46xy")
 theme_override_font_sizes/font_size = 32
-text = "Endless Ocean"
+text = "Privateer's Bay"
 label_settings = SubResource("LabelSettings_fj3ka")
 horizontal_alignment = 1
 vertical_alignment = 1
