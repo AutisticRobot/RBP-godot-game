@@ -1,11 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://d035eqqb0j6ig"]
+[gd_scene load_steps=13 format=3 uid="uid://d035eqqb0j6ig"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/PlayerDierama.cs" id="1_02cwl"]
 [ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
-[ext_resource type="PackedScene" uid="uid://bvonwlfpak3nx" path="res://Scenes/Menus/diramaHud.tscn" id="2_8gvm5"]
 [ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="2_tl3r2"]
-[ext_resource type="PackedScene" uid="uid://cpxrf3hii40p0" path="res://Scenes/Menus/ShopMenu.tscn" id="3_oq0pg"]
-[ext_resource type="PackedScene" uid="uid://bbk6pg52bu4a3" path="res://Scenes/Menus/PausedMenu.tscn" id="5_xyjwt"]
+[ext_resource type="PackedScene" uid="uid://c7pntm3xwqrrb" path="res://Scenes/Menus/menu_handler.tscn" id="5_1swim"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="6_u6kax"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShipDoll.cs" id="9_u8sq5"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_ur6o6"]
@@ -40,9 +38,9 @@ height = 260.0
 
 [node name="PlayerDierama" type="Node2D" node_paths=PackedStringArray("hud", "pauseMenu", "shopMenu", "player", "shipDoll")]
 script = ExtResource("1_02cwl")
-hud = NodePath("PlayerLand/Camera2D/DiramaHud")
-pauseMenu = NodePath("PlayerLand/Camera2D/PausedMenu")
-shopMenu = NodePath("PlayerLand/Camera2D/ShopMenu")
+hud = NodePath("")
+pauseMenu = NodePath("")
+shopMenu = NodePath("")
 player = NodePath("PlayerLand")
 shipDoll = NodePath("Ship")
 saveF = SubResource("Resource_vqi4u")
@@ -63,24 +61,7 @@ drag_top_margin = 0.32
 drag_right_margin = 0.32
 drag_bottom_margin = 0.33
 
-[node name="PausedMenu" parent="PlayerLand/Camera2D" node_paths=PackedStringArray("parent") instance=ExtResource("5_xyjwt")]
-visible = false
-parent = NodePath("../../..")
-
-[node name="DiramaHud" parent="PlayerLand/Camera2D" instance=ExtResource("2_8gvm5")]
-offset_left = -9460.0
-offset_top = -5280.0
-offset_right = -9460.0
-offset_bottom = -5280.0
-scale = Vector2(10, 10)
-
-[node name="ShopMenu" parent="PlayerLand/Camera2D" instance=ExtResource("3_oq0pg")]
-visible = false
-offset_left = -9520.0
-offset_top = -5390.0
-offset_right = -9520.0
-offset_bottom = -5390.0
-scale = Vector2(10, 10)
+[node name="MenuHandler" parent="PlayerLand/Camera2D" instance=ExtResource("5_1swim")]
 
 [node name="Ship" type="Sprite2D" parent="."]
 z_index = 3

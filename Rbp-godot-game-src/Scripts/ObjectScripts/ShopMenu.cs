@@ -3,7 +3,7 @@ using Godot.Collections;
 using System;
 using System.Linq;
 
-public partial class ShopMenu : Control
+public partial class ShopMenu : MenuObj
 {
 	public ShopInventory shop;
 	public ShipDoll player;

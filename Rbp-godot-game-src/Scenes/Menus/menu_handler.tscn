@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7pntm3xwqrrb"]
+
+[ext_resource type="Script" path="res://Scripts/HelperScripts/MenuHandler.cs" id="1_lms0t"]
+[ext_resource type="PackedScene" uid="uid://cpxrf3hii40p0" path="res://Scenes/Menus/ShopMenu.tscn" id="2_lbjk4"]
+[ext_resource type="PackedScene" uid="uid://bbk6pg52bu4a3" path="res://Scenes/Menus/PausedMenu.tscn" id="4_74rwc"]
+
+[node name="MenuHandler" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_lms0t")
+
+[node name="ShopMenu" parent="." instance=ExtResource("2_lbjk4")]
+visible = false
+layout_mode = 1
+offset_left = -9520.0
+offset_top = -5390.0
+offset_right = -9520.0
+offset_bottom = -5390.0
+scale = Vector2(10, 10)
+
+[node name="PausedMenu" parent="." instance=ExtResource("4_74rwc")]
+visible = false
+layout_mode = 1

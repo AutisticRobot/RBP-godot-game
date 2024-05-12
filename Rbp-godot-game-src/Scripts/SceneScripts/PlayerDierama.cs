@@ -7,6 +7,7 @@ public partial class PlayerDierama : SceneMan
 {
 	[Export] public string islandSaveFolder;
 	[Export] public Control hud;
+	[Export] public MenuHandler Menus;
 	[Export] public PausedMenu pauseMenu;
 	[Export] public ShopMenu shopMenu;
 	[Export] public playerLand player;
@@ -53,12 +54,12 @@ public partial class PlayerDierama : SceneMan
 		pausedScene = true;
 		shopMenu.shop = shopInv;
 		hud.Visible = false;
-		shopMenu.Visible = true;
+		Menus.OpenMenu(shopMenu);
 	}
-	public void CloseShop()
+	public override void CloseMenu()
 	{
 		hud.Visible = true;
-		shopMenu.Visible = false;
+		Menus.Visible = false;
 		pausedScene = false;
 	}
 
@@ -66,12 +67,7 @@ public partial class PlayerDierama : SceneMan
 	{
 		if(Input.IsActionJustPressed("enterMenu"))
 		{
-			if(shopMenu.Visible)
-			{
-				CloseShop();
-			}else{
-				pauseMenu.interactMenu();
-			}
+			Menus.BackPress();
 		}
 
 	}

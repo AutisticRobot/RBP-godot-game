@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using System.Runtime.InteropServices;
 
 [GlobalClass]
 public partial class SceneMan : Node2D
@@ -19,4 +17,6 @@ public partial class SceneMan : Node2D
 	}
 
 	public virtual void _CloseScenePrep() {}
+	public virtual void CloseMenu() {}
+	
 }
