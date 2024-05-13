@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class PausedMenu : Control
+public partial class PausedMenu : MenuObj
 {
 	[Export] public SceneMan parent;
 	[Export] public CanvasLayer buttions;

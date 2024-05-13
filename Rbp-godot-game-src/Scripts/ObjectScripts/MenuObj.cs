@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public partial class MenuObj : Control
 {
 	[Export] public MenuObj prevMenu;

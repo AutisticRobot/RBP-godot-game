@@ -4,12 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://cpxrf3hii40p0" path="res://Scenes/Menus/ShopMenu.tscn" id="2_lbjk4"]
 [ext_resource type="PackedScene" uid="uid://bbk6pg52bu4a3" path="res://Scenes/Menus/PausedMenu.tscn" id="4_74rwc"]
 
-[node name="MenuHandler" type="Control"]
+[node name="MenuHandler" type="Control" node_paths=PackedStringArray("defaultMenu", "MenusList")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_lms0t")
+defaultMenu = NodePath("PausedMenu")
+MenusList = [NodePath("PausedMenu"), NodePath("ShopMenu")]
 
 [node name="ShopMenu" parent="." instance=ExtResource("2_lbjk4")]
 visible = false

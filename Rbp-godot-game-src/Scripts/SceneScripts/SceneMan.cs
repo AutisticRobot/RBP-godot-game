@@ -17,6 +17,7 @@ public partial class SceneMan : Node2D
 	}
 
 	public virtual void _CloseScenePrep() {}
-	public virtual void CloseMenu() {}
+	public virtual void CloseMenu() {}//<-------------\
+	public virtual void OpenMenu(MenuObj menu) {}//<--+----- These are only for preping scene for opening menu. THEY ARE CALLED BY THE MENUHANDLER
 	
 }

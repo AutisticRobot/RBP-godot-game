@@ -36,11 +36,9 @@ Jewlery = 0
 radius = 75.0
 height = 260.0
 
-[node name="PlayerDierama" type="Node2D" node_paths=PackedStringArray("hud", "pauseMenu", "shopMenu", "player", "shipDoll")]
+[node name="PlayerDierama" type="Node2D" node_paths=PackedStringArray("Menus", "player", "shipDoll")]
 script = ExtResource("1_02cwl")
-hud = NodePath("")
-pauseMenu = NodePath("")
-shopMenu = NodePath("")
+Menus = NodePath("PlayerLand/Camera2D/MenuHandler")
 player = NodePath("PlayerLand")
 shipDoll = NodePath("Ship")
 saveF = SubResource("Resource_vqi4u")
@@ -61,7 +59,8 @@ drag_top_margin = 0.32
 drag_right_margin = 0.32
 drag_bottom_margin = 0.33
 
-[node name="MenuHandler" parent="PlayerLand/Camera2D" instance=ExtResource("5_1swim")]
+[node name="MenuHandler" parent="PlayerLand/Camera2D" node_paths=PackedStringArray("LocalScene") instance=ExtResource("5_1swim")]
+LocalScene = NodePath("../../..")
 
 [node name="Ship" type="Sprite2D" parent="."]
 z_index = 3

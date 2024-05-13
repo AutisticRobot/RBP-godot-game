@@ -1,16 +1,18 @@
 using Godot;
-using System;
+using Godot.Collections;
 
 [GlobalClass]
 public partial class MenuHandler : Control
 {
 	[Export] public SceneMan LocalScene;
 	[Export] public MenuObj defaultMenu;
+	[Export] public Array<MenuObj> MenusList;
 			 public MenuObj curMenu;
 
     public override void _Ready()
     {
 		Visible = false;
+		curMenu = defaultMenu;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,6 +49,7 @@ public partial class MenuHandler : Control
 	public void OpenMenu(MenuObj menu)
 	{
 		Visible = true;
+		LocalScene.OpenMenu(menu);
 		curMenu.setVisible(false);
 		curMenu = menu;
 		curMenu.setVisible(true);

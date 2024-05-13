@@ -6,10 +6,10 @@ using System.Net;
 public partial class PlayerDierama : SceneMan
 {
 	[Export] public string islandSaveFolder;
-	[Export] public Control hud;
+	//[Export] public Control hud;
 	[Export] public MenuHandler Menus;
-	[Export] public PausedMenu pauseMenu;
-	[Export] public ShopMenu shopMenu;
+			 public PausedMenu pauseMenu;
+			 public ShopMenu shopMenu;
 	[Export] public playerLand player;
 	[Export] public ShipDoll shipDoll;
 	[Export] public Vector2 playerSartSpot;
@@ -18,7 +18,8 @@ public partial class PlayerDierama : SceneMan
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
-	{	
+	{
+
 		ScenePrep();
 		player.manager = this;
 		IslandDiramaUID = global.spawnDiramaUID;
@@ -31,6 +32,9 @@ public partial class PlayerDierama : SceneMan
 
 		//localIsland.shopOpen += (shop) => {OpenShop(shop);};
 		localIsland.Connect("shopOpen", new Callable(this, MethodName.OpenShop));
+		//Get Menus
+		pauseMenu = (PausedMenu)Menus.MenusList[0];
+		shopMenu = (ShopMenu)Menus.MenusList[1];
 
 
 		playerSartSpot = localIsland.GetPlayerStartPos();
@@ -51,14 +55,18 @@ public partial class PlayerDierama : SceneMan
 
 	public void OpenShop(ShopInventory shopInv)
 	{
-		pausedScene = true;
 		shopMenu.shop = shopInv;
-		hud.Visible = false;
+		//hud.Visible = false;
 		Menus.OpenMenu(shopMenu);
+	}
+	public override void OpenMenu(MenuObj menu)
+	{
+		pausedScene = true;
+
 	}
 	public override void CloseMenu()
 	{
-		hud.Visible = true;
+		//hud.Visible = true;
 		Menus.Visible = false;
 		pausedScene = false;
 	}
