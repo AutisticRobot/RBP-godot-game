@@ -57,7 +57,7 @@ public partial class PlayerDierama : SceneMan
 	{
 		shopMenu.shop = shopInv;
 		//hud.Visible = false;
-		Menus.OpenMenu(shopMenu);
+		Menus.changeToMenu(shopMenu);
 	}
 	public override void OpenMenu(MenuObj menu)
 	{

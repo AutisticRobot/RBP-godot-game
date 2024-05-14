@@ -22,7 +22,7 @@ public partial class GroundButton : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if(Input.IsActionJustPressed(inputInteract) && PlayerOnButton)
+		if(Input.IsActionJustPressed(inputInteract) && PlayerOnButton && !global.curSceneMan.pausedScene)
 		{
 			GD.Print("Ground Button Pressed");
 			EmitSignal(SignalName.buttonPressed);

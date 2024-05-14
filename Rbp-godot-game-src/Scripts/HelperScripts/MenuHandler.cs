@@ -12,13 +12,9 @@ public partial class MenuHandler : Control
     public override void _Ready()
     {
 		Visible = false;
-		curMenu = defaultMenu;
+		//curMenu = defaultMenu;
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
@@ -29,8 +25,7 @@ public partial class MenuHandler : Control
 		{
 			if(curMenu.prevMenu != null)
 			{
-				curMenu.setVisible(false);
-				curMenu.prevMenu.setVisible(true);
+				changeToMenu(curMenu.prevMenu);
 
 			}else{
 				CloseMenu();
@@ -41,19 +36,29 @@ public partial class MenuHandler : Control
 		}
 
 	}
+	public void changeToMenu(MenuObj menu)
+	{
+		CloseMenu();
+		OpenMenu(menu);
+	}
 	public void CloseMenu()
 	{
-		Visible = false;
-		LocalScene.CloseMenu();
+		if(curMenu != null)
+		{
+			Visible = false;
+			curMenu.setVisible(false);
+			LocalScene.CloseMenu();
+			curMenu = null;
+		}
 	}
 	public void OpenMenu(MenuObj menu)
 	{
 		Visible = true;
-		LocalScene.OpenMenu(menu);
-		curMenu.setVisible(false);
 		curMenu = menu;
+		LocalScene.OpenMenu(menu);
 		curMenu.setVisible(true);
 
 	}
+
 
 }

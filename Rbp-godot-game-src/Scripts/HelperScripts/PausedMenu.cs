@@ -3,7 +3,6 @@ using System;
 
 public partial class PausedMenu : MenuObj
 {
-	[Export] public SceneMan parent;
 	[Export] public CanvasLayer buttions;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -17,27 +16,12 @@ public partial class PausedMenu : MenuObj
 	
 	}
 
-	public void interactMenu()
-	{
-		if(Visible)
-		{
-			closeMenu();
-		}else{
-			openMenu();
-		}
-	}
 
-	public void openMenu()
-	{
-		parent.pausedScene = true;
-		buttions.Visible = true;
-		Visible = true;
-	}
-	public void closeMenu()
-	{
-		parent.pausedScene = false;
-		buttions.Visible = false;
-		Visible = false;
 
+	public override void setVisible(bool toState)
+	{
+		GD.Print("pauseMenu = " + toState);
+		buttions.Visible = toState;
+		Visible = toState;
 	}
 }
