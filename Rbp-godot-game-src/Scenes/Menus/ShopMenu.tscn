@@ -8,15 +8,6 @@
 [ext_resource type="Theme" uid="uid://ck7rw28kr5b6w" path="res://Resorces/SimpleStyles/new_theme.tres" id="6_vsed3"]
 [ext_resource type="PackedScene" uid="uid://blpmhko0wc8wm" path="res://Scenes/Prefabs/simplePrefabs/ShopListing.tscn" id="7_wwaq2"]
 
-[sub_resource type="Resource" id="Resource_233nn"]
-script = ExtResource("4_rqc0q")
-Money = 100
-Food = 1
-Rum = 2
-Linens = 3
-Spices = 4
-Jewlery = 5
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dodxq"]
 atlas = ExtResource("1_uyu8b")
 region = Rect2(517.642, 64.5129, 270.872, 229.949)
@@ -41,7 +32,16 @@ region = Rect2(537.129, 376.308, 263.077, 251.385)
 atlas = ExtResource("1_uyu8b")
 region = Rect2(1433.54, 401.641, 276.718, 253.333)
 
-[node name="ShopMenu" type="Control"]
+[sub_resource type="Resource" id="Resource_233nn"]
+script = ExtResource("4_rqc0q")
+Money = 100
+Food = 1
+Rum = 2
+Linens = 3
+Spices = 4
+Jewlery = 5
+
+[node name="ShopMenu" type="Control" node_paths=PackedStringArray("foreground")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,24 +49,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yli72")
+foreground = NodePath("ForeGround")
 buyMulti = 1
 
-[node name="PlayerTestInv" type="Node2D" parent="."]
-script = ExtResource("3_lym2e")
-inv = SubResource("Resource_233nn")
+[node name="ForeGround" type="CanvasLayer" parent="."]
 
-[node name="Coin" type="Sprite2D" parent="." node_paths=PackedStringArray("shopMan", "playerStock", "shopStock")]
+[node name="Coin" type="Sprite2D" parent="ForeGround" node_paths=PackedStringArray("shopMan", "playerStock", "shopStock")]
 position = Vector2(500, 140)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_dodxq")
 script = ExtResource("6_dutg0")
-shopMan = NodePath("..")
+shopMan = NodePath("../..")
 type = "Money"
 playerStock = NodePath("PlayerMoney/PlayerMoneyCount")
 shopStock = NodePath("ShopMoney/ShopMoneyCount")
 onlyShow = true
 
-[node name="PlayerMoney" type="Label" parent="Coin"]
+[node name="PlayerMoney" type="Label" parent="ForeGround/Coin"]
 offset_left = 156.0
 offset_top = -76.0
 offset_right = 318.0
@@ -75,7 +74,7 @@ theme = ExtResource("6_vsed3")
 theme_override_font_sizes/font_size = 64
 text = "Player:"
 
-[node name="PlayerMoneyCount" type="Label" parent="Coin/PlayerMoney"]
+[node name="PlayerMoneyCount" type="Label" parent="ForeGround/Coin/PlayerMoney"]
 layout_mode = 0
 offset_left = 216.0
 offset_top = 10.0
@@ -85,7 +84,7 @@ theme = ExtResource("6_vsed3")
 theme_override_font_sizes/font_size = 64
 text = "$123456789"
 
-[node name="ShopMoney" type="Label" parent="Coin"]
+[node name="ShopMoney" type="Label" parent="ForeGround/Coin"]
 offset_left = 176.0
 offset_top = 10.0
 offset_right = 338.0
@@ -94,7 +93,7 @@ theme = ExtResource("6_vsed3")
 theme_override_font_sizes/font_size = 64
 text = "Shop:"
 
-[node name="ShopMoneyCount" type="Label" parent="Coin/ShopMoney"]
+[node name="ShopMoneyCount" type="Label" parent="ForeGround/Coin/ShopMoney"]
 layout_mode = 0
 offset_left = 198.0
 offset_top = -2.0
@@ -104,28 +103,35 @@ theme = ExtResource("6_vsed3")
 theme_override_font_sizes/font_size = 64
 text = "$123456789"
 
-[node name="Rum" parent="." node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
+[node name="Rum" parent="ForeGround" node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
 position = Vector2(630, 419)
 texture = SubResource("AtlasTexture_gbteg")
-shopMan = NodePath("..")
+shopMan = NodePath("../..")
 
-[node name="Food" parent="." node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
+[node name="Food" parent="ForeGround" node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
 position = Vector2(1209, 218)
 texture = SubResource("AtlasTexture_ukgc7")
-shopMan = NodePath("..")
+shopMan = NodePath("../..")
 type = "Food"
 
-[node name="Spices" parent="." instance=ExtResource("7_wwaq2")]
+[node name="Spices" parent="ForeGround" instance=ExtResource("7_wwaq2")]
 position = Vector2(887, 640)
 texture = SubResource("AtlasTexture_370tr")
 type = "Spices"
 
-[node name="Fabrics" parent="." instance=ExtResource("7_wwaq2")]
+[node name="Fabrics" parent="ForeGround" instance=ExtResource("7_wwaq2")]
 position = Vector2(632, 905)
 texture = SubResource("AtlasTexture_q6gyj")
 type = "Linens"
 
-[node name="Jewlery" parent="." instance=ExtResource("7_wwaq2")]
+[node name="Jewlery" parent="ForeGround" instance=ExtResource("7_wwaq2")]
 position = Vector2(1233, 912)
 texture = SubResource("AtlasTexture_mkoo5")
 type = "Jewlery"
+
+[node name="PlayerTestInv" type="Node2D" parent="ForeGround"]
+script = ExtResource("3_lym2e")
+inv = SubResource("Resource_233nn")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.381206, 0.381353, 0.231935, 1)

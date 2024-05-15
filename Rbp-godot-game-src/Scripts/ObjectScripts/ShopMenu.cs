@@ -1,10 +1,8 @@
 using Godot;
-using Godot.Collections;
-using System;
-using System.Linq;
 
 public partial class ShopMenu : MenuObj
 {
+	[Export] public CanvasLayer foreground;
 	public ShopInventory shop;
 	public ShipDoll player;
 
@@ -13,12 +11,9 @@ public partial class ShopMenu : MenuObj
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		foreground.Visible = false;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
 
 	public void Exchange(bool isBuy, string type)
 	{
@@ -112,6 +107,11 @@ public partial class ShopMenu : MenuObj
     public int GetPlayerInv(string type)
 	{
 		return player.inv[type];
+	}
+	public override void setVisible(bool toState)
+	{
+		foreground.Visible = toState;
+		Visible = toState;
 	}
 
 }

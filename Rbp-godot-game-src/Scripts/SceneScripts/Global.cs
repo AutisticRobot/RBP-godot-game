@@ -34,12 +34,6 @@ public partial class Global : Node
 
 	//Economy
 
-
-	//Time Data
-	public uint dayCounter;
-	public float timeOfDay;
-		private float dayLength = 200;
-
 	//Scene Data
 	public SceneMan curSceneMan;
 	public string spawnDiramaUID;
@@ -173,6 +167,11 @@ public partial class Global : Node
 [[[                                             ]]]
 \\\---------------------------------------------///
 \\\---------------------------------------------/*/
+//Time Data
+public uint dayCounter;
+public float timeOfDay;
+private float dayLength = 200;
+
 
 
 
