@@ -2,16 +2,26 @@ using Godot;
 using System;
 
 [GlobalClass]
-public partial class priceModulator : Resource
+public partial class priceModulator : Node
 {
-             public shopObject parShop;
+    [Export] public shopObject parShop;
     [Export] public uint dayLastUpdate;
+    [Export] public uint DebugCurDay;
                  public uint daysSenceUpdate;
 
 
-    public void prep(shopObject shop)
+    public override void _Ready()
     {
-        parShop = shop;
+        GD.Print("modPrice Preped");
+
+        //some basic testing code
+        daysSenceUpdate = DebugCurDay - dayLastUpdate;
+    }
+
+    public void simpleMod()
+    {
+        parShop.inv.sell.Food += (int)daysSenceUpdate;
+        GD.Print("food Price:" + parShop.inv.sell.Food);
     }
 
 }
