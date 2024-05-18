@@ -42,7 +42,11 @@ public partial class shopMan : Node
 		if(allShops.Count == 0) {fillShopsList();}
 		foreach(shopObject shop in allShops)
 		{
-			shop.inv.FromDic((Dictionary)Data[shop.ShopID]);
+			Dictionary shopData = (Dictionary)Data[shop.ShopID];
+			if(shopData != null)
+			{
+				shop.inv.FromDic(shopData);
+			}
 		}
 
 	}

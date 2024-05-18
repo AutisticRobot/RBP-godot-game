@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_i3nax"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_reo54"]
 
-[sub_resource type="Resource" id="Resource_gu1fj"]
+[sub_resource type="Resource" id="Resource_kfepv"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 1
@@ -22,7 +22,7 @@ Linens = 12
 Spices = 30
 Jewlery = 110
 
-[sub_resource type="Resource" id="Resource_wcddv"]
+[sub_resource type="Resource" id="Resource_2lqgt"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 9999
@@ -32,7 +32,7 @@ Linens = 100
 Spices = 20
 Jewlery = 10
 
-[sub_resource type="Resource" id="Resource_l54h6"]
+[sub_resource type="Resource" id="Resource_wmd0a"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 1
@@ -42,19 +42,19 @@ Linens = 10
 Spices = 25
 Jewlery = 100
 
-[sub_resource type="Resource" id="Resource_12rgi"]
+[sub_resource type="Resource" id="Resource_lrl53"]
 resource_local_to_scene = true
 script = ExtResource("5_jgk76")
-inv = SubResource("Resource_wcddv")
-sell = SubResource("Resource_l54h6")
-buy = SubResource("Resource_gu1fj")
+inv = SubResource("Resource_2lqgt")
+sell = SubResource("Resource_wmd0a")
+buy = SubResource("Resource_kfepv")
 
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
 script = ExtResource("1_w87fs")
 playerStandee = NodePath("PlayerStart")
 PortCaptainLocal = NodePath("PortCaptian")
 ShopManLocal = NodePath("ShopMan")
-SaveFileName = "grayBoxIle2"
+SaveFileName = "grayBoxIle2.sav"
 
 [node name="GrayBoxIslandDirama" type="Sprite2D" parent="."]
 position = Vector2(-1, 1)
@@ -75,12 +75,11 @@ script = ExtResource("4_d16ii")
 [node name="Shop0" parent="ShopMan" node_paths=PackedStringArray("modPrice") instance=ExtResource("3_f8are")]
 position = Vector2(1030, -304)
 ShopID = "BUIsfw4"
-inv = SubResource("Resource_12rgi")
+hardInv = SubResource("Resource_lrl53")
 modPrice = NodePath("Node")
 
-[node name="Node" type="Node" parent="ShopMan/Shop0" node_paths=PackedStringArray("parShop")]
+[node name="Node" type="Node" parent="ShopMan/Shop0"]
 script = ExtResource("8_8xxya")
-parShop = NodePath("..")
 DebugCurDay = 1278
 
 [node name="PortCaptian" type="Control" parent="."]

@@ -4,7 +4,6 @@ using System;
 [GlobalClass]
 public partial class priceModulator : Node
 {
-    [Export] public shopObject parShop;
     [Export] public uint dayLastUpdate;
     [Export] public uint DebugCurDay;
                  public uint daysSenceUpdate;
@@ -18,10 +17,13 @@ public partial class priceModulator : Node
         daysSenceUpdate = DebugCurDay - dayLastUpdate;
     }
 
-    public void simpleMod()
+    public ShopInventory simpleMod(ShopInventory shop)
     {
-        parShop.inv.sell.Food += (int)daysSenceUpdate;
-        GD.Print("food Price:" + parShop.inv.sell.Food);
+        shop.sell.Food += (int)daysSenceUpdate;
+        GD.Print("food Price:" + shop.sell.Food);
+
+
+        return shop;
     }
 
 }

@@ -62,9 +62,13 @@ public partial class IslandClass : Node2D
 	}
 	public virtual void Load()
 	{
+		if(fileSave.Exists())
+		{
+			GD.Print("island Class loaded a file: " + fileSave.SaveFile);
 
-		fileSave.Load();
-		ShopManLocal.loadShopsSaveData((Dictionary)fileSave.Data["shops"]);
+			fileSave.Load();
+			ShopManLocal.loadShopsSaveData((Dictionary)fileSave.Data["shops"]);
+		}
 	}
 
 }

@@ -4,7 +4,8 @@ using System;
 public partial class shopObject : Sprite2D
 {
 	[Export] public string ShopID;
-	[Export] public ShopInventory inv;
+	[Export] public ShopInventory hardInv;
+			 public ShopInventory inv = new();
 	[Export] public priceModulator modPrice;
 
 
@@ -12,6 +13,7 @@ public partial class shopObject : Sprite2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,7 +23,9 @@ public partial class shopObject : Sprite2D
 
 	public void onShopOpen()
 	{
-		modPrice.simpleMod();
+		inv = modPrice.simpleMod(inv);
+		inv = (ShopInventory)hardInv.Duplicate();
+		GD.Print(hardInv.sell.Food);
 		EmitSignal(SignalName.shopOpen, inv);
 	}
 }
