@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_i3nax"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_reo54"]
 
-[sub_resource type="Resource" id="Resource_kfepv"]
+[sub_resource type="Resource" id="Resource_srtqn"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 1
@@ -22,7 +22,7 @@ Linens = 12
 Spices = 30
 Jewlery = 110
 
-[sub_resource type="Resource" id="Resource_2lqgt"]
+[sub_resource type="Resource" id="Resource_s8at8"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 9999
@@ -32,7 +32,7 @@ Linens = 100
 Spices = 20
 Jewlery = 10
 
-[sub_resource type="Resource" id="Resource_wmd0a"]
+[sub_resource type="Resource" id="Resource_7rf2l"]
 resource_local_to_scene = true
 script = ExtResource("4_q45bl")
 Money = 1
@@ -42,12 +42,12 @@ Linens = 10
 Spices = 25
 Jewlery = 100
 
-[sub_resource type="Resource" id="Resource_lrl53"]
+[sub_resource type="Resource" id="Resource_isemi"]
 resource_local_to_scene = true
 script = ExtResource("5_jgk76")
-inv = SubResource("Resource_2lqgt")
-sell = SubResource("Resource_wmd0a")
-buy = SubResource("Resource_kfepv")
+inv = SubResource("Resource_s8at8")
+sell = SubResource("Resource_7rf2l")
+buy = SubResource("Resource_srtqn")
 
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
 script = ExtResource("1_w87fs")
@@ -72,15 +72,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_d16ii")
 
+[node name="PriceModulator" type="Node" parent="ShopMan"]
+script = ExtResource("8_8xxya")
+DebugCurDay = 1278
+
 [node name="Shop0" parent="ShopMan" node_paths=PackedStringArray("modPrice") instance=ExtResource("3_f8are")]
 position = Vector2(1030, -304)
 ShopID = "BUIsfw4"
-hardInv = SubResource("Resource_lrl53")
-modPrice = NodePath("Node")
-
-[node name="Node" type="Node" parent="ShopMan/Shop0"]
-script = ExtResource("8_8xxya")
-DebugCurDay = 1278
+hardInv = SubResource("Resource_isemi")
+modPrice = NodePath("../PriceModulator")
 
 [node name="PortCaptian" type="Control" parent="."]
 layout_mode = 3
