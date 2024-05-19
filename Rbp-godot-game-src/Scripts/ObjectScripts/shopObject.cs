@@ -4,7 +4,7 @@ using System;
 public partial class shopObject : Sprite2D
 {
 	[Export] public string ShopID;
-	[Export] public ShopInventory hardInv;
+	[Export] public ShopInventory hardInv {get;private set;}
 			 public ShopInventory inv = new();
 	[Export] public priceModulator modPrice;
 
@@ -24,8 +24,8 @@ public partial class shopObject : Sprite2D
 	public void onShopOpen()
 	{
 		inv = modPrice.simpleMod(inv);
-		inv = (ShopInventory)hardInv.Duplicate();
-		GD.Print(hardInv.sell.Food);
+		inv = (ShopInventory)hardInv.Duplicate(true);
+		GD.Print("hardInv:" + hardInv.sell.Food);
 		EmitSignal(SignalName.shopOpen, inv);
 	}
 }

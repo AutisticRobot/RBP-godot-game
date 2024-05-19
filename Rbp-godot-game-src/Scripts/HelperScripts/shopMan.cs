@@ -48,6 +48,7 @@ public partial class shopMan : Node
 			if(shopData != null)
 			{
 				shop.inv.FromDic(shopData);
+				shop.inv = priceMod.simpleMod(shop.inv);
 			}
 		}
 

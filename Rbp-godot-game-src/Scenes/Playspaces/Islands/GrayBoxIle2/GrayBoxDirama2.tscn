@@ -12,42 +12,38 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_i3nax"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_reo54"]
 
-[sub_resource type="Resource" id="Resource_srtqn"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_gdpm1"]
 script = ExtResource("4_q45bl")
 Money = 1
 Food = 1
-Rum = 6
-Linens = 12
-Spices = 30
-Jewlery = 110
+Rum = 3
+Linens = 3
+Spices = 3
+Jewlery = 3
 
-[sub_resource type="Resource" id="Resource_s8at8"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_f4aa0"]
 script = ExtResource("4_q45bl")
 Money = 9999
 Food = 9999
-Rum = 500
-Linens = 100
-Spices = 20
-Jewlery = 10
+Rum = 1
+Linens = 1
+Spices = 1
+Jewlery = 11
 
-[sub_resource type="Resource" id="Resource_7rf2l"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_2rh34"]
 script = ExtResource("4_q45bl")
 Money = 1
 Food = 0
-Rum = 5
-Linens = 10
-Spices = 25
-Jewlery = 100
+Rum = 2
+Linens = 2
+Spices = 2
+Jewlery = 2
 
-[sub_resource type="Resource" id="Resource_isemi"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_8froh"]
 script = ExtResource("5_jgk76")
-inv = SubResource("Resource_s8at8")
-sell = SubResource("Resource_7rf2l")
-buy = SubResource("Resource_srtqn")
+inv = SubResource("Resource_f4aa0")
+sell = SubResource("Resource_2rh34")
+buy = SubResource("Resource_gdpm1")
 
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
 script = ExtResource("1_w87fs")
@@ -65,12 +61,13 @@ texture = ExtResource("2_sxlud")
 position = Vector2(-45, 822)
 texture = ExtResource("6_30hx7")
 
-[node name="ShopMan" type="Control" parent="."]
+[node name="ShopMan" type="Control" parent="." node_paths=PackedStringArray("priceMod")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_d16ii")
+priceMod = NodePath("PriceModulator")
 
 [node name="PriceModulator" type="Node" parent="ShopMan"]
 script = ExtResource("8_8xxya")
@@ -79,7 +76,7 @@ DebugCurDay = 1278
 [node name="Shop0" parent="ShopMan" node_paths=PackedStringArray("modPrice") instance=ExtResource("3_f8are")]
 position = Vector2(1030, -304)
 ShopID = "BUIsfw4"
-hardInv = SubResource("Resource_isemi")
+hardInv = SubResource("Resource_8froh")
 modPrice = NodePath("../PriceModulator")
 
 [node name="PortCaptian" type="Control" parent="."]
