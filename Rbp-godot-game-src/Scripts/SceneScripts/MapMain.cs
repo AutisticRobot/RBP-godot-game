@@ -47,8 +47,6 @@ public partial class MapMain : SceneMan
 
 	public void save()
 	{
-			GD.Print("save data:" + data);
-			data.Add("shipPos", new Vector2(1,1));
 			data["shipPos"] = player.Position;
 			data["shipinv"] = player.inv.ToDic();
 			saveF.Save(data);
@@ -59,15 +57,15 @@ public partial class MapMain : SceneMan
 	{
 		data = (Dictionary)saveF.Load();
 
-		if(data != null)// && data != new Dictionary())
+		if(data != null)
 		{
-			GD.Print("data containing save file");
+			GD.Print("found data containing save file");
 			player.Position = (Vector2)data["shipPos"];
 			player.inv.FromDic((Dictionary)data["shipinv"]);
 			global.playerHull = player.inv;
 
 		}else{
-			GD.Print("empty save file");
+			GD.Print("only empty save file");
 			data = new();
 		}
 

@@ -54,7 +54,7 @@ saveF = SubResource("Resource_23ueh")
 
 [node name="PlayerShip" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("1_r5ep4")]
 z_index = 1
-position = Vector2(960, 540)
+position = Vector2(2660, 1086)
 scale = Vector2(1, 1)
 cursor = NodePath("../Navigation/Cursor")
 brakeSpeed = 3.0

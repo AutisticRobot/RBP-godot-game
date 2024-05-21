@@ -1,8 +1,6 @@
 using Godot;
 using Godot.Collections;
 using System;
-using System.CodeDom.Compiler;
-using System.ComponentModel;
 
 public partial class PlayerShip : Node2D
 {
@@ -35,6 +33,9 @@ public partial class PlayerShip : Node2D
 		{
 			global = GetNode<Global>("/root/Global");
 			dir = global.ShipDir;
+		}
+		if(global.ShipPos != new Vector2())//<=========================================================================================VERY BAD CODE!!!! change out with start flag in global
+		{
 			Position = global.ShipPos;
 		}
 		if(global.playerHull != null)

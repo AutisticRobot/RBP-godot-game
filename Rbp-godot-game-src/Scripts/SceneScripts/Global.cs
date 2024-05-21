@@ -2,6 +2,7 @@ using Godot;
 using Godot.Collections;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 
 /*/---------------------------------------------\\\
@@ -51,7 +52,8 @@ public partial class Global : Node
 
 	//player ship data
 	public float ShipDir;//in dagrees
-	public Vector2 ShipPos;
+	public Vector2 ShipPos = new();
+//public varibale urMom;<=========================================================================================VERY BAD CODE!!!! change out with start flag in global
 	public inventory playerHull;
 
 	//player doll data

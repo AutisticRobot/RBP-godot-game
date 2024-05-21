@@ -24,11 +24,11 @@ Jewlery = 3
 [sub_resource type="Resource" id="Resource_f4aa0"]
 script = ExtResource("4_q45bl")
 Money = 9999
-Food = 9999
-Rum = 1
-Linens = 1
-Spices = 1
-Jewlery = 11
+Food = 235
+Rum = 37
+Linens = 25
+Spices = 14
+Jewlery = 6
 
 [sub_resource type="Resource" id="Resource_2rh34"]
 script = ExtResource("4_q45bl")
@@ -71,7 +71,7 @@ priceMod = NodePath("PriceModulator")
 
 [node name="PriceModulator" type="Node" parent="ShopMan"]
 script = ExtResource("8_8xxya")
-DebugCurDay = 1278
+DebugCurDay = 1
 
 [node name="Shop0" parent="ShopMan" node_paths=PackedStringArray("modPrice") instance=ExtResource("3_f8are")]
 position = Vector2(1030, -304)
