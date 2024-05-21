@@ -1,3 +1,4 @@
+using System.Linq;
 using Godot;
 using Godot.Collections;
 
@@ -7,7 +8,7 @@ public partial class MapMain : SceneMan
 	[Export] public PlayerShip player;
 
 	#endregion
-	[Export] public Dictionary data;
+	[Export] public Dictionary data = new();
 	[Export] public PausedMenu pauseMenu;
 
 
@@ -46,6 +47,8 @@ public partial class MapMain : SceneMan
 
 	public void save()
 	{
+			GD.Print("save data:" + data);
+			data.Add("shipPos", new Vector2(1,1));
 			data["shipPos"] = player.Position;
 			data["shipinv"] = player.inv.ToDic();
 			saveF.Save(data);
@@ -56,14 +59,19 @@ public partial class MapMain : SceneMan
 	{
 		data = (Dictionary)saveF.Load();
 
-
-		player.Position = (Vector2)data["shipPos"];
-
-		if(global.playerHull == null)
+		if(data != null)// && data != new Dictionary())
 		{
+			GD.Print("data containing save file");
+			player.Position = (Vector2)data["shipPos"];
 			player.inv.FromDic((Dictionary)data["shipinv"]);
 			global.playerHull = player.inv;
+
+		}else{
+			GD.Print("empty save file");
+			data = new();
 		}
+
+
 
 
 	}

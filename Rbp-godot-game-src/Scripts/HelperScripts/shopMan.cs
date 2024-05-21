@@ -33,7 +33,7 @@ public partial class shopMan : Node
 
 		foreach(shopObject shop in allShops)
 		{
-			data[shop.ShopID] = shop.inv.ToDic();
+			data.Add(shop.ShopID, shop.inv.ToDic());
 		}
 
 		return data;

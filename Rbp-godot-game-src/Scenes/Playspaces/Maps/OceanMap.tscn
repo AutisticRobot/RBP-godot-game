@@ -49,7 +49,6 @@ Jewlery = 2
 [node name="OceanMap" type="Node2D" node_paths=PackedStringArray("player", "pauseMenu")]
 script = ExtResource("1_sfy0l")
 player = NodePath("PlayerShip")
-data = {}
 pauseMenu = NodePath("PlayerShip/Camera2D/PausedMenu")
 saveF = SubResource("Resource_23ueh")
 
@@ -69,9 +68,8 @@ save = SubResource("Resource_uw4md")
 [node name="Camera2D" type="Camera2D" parent="PlayerShip"]
 position = Vector2(-3.05176e-05, 0)
 
-[node name="PausedMenu" parent="PlayerShip/Camera2D" node_paths=PackedStringArray("parent") instance=ExtResource("5_kljqs")]
+[node name="PausedMenu" parent="PlayerShip/Camera2D" instance=ExtResource("5_kljqs")]
 visible = false
-parent = NodePath("../../..")
 
 [node name="Control" parent="PlayerShip/Camera2D" node_paths=PackedStringArray("ship") instance=ExtResource("2_woff1")]
 offset_left = -722.0

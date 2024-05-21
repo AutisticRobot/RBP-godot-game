@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bv6i4kqm6opd7"]
+[gd_scene load_steps=19 format=3 uid="uid://bv6i4kqm6opd7"]
 
 [ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxIslandDirama.png" id="1_oetnv"]
 [ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_y01yf"]
@@ -7,48 +7,45 @@
 [ext_resource type="Script" path="res://Scripts/HelperScripts/shopMan.cs" id="3_jw8mq"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="4_bx5vy"]
 [ext_resource type="Texture2D" uid="uid://b4nk1wa0hfo3c" path="res://icon.svg" id="6_s6ch2"]
+[ext_resource type="Script" path="res://Resorces/SceneObects/priceModulator.cs" id="7_5vdt6"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/portCaptain.cs" id="7_j67o5"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_fv6ac"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_ar8t7"]
 [ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="10_qw2hi"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="11_b4e8y"]
 
-[sub_resource type="Resource" id="Resource_gr7ty"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_6453j"]
 script = ExtResource("4_bx5vy")
-Money = 1
-Food = 1
-Rum = 6
-Linens = 12
-Spices = 30
-Jewlery = 110
-
-[sub_resource type="Resource" id="Resource_xmmml"]
-resource_local_to_scene = true
-script = ExtResource("4_bx5vy")
-Money = 9999
-Food = 9999
-Rum = 500
-Linens = 100
-Spices = 20
-Jewlery = 10
-
-[sub_resource type="Resource" id="Resource_fh02x"]
-resource_local_to_scene = true
-script = ExtResource("4_bx5vy")
-Money = 1
+Money = 0
 Food = 0
-Rum = 5
-Linens = 10
-Spices = 25
-Jewlery = 100
+Rum = 0
+Linens = 0
+Spices = 0
+Jewlery = 0
 
-[sub_resource type="Resource" id="Resource_udaon"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_jplto"]
+script = ExtResource("4_bx5vy")
+Money = 0
+Food = 0
+Rum = 0
+Linens = 0
+Spices = 0
+Jewlery = 0
+
+[sub_resource type="Resource" id="Resource_aebk7"]
+script = ExtResource("4_bx5vy")
+Money = 0
+Food = 0
+Rum = 0
+Linens = 0
+Spices = 0
+Jewlery = 0
+
+[sub_resource type="Resource" id="Resource_ly25g"]
 script = ExtResource("3_2d5d7")
-inv = SubResource("Resource_xmmml")
-sell = SubResource("Resource_fh02x")
-buy = SubResource("Resource_gr7ty")
+inv = SubResource("Resource_jplto")
+sell = SubResource("Resource_aebk7")
+buy = SubResource("Resource_6453j")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfxuw"]
 radius = 124.844
@@ -65,16 +62,23 @@ position = Vector2(-1, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("1_oetnv")
 
-[node name="Shop Manager" type="Control" parent="."]
+[node name="Shop Manager" type="Control" parent="." node_paths=PackedStringArray("priceMod")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_jw8mq")
+priceMod = NodePath("Price Modulator")
 
-[node name="Shop0" parent="Shop Manager" instance=ExtResource("2_vljx4")]
+[node name="Shop0" parent="Shop Manager" node_paths=PackedStringArray("modPrice") instance=ExtResource("2_vljx4")]
 position = Vector2(1030, -304)
-inv = SubResource("Resource_udaon")
+ShopID = "435sxcyv"
+hardInv = SubResource("Resource_ly25g")
+modPrice = NodePath("../Price Modulator")
+
+[node name="Price Modulator" type="Node" parent="Shop Manager"]
+script = ExtResource("7_5vdt6")
+DebugCurDay = 27
 
 [node name="PlayerStart" type="Sprite2D" parent="."]
 position = Vector2(-191, 802)
