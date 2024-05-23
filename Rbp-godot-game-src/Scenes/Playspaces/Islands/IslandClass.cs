@@ -45,6 +45,7 @@ public partial class IslandClass : Node2D
 	{
 
 		EmitSignal(SignalName.shopOpen, shopInv);
+		ShopManLocal.modShopData();
 	}
 
 	public virtual void shutDown()

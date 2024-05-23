@@ -48,10 +48,17 @@ public partial class shopMan : Node
 			if(shopData != null)
 			{
 				shop.inv.FromDic(shopData);
-				shop.inv = priceMod.simpleMod(shop.inv);
 			}
 		}
 
+	}
+	public void modShopData()
+	{
+		if(allShops.Count == 0) {fillShopsList();}
+		foreach(shopObject shop in allShops)
+		{
+			shop.inv = priceMod.simpleMod(shop.inv);
+		}
 	}
 
 }
