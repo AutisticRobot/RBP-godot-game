@@ -51,9 +51,9 @@ public partial class Global : Node
 
 
 	//player ship data
+	public bool playerDataFilled = false;
 	public float ShipDir;//in dagrees
 	public Vector2 ShipPos = new();
-//public varibale urMom;<=========================================================================================VERY BAD CODE!!!! change out with start flag in global
 	public inventory playerHull;
 
 	//player doll data

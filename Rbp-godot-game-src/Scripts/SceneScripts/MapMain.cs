@@ -63,6 +63,7 @@ public partial class MapMain : SceneMan
 			player.Position = (Vector2)data["shipPos"];
 			player.inv.FromDic((Dictionary)data["shipinv"]);
 			global.playerHull = player.inv;
+			global.playerDataFilled = true;
 
 		}else{
 			GD.Print("only empty save file");

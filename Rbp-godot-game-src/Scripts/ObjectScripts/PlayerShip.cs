@@ -32,16 +32,15 @@ public partial class PlayerShip : Node2D
 		if(player)
 		{
 			global = GetNode<Global>("/root/Global");
-			dir = global.ShipDir;
-		}
-		if(global.ShipPos != new Vector2())//<=========================================================================================VERY BAD CODE!!!! change out with start flag in global
-		{
-			Position = global.ShipPos;
-		}
-		if(global.playerHull != null)
-		{
-			inv = global.playerHull;
-			GD.Print("get Inv Global" + inv.Money);
+		
+			if(global.playerDataFilled == true)
+			{
+				dir = global.ShipDir;
+				Position = global.ShipPos;
+				inv = global.playerHull;
+				GD.Print("get Inv Global" + inv.Money);
+
+			}
 		}
 	}
 
@@ -60,15 +59,17 @@ public partial class PlayerShip : Node2D
 		}
 		if(player)
 		{
-			Save();
+			Save();//this should use signals for the sake of expanability and performance; because saving every frame is bad
 		}
-		global.playerHull = inv;//this should use signals for the sake of expanability and performance;
+		global.playerHull = inv;//this should use signals for the sake of expanability and performance; same reason here
+			
 	}
 
 	public void Save()
 	{
 		global.ShipDir = dir;
 		global.ShipPos = Position;
+		global.playerDataFilled = true;
 
 	}
 
