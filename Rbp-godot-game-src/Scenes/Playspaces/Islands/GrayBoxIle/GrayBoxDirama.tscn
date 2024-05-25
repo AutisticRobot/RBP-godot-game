@@ -30,7 +30,7 @@ Food = 0
 Rum = 0
 Linens = 0
 Spices = 0
-Jewlery = 0
+Jewlery = 27
 
 [sub_resource type="Resource" id="Resource_aebk7"]
 script = ExtResource("4_bx5vy")

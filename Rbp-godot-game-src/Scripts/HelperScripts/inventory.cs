@@ -1,10 +1,10 @@
 using Godot;
 using Godot.Collections;
 using System;
-using System.Data.SqlTypes;
+using System.Collections;
 
 [GlobalClass]
-public partial class inventory : Resource
+public partial class inventory : Resource, IEnumerable
 {
 	#region RESOURCES
 	[Export] public int Money;
@@ -136,5 +136,9 @@ public partial class inventory : Resource
 		}
 
 	}
+    public IEnumerator GetEnumerator()
+    {
+        throw new NotImplementedException();
+    }
 }
  

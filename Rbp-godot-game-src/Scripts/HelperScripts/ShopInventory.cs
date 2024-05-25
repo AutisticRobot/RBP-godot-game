@@ -1,10 +1,10 @@
 using Godot;
 using Godot.Collections;
 using System;
-using System.Collections.Generic;
+using System.Collections;
 
 [GlobalClass]
-public partial class ShopInventory : Resource
+public partial class ShopInventory : Resource, IEnumerable
 {	
 	[Export] public inventory inv  = new();
 	[Export] public inventory sell = new();
@@ -27,5 +27,11 @@ public partial class ShopInventory : Resource
 		sell.FromDic((Dictionary)inDic["sell"]);
 		buy.FromDic((Dictionary)inDic["buy"]);
 	}
+
+    public IEnumerator GetEnumerator()
+    {
+        throw new NotImplementedException();
+    }
+
 
 }
