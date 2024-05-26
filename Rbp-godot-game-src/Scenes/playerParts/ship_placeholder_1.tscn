@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://brhosk7gg0d81"]
 
 [ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Resorces/ShipModels/SSDebug/ShipPlaceholder1.png" id="1_d8swp"]
-[ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="2_klbbm"]
+[ext_resource type="Script" path="res://Scripts/Inventory/inventory.cs" id="2_klbbm"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerShip.cs" id="2_wk8c6"]
 [ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="3_mwkln"]
 [ext_resource type="Texture2D" uid="uid://d3686dp3xa2a6" path="res://Assets/Placeholders/ArrowG.png" id="3_pxyi1"]

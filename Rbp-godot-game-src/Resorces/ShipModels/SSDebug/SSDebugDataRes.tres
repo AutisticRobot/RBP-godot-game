@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Resorces/ShipModels/SSDebug/ShipPlaceholder1.png" id="1_mdpx6"]
 [ext_resource type="Script" path="res://Resorces/ShipModels/shipModelData.cs" id="1_uaen8"]
-[ext_resource type="Script" path="res://Scripts/HelperScripts/inventory.cs" id="2_i33n3"]
+[ext_resource type="Script" path="res://Scripts/Inventory/inventory.cs" id="2_i33n3"]
 
 [sub_resource type="Resource" id="Resource_wibis"]
 script = ExtResource("2_i33n3")
