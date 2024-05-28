@@ -6,31 +6,23 @@ using System.Collections;
 [GlobalClass]
 public partial class ShopInventory : Resource, IEnumerable
 {	
-	[Export] public inventory inv  = new();
-	[Export] public inventory sell = new();
-	[Export] public inventory buy  = new();
+	[Export] public ShopItem[] Items;
 
-
-	public Dictionary ToDic()
+	public ShopItem this[int i]
 	{
-		Dictionary data = new();
-
-		data["inv"] = inv.ToDic();
-		data["sell"] = sell.ToDic();
-		data["buy"] = buy.ToDic();
-
-		return data;
-	}
-	public void FromDic(Dictionary inDic)
-	{
-		inv.FromDic((Dictionary)inDic["inv"]);
-		sell.FromDic((Dictionary)inDic["sell"]);
-		buy.FromDic((Dictionary)inDic["buy"]);
-	}
+		get
+		{
+			return Items[i];
+		}
+		set
+		{
+			Items[i] = value;
+		}
+	}	
 
     public IEnumerator GetEnumerator()
     {
-        throw new NotImplementedException();
+		return new ShopItemEnum(Items);
     }
 
 
