@@ -7,7 +7,7 @@ using System.Collections.Generic;
 [GlobalClass]
 public partial class inventory : Resource, IEnumerable
 {
-	[Export] public Item[] Items;
+	[Export] public Godot.Collections.Dictionary<int,Item> Items;
 
 	public Item this[int i]
 	{
@@ -20,6 +20,28 @@ public partial class inventory : Resource, IEnumerable
 			Items[i] = value;
 		}
 	}	
+
+	public void add(Item item)
+	{
+		if(Items[item.ID] != null)
+		{
+			Items[item.ID].count += item.count;
+		}else{
+			Items[item.ID] = item;
+		}
+	}
+
+	public static inventory operator+(inventory inv1, inventory inv2)//===========================================================================NEEDS TO BE TESTED TO CONFIRM FUCINALITY!!!!
+	{
+
+		foreach (Item item in inv2)
+		{
+			inv1.add(item);
+		}
+
+		return inv1;
+		
+	}
 
     public IEnumerator GetEnumerator()
     {

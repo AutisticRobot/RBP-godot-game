@@ -4,8 +4,8 @@ using System;
 [GlobalClass]
 public partial class Item : Resource
 {
-    [Export] public string name;
-    [Export] public int ID;// I cant decide weather to use string name or int ID for easy finding in higher levels
+    [Export] public int ID;
     [Export] public int count;
-    [Export] public Texture2D Icon;
+    [Export] public string name;//=======\
+    [Export] public Texture2D Icon;//====+====these two need to be put in a global lookup table.
 }

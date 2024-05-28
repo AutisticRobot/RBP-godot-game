@@ -38,7 +38,7 @@ public partial class PlayerShip : Node2D
 				dir = global.ShipDir;
 				Position = global.ShipPos;
 				inv = global.playerHull;
-				GD.Print("get Inv Global" + inv.Money);
+				GD.Print("get Inv Global" + inv[0]);
 
 			}
 		}
@@ -111,12 +111,12 @@ public partial class PlayerShip : Node2D
 		{
 		LootFloat loot = LBB.GetParent<LootFloat>();
 
-		inv["Money"]   += loot.inv["Money"];
-		inv["Food"]    += loot.inv["Food"];
-		inv["Rum"]     += loot.inv["Rum"];
-		inv["Linens"]  += loot.inv["Linens"];
-		inv["Spices"]  += loot.inv["Spices"];
-		inv["Jewlery"] += loot.inv["Jewlery"];
+		inv[0]   += loot.inv["Money"];
+		inv[1]    += loot.inv["Food"];
+		inv[2]     += loot.inv["Rum"];
+		inv[3]  += loot.inv["Linens"];
+		inv[4]  += loot.inv["Spices"];
+		inv[5] += loot.inv["Jewlery"];
 		loot.QueueFree();
 		}
 	}

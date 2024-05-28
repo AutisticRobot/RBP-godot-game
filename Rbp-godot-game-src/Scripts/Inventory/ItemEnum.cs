@@ -1,16 +1,18 @@
 using System;
 using System.Collections;
+using System.Linq;
+using Godot.Collections;
 
 //IEnumerator Implamentation copied from Microsoft Example
 public class ItemEnum : IEnumerator
 {
-    public Item[] _Items;
+    public Dictionary<int,Item> _Items;
 
     // Enumerators are positioned before the first element
     // until the first MoveNext() call.
     int position = -1;
 
-    public ItemEnum(Item[] list)
+    public ItemEnum(Dictionary<int,Item> list)
     {
         _Items = list;
     }
@@ -18,7 +20,7 @@ public class ItemEnum : IEnumerator
     public bool MoveNext()
     {
         position++;
-        return (position < _Items.Length);
+        return (position < _Items.Count);
     }
 
     public void Reset()
@@ -40,7 +42,7 @@ public class ItemEnum : IEnumerator
         {
             try
             {
-                return _Items[position];
+                return _Items.ElementAt(position).Value;
             }
             catch (IndexOutOfRangeException)
             {
