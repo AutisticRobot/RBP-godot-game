@@ -25,7 +25,7 @@ public partial class shopObject : Sprite2D
 	{
 		inv = modPrice.simpleMod(inv);
 		inv = (ShopInventory)hardInv.Duplicate(true);
-		GD.Print("hardInv:" + hardInv.sell.Food);
+		GD.Print("hardInv:" + hardInv[1].SellPrice);
 		EmitSignal(SignalName.shopOpen, inv);
 	}
 }

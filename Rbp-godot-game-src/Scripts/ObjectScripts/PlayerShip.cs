@@ -111,12 +111,8 @@ public partial class PlayerShip : Node2D
 		{
 		LootFloat loot = LBB.GetParent<LootFloat>();
 
-		inv[0]   += loot.inv["Money"];
-		inv[1]    += loot.inv["Food"];
-		inv[2]     += loot.inv["Rum"];
-		inv[3]  += loot.inv["Linens"];
-		inv[4]  += loot.inv["Spices"];
-		inv[5] += loot.inv["Jewlery"];
+		inv += loot.inv;
+
 		loot.QueueFree();
 		}
 	}

@@ -19,10 +19,9 @@ public partial class priceModulator : Node
 
     public ShopInventory simpleMod(ShopInventory shop)
     {
-        //some code before i figure out enumerables
-        for(int i=0;i<=5;i++)
+        foreach(ShopItem item in shop)
         {
-            GD.Print("inv " + i + " = " + shop.inv[i]);
+            GD.Print("inv of " + item.name + " (" + item.ID + ") = " + item.count);
         }
 
 

@@ -1,21 +1,18 @@
 using System;
 using System.Collections;
 using System.Linq;
+using Godot;
 using Godot.Collections;
 
 //IEnumerator Implamentation copied from Microsoft Example
-public class ItemEnum : IEnumerator
+public class dicEnum : IEnumerator
 {
-    public Dictionary<int,Item> _Items;
+    public Dictionary _Items;
 
     // Enumerators are positioned before the first element
     // until the first MoveNext() call.
-    int position = -1;
+    public int position = -1;
 
-    public ItemEnum(Dictionary<int,Item> list)
-    {
-        _Items = list;
-    }
 
     public bool MoveNext()
     {
@@ -36,7 +33,7 @@ public class ItemEnum : IEnumerator
         }
     }
 
-    public Item Current
+    public Variant Current
     {
         get
         {
@@ -51,39 +48,40 @@ public class ItemEnum : IEnumerator
         }
     }
 }
-public class ShopItemEnum : IEnumerator
+public class ItemEnum : dicEnum
 {
-    public ShopItem[] _Items;
+    new public Dictionary<int, Item> _Items;
 
-    // Enumerators are positioned before the first element
-    // until the first MoveNext() call.
-    int position = -1;
-
-    public ShopItemEnum(ShopItem[] list)
+    public ItemEnum(Dictionary<int, Item> list)
     {
         _Items = list;
     }
 
-    public bool MoveNext()
-    {
-        position++;
-        return (position < _Items.Length);
-    }
-
-    public void Reset()
-    {
-        position = -1;
-    }
-
-    object IEnumerator.Current
+    new public Item Current
     {
         get
         {
-            return Current;
+            try
+            {
+                return _Items[position];
+            }
+            catch (IndexOutOfRangeException)
+            {
+                throw new InvalidOperationException();
+            }
         }
     }
+}
+public class ShopItemEnum : dicEnum
+{
+    new public Dictionary<int, ShopItem> _Items;
 
-    public Item Current
+    public ShopItemEnum(Dictionary<int, ShopItem> list)
+    {
+        _Items = list;
+    }
+
+    new public ShopItem Current
     {
         get
         {

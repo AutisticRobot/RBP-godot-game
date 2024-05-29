@@ -1,13 +1,29 @@
 using Godot;
 using Godot.Collections;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 
 [GlobalClass]
 public partial class inventory : Resource, IEnumerable
 {
-	[Export] public Godot.Collections.Dictionary<int,Item> Items;
+	[Export] public Dictionary<int,Item> Items;
+
+
+///===================
+///		Save/Load
+///===================
+
+	public Dictionary<int, Item> ToDic()
+	{
+		return Items;
+	}
+	public void FromDic(Variant data)
+	{
+		Items = (Dictionary<int, Item>)data;
+	}
+
+///===================
+///		Math
+///===================
 
 	public Item this[int i]
 	{
@@ -42,6 +58,10 @@ public partial class inventory : Resource, IEnumerable
 		return inv1;
 		
 	}
+
+///===================
+///		Other
+///===================
 
     public IEnumerator GetEnumerator()
     {
