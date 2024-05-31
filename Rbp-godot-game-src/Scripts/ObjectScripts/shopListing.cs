@@ -5,11 +5,13 @@ using System.Diagnostics;
 public partial class shopListing : Sprite2D
 {
 	[Export] public ShopMenu shopMan;
-	[Export] public string type;
+	[Export] private int itemID;//========If this needs to be changed, use UpdateItems();
 	[Export] public Label playerStock;
 	[Export] public Label buyPrice;
 	[Export] public Label sellPrice;
 	[Export] public Label shopStock;
+			 public ShopItem shopitem;
+			 public Item playerItem;
 	[Export] public bool onlyShow;
 
 
@@ -17,7 +19,7 @@ public partial class shopListing : Sprite2D
 	{
 		shopMan = GetOwner<ShopMenu>();
 
-
+		UpdateItems(itemID);
 	}
 
 	
@@ -25,29 +27,38 @@ public partial class shopListing : Sprite2D
 	{
 		if(shopMan.Visible)
 		{
+
 			Update();
 		}
 	}
 
 	public void Update()
 	{
-		playerStock.Text = shopMan.GetPlayerInv(type).ToString();
-		shopStock.Text = shopMan.GetShopInv(type, 0).ToString();
+		
+
+		playerStock.Text = playerItem.count.ToString();
+		shopStock.Text = shopitem.count.ToString();
 		if(!onlyShow)
 		{
-			buyPrice.Text = "$" + shopMan.GetShopInv(type, 1).ToString();
-			sellPrice.Text = "$" + shopMan.GetShopInv(type, 2).ToString();
+			buyPrice.Text = "$" +  shopitem.buyPrice.ToString();
+			sellPrice.Text = "$" + shopitem.SellPrice.ToString();
 		}
+	}
+
+	public void UpdateItems(int newItemID)
+	{
+		shopitem = shopMan.GetShopInv(itemID);
+		playerItem = shopMan.GetPlayerInv(itemID);
 	}
 
 	public void Buy()
 	{
 		GD.Print("Buy");
-		shopMan.Exchange(true, type);
+		shopMan.Exchange(true, itemID);
 	}
 	public void Sell()
 	{
 		GD.Print("Sell");
-		shopMan.Exchange(false, type);
+		shopMan.Exchange(false, itemID);
 	}
 }

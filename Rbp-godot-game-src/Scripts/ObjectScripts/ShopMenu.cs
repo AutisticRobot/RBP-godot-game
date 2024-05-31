@@ -6,8 +6,7 @@ public partial class ShopMenu : MenuObj
 	public ShopInventory shop;
 	public ShipDoll player;
 
-	[Export]
-	public int buyMulti;
+	[Export] public int buyMulti;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -15,8 +14,10 @@ public partial class ShopMenu : MenuObj
 	}
 
 
-	public void Exchange(bool isBuy, string type)
+	public void Exchange(bool isBuy, int type)
 	{
+
+
 		int buyerWallet;//buyer money
 		int buyer;//buyer stock
 		int seller;//seller stock
@@ -25,17 +26,17 @@ public partial class ShopMenu : MenuObj
 
 		if(isBuy)
 		{
-			buyerWallet = player.inv["Money"];
-			sellerWallet = shop.inv["Money"];
-			buyer = player.inv[type];
-			seller = shop.inv[type];
-			price = shop.buy[type];
+			buyerWallet = player.inv[0].count;
+			sellerWallet = shop[0].count;
+			buyer = player.inv[type].count;
+			seller = shop[type].count;
+			price = shop[type].buyPrice;
 		}else{
-			buyer = shop.inv[type];
-			seller = player.inv[type];
-			buyerWallet = shop.inv["Money"];
-			sellerWallet = player.inv["Money"];
-			price = shop.sell[type];
+			buyer = shop[type].count;
+			seller = player.inv[type].count;
+			buyerWallet = shop[0].count;
+			sellerWallet = player.inv[0].count;
+			price = shop[type].SellPrice;
 		}
 
 		GD.Print("before:");
@@ -82,29 +83,23 @@ public partial class ShopMenu : MenuObj
 
 		if(isBuy)
 		{
-			player.inv[type] = buyer;
-			player.inv["Money"] = buyerWallet;
-			shop.inv["Money"] = sellerWallet;
-			shop.inv[type] = seller;
+			player.inv[type].count = buyer;
+			player.inv[0].count = buyerWallet;
+			shop[0].count = sellerWallet;
+			shop[type].count = seller;
 		}else{
-			player.inv[type] = seller;
-			player.inv["Money"] = sellerWallet;
-			shop.inv["Money"] = buyerWallet;
-			shop.inv[type] = buyer;
+			player.inv[type].count = seller;
+			player.inv[0].count = sellerWallet;
+			shop[0].count = buyerWallet;
+			shop[type].count = buyer;
 		}
 	}
 
-	public int GetShopInv(string type, int valState)
+	public ShopItem GetShopInv(int type)
 	{
-        return valState switch
-        {
-            0 => shop.inv[type],
-            1 => shop.buy[type],
-            2 => shop.sell[type],
-            _ => 0,
-        };
+		return shop[type];
     }
-    public int GetPlayerInv(string type)
+    public Item GetPlayerInv(int type)
 	{
 		return player.inv[type];
 	}

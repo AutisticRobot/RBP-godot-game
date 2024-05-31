@@ -34,12 +34,7 @@ region = Rect2(1433.54, 401.641, 276.718, 253.333)
 
 [sub_resource type="Resource" id="Resource_233nn"]
 script = ExtResource("4_rqc0q")
-Money = 100
-Food = 1
-Rum = 2
-Linens = 3
-Spices = 4
-Jewlery = 5
+Items = null
 
 [node name="ShopMenu" type="Control" node_paths=PackedStringArray("foreground")]
 layout_mode = 3
@@ -55,12 +50,11 @@ buyMulti = 1
 [node name="ForeGround" type="CanvasLayer" parent="."]
 
 [node name="Coin" type="Sprite2D" parent="ForeGround" node_paths=PackedStringArray("shopMan", "playerStock", "shopStock")]
-position = Vector2(500, 140)
+position = Vector2(500, 141)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_dodxq")
 script = ExtResource("6_dutg0")
 shopMan = NodePath("../..")
-type = "Money"
 playerStock = NodePath("PlayerMoney/PlayerMoneyCount")
 shopStock = NodePath("ShopMoney/ShopMoneyCount")
 onlyShow = true
@@ -107,27 +101,31 @@ text = "$123456789"
 position = Vector2(630, 419)
 texture = SubResource("AtlasTexture_gbteg")
 shopMan = NodePath("../..")
+itemID = 1
 
 [node name="Food" parent="ForeGround" node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
 position = Vector2(1209, 218)
 texture = SubResource("AtlasTexture_ukgc7")
 shopMan = NodePath("../..")
-type = "Food"
+itemID = 2
 
-[node name="Spices" parent="ForeGround" instance=ExtResource("7_wwaq2")]
+[node name="Spices" parent="ForeGround" node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
 position = Vector2(887, 640)
 texture = SubResource("AtlasTexture_370tr")
-type = "Spices"
+shopMan = NodePath("../..")
+itemID = 3
 
-[node name="Fabrics" parent="ForeGround" instance=ExtResource("7_wwaq2")]
+[node name="Fabrics" parent="ForeGround" node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
 position = Vector2(632, 905)
 texture = SubResource("AtlasTexture_q6gyj")
-type = "Linens"
+shopMan = NodePath("../..")
+itemID = 4
 
-[node name="Jewlery" parent="ForeGround" instance=ExtResource("7_wwaq2")]
+[node name="Jewlery" parent="ForeGround" node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
 position = Vector2(1233, 912)
 texture = SubResource("AtlasTexture_mkoo5")
-type = "Jewlery"
+shopMan = NodePath("../..")
+itemID = 5
 
 [node name="PlayerTestInv" type="Node2D" parent="ForeGround"]
 script = ExtResource("3_lym2e")
