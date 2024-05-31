@@ -12,13 +12,13 @@
 atlas = ExtResource("1_uyu8b")
 region = Rect2(517.642, 64.5129, 270.872, 229.949)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gbteg"]
-atlas = ExtResource("1_uyu8b")
-region = Rect2(1391.08, 47.7506, 306.48, 253.333)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukgc7"]
 atlas = ExtResource("1_uyu8b")
 region = Rect2(899.595, 56.7172, 274.769, 245.538)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbteg"]
+atlas = ExtResource("1_uyu8b")
+region = Rect2(1391.08, 47.7506, 306.48, 253.333)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_370tr"]
 atlas = ExtResource("1_uyu8b")
@@ -97,15 +97,15 @@ theme = ExtResource("6_vsed3")
 theme_override_font_sizes/font_size = 64
 text = "$123456789"
 
-[node name="Rum" parent="ForeGround" node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
-position = Vector2(630, 419)
-texture = SubResource("AtlasTexture_gbteg")
-shopMan = NodePath("../..")
-itemID = 1
-
 [node name="Food" parent="ForeGround" node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
 position = Vector2(1209, 218)
 texture = SubResource("AtlasTexture_ukgc7")
+shopMan = NodePath("../..")
+itemID = 1
+
+[node name="Rum" parent="ForeGround" node_paths=PackedStringArray("shopMan") instance=ExtResource("7_wwaq2")]
+position = Vector2(630, 419)
+texture = SubResource("AtlasTexture_gbteg")
 shopMan = NodePath("../..")
 itemID = 2
 

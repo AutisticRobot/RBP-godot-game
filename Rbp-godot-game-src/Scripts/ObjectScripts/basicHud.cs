@@ -18,7 +18,7 @@ public partial class basicHud : Control
 		foreach(Item item in ship.inv)
 		{
 			i++;
-			setLabelCont(i, item.name, item.count);
+			setLabelCont(i, item.GetName(), item.count);
 		}
 	}
 
