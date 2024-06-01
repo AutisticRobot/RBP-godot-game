@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://x0nkwbtehvca"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/Item.cs" id="1_bcccj"]
+
+[resource]
+script = ExtResource("1_bcccj")
+ID = 0
+count = 0

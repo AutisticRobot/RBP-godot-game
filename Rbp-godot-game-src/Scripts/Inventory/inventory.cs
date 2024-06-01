@@ -5,7 +5,7 @@ using System.Collections;
 [GlobalClass]
 public partial class inventory : Resource, IEnumerable
 {
-	[Export] public Dictionary<int,Item> Items;
+	[Export(PropertyHint.ResourceType, "Item")] public Dictionary<int,Item> Items;
 
 
 ///===================
