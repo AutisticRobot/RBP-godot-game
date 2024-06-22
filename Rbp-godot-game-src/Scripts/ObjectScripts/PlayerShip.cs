@@ -29,6 +29,9 @@ public partial class PlayerShip : Node2D
 	public override void _Ready()
 	{
 		manager = GetOwner<SceneMan>();
+
+		inv ??= new();
+
 		if(player)
 		{
 			global = GetNode<Global>("/root/Global");

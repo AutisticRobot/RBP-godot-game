@@ -21,12 +21,7 @@ SaveFile = "oceanMap.sav"
 
 [sub_resource type="Resource" id="Resource_lad2y"]
 script = ExtResource("4_p14fm")
-Money = 0
-Food = 0
-Rum = 0
-Linens = 0
-Spices = 0
-Jewlery = 0
+Items = null
 
 [sub_resource type="Resource" id="Resource_uw4md"]
 script = ExtResource("2_8fxjo")
@@ -39,12 +34,7 @@ region = Rect2(67, 43, 332, 291)
 
 [sub_resource type="Resource" id="Resource_geylh"]
 script = ExtResource("4_p14fm")
-Money = 99
-Food = 5
-Rum = 10
-Linens = 30
-Spices = 5
-Jewlery = 2
+Items = null
 
 [node name="OceanMap" type="Node2D" node_paths=PackedStringArray("player", "pauseMenu")]
 script = ExtResource("1_sfy0l")
