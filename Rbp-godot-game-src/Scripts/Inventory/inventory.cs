@@ -9,6 +9,14 @@ public partial class inventory : Resource, IEnumerable
 
 
 ///===================
+///	   Constructor
+///===================
+public inventory()
+{
+	Items = new();
+}
+
+///===================
 ///		Save/Load
 ///===================
 

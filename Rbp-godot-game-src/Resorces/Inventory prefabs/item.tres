@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_bcccj")
-ID = 0
-count = 0
+ID = 2
+count = 27

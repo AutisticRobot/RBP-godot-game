@@ -8,6 +8,10 @@ using Godot.Collections;
 public class dicEnum : IEnumerator
 {
     public Dictionary _Items;
+    //public dicEnum(Dictionary list)
+    //{
+    //    _Items = list;
+    //}
 
     // Enumerators are positioned before the first element
     // until the first MoveNext() call.

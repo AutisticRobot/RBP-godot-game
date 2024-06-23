@@ -9,12 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_iuffe"]
 script = ExtResource("2_klbbm")
-Money = 0
-Food = 0
-Rum = 0
-Linens = 0
-Spices = 0
-Jewlery = 0
+Items = null
 
 [sub_resource type="Resource" id="Resource_b0qps"]
 script = ExtResource("3_mwkln")
