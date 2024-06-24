@@ -29,7 +29,12 @@ public partial class ShopInventory : inventory
 	{
 		get
 		{
+			if(Items[i] != null)
+			{
 			return Items[i];
+			}else{
+				return new ShopItem(i,0);
+			}
 		}
 		set
 		{
@@ -62,7 +67,7 @@ public partial class ShopInventory : inventory
 
     new public IEnumerator GetEnumerator()
     {
-		return new ShopItemEnum(Items);
+		return new invEnum(this);
     }
 
 

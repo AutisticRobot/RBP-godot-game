@@ -7,6 +7,8 @@ public partial class inventory : Resource, IEnumerable
 {
 	[Export(PropertyHint.ResourceType, "Item")] public Dictionary<int,Item> Items;
 
+	public int Count;
+
 
 ///===================
 ///	   Constructor
@@ -37,7 +39,12 @@ public inventory()
 	{
 		get
 		{
+			if(Items[i] != null)
+			{
 			return Items[i];
+			}else{
+				return new Item(i,0);
+			}
 		}
 		set
 		{
@@ -71,9 +78,14 @@ public inventory()
 ///		Other
 ///===================
 
+	public Item ElementAt(int ID)
+	{
+		return this[ID];
+	}
+
     public IEnumerator GetEnumerator()
     {
-		return new ItemEnum(Items);
+		return new invEnum(this);
     }
 }
 

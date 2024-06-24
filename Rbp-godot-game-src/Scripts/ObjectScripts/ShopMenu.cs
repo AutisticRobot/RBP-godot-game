@@ -97,11 +97,29 @@ public partial class ShopMenu : MenuObj
 
 	public ShopItem GetShopInv(int type)
 	{
+		try
+		{
 		return shop[type];
+		}catch{
+			if(shop == null)
+			{
+				GD.Print("Error: Shop Not Found");
+			}
+			return new(type,0);
+		}
     }
     public Item GetPlayerInv(int type)
 	{
+		try
+		{
 		return player.inv[type];
+		}catch{
+			if(player == null)
+			{
+				GD.Print("Error: Player Not Found");
+			}
+			return new(type,0);
+		}
 	}
 	public override void setVisible(bool toState)
 	{
