@@ -39,10 +39,10 @@ public inventory()
 	{
 		get
 		{
-			if(Items[i] != null)
+			try
 			{
 			return Items[i];
-			}else{
+			}catch{
 				return new Item(i,0);
 			}
 		}

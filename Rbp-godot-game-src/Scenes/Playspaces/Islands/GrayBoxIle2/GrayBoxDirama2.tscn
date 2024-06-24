@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmtqlcyybilf5"]
+[gd_scene load_steps=12 format=3 uid="uid://cmtqlcyybilf5"]
 
 [ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle2/GrayBoxDirama2.cs" id="1_w87fs"]
 [ext_resource type="Texture2D" uid="uid://bge6ycox8or4t" path="res://Scenes/Playspaces/Islands/GrayBoxIle2/GrayBoxIsland2Dirama.png" id="2_sxlud"]
 [ext_resource type="PackedScene" uid="uid://cftkdghcpt8w8" path="res://Scenes/Prefabs/simplePrefabs/ShopTemplate0.tscn" id="3_f8are"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/shopMan.cs" id="4_d16ii"]
-[ext_resource type="Script" path="res://Scripts/Inventory/inventory.cs" id="4_q45bl"]
 [ext_resource type="Script" path="res://Scripts/Inventory/ShopInventory.cs" id="5_jgk76"]
 [ext_resource type="Texture2D" uid="uid://b4nk1wa0hfo3c" path="res://icon.svg" id="6_30hx7"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/portCaptain.cs" id="7_aebhm"]
@@ -12,38 +11,10 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_i3nax"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_reo54"]
 
-[sub_resource type="Resource" id="Resource_gdpm1"]
-script = ExtResource("4_q45bl")
-Money = 1
-Food = 1
-Rum = 3
-Linens = 3
-Spices = 3
-Jewlery = 3
-
-[sub_resource type="Resource" id="Resource_f4aa0"]
-script = ExtResource("4_q45bl")
-Money = 9999
-Food = 235
-Rum = 37
-Linens = 25
-Spices = 14
-Jewlery = 6
-
-[sub_resource type="Resource" id="Resource_2rh34"]
-script = ExtResource("4_q45bl")
-Money = 1
-Food = 0
-Rum = 2
-Linens = 2
-Spices = 2
-Jewlery = 2
-
 [sub_resource type="Resource" id="Resource_8froh"]
 script = ExtResource("5_jgk76")
-inv = SubResource("Resource_f4aa0")
-sell = SubResource("Resource_2rh34")
-buy = SubResource("Resource_gdpm1")
+Items = null
+Items = null
 
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
 script = ExtResource("1_w87fs")

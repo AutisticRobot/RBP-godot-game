@@ -29,10 +29,10 @@ public partial class ShopInventory : inventory
 	{
 		get
 		{
-			if(Items[i] != null)
+			try
 			{
 			return Items[i];
-			}else{
+			}catch{
 				return new ShopItem(i,0);
 			}
 		}
