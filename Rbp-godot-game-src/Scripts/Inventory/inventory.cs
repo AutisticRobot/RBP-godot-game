@@ -5,6 +5,7 @@ using System.Collections;
 [GlobalClass]
 public partial class inventory : Resource, IEnumerable
 {
+	[Export] public Item[] inItems;
 	[Export] public Dictionary<int,Item> Items;
 
 	public int Count;
@@ -19,17 +20,20 @@ public inventory()
 }
 
 ///===================
-///		Save/Load  !!!!!!!!!!!!!!!SAVE/LOAD BROKEN FOR ITEMS!!!!!!!!!!!!!
+///		Save/Load  
 ///===================
 
 	public Dictionary ToDic()// untyped dictionary because type dosent matter until load.
 	{
-		return null;
+		return null;//(Dictionary)Items;
 	}
 	public void FromDic(Variant data)
 	{
 		//Items = (Dictionary<int,Item>)data;
+		//GD.Print("Items Dic: " + data);
 	}
+
+	
 
 ///===================
 ///		Math

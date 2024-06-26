@@ -1,6 +1,7 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Linq;
 
 public partial class PlayerShip : Node2D
 {
@@ -116,6 +117,7 @@ public partial class PlayerShip : Node2D
 		LootFloat loot = LBB.GetParent<LootFloat>();
 
 		inv += loot.inv;
+
 
 		loot.QueueFree();
 		}

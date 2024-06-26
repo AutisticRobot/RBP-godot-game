@@ -36,4 +36,21 @@ public partial class Item : Resource
             _ => null,
         };
     }
+
+    static public implicit operator string(Item item)
+    {
+        return "(" + item.ID + "," + item.count + ")";
+    }
+    static public explicit operator Item(string inString)
+    {
+        string outstr = inString.Substr(1,inString.Length-2);
+
+        int midPointIndex = outstr.Find(",");
+
+        int outID    = outstr.Left(midPointIndex).ToInt();
+        int outCount = outstr.Right(midPointIndex+1).ToInt();
+
+        return new(outID, outCount);
+        
+    }
 }
