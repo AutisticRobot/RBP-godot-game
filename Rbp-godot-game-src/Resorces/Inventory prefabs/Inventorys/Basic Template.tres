@@ -1,27 +1,45 @@
-[gd_resource type="Resource" script_class="inventory" load_steps=6 format=3 uid="uid://c4k2obc8ouvyp"]
+[gd_resource type="Resource" script_class="inventory" load_steps=9 format=3 uid="uid://c4k2obc8ouvyp"]
 
 [ext_resource type="Script" path="res://Scripts/Inventory/Item.cs" id="1_4620u"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory.cs" id="1_g486t"]
 
-[sub_resource type="Resource" id="Resource_2h2ye"]
+[sub_resource type="Resource" id="Resource_ade51"]
 script = ExtResource("1_4620u")
 ID = 0
 count = 27
 
-[sub_resource type="Resource" id="Resource_eahte"]
+[sub_resource type="Resource" id="Resource_mxbhi"]
 script = ExtResource("1_4620u")
 ID = 1
-count = 27
+count = 12
 
-[sub_resource type="Resource" id="Resource_6kpja"]
+[sub_resource type="Resource" id="Resource_f0wxi"]
 script = ExtResource("1_4620u")
 ID = 2
-count = 27
+count = 30
+
+[sub_resource type="Resource" id="Resource_31wp0"]
+script = ExtResource("1_4620u")
+ID = 3
+count = 20
+
+[sub_resource type="Resource" id="Resource_r4200"]
+script = ExtResource("1_4620u")
+ID = 4
+count = 10
+
+[sub_resource type="Resource" id="Resource_g1jp8"]
+script = ExtResource("1_4620u")
+ID = 5
+count = 6
 
 [resource]
 script = ExtResource("1_g486t")
 Items = {
-0: SubResource("Resource_2h2ye"),
-1: SubResource("Resource_eahte"),
-2: SubResource("Resource_6kpja")
+0: SubResource("Resource_ade51"),
+1: SubResource("Resource_mxbhi"),
+2: SubResource("Resource_f0wxi"),
+3: SubResource("Resource_31wp0"),
+4: SubResource("Resource_r4200"),
+5: SubResource("Resource_g1jp8")
 }

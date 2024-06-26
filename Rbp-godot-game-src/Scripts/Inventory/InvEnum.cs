@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Linq;
 using Godot;
-using Godot.Collections;
 
 //IEnumerator Implamentation copied from Microsoft Example
 public class invEnum : IEnumerator
@@ -10,6 +8,7 @@ public class invEnum : IEnumerator
     public inventory _Items;
     public invEnum(inventory list)
     {
+        list.updateCount();
         _Items = list;
     }
 
@@ -37,7 +36,7 @@ public class invEnum : IEnumerator
         }
     }
 
-    public Variant Current
+    public Item Current
     {
         get
         {
