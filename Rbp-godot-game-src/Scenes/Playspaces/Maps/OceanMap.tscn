@@ -37,6 +37,7 @@ count = 27
 
 [sub_resource type="Resource" id="Resource_l2b5f"]
 script = ExtResource("4_p14fm")
+inItems = null
 Items = {
 0: SubResource("Resource_2h2ye"),
 1: SubResource("Resource_eahte"),
@@ -84,6 +85,7 @@ count = 6
 
 [sub_resource type="Resource" id="Resource_syf1w"]
 script = ExtResource("4_p14fm")
+inItems = null
 Items = {
 0: SubResource("Resource_ade51"),
 1: SubResource("Resource_mxbhi"),

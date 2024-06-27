@@ -34,6 +34,7 @@ region = Rect2(1433.54, 401.641, 276.718, 253.333)
 
 [sub_resource type="Resource" id="Resource_233nn"]
 script = ExtResource("4_rqc0q")
+inItems = null
 Items = null
 
 [node name="ShopMenu" type="Control" node_paths=PackedStringArray("foreground")]

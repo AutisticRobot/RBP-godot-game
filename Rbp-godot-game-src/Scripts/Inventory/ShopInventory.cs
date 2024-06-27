@@ -12,11 +12,11 @@ public partial class ShopInventory : inventory
 ///		Save/Load
 ///===================
 
-	new public Dictionary<int, ShopItem> ToDic()
+	new public string ToData()
 	{
-		return Items;
+		return Items.ToString();
 	}
-	new public void FromDic(Variant data)
+	new public void FromData(Variant data)
 	{
 		Items = (Dictionary<int, ShopItem>)data;
 	}

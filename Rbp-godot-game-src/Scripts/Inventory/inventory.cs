@@ -23,14 +23,38 @@ public inventory()
 ///		Save/Load  
 ///===================
 
-	public Dictionary ToDic()// untyped dictionary because type dosent matter until load.
+    static public explicit operator string(inventory inv)
 	{
 		return null;//(Dictionary)Items;
 	}
-	public void FromDic(Variant data)
+    static public explicit operator inventory(Variant inv)
 	{
+		return null;
 		//Items = (Dictionary<int,Item>)data;
 		//GD.Print("Items Dic: " + data);
+	}
+	public string ToData()
+	{
+		return (string)this;
+	}
+	public void FromData(Variant data)
+	{
+		inventory inv = new();
+
+		try
+		{
+			inv.Free();
+			inv = (inventory)data;
+	
+			inItems = inv.inItems;
+			Items = inv.Items;
+			Count = inv.Count;
+
+		}catch{
+
+		}
+		inv.Free();
+
 	}
 
 	

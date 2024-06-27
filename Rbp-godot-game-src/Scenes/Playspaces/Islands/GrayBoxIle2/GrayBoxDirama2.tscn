@@ -14,6 +14,7 @@
 [sub_resource type="Resource" id="Resource_8froh"]
 script = ExtResource("5_jgk76")
 Items = null
+inItems = null
 Items = null
 
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
