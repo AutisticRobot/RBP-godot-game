@@ -49,7 +49,6 @@ public inventory()
 		{
 			inv = (inventory)data;
 	
-			GD.Print(inItems.Length);
 			inItems = inv.inItems;
 			Count = inv.Count;
 
@@ -109,6 +108,17 @@ public inventory()
 ///===================
 ///		Other
 ///===================
+
+	public void flushInItems()
+	{
+		foreach(Item i in inItems)
+		{
+			add(i);
+		}
+
+		inItems = null;
+		updateCount();
+	}
 
 	public int updateCount()
 	{
