@@ -9,6 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_iuffe"]
 script = ExtResource("2_klbbm")
+inItems = null
 Items = null
 
 [sub_resource type="Resource" id="Resource_b0qps"]

@@ -43,9 +43,11 @@ public partial class PlayerShip : Node2D
 				Position = global.ShipPos;
 				inv = global.playerHull;
 				GD.Print("get Inv Global" + inv[0]);
+		
 
 			}
 		}
+
 
 	}
 

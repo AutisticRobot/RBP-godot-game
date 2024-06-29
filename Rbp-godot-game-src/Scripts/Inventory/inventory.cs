@@ -25,13 +25,17 @@ public inventory()
 
     static public explicit operator string(inventory inv)
 	{
-		return null;//(Dictionary)Items;
+		string outstr = "(";
+		foreach(Item i in inv)
+		{
+			outstr += (string)i + ",";
+		}
+		outstr = outstr.Remove(outstr.Length - 1);
+		return outstr + ")";
 	}
     static public explicit operator inventory(Variant inv)
 	{
-		return null;
-		//Items = (Dictionary<int,Item>)data;
-		//GD.Print("Items Dic: " + data);
+		return new();
 	}
 	public string ToData()
 	{
@@ -43,17 +47,16 @@ public inventory()
 
 		try
 		{
-			inv.Free();
 			inv = (inventory)data;
 	
+			GD.Print(inItems.Length);
 			inItems = inv.inItems;
-			Items = inv.Items;
 			Count = inv.Count;
 
-		}catch{
 
+		}catch{
+			GD.Print("INv From Data broke");
 		}
-		inv.Free();
 
 	}
 

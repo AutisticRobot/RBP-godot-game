@@ -33,7 +33,7 @@ public partial class shopMan : Node
 
 		foreach(shopObject shop in allShops)
 		{
-			data.Add(shop.ShopID, shop.inv.ToDic());
+			data.Add(shop.ShopID, shop.inv.ToData());
 		}
 
 		return data;
@@ -47,7 +47,7 @@ public partial class shopMan : Node
 			Dictionary shopData = (Dictionary)Data[shop.ShopID];
 			if(shopData != null)
 			{
-				shop.inv.FromDic(shopData);
+				shop.inv.FromData(shopData);
 			}
 		}
 

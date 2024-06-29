@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://18bfxerx8qpp"]
+[gd_scene load_steps=30 format=3 uid="uid://18bfxerx8qpp"]
 
 [ext_resource type="PackedScene" uid="uid://brhosk7gg0d81" path="res://Scenes/playerParts/ship_placeholder_1.tscn" id="1_r5ep4"]
 [ext_resource type="Script" path="res://Scripts/SceneScripts/MapMain.cs" id="1_sfy0l"]
@@ -35,9 +35,14 @@ script = ExtResource("4_xnsb3")
 ID = 2
 count = 27
 
+[sub_resource type="Resource" id="Resource_noswe"]
+script = ExtResource("4_xnsb3")
+ID = 0
+count = 5
+
 [sub_resource type="Resource" id="Resource_l2b5f"]
 script = ExtResource("4_p14fm")
-inItems = null
+inItems = Array[Object]([SubResource("Resource_noswe")])
 Items = {
 0: SubResource("Resource_2h2ye"),
 1: SubResource("Resource_eahte"),
