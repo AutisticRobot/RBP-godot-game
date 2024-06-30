@@ -43,6 +43,7 @@ public partial class Item : Resource
     }
     static public explicit operator Item(string inString)
     {
+        //GD.Print("string to irem: " + inString);
         string outstr = inString.Substr(1,inString.Length-2);
 
         int midPointIndex = outstr.Find(",");

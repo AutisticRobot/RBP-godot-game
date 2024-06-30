@@ -1,5 +1,6 @@
 using Godot;
 using Godot.Collections;
+using System;
 using System.Collections;
 
 [GlobalClass]
@@ -33,9 +34,26 @@ public inventory()
 		outstr = outstr.Remove(outstr.Length - 1);
 		return outstr + ")";
 	}
-    static public explicit operator inventory(Variant inv)
+    static public explicit operator inventory(string inv)
 	{
-		return new();
+		inventory outinv = new();
+		string inStr = inv;
+
+		inStr = inStr.Substr(1,inStr.Length - 2);
+		//GD.Print("inv from str:" + inStr);
+		string[] allPart = inStr.Split(",");
+
+		foreach(string str in allPart)//reuses inStr as first item part to try and save on some minor memory;
+		{
+			if(str[0] == '(')
+			{
+				inStr = str;
+			}else{
+				outinv.add((Item)(inStr + "," + str));
+			}
+		}
+
+		return outinv;
 	}
 	public string ToData()
 	{
@@ -47,13 +65,18 @@ public inventory()
 
 		try
 		{
-			inv = (inventory)data;
+			inv = (inventory)(string)data;
 	
+			Items = inv.Items;
 			inItems = inv.inItems;
 			Count = inv.Count;
 
+			flushInItems();
 
-		}catch{
+		}catch(Exception e){
+
+			GD.Print(e);
+			GD.Print(data);
 			GD.Print("INv From Data broke");
 		}
 
@@ -104,6 +127,11 @@ public inventory()
 		return inv1;
 		
 	}
+	public static inventory operator+(inventory inv, Item item)
+	{
+		inv.add(item);
+		return inv;
+	}
 
 ///===================
 ///		Other
@@ -111,12 +139,17 @@ public inventory()
 
 	public void flushInItems()
 	{
-		foreach(Item i in inItems)
+		if(inItems != null)
 		{
-			add(i);
-		}
+			foreach(Item i in inItems)
+			{
+				add(i);
+			}
 
-		inItems = null;
+			inItems = null;
+		}else{
+			GD.Print("Intems is null");
+		}
 		updateCount();
 	}
 
