@@ -13,7 +13,7 @@ public partial class options_screen : SceneMan
 	{
 		ScenePrep();
 		global = GetNode<Global>("/root/Global");
-		GetChild<sceneChanger>(0).changToSceneID = lastSceneID;
+		GetChild<buttionMan>(2).GetChild<sceneChanger>(0).changToSceneID = global.lastSceneID;
 		SavePath = GetNode<TextEdit>("savePrefix");
 		SavePath.Text = global.savePrefix;
 	}

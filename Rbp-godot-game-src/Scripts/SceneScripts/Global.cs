@@ -38,6 +38,7 @@ public partial class Global : Node
 	//Scene Data
 	public SceneMan curSceneMan;
 	public string spawnDiramaUID;
+	public int lastSceneID;
 
 	//spam open scene prevention
 	private bool callRealOpenScene = false;
@@ -143,6 +144,7 @@ public partial class Global : Node
 
 	public void OpenScene(int ID)
 	{
+		lastSceneID = OpenSceneID;
 		OpenSceneID = ID;
 		callRealOpenScene = true;
 	}

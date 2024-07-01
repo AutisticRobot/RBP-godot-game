@@ -29,6 +29,7 @@ public partial class MapMain : SceneMan
 
 		if(Input.IsActionJustPressed("enterMenu"))
 		{
+			global.OpenScene(1);
 			// <=========================================================================[Put open menu code here
 		}
 	}
