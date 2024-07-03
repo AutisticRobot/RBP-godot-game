@@ -6,7 +6,7 @@ using System.Collections;
 [GlobalClass]
 public partial class ShopInventory : inventory
 {	
-	[Export] new public Godot.Collections.Dictionary<int,ShopItem> Items;
+	//[Export] new public Dictionary<int,ShopItem> Items;
 
 ///===================
 ///		Save/Load
@@ -14,11 +14,12 @@ public partial class ShopInventory : inventory
 
 	new public string ToData()
 	{
-		return Items.ToString();
+		return null;//Items.ToString();
 	}
 	new public void FromData(Variant data)
 	{
-		Items = (Dictionary<int, ShopItem>)data;
+		GD.Print("shopInv Load Blocked");
+		//Items = (Dictionary<int, ShopItem>)data;
 	}
 
 ///===================
@@ -31,7 +32,7 @@ public partial class ShopInventory : inventory
 		{
 			try
 			{
-			return Items[i];
+			return (ShopItem)Items[i];
 			}catch{
 				return new ShopItem(i,0);
 			}
@@ -44,14 +45,31 @@ public partial class ShopInventory : inventory
 
 	public void add(ShopItem item)
 	{
-		if(Items[item.ID] != null)
+			GD.Print("shopInv Add");
+		if(Items.ContainsKey(item.ID))
 		{
 			Items[item.ID].count += item.count;
 		}else{
 			Items[item.ID] = item;
+			Count++;
 		}
 	}
+	new public void add(Item item)
+	{
+			GD.Print("shopInv Add Item");
+		if(Items[item.ID] != null)
+		{
+			Items[item.ID].count += item.count;
+		}else{
+            Items[item.ID] = new()
+            {
+                ID = item.ID,
+                count = item.count
+            };
+        }
+	}
 
+/*
 	public static ShopInventory operator+(ShopInventory inv1, ShopInventory inv2)//===========================================================================NEEDS TO BE TESTED TO CONFIRM FUCINALITY!!!!
 	{
 
@@ -70,5 +88,5 @@ public partial class ShopInventory : inventory
 		return new invEnum(this);
     }
 
-
+*/
 }

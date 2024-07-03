@@ -19,7 +19,6 @@ public partial class shopListing : Sprite2D
 	{
 		shopMan = GetOwner<ShopMenu>();
 
-		UpdateItems(itemID);
 	}
 
 	
@@ -27,6 +26,7 @@ public partial class shopListing : Sprite2D
 	{
 		if(shopMan.Visible)
 		{
+			UpdateItems(itemID);
 
 			Update();
 		}
@@ -47,8 +47,8 @@ public partial class shopListing : Sprite2D
 
 	public void UpdateItems(int newItemID)
 	{
-		shopitem = shopMan.GetShopInv(itemID);
-		playerItem = shopMan.GetPlayerInv(itemID);
+		shopitem = shopMan.GetShopInv(newItemID);
+		playerItem = shopMan.GetPlayerInv(newItemID);
 	}
 
 	public void Buy()

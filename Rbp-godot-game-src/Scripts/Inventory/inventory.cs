@@ -147,6 +147,7 @@ public inventory()
 			}
 
 			inItems = null;
+			GD.Print("inItems flushed");
 		}else{
 			GD.Print("Intems is null");
 		}

@@ -103,7 +103,7 @@ public partial class ShopMenu : MenuObj
 		}catch{
 			if(shop == null)
 			{
-				GD.Print("Error: Shop Not Found");
+				GD.Print("Error: Shop Not Set");
 			}
 			return new(type,0);
 		}
@@ -116,7 +116,7 @@ public partial class ShopMenu : MenuObj
 		}catch{
 			if(player == null)
 			{
-				GD.Print("Error: Player Not Found");
+				GD.Print("Error: Player Not Set");
 			}
 			return new(type,0);
 		}

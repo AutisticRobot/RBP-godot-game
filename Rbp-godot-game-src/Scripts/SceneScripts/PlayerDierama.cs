@@ -35,6 +35,7 @@ public partial class PlayerDierama : SceneMan
 		//Get Menus
 		pauseMenu = (PausedMenu)Menus.MenusList[0];
 		shopMenu = (ShopMenu)Menus.MenusList[1];
+			shopMenu.player = shipDoll;
 
 
 		playerSartSpot = localIsland.GetPlayerStartPos();

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public partial class ShopItem : Item
 {
     [Export] public int buyPrice;
