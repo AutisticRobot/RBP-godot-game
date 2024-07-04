@@ -7,7 +7,7 @@ using System.Collections;
 public partial class inventory : Resource, IEnumerable
 {
 	[Export] public Item[] inItems;
-	[Export] public Dictionary<int,Item> Items;
+			 public Dictionary<int,Item> Items;
 
 	public int Count;
 
