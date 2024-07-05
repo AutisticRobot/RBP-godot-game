@@ -29,7 +29,6 @@ count = 273
 [sub_resource type="Resource" id="Resource_8froh"]
 script = ExtResource("5_jgk76")
 inItems = Array[Object]([SubResource("Resource_vw01d"), SubResource("Resource_5fjjt")])
-Items = null
 
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
 script = ExtResource("1_w87fs")

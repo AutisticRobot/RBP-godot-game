@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://18bfxerx8qpp"]
+[gd_scene load_steps=21 format=3 uid="uid://18bfxerx8qpp"]
 
 [ext_resource type="PackedScene" uid="uid://brhosk7gg0d81" path="res://Scenes/playerParts/ship_placeholder_1.tscn" id="1_r5ep4"]
 [ext_resource type="Script" path="res://Scripts/SceneScripts/MapMain.cs" id="1_sfy0l"]
@@ -20,21 +20,6 @@ script = ExtResource("2_8fxjo")
 SaveFolder = ""
 SaveFile = "oceanMap.sav"
 
-[sub_resource type="Resource" id="Resource_2h2ye"]
-script = ExtResource("4_xnsb3")
-ID = 0
-count = 27
-
-[sub_resource type="Resource" id="Resource_eahte"]
-script = ExtResource("4_xnsb3")
-ID = 1
-count = 27
-
-[sub_resource type="Resource" id="Resource_6kpja"]
-script = ExtResource("4_xnsb3")
-ID = 2
-count = 27
-
 [sub_resource type="Resource" id="Resource_noswe"]
 script = ExtResource("4_xnsb3")
 ID = 0
@@ -43,11 +28,6 @@ count = 5
 [sub_resource type="Resource" id="Resource_l2b5f"]
 script = ExtResource("4_p14fm")
 inItems = Array[Object]([SubResource("Resource_noswe")])
-Items = {
-0: SubResource("Resource_2h2ye"),
-1: SubResource("Resource_eahte"),
-2: SubResource("Resource_6kpja")
-}
 
 [sub_resource type="Resource" id="Resource_uw4md"]
 script = ExtResource("2_8fxjo")
@@ -58,47 +38,9 @@ SaveFile = "inv.sav"
 atlas = ExtResource("6_tni2x")
 region = Rect2(67, 43, 332, 291)
 
-[sub_resource type="Resource" id="Resource_ade51"]
-script = ExtResource("4_xnsb3")
-ID = 0
-count = 27
-
-[sub_resource type="Resource" id="Resource_mxbhi"]
-script = ExtResource("4_xnsb3")
-ID = 1
-count = 12
-
-[sub_resource type="Resource" id="Resource_f0wxi"]
-script = ExtResource("4_xnsb3")
-ID = 2
-count = 30
-
-[sub_resource type="Resource" id="Resource_31wp0"]
-script = ExtResource("4_xnsb3")
-ID = 3
-count = 20
-
-[sub_resource type="Resource" id="Resource_r4200"]
-script = ExtResource("4_xnsb3")
-ID = 4
-count = 10
-
-[sub_resource type="Resource" id="Resource_g1jp8"]
-script = ExtResource("4_xnsb3")
-ID = 5
-count = 6
-
 [sub_resource type="Resource" id="Resource_syf1w"]
 script = ExtResource("4_p14fm")
 inItems = null
-Items = {
-0: SubResource("Resource_ade51"),
-1: SubResource("Resource_mxbhi"),
-2: SubResource("Resource_f0wxi"),
-3: SubResource("Resource_31wp0"),
-4: SubResource("Resource_r4200"),
-5: SubResource("Resource_g1jp8")
-}
 
 [node name="OceanMap" type="Node2D" node_paths=PackedStringArray("player", "pauseMenu")]
 script = ExtResource("1_sfy0l")

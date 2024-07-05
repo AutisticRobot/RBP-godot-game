@@ -16,7 +16,6 @@
 [sub_resource type="Resource" id="Resource_ly25g"]
 script = ExtResource("3_2d5d7")
 inItems = null
-Items = null
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfxuw"]
 radius = 124.844
