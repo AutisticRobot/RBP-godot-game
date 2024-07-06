@@ -91,7 +91,7 @@ public inventory()
 			{
 			return Items[ID];
 			}catch{
-				return new Item(ID,0);
+				return null;
 			}
 		}
 		set

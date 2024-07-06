@@ -34,7 +34,7 @@ public partial class ShopInventory : inventory
 			{
 			return (ShopItem)Items[i];
 			}catch{
-				return new ShopItem(i,0);
+				return null;
 			}
 		}
 		set
