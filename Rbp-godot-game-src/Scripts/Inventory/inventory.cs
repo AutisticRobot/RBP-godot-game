@@ -39,18 +39,13 @@ public inventory()
 		inventory outinv = new();
 		string inStr = inv;
 
-		inStr = inStr.Substr(1,inStr.Length - 2);
+		inStr = inStr.Substr(2,inStr.Length - 4);
 		//GD.Print("inv from str:" + inStr);
-		string[] allPart = inStr.Split(",");
+		string[] allPart = inStr.Split("),(");
 
-		foreach(string str in allPart)//reuses inStr as first item part to try and save on some minor memory;
+		foreach(string str in allPart)
 		{
-			if(str[0] == '(')
-			{
-				inStr = str;
-			}else{
-				outinv.add((Item)(inStr + "," + str));
-			}
+				outinv.add((Item)("(" + str + ")"));
 		}
 
 		return outinv;
