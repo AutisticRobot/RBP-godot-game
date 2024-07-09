@@ -12,6 +12,32 @@ public partial class ShopInventory : inventory
 ///		Save/Load
 ///===================
 
+    static public explicit operator string(ShopInventory inv)
+	{
+		string outstr = "(";
+		foreach(Item i in inv)
+		{
+			outstr += (string)i + ",";
+		}
+		outstr = outstr.Remove(outstr.Length - 1);
+		return outstr + ")";
+	}
+    static public explicit operator ShopInventory(string inv)
+	{
+		ShopInventory outinv = new();
+		string inStr = inv;
+
+		inStr = inStr.Substr(2,inStr.Length - 4);
+		//GD.Print("inv from str:" + inStr);
+		string[] allPart = inStr.Split("),(");
+
+		foreach(string str in allPart)
+		{
+				outinv.add((ShopItem)("(" + str + ")"));
+		}
+
+		return outinv;
+	}
 	new public string ToData()
 	{
 		return null;//Items.ToString();

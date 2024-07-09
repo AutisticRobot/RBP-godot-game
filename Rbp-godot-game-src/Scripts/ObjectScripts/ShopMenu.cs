@@ -105,7 +105,7 @@ public partial class ShopMenu : MenuObj
 			{
 				GD.Print("Error: Shop Not Set");
 			}
-			return new(type,0);
+			return null;
 		}
     }
     public Item GetPlayerInv(int type)
