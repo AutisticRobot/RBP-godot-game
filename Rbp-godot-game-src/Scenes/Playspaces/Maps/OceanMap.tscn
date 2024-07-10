@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://18bfxerx8qpp"]
+[gd_scene load_steps=23 format=3 uid="uid://18bfxerx8qpp"]
 
 [ext_resource type="PackedScene" uid="uid://brhosk7gg0d81" path="res://Scenes/playerParts/ship_placeholder_1.tscn" id="1_r5ep4"]
 [ext_resource type="Script" path="res://Scripts/SceneScripts/MapMain.cs" id="1_sfy0l"]
@@ -38,9 +38,19 @@ SaveFile = "inv.sav"
 atlas = ExtResource("6_tni2x")
 region = Rect2(67, 43, 332, 291)
 
+[sub_resource type="Resource" id="Resource_rk22d"]
+script = ExtResource("4_xnsb3")
+ID = 0
+count = 238
+
+[sub_resource type="Resource" id="Resource_v75vc"]
+script = ExtResource("4_xnsb3")
+ID = 1
+count = 20
+
 [sub_resource type="Resource" id="Resource_syf1w"]
 script = ExtResource("4_p14fm")
-inItems = null
+inItems = Array[Object]([SubResource("Resource_rk22d"), SubResource("Resource_v75vc")])
 
 [node name="OceanMap" type="Node2D" node_paths=PackedStringArray("player", "pauseMenu")]
 script = ExtResource("1_sfy0l")

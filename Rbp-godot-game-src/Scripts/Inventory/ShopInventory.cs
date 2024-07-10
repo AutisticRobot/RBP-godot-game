@@ -40,11 +40,28 @@ public partial class ShopInventory : inventory
 	}
 	new public string ToData()
 	{
-		return null;//Items.ToString();
+		return (string)this;
 	}
 	new public void FromData(Variant data)
 	{
-		GD.Print("shopInv Load Blocked");
+		ShopInventory inv = new();
+
+		try
+		{
+			inv = (ShopInventory)(string)data;
+	
+			Items = inv.Items;
+			inItems = inv.inItems;
+			Count = inv.Count;
+
+			flushInItems();
+
+		}catch(Exception e){
+
+			GD.Print(e);
+			GD.Print(data);
+			GD.Print("INv From Data broke");
+		}
 		//Items = (Dictionary<int, ShopItem>)data;
 	}
 

@@ -42,7 +42,7 @@ public partial class PlayerShip : Node2D
 				dir = global.ShipDir;
 				Position = global.ShipPos;
 				inv = global.playerHull;
-				GD.Print("get Inv Global" + inv[0]);
+				GD.Print("get Inv Global");
 		
 
 			}
@@ -54,6 +54,7 @@ public partial class PlayerShip : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		inv ??= new();
 		if(!manager.pausedScene)
 		{
 			Pinput();

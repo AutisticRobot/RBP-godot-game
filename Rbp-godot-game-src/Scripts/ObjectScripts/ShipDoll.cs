@@ -26,7 +26,7 @@ public partial class ShipDoll : Node2D
 	public void closeShip()
 	{
 		global.playerHull = inv;
-		GD.Print("close shop" + inv[0].count);
+		GD.Print("close shop");
 	}
 
 	public void onPress()

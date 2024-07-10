@@ -36,6 +36,10 @@ public inventory()
 	}
     static public explicit operator inventory(string inv)
 	{
+		if(inv.Length <= 2)
+		{
+			return null;
+		}
 		inventory outinv = new();
 		string inStr = inv;
 
@@ -61,6 +65,12 @@ public inventory()
 		try
 		{
 			inv = (inventory)(string)data;
+
+			if(inv == null)
+			{
+				Items = new();
+				return;
+				}
 	
 			Items = inv.Items;
 			inItems = inv.inItems;
