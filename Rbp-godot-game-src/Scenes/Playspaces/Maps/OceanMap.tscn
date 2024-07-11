@@ -25,7 +25,7 @@ script = ExtResource("4_xnsb3")
 ID = 0
 count = 5
 
-[sub_resource type="Resource" id="Resource_l2b5f"]
+[sub_resource type="Resource" id="Resource_fuibc"]
 script = ExtResource("4_p14fm")
 inItems = Array[Object]([SubResource("Resource_noswe")])
 
@@ -48,7 +48,7 @@ script = ExtResource("4_xnsb3")
 ID = 1
 count = 20
 
-[sub_resource type="Resource" id="Resource_syf1w"]
+[sub_resource type="Resource" id="Resource_ig6ua"]
 script = ExtResource("4_p14fm")
 inItems = Array[Object]([SubResource("Resource_rk22d"), SubResource("Resource_v75vc")])
 
@@ -68,7 +68,7 @@ Acc = 1.0
 TurnAcc = 1.0
 Minspeed = -10.0
 Maxspeed = 200.0
-inv = SubResource("Resource_l2b5f")
+inv = SubResource("Resource_fuibc")
 save = SubResource("Resource_uw4md")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerShip"]
@@ -108,7 +108,7 @@ diramaUID = "uid://bv6i4kqm6opd7"
 [node name="LootFloat" parent="." instance=ExtResource("5_2xt25")]
 position = Vector2(2205, 1748)
 scale = Vector2(2, 2)
-inv = SubResource("Resource_syf1w")
+inv = SubResource("Resource_ig6ua")
 
 [node name="GrayBoxIsleV2" parent="." instance=ExtResource("3_0yxn1")]
 position = Vector2(2880, 590)

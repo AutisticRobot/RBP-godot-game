@@ -31,7 +31,7 @@ public partial class PlayerShip : Node2D
 	{
 		manager = GetOwner<SceneMan>();
 
-		inv ??= new();
+		//inv ??= new();
 
 		if(player)
 		{
@@ -54,7 +54,7 @@ public partial class PlayerShip : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		inv ??= new();
+		//inv ??= new();
 		if(!manager.pausedScene)
 		{
 			Pinput();
@@ -119,7 +119,11 @@ public partial class PlayerShip : Node2D
 		{
 		LootFloat loot = LBB.GetParent<LootFloat>();
 
+		loot.inv.flushInItems();
+
 		inv += loot.inv;
+		GD.Print(inv.Count);
+		GD.Print(loot.inv.Count);
 
 
 		loot.QueueFree();
