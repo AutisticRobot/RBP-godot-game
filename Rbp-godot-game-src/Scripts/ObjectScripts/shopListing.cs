@@ -34,7 +34,7 @@ public partial class shopListing : Sprite2D
 
 	public void Update()
 	{
-		if(shopitem != null)
+		if(shopitem != null && playerItem != null)
 		{
 
 			playerStock.Text = playerItem.count.ToString();
