@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bv6i4kqm6opd7"]
+[gd_scene load_steps=22 format=3 uid="uid://bv6i4kqm6opd7"]
 
 [ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxIslandDirama.png" id="1_oetnv"]
 [ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_y01yf"]
 [ext_resource type="PackedScene" uid="uid://cftkdghcpt8w8" path="res://Scenes/Prefabs/simplePrefabs/ShopTemplate0.tscn" id="2_vljx4"]
 [ext_resource type="Script" path="res://Scripts/Inventory/ShopInventory.cs" id="3_2d5d7"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/shopMan.cs" id="3_jw8mq"]
+[ext_resource type="Script" path="res://Scripts/Inventory/ShopItem.cs" id="5_moq8x"]
 [ext_resource type="Texture2D" uid="uid://b4nk1wa0hfo3c" path="res://icon.svg" id="6_s6ch2"]
 [ext_resource type="Script" path="res://Resorces/SceneObects/priceModulator.cs" id="7_5vdt6"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/portCaptain.cs" id="7_j67o5"]
@@ -13,9 +14,51 @@
 [ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="10_qw2hi"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="11_b4e8y"]
 
+[sub_resource type="Resource" id="Resource_xttac"]
+script = ExtResource("5_moq8x")
+buyPrice = 0
+SellPrice = 0
+ID = 0
+count = 9999
+
+[sub_resource type="Resource" id="Resource_l81al"]
+script = ExtResource("5_moq8x")
+buyPrice = 1
+SellPrice = 2
+ID = 1
+count = 200
+
+[sub_resource type="Resource" id="Resource_juyyv"]
+script = ExtResource("5_moq8x")
+buyPrice = 2
+SellPrice = 3
+ID = 2
+count = 100
+
+[sub_resource type="Resource" id="Resource_pxdub"]
+script = ExtResource("5_moq8x")
+buyPrice = 5
+SellPrice = 7
+ID = 3
+count = 50
+
+[sub_resource type="Resource" id="Resource_eja8a"]
+script = ExtResource("5_moq8x")
+buyPrice = 20
+SellPrice = 25
+ID = 4
+count = 25
+
+[sub_resource type="Resource" id="Resource_gjdjf"]
+script = ExtResource("5_moq8x")
+buyPrice = 50
+SellPrice = 60
+ID = 5
+count = 20
+
 [sub_resource type="Resource" id="Resource_ly25g"]
 script = ExtResource("3_2d5d7")
-inItems = null
+inItems = Array[Object]([SubResource("Resource_xttac"), SubResource("Resource_l81al"), SubResource("Resource_juyyv"), SubResource("Resource_pxdub"), SubResource("Resource_eja8a"), SubResource("Resource_gjdjf")])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfxuw"]
 radius = 124.844

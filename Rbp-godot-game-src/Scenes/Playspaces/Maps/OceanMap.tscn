@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://18bfxerx8qpp"]
+[gd_scene load_steps=27 format=3 uid="uid://18bfxerx8qpp"]
 
 [ext_resource type="PackedScene" uid="uid://brhosk7gg0d81" path="res://Scenes/playerParts/ship_placeholder_1.tscn" id="1_r5ep4"]
 [ext_resource type="Script" path="res://Scripts/SceneScripts/MapMain.cs" id="1_sfy0l"]
@@ -48,9 +48,29 @@ script = ExtResource("4_xnsb3")
 ID = 1
 count = 20
 
+[sub_resource type="Resource" id="Resource_38y3e"]
+script = ExtResource("4_xnsb3")
+ID = 2
+count = 1
+
+[sub_resource type="Resource" id="Resource_hkkgx"]
+script = ExtResource("4_xnsb3")
+ID = 3
+count = 3
+
+[sub_resource type="Resource" id="Resource_rnjbu"]
+script = ExtResource("4_xnsb3")
+ID = 4
+count = 4
+
+[sub_resource type="Resource" id="Resource_pcvvy"]
+script = ExtResource("4_xnsb3")
+ID = 5
+count = 5
+
 [sub_resource type="Resource" id="Resource_ig6ua"]
 script = ExtResource("4_p14fm")
-inItems = Array[Object]([SubResource("Resource_rk22d"), SubResource("Resource_v75vc")])
+inItems = Array[Object]([SubResource("Resource_rk22d"), SubResource("Resource_v75vc"), SubResource("Resource_38y3e"), SubResource("Resource_hkkgx"), SubResource("Resource_rnjbu"), SubResource("Resource_pcvvy")])
 
 [node name="OceanMap" type="Node2D" node_paths=PackedStringArray("player", "pauseMenu")]
 script = ExtResource("1_sfy0l")
