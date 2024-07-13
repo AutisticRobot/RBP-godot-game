@@ -22,6 +22,7 @@ public partial class priceModulator : Node
         foreach(ShopItem item in shop)
         {
             GD.Print("inv of " + item.GetName() + " (" + item.ID + ") = " + item.count);
+            item.count += (int)(GD.Randi() % 10);
         }
 
 
