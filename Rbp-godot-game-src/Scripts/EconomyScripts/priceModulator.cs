@@ -22,7 +22,9 @@ public partial class priceModulator : Node
         foreach(ShopItem item in shop)
         {
             GD.Print("inv of " + item.GetName() + " (" + item.ID + ") = " + item.count);
-            item.count += (int)(GD.Randi() % 10);
+            float varriayPercentage = (GD.Randf() % .1f) - .05f;
+            GD.Print("varriation percentage: " + varriayPercentage);
+            item.count = (int)((float)item.count * (1 + varriayPercentage));
         }
 
 
