@@ -112,7 +112,6 @@ public partial class ShopInventory : inventory
         }
 	}
 
-/*
 	public static ShopInventory operator+(ShopInventory inv1, ShopInventory inv2)//===========================================================================NEEDS TO BE TESTED TO CONFIRM FUCINALITY!!!!
 	{
 
@@ -131,5 +130,4 @@ public partial class ShopInventory : inventory
 		return new invEnum(this);
     }
 
-*/
 }
