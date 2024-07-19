@@ -159,7 +159,10 @@ public partial class Global : Node
 
 	public void closeCurentScene()
 	{
+		if(curSceneMan != null)
+		{
 		curSceneMan._CloseScenePrep();
+		}
 
 	}
 /*/---------------------------------------------\\\

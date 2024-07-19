@@ -5,12 +5,33 @@ using Godot.Collections;
 [GlobalClass]
 public partial class IslandClass : Node2D
 {
+			 public bool isIsland = true;
+	[Export] public string diramaUID;//     I Need to find if this is already accesable elseware
 	[Export] public Node2D playerStandee;
 	[Export] public portCaptain PortCaptainLocal;
 	[Export] public shopMan ShopManLocal;
 	[Signal] public delegate Signal shopOpenEventHandler(ShopInventory shopInv);
 	[Export] public string SaveFileName;
 			 public SceneSave fileSave = new();
+
+
+	public void checkAlone()
+	{
+		try
+		{
+			GD.Print(GetTree().Root.GetChild<IslandClass>(1).isIsland);
+			GD.Print("Island Is Alone");
+			openSelfInDirama();
+		}catch{
+			GD.Print("Is Alone Fail: " + GetTree().Root.GetChild<Node>(1).Name);
+		}
+	}
+	public void openSelfInDirama()
+	{
+		Global global = GetNode<Global>("/root/Global");
+			global.OpenScene(2);
+			global.spawnDiramaUID = diramaUID;
+	}
 
 	public virtual void prepIsland()
 	{
