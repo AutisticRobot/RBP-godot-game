@@ -15,6 +15,12 @@ public partial class IslandClass : Node2D
 			 public SceneSave fileSave = new();
 
 
+	public override void _Ready()
+	{
+		checkAlone();
+	}
+
+
 	public void checkAlone()
 	{
 		try
