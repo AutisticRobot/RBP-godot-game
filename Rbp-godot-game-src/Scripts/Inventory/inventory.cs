@@ -137,6 +137,18 @@ public inventory()
 		inv.add(item);
 		return inv;
 	}
+	public static inventory operator-(inventory inv1, inventory inv2)
+	{
+
+		foreach (Item item in inv2)
+		{
+			item.count = -item.count;
+			inv1.add(item);
+		}
+
+		return inv1;
+	}
+		
 
 ///===================
 ///		Other

@@ -44,7 +44,7 @@ public partial class ShopInventory : inventory
 	}
 	new public void FromData(Variant data)
 	{
-		ShopInventory inv = new();
+		ShopInventory inv;
 
 		try
 		{
@@ -91,7 +91,13 @@ public partial class ShopInventory : inventory
 			GD.Print("shopInv Add");
 		if(Items.ContainsKey(item.ID))
 		{
-			Items[item.ID].count += item.count;
+			ShopItem tmp = (ShopItem)Items[item.ID];
+
+			tmp.count += item.count;
+			tmp.buyPrice += item.buyPrice;
+			tmp.SellPrice += item.SellPrice;
+
+			Items[item.ID] = tmp;
 		}else{
 			Items[item.ID] = item;
 			Count++;
@@ -112,11 +118,25 @@ public partial class ShopInventory : inventory
         }
 	}
 
-	public static ShopInventory operator+(ShopInventory inv1, ShopInventory inv2)//===========================================================================NEEDS TO BE TESTED TO CONFIRM FUCINALITY!!!!
+	public static ShopInventory operator+(ShopInventory inv1, ShopInventory inv2)
 	{
 
 		foreach (ShopItem item in inv2)
 		{
+			inv1.add(item);
+		}
+
+		return inv1;
+		
+	}
+	public static ShopInventory operator-(ShopInventory inv1, ShopInventory inv2)
+	{
+
+		foreach (ShopItem item in inv2)
+		{
+			item.count = -item.count;
+			item.count = -item.buyPrice;
+			item.count = -item.SellPrice;
 			inv1.add(item);
 		}
 

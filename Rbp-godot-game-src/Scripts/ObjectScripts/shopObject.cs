@@ -24,7 +24,7 @@ public partial class shopObject : Sprite2D
 	public void onShopOpen()
 	{
 		hardInv.flushInItems();
-		inv += modPrice.simpleMod((ShopInventory)hardInv.Duplicate(true));
+		//inv += modPrice.simpleMod((ShopInventory)hardInv.Duplicate(true));
 		inv.flushInItems();
 		if(hardInv[1] != null){GD.Print("hardInv:" + hardInv[1].SellPrice);}
 		EmitSignal(SignalName.shopOpen, inv);
