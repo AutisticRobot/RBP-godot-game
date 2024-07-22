@@ -1,84 +1,86 @@
 [gd_scene load_steps=27 format=3 uid="uid://18bfxerx8qpp"]
 
-[ext_resource type="PackedScene" uid="uid://brhosk7gg0d81" path="res://Scenes/playerParts/ship_placeholder_1.tscn" id="1_r5ep4"]
-[ext_resource type="Script" path="res://Scripts/SceneScripts/MapMain.cs" id="1_sfy0l"]
-[ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="2_8fxjo"]
-[ext_resource type="Texture2D" uid="uid://dcejkqlxnemov" path="res://Assets/Placeholders/OceanMapV1.png" id="2_guiuy"]
-[ext_resource type="PackedScene" uid="uid://c0h1hd8wuaxly" path="res://Scenes/Prefabs/majorPrefabs/basicHud.tscn" id="2_woff1"]
-[ext_resource type="PackedScene" uid="uid://ct77st4wccs35" path="res://Scenes/Prefabs/majorPrefabs/islandPrefabV1.tscn" id="3_0yxn1"]
-[ext_resource type="Script" path="res://Scripts/Inventory/inventory.cs" id="4_p14fm"]
-[ext_resource type="Script" path="res://Scripts/Inventory/Item.cs" id="4_xnsb3"]
-[ext_resource type="PackedScene" uid="uid://dqjgej3qvkd4c" path="res://Scenes/Prefabs/simplePrefabs/LootFloat.tscn" id="5_2xt25"]
-[ext_resource type="PackedScene" uid="uid://bbk6pg52bu4a3" path="res://Scenes/Menus/PausedMenu.tscn" id="5_kljqs"]
-[ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="6_tni2x"]
-[ext_resource type="Script" path="res://Scripts/HelperScripts/NavMan.cs" id="6_xkesc"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/Cursor.cs" id="7_cy6ny"]
-[ext_resource type="Texture2D" uid="uid://dwd8lkkitdnh0" path="res://Scenes/Playspaces/Islands/GrayBoxIle2/GrayBoxIsleV2.png" id="12_o12d5"]
+[ext_resource type="Script" path="res://Scripts/SceneScripts/MapMain.cs" id="1_egnfv"]
+[ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="2_0f5hq"]
+[ext_resource type="PackedScene" uid="uid://brhosk7gg0d81" path="res://Scenes/playerParts/ship_placeholder_1.tscn" id="3_hl75m"]
+[ext_resource type="Script" path="res://Scripts/Inventory/Item.cs" id="4_ja0gd"]
+[ext_resource type="Script" path="res://Scripts/Inventory/inventory.cs" id="5_h22au"]
+[ext_resource type="PackedScene" uid="uid://bbk6pg52bu4a3" path="res://Scenes/Menus/PausedMenu.tscn" id="6_lh8tv"]
+[ext_resource type="PackedScene" uid="uid://c0h1hd8wuaxly" path="res://Scenes/Prefabs/majorPrefabs/basicHud.tscn" id="7_nakbu"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/NavMan.cs" id="8_dsigp"]
+[ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="9_8jfod"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/Cursor.cs" id="10_3dn2q"]
+[ext_resource type="Texture2D" uid="uid://dcejkqlxnemov" path="res://Assets/Placeholders/OceanMapV1.png" id="11_0u728"]
+[ext_resource type="PackedScene" uid="uid://ct77st4wccs35" path="res://Scenes/Prefabs/majorPrefabs/islandPrefabV1.tscn" id="12_3ckva"]
+[ext_resource type="PackedScene" uid="uid://dqjgej3qvkd4c" path="res://Scenes/Prefabs/simplePrefabs/LootFloat.tscn" id="13_vqmu1"]
+[ext_resource type="Texture2D" uid="uid://dwd8lkkitdnh0" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle2/GrayBoxIsleV2.png" id="14_f4xfc"]
 
 [sub_resource type="Resource" id="Resource_23ueh"]
-script = ExtResource("2_8fxjo")
+script = ExtResource("2_0f5hq")
 SaveFolder = ""
 SaveFile = "oceanMap.sav"
 
 [sub_resource type="Resource" id="Resource_noswe"]
-script = ExtResource("4_xnsb3")
+script = ExtResource("4_ja0gd")
 ID = 0
 count = 5
 
 [sub_resource type="Resource" id="Resource_fuibc"]
-script = ExtResource("4_p14fm")
+script = ExtResource("5_h22au")
 inItems = Array[Object]([SubResource("Resource_noswe")])
+Items = null
 
 [sub_resource type="Resource" id="Resource_uw4md"]
-script = ExtResource("2_8fxjo")
+script = ExtResource("2_0f5hq")
 SaveFolder = "player/"
 SaveFile = "inv.sav"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eup1r"]
-atlas = ExtResource("6_tni2x")
+atlas = ExtResource("9_8jfod")
 region = Rect2(67, 43, 332, 291)
 
 [sub_resource type="Resource" id="Resource_rk22d"]
-script = ExtResource("4_xnsb3")
+script = ExtResource("4_ja0gd")
 ID = 0
 count = 238
 
 [sub_resource type="Resource" id="Resource_v75vc"]
-script = ExtResource("4_xnsb3")
+script = ExtResource("4_ja0gd")
 ID = 1
 count = 20
 
 [sub_resource type="Resource" id="Resource_38y3e"]
-script = ExtResource("4_xnsb3")
+script = ExtResource("4_ja0gd")
 ID = 2
 count = 1
 
 [sub_resource type="Resource" id="Resource_hkkgx"]
-script = ExtResource("4_xnsb3")
+script = ExtResource("4_ja0gd")
 ID = 3
 count = 3
 
 [sub_resource type="Resource" id="Resource_rnjbu"]
-script = ExtResource("4_xnsb3")
+script = ExtResource("4_ja0gd")
 ID = 4
 count = 4
 
 [sub_resource type="Resource" id="Resource_pcvvy"]
-script = ExtResource("4_xnsb3")
+script = ExtResource("4_ja0gd")
 ID = 5
 count = 5
 
 [sub_resource type="Resource" id="Resource_ig6ua"]
-script = ExtResource("4_p14fm")
+script = ExtResource("5_h22au")
 inItems = Array[Object]([SubResource("Resource_rk22d"), SubResource("Resource_v75vc"), SubResource("Resource_38y3e"), SubResource("Resource_hkkgx"), SubResource("Resource_rnjbu"), SubResource("Resource_pcvvy")])
+Items = null
 
 [node name="OceanMap" type="Node2D" node_paths=PackedStringArray("player", "pauseMenu")]
-script = ExtResource("1_sfy0l")
+script = ExtResource("1_egnfv")
 player = NodePath("PlayerShip")
 pauseMenu = NodePath("PlayerShip/Camera2D/PausedMenu")
 saveF = SubResource("Resource_23ueh")
 
-[node name="PlayerShip" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("1_r5ep4")]
+[node name="PlayerShip" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("3_hl75m")]
 z_index = 1
 position = Vector2(2660, 1086)
 scale = Vector2(1, 1)
@@ -94,10 +96,10 @@ save = SubResource("Resource_uw4md")
 [node name="Camera2D" type="Camera2D" parent="PlayerShip"]
 position = Vector2(-3.05176e-05, 0)
 
-[node name="PausedMenu" parent="PlayerShip/Camera2D" instance=ExtResource("5_kljqs")]
+[node name="PausedMenu" parent="PlayerShip/Camera2D" instance=ExtResource("6_lh8tv")]
 visible = false
 
-[node name="Hud" parent="PlayerShip/Camera2D" node_paths=PackedStringArray("ship") instance=ExtResource("2_woff1")]
+[node name="Hud" parent="PlayerShip/Camera2D" node_paths=PackedStringArray("ship") instance=ExtResource("7_nakbu")]
 offset_left = -722.0
 offset_top = -448.0
 offset_right = -722.0
@@ -105,7 +107,7 @@ offset_bottom = -448.0
 ship = NodePath("../..")
 
 [node name="Navigation" type="Node2D" parent="." node_paths=PackedStringArray("PlayerShip")]
-script = ExtResource("6_xkesc")
+script = ExtResource("8_dsigp")
 PlayerShip = NodePath("../PlayerShip")
 
 [node name="Cursor" type="Sprite2D" parent="Navigation" node_paths=PackedStringArray("nav")]
@@ -113,26 +115,26 @@ position = Vector2(-5.96046e-08, 2.38419e-07)
 scale = Vector2(0.1, 0.1)
 texture = SubResource("AtlasTexture_eup1r")
 offset = Vector2(7.00195, -8.99902)
-script = ExtResource("7_cy6ny")
+script = ExtResource("10_3dn2q")
 nav = NodePath("..")
 
 [node name="OceanMapV1" type="Sprite2D" parent="."]
 show_behind_parent = true
 scale = Vector2(10, 10)
-texture = ExtResource("2_guiuy")
+texture = ExtResource("11_0u728")
 
-[node name="GrayBoxIsleV1" parent="." instance=ExtResource("3_0yxn1")]
+[node name="GrayBoxIsleV1" parent="." instance=ExtResource("12_3ckva")]
 position = Vector2(3058, -534)
 diramaUID = "uid://bv6i4kqm6opd7"
 
-[node name="LootFloat" parent="." instance=ExtResource("5_2xt25")]
+[node name="LootFloat" parent="." instance=ExtResource("13_vqmu1")]
 position = Vector2(2205, 1748)
 scale = Vector2(2, 2)
 inv = SubResource("Resource_ig6ua")
 
-[node name="GrayBoxIsleV2" parent="." instance=ExtResource("3_0yxn1")]
+[node name="GrayBoxIsleV2" parent="." instance=ExtResource("12_3ckva")]
 position = Vector2(2880, 590)
-texture = ExtResource("12_o12d5")
+texture = ExtResource("14_f4xfc")
 diramaUID = "uid://cmtqlcyybilf5"
 
 [connection signal="dock" from="GrayBoxIsleV1" to="." method="playerDock"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://bv6i4kqm6opd7"]
 
-[ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxIslandDirama.png" id="1_oetnv"]
-[ext_resource type="Script" path="res://Scenes/Playspaces/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_y01yf"]
+[ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle/GrayBoxIslandDirama.png" id="1_oetnv"]
+[ext_resource type="Script" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_y01yf"]
 [ext_resource type="PackedScene" uid="uid://cftkdghcpt8w8" path="res://Scenes/Prefabs/simplePrefabs/ShopTemplate0.tscn" id="2_vljx4"]
 [ext_resource type="Script" path="res://Scripts/Inventory/ShopInventory.cs" id="3_2d5d7"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/shopMan.cs" id="3_jw8mq"]
@@ -58,14 +58,15 @@ count = 20
 
 [sub_resource type="Resource" id="Resource_ly25g"]
 script = ExtResource("3_2d5d7")
+Items = null
 inItems = Array[Object]([SubResource("Resource_xttac"), SubResource("Resource_l81al"), SubResource("Resource_juyyv"), SubResource("Resource_pxdub"), SubResource("Resource_eja8a"), SubResource("Resource_gjdjf")])
+Items = null
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfxuw"]
 radius = 124.844
 
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
 script = ExtResource("1_y01yf")
-diramaUID = "uid://bv6i4kqm6opd7"
 playerStandee = NodePath("PlayerStart")
 PortCaptainLocal = NodePath("PortCaptian")
 ShopManLocal = NodePath("Shop Manager")

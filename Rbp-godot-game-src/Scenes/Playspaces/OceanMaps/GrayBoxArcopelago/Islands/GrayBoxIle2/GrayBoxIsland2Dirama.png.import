@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwd8lkkitdnh0"
-path="res://.godot/imported/GrayBoxIsleV2.png-da3fe6f1485612518b67ed0c9762d71a.ctex"
+uid="uid://bge6ycox8or4t"
+path="res://.godot/imported/GrayBoxIsland2Dirama.png-868d6db54e5a6a7a3cd055d3c7ab3f5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Playspaces/Islands/GrayBoxIle2/GrayBoxIsleV2.png"
-dest_files=["res://.godot/imported/GrayBoxIsleV2.png-da3fe6f1485612518b67ed0c9762d71a.ctex"]
+source_file="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle2/GrayBoxIsland2Dirama.png"
+dest_files=["res://.godot/imported/GrayBoxIsland2Dirama.png-868d6db54e5a6a7a3cd055d3c7ab3f5e.ctex"]
 
 [params]
 
