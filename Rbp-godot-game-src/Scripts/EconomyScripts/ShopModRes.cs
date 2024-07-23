@@ -1,0 +1,17 @@
+using Godot;
+using System;
+
+public partial class ShopModRes : Resource
+{
+    [Export] public uint dayLastUpdate;
+    [Export] public uint DebugCurDay;
+                 public uint daysSenceUpdate;
+
+    public virtual void Prep()
+    {}
+    
+    public virtual ShopInventory Mod(ShopInventory shop)
+    {
+        return null;
+    }
+}

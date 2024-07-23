@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b4nk1wa0hfo3c" path="res://icon.svg" id="6_30hx7"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/portCaptain.cs" id="7_aebhm"]
 [ext_resource type="Script" path="res://Scripts/Inventory/ShopItem.cs" id="7_dcj5b"]
-[ext_resource type="Script" path="res://Scripts/EconomyScripts/priceModulator.cs" id="8_8xxya"]
+[ext_resource type="Script" path="res://Scripts/EconomyScripts/BasicPriceMod.cs" id="8_8xxya"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_i3nax"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_reo54"]
 

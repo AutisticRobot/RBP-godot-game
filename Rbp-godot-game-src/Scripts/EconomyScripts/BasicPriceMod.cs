@@ -2,14 +2,11 @@ using Godot;
 using System;
 
 [GlobalClass]
-public partial class priceModulator : Node
+public partial class BasicPriceMod : ShopModRes
 {
-    [Export] public uint dayLastUpdate;
-    [Export] public uint DebugCurDay;
-                 public uint daysSenceUpdate;
 
 
-    public override void _Ready()
+    public override void Prep()
     {
         GD.Print("modPrice Preped");
 
@@ -17,7 +14,7 @@ public partial class priceModulator : Node
         daysSenceUpdate = DebugCurDay - dayLastUpdate;
     }
 
-    public ShopInventory simpleMod(ShopInventory shop)
+    public override ShopInventory Mod(ShopInventory shop)
     {
         foreach(ShopItem item in shop)
         {
