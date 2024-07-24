@@ -6,7 +6,7 @@ public partial class shopObject : Sprite2D
 	[Export] public string ShopID;
 	[Export] public ShopInventory hardInv {get;private set;}
 			 public ShopInventory inv = new();
-	[Export] public priceModulator modPrice;
+	[Export] public ShopModRes modPrice;
 
 
 	[Signal] public delegate Signal shopOpenEventHandler(ShopInventory shopInv);

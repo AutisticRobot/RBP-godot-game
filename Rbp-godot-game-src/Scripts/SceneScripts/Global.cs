@@ -2,7 +2,6 @@ using Godot;
 using Godot.Collections;
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 
 /*/---------------------------------------------\\\
@@ -21,7 +20,7 @@ public partial class Global : Node
 		"res://Scenes/Playspaces/MainMenu.tscn",
 		"res://Scenes/Playspaces/options_screen.tscn",
 		"res://Scenes/Playspaces/Direamas/PlayerDierama.tscn",
-		"res://Scenes/Playspaces/Maps/OceanMap.tscn",
+		"res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/OceanMap.tscn",
 	};
 /*/---------------------------------------------\\\
 ///---------------------------------------------\\\
