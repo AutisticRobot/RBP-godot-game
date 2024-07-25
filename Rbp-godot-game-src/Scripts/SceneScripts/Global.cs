@@ -149,10 +149,11 @@ public partial class Global : Node
 	}
 	private void RealOpenScene()
 	{
-			closeCurentScene();
 
-			GD.Print("Go To Scene:" + SceneList[OpenSceneID]);
-			GetTree().ChangeSceneToFile(SceneList[OpenSceneID]);
+		closeCurentScene();
+
+		GD.Print("Go To Scene: " + SceneList[OpenSceneID]);
+		GetTree().ChangeSceneToFile(SceneList[OpenSceneID]);
 
 	}
 

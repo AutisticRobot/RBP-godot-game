@@ -58,9 +58,7 @@ count = 20
 
 [sub_resource type="Resource" id="Resource_ly25g"]
 script = ExtResource("3_2d5d7")
-Items = null
 inItems = Array[Object]([SubResource("Resource_xttac"), SubResource("Resource_l81al"), SubResource("Resource_juyyv"), SubResource("Resource_pxdub"), SubResource("Resource_eja8a"), SubResource("Resource_gjdjf")])
-Items = null
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfxuw"]
 radius = 124.844
@@ -77,19 +75,21 @@ position = Vector2(-1, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("1_oetnv")
 
-[node name="Shop Manager" type="Control" parent="." node_paths=PackedStringArray("priceMod")]
+[node name="Shop Manager" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_jw8mq")
-priceMod = NodePath("Price Modulator")
+priceMod = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("7_5vdt6"),"dayLastUpdate":0,"DebugCurDay":27)
 
-[node name="Shop0" parent="Shop Manager" node_paths=PackedStringArray("modPrice") instance=ExtResource("2_vljx4")]
+
+[node name="Shop0" parent="Shop Manager" instance=ExtResource("2_vljx4")]
 position = Vector2(1030, -304)
 ShopID = "435sxcyv"
 hardInv = SubResource("Resource_ly25g")
-modPrice = NodePath("../Price Modulator")
+modPrice = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("7_5vdt6"),"dayLastUpdate":0,"DebugCurDay":27)
+
 
 [node name="Price Modulator" type="Node" parent="Shop Manager"]
 script = ExtResource("7_5vdt6")
