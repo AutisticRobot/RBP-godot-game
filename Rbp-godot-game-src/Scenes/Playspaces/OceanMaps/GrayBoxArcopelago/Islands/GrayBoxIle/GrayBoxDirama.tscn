@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bv6i4kqm6opd7"]
+[gd_scene load_steps=23 format=3 uid="uid://bv6i4kqm6opd7"]
 
 [ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle/GrayBoxIslandDirama.png" id="1_oetnv"]
 [ext_resource type="Script" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_y01yf"]
@@ -13,6 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_ar8t7"]
 [ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="10_qw2hi"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="11_b4e8y"]
+
+[sub_resource type="Resource" id="Resource_3t5vq"]
+script = ExtResource("7_5vdt6")
+dayLastUpdate = 0
+DebugCurDay = 27
 
 [sub_resource type="Resource" id="Resource_xttac"]
 script = ExtResource("5_moq8x")
@@ -65,6 +70,7 @@ radius = 124.844
 
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
 script = ExtResource("1_y01yf")
+diramaUID = "uid://cmtqlcyybilf5"
 playerStandee = NodePath("PlayerStart")
 PortCaptainLocal = NodePath("PortCaptian")
 ShopManLocal = NodePath("Shop Manager")
@@ -81,8 +87,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_jw8mq")
-priceMod = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("7_5vdt6"),"dayLastUpdate":0,"DebugCurDay":27)
-
+priceMod = SubResource("Resource_3t5vq")
 
 [node name="Shop0" parent="Shop Manager" instance=ExtResource("2_vljx4")]
 position = Vector2(1030, -304)
@@ -90,10 +95,6 @@ ShopID = "435sxcyv"
 hardInv = SubResource("Resource_ly25g")
 modPrice = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("7_5vdt6"),"dayLastUpdate":0,"DebugCurDay":27)
 
-
-[node name="Price Modulator" type="Node" parent="Shop Manager"]
-script = ExtResource("7_5vdt6")
-DebugCurDay = 27
 
 [node name="PlayerStart" type="Sprite2D" parent="."]
 position = Vector2(-191, 802)

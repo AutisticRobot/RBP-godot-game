@@ -97,7 +97,12 @@ public partial class Global : Node
 	{
 	    if (what == NotificationWMCloseRequest)
 		{
-			closeCurentScene();
+			try
+			{
+				closeCurentScene();
+			}catch{
+				GD.Print("Could not close current scene. Shuting down anyway...");
+			}
 	        GetTree().Quit(); // default behavior
 		}
 	}
