@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://df7a7ernccjd4"]
+
+[ext_resource type="Script" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle2/GrayBoxDirama2.cs" id="1_wufgp"]
+[ext_resource type="Texture2D" uid="uid://bge6ycox8or4t" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle2/GrayBoxIsland2Dirama.png" id="2_7tgci"]
+[ext_resource type="Texture2D" uid="uid://b4nk1wa0hfo3c" path="res://icon.svg" id="3_aic53"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/shopMan.cs" id="4_2uauu"]
+[ext_resource type="Script" path="res://Scripts/EconomyScripts/BasicPriceMod.cs" id="5_y1cb4"]
+[ext_resource type="PackedScene" uid="uid://cftkdghcpt8w8" path="res://Scenes/Prefabs/simplePrefabs/ShopTemplate0.tscn" id="6_kgbbs"]
+
+[sub_resource type="Resource" id="Resource_kim3u"]
+script = ExtResource("5_y1cb4")
+dayLastUpdate = 0
+DebugCurDay = 27
+
+[node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
+script = ExtResource("1_wufgp")
+diramaUID = "uid://df7a7ernccjd4"
+playerStandee = NodePath("PlayerStart")
+PortCaptainLocal = NodePath("")
+ShopManLocal = NodePath("ShopMan")
+SaveFileName = "grayBoxIle3.sav"
+
+[node name="GrayBoxIslandDirama" type="Sprite2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("2_7tgci")
+
+[node name="PlayerStart" type="Sprite2D" parent="."]
+position = Vector2(-45, 822)
+texture = ExtResource("3_aic53")
+
+[node name="ShopMan" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_2uauu")
+priceMod = SubResource("Resource_kim3u")
+
+[node name="Shop0" parent="ShopMan" instance=ExtResource("6_kgbbs")]
+position = Vector2(1030, -304)
+ShopID = "BUIsfw4"
+modPrice = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("5_y1cb4"),"dayLastUpdate":0,"DebugCurDay":1)
+
+
+[connection signal="shopOpen" from="ShopMan/Shop0" to="." method="onShopOpen"]

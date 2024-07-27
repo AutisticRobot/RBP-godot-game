@@ -1,1 +1,0 @@
-When loading a save, island diramas, at an unkown point, atempts to acess basicPriceMod as a node instead of a resource.

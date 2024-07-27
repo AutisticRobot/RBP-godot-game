@@ -64,8 +64,6 @@ priceMod = SubResource("Resource_kim3u")
 position = Vector2(1030, -304)
 ShopID = "BUIsfw4"
 hardInv = SubResource("Resource_8froh")
-modPrice = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("8_8xxya"),"dayLastUpdate":0,"DebugCurDay":1)
-
 
 [node name="PortCaptian" type="Control" parent="."]
 layout_mode = 3

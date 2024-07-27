@@ -74,6 +74,7 @@ public partial class Global : Node
 
 	public override void _Ready()
 	{
+		
 		GD.Randomize();
 
 		OptionsSave.global = this;
@@ -81,6 +82,7 @@ public partial class Global : Node
 		OptionsSave.SaveFile = "Options.sav";
 
 		Load();
+		
 	}
 
 	public override void _Process(double delta)
