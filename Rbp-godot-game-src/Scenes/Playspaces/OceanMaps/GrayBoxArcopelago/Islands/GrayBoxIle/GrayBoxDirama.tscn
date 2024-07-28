@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bv6i4kqm6opd7"]
+[gd_scene load_steps=23 format=3 uid="uid://bv6i4kqm6opd7"]
 
 [ext_resource type="Texture2D" uid="uid://d2pdq11op7nng" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle/GrayBoxIslandDirama.png" id="1_oetnv"]
 [ext_resource type="Script" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle/GrayBoxDirama.cs" id="1_y01yf"]
 [ext_resource type="PackedScene" uid="uid://cftkdghcpt8w8" path="res://Scenes/Prefabs/simplePrefabs/ShopTemplate0.tscn" id="2_vljx4"]
 [ext_resource type="Script" path="res://Scripts/Inventory/ShopInventory.cs" id="3_2d5d7"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/shopMan.cs" id="3_jw8mq"]
+[ext_resource type="Script" path="res://Scripts/EconomyScripts/BasicPriceMod.cs" id="4_6garx"]
 [ext_resource type="Script" path="res://Scripts/Inventory/ShopItem.cs" id="5_moq8x"]
 [ext_resource type="Texture2D" uid="uid://b4nk1wa0hfo3c" path="res://icon.svg" id="6_s6ch2"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/portCaptain.cs" id="7_j67o5"]
@@ -12,6 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_ar8t7"]
 [ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="10_qw2hi"]
 [ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="11_b4e8y"]
+
+[sub_resource type="Resource" id="Resource_idlbc"]
+script = ExtResource("4_6garx")
+dayLastUpdate = 0
+DebugCurDay = 5
 
 [sub_resource type="Resource" id="Resource_xttac"]
 script = ExtResource("5_moq8x")
@@ -81,6 +87,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_jw8mq")
+priceMod = SubResource("Resource_idlbc")
 
 [node name="Shop0" parent="Shop Manager" instance=ExtResource("2_vljx4")]
 position = Vector2(1030, -304)

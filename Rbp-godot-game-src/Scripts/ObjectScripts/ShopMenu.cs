@@ -112,7 +112,15 @@ public partial class ShopMenu : MenuObj
 	{
 		try
 		{
-		return player.inv[type];
+			Item playerItem = player.inv[type];
+
+			if(playerItem == null)
+			{
+				player.inv.add(new(type,0));
+				return player.inv[type];
+			}
+
+			return playerItem;
 		}catch{
 			if(player == null)
 			{

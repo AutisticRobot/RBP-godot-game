@@ -22,7 +22,13 @@ public partial class shopMan : Node
             GD.Print(child.GetClass());
             if(child.GetType().ToString() == "shopObject")
             {
-                allShops.Add((shopObject)GetChild(child.GetIndex()));
+				shopObject shop = (shopObject)GetChild(child.GetIndex());
+                allShops.Add(shop);
+
+				if(shop.modPrice == null)
+				{
+					shop.modPrice = priceMod;
+				}
             }
         }
 	}
