@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://18bfxerx8qpp"]
+[gd_scene load_steps=28 format=3 uid="uid://18bfxerx8qpp"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/MapMain.cs" id="1_egnfv"]
 [ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="2_0f5hq"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ct77st4wccs35" path="res://Scenes/Prefabs/majorPrefabs/islandPrefabV1.tscn" id="12_3ckva"]
 [ext_resource type="PackedScene" uid="uid://dqjgej3qvkd4c" path="res://Scenes/Prefabs/simplePrefabs/LootFloat.tscn" id="13_vqmu1"]
 [ext_resource type="Texture2D" uid="uid://dwd8lkkitdnh0" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle2/GrayBoxIsleV2.png" id="14_f4xfc"]
+[ext_resource type="PackedScene" uid="uid://dvrm5bvnsa0w6" path="res://Scenes/Prefabs/simplePrefabs/oceanObject.tscn" id="15_qhnwn"]
 
 [sub_resource type="Resource" id="Resource_23ueh"]
 script = ExtResource("2_0f5hq")
@@ -28,7 +29,6 @@ count = 5
 [sub_resource type="Resource" id="Resource_fuibc"]
 script = ExtResource("5_h22au")
 inItems = Array[Object]([SubResource("Resource_noswe")])
-Items = null
 
 [sub_resource type="Resource" id="Resource_uw4md"]
 script = ExtResource("2_0f5hq")
@@ -72,7 +72,6 @@ count = 5
 [sub_resource type="Resource" id="Resource_ig6ua"]
 script = ExtResource("5_h22au")
 inItems = Array[Object]([SubResource("Resource_rk22d"), SubResource("Resource_v75vc"), SubResource("Resource_38y3e"), SubResource("Resource_hkkgx"), SubResource("Resource_rnjbu"), SubResource("Resource_pcvvy")])
-Items = null
 
 [node name="OceanMap" type="Node2D" node_paths=PackedStringArray("player", "pauseMenu")]
 script = ExtResource("1_egnfv")
@@ -136,6 +135,21 @@ inv = SubResource("Resource_ig6ua")
 position = Vector2(2880, 590)
 texture = ExtResource("14_f4xfc")
 diramaUID = "uid://cmtqlcyybilf5"
+
+[node name="OceanObject" parent="." instance=ExtResource("15_qhnwn")]
+position = Vector2(1570, 1155)
+
+[node name="OceanObject2" parent="." instance=ExtResource("15_qhnwn")]
+position = Vector2(3386, 1707)
+
+[node name="OceanObject3" parent="." instance=ExtResource("15_qhnwn")]
+position = Vector2(1, 530)
+
+[node name="OceanObject4" parent="." instance=ExtResource("15_qhnwn")]
+position = Vector2(-687, -72)
+
+[node name="OceanObject5" parent="." instance=ExtResource("15_qhnwn")]
+position = Vector2(117, -415)
 
 [connection signal="dock" from="GrayBoxIsleV1" to="." method="playerDock"]
 [connection signal="dock" from="GrayBoxIsleV2" to="." method="playerDock"]

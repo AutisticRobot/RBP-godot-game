@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://brhosk7gg0d81"]
+[gd_scene load_steps=11 format=3 uid="uid://brhosk7gg0d81"]
 
 [ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Resorces/ShipModels/SSDebug/ShipPlaceholder1.png" id="1_d8swp"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory.cs" id="2_klbbm"]
@@ -18,6 +18,8 @@ SaveFile = ""
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_28l88"]
 radius = 270.185
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_toche"]
 
 [node name="PlayerShip" type="Node2D"]
 scale = Vector2(0.1, 0.1)
@@ -39,11 +41,20 @@ texture = ExtResource("3_pxyi1")
 script = ExtResource("4_iq5ar")
 Distance = 60
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="interactCollision" type="Area2D" parent="."]
 scale = Vector2(0.1, 0.1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactCollision"]
 position = Vector2(0, 9.09495e-13)
 shape = SubResource("CircleShape2D_28l88")
+metadata/_edit_group_ = true
 
-[connection signal="area_entered" from="Area2D" to="." method="getLoot"]
+[node name="WorldCollision" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldCollision"]
+position = Vector2(-10, 20)
+shape = SubResource("CircleShape2D_toche")
+debug_color = Color(0.889743, 0.31651, 0.209498, 0.42)
+metadata/_edit_group_ = true
+
+[connection signal="area_entered" from="interactCollision" to="." method="getLoot"]
