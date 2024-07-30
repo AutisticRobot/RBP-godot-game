@@ -36,11 +36,13 @@ public partial class shopListing : Sprite2D
 	{
 		if(shopitem != null)
 		{
+			Visible = true;
 
 			playerStock.Text = playerItem.count.ToString();
 			shopStock.Text = shopitem.count.ToString();
 			if(!onlyShow)
 			{
+
 				buyPrice.Text = "$" +  shopitem.buyPrice.ToString();
 				sellPrice.Text = "$" + shopitem.SellPrice.ToString();
 			}

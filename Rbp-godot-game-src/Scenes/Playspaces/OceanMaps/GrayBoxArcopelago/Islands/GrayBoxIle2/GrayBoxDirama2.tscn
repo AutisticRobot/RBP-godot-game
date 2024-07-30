@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmtqlcyybilf5"]
+[gd_scene load_steps=19 format=3 uid="uid://cmtqlcyybilf5"]
 
 [ext_resource type="Script" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle2/GrayBoxDirama2.cs" id="1_w87fs"]
 [ext_resource type="Texture2D" uid="uid://bge6ycox8or4t" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle2/GrayBoxIsland2Dirama.png" id="2_sxlud"]
@@ -31,9 +31,30 @@ SellPrice = 10
 ID = 1
 count = 273
 
+[sub_resource type="Resource" id="Resource_7lj3t"]
+script = ExtResource("7_dcj5b")
+buyPrice = 20
+SellPrice = 15
+ID = 2
+count = 50
+
+[sub_resource type="Resource" id="Resource_vpg7v"]
+script = ExtResource("7_dcj5b")
+buyPrice = 30
+SellPrice = 25
+ID = 3
+count = 20
+
+[sub_resource type="Resource" id="Resource_qydf2"]
+script = ExtResource("7_dcj5b")
+buyPrice = 40
+SellPrice = 35
+ID = 4
+count = 10
+
 [sub_resource type="Resource" id="Resource_8froh"]
 script = ExtResource("5_jgk76")
-inItems = Array[Object]([SubResource("Resource_vw01d"), SubResource("Resource_5fjjt")])
+inItems = Array[Object]([SubResource("Resource_vw01d"), SubResource("Resource_5fjjt"), SubResource("Resource_7lj3t"), SubResource("Resource_vpg7v"), SubResource("Resource_qydf2")])
 
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
 script = ExtResource("1_w87fs")
