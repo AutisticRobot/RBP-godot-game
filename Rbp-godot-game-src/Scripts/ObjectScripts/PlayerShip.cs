@@ -1,9 +1,8 @@
 using Godot;
 using Godot.Collections;
 using System;
-using System.Linq;
 
-public partial class PlayerShip : Node2D
+public partial class PlayerShip : CharacterBody2D
 {
 			 public SceneMan manager;
 	[Export] public Cursor cursor;
@@ -60,10 +59,12 @@ public partial class PlayerShip : Node2D
 			Pinput();
         	Vector2 vel = new()
         	{
-        	    X = ((float)(Math.Sin(dir * (Math.PI / 180)) * speed * delta)),
-        	    Y = ((float)(Math.Cos(dir * (Math.PI / 180)) * speed * delta))
+        	    X = (float)(Math.Sin(dir * (Math.PI / 180)) * speed * delta),
+        	    Y = (float)(Math.Cos(dir * (Math.PI / 180)) * speed * delta)
         	};
-        	Position += vel;
+			GD.Print(speed);
+			Velocity = vel;
+			MoveAndSlide();
 		}
 		if(player)
 		{

@@ -1,60 +1,46 @@
-[gd_scene load_steps=11 format=3 uid="uid://brhosk7gg0d81"]
+[gd_scene load_steps=7 format=3 uid="uid://brhosk7gg0d81"]
 
 [ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Resorces/ShipModels/SSDebug/ShipPlaceholder1.png" id="1_d8swp"]
-[ext_resource type="Script" path="res://Scripts/Inventory/inventory.cs" id="2_klbbm"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerShip.cs" id="2_wk8c6"]
-[ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="3_mwkln"]
 [ext_resource type="Texture2D" uid="uid://d3686dp3xa2a6" path="res://Assets/Placeholders/ArrowG.png" id="3_pxyi1"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ArrowG.cs" id="4_iq5ar"]
 
-[sub_resource type="Resource" id="Resource_iuffe"]
-script = ExtResource("2_klbbm")
-inItems = null
-
-[sub_resource type="Resource" id="Resource_b0qps"]
-script = ExtResource("3_mwkln")
-SaveFolder = ""
-SaveFile = ""
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_28l88"]
-radius = 270.185
+radius = 3883.3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_toche"]
+radius = 15.2971
 
-[node name="PlayerShip" type="Node2D"]
-scale = Vector2(0.1, 0.1)
+[node name="PlayerShip" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("2_wk8c6")
 player = true
 debug = true
-inv = SubResource("Resource_iuffe")
-save = SubResource("Resource_b0qps")
-
-[node name="ShipSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_d8swp")
 
 [node name="ArrowG" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(0, -60)
+position = Vector2(0, -90)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_pxyi1")
 script = ExtResource("4_iq5ar")
 Distance = 60
 
-[node name="interactCollision" type="Area2D" parent="."]
+[node name="ShipSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_d8swp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interactCollision"]
-position = Vector2(0, 9.09495e-13)
+[node name="PickupHitbox" type="Area2D" parent="."]
+scale = Vector2(0.01, 0.01)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupHitbox"]
+position = Vector2(-300, -100)
 shape = SubResource("CircleShape2D_28l88")
 metadata/_edit_group_ = true
 
-[node name="WorldCollision" type="CharacterBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldCollision"]
-position = Vector2(-10, 20)
+[node name="HullHitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 23)
 shape = SubResource("CircleShape2D_toche")
 debug_color = Color(0.889743, 0.31651, 0.209498, 0.42)
 metadata/_edit_group_ = true
-
-[connection signal="area_entered" from="interactCollision" to="." method="getLoot"]

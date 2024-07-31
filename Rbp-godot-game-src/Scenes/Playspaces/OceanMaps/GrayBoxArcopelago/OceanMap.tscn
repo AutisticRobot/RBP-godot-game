@@ -82,13 +82,12 @@ saveF = SubResource("Resource_23ueh")
 [node name="PlayerShip" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("3_hl75m")]
 z_index = 1
 position = Vector2(2660, 1086)
-scale = Vector2(1, 1)
 cursor = NodePath("../Navigation/Cursor")
-brakeSpeed = 3.0
-Acc = 1.0
+brakeSpeed = 300.0
+Acc = 100.0
 TurnAcc = 1.0
-Minspeed = -10.0
-Maxspeed = 200.0
+Minspeed = -1000.0
+Maxspeed = 20000.0
 inv = SubResource("Resource_fuibc")
 save = SubResource("Resource_uw4md")
 
