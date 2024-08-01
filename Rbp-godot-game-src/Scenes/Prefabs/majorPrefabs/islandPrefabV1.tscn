@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct77st4wccs35"]
+[gd_scene load_steps=6 format=3 uid="uid://ct77st4wccs35"]
 
 [ext_resource type="Texture2D" uid="uid://bxhnl6qgu8c36" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle/GrayBoxIsleV1.png" id="1_glkvu"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/island.cs" id="2_mcg2j"]
@@ -7,6 +7,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fiw2l"]
 radius = 245.1
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rwru"]
+radius = 76.0
+height = 296.945
+
 [node name="GrayBoxIsleV1" type="Sprite2D"]
 position = Vector2(-1, -2)
 texture = ExtResource("1_glkvu")
@@ -14,11 +18,19 @@ offset = Vector2(88, 119)
 script = ExtResource("2_mcg2j")
 
 [node name="GroundButton" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 16
 script = ExtResource("3_jyyde")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundButton"]
 shape = SubResource("CircleShape2D_fiw2l")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(25, -14)
+rotation = 1.38148
+shape = SubResource("CapsuleShape2D_3rwru")
+debug_color = Color(0.788114, 0.427987, 0.126753, 0.42)
 
 [connection signal="buttonPressed" from="GroundButton" to="." method="onDock"]

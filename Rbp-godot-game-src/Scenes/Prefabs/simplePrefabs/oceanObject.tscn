@@ -20,6 +20,8 @@ position = Vector2(-1, 4)
 texture = SubResource("AtlasTexture_et30b")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="DebrieAtlasV1"]
+collision_layer = 16
+collision_mask = 16
 physics_material_override = SubResource("PhysicsMaterial_pscve")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DebrieAtlasV1/StaticBody2D"]
