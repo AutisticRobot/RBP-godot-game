@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf3wbghnlb262"]
+[gd_scene load_steps=11 format=3 uid="uid://cf3wbghnlb262"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/playerLand.cs" id="1_pig2j"]
 [ext_resource type="Texture2D" uid="uid://dviuumctqbgu0" path="res://Assets/Placeholders/ARobot.png" id="2_5ye8j"]
@@ -27,14 +27,20 @@ region = Rect2(1638.02, 43.137, 113.61, 413.713)
 atlas = ExtResource("2_5ye8j")
 region = Rect2(1390.86, 124.144, 100.749, 387.99)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_spopj"]
-radius = 148.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_fj3ef"]
+radius = 15.1327
 
-[node name="PlayerLand" type="Node2D"]
-scale = Vector2(0.25, 0.25)
+[sub_resource type="CircleShape2D" id="CircleShape2D_spopj"]
+radius = 123.223
+
+[node name="PlayerLand" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 16
+motion_mode = 1
 script = ExtResource("1_pig2j")
 
 [node name="Body" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
 texture = SubResource("AtlasTexture_bqo8u")
 
 [node name="Head" type="Sprite2D" parent="Body"]
@@ -65,8 +71,15 @@ texture = SubResource("AtlasTexture_l6w7n")
 position = Vector2(-208, 56)
 texture = SubResource("AtlasTexture_6jldl")
 
-[node name="PlayerArea" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 54)
+shape = SubResource("CircleShape2D_fj3ef")
+debug_color = Color(0.788114, 0.427987, 0.126753, 0.42)
 
-[node name="PlayerHitbox" type="CollisionShape2D" parent="PlayerArea"]
-position = Vector2(-56, 588)
+[node name="InteractBox" type="Area2D" parent="CollisionShape2D"]
+position = Vector2(15, -148)
+scale = Vector2(0.25, 0.25)
+
+[node name="PlayerHitbox" type="CollisionShape2D" parent="CollisionShape2D/InteractBox"]
+position = Vector2(-60, 540)
 shape = SubResource("CircleShape2D_spopj")

@@ -124,4 +124,11 @@ texture = ExtResource("11_b4e8y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundButton"]
 shape = SubResource("CircleShape2D_dfxuw")
 
+[node name="Collisions" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
+polygon = PackedVector2Array(274, -86, 298, 233, 718, 264, 711, 127, 802, 116, 795, 333, 219, 330, 192, -208, 811, -166, 800, 55, 711, 59, 700, -62)
+
 [connection signal="shopOpen" from="Shop Manager/Shop0" to="." method="onShopOpen"]

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class playerLand : Node2D
+public partial class playerLand : CharacterBody2D
 {
 			 public SceneMan manager;
 	[Export] public bool paused;
@@ -32,14 +32,11 @@ public partial class playerLand : Node2D
 		{
 			Pinput();
 
-			Vector2 DeltaModifiedSpeed = new Vector2(
-			speed.X * (float)delta,
-			speed.Y * (float)delta
-			);
-
-			Position += DeltaModifiedSpeed;
 			speed.X *= (float)Math.Pow(Decel.X,delta);
 			speed.Y *= (float)Math.Pow(Decel.Y,delta);
+
+			Velocity = speed;
+			MoveAndSlide();
 		}
 
 		// Save per frame

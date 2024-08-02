@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cftkdghcpt8w8"]
+[gd_scene load_steps=6 format=3 uid="uid://cftkdghcpt8w8"]
 
 [ext_resource type="Texture2D" uid="uid://dccyvd0xtu1rc" path="res://Assets/Placeholders/Shop0.png" id="1_o8hj5"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/shopObject.cs" id="2_k8rat"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e31sp"]
 size = Vector2(816, 632)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xylro"]
+size = Vector2(838, 190)
 
 [node name="ShopTemplate0" type="Sprite2D"]
 position = Vector2(-1, -1)
@@ -19,5 +22,14 @@ script = ExtResource("3_d3twc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundButton"]
 position = Vector2(36, 44)
 shape = SubResource("RectangleShape2D_e31sp")
+
+[node name="CollisionBox" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBox"]
+position = Vector2(36, 260)
+shape = SubResource("RectangleShape2D_xylro")
+debug_color = Color(0.788114, 0.427987, 0.126753, 0.42)
 
 [connection signal="buttonPressed" from="GroundButton" to="." method="onShopOpen"]

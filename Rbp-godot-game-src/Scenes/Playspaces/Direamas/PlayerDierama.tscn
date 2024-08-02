@@ -36,7 +36,6 @@ saveF = SubResource("Resource_vqi4u")
 [node name="PlayerLand" parent="." instance=ExtResource("1_b1t7y")]
 z_index = 100
 position = Vector2(102, -9.99997)
-scale = Vector2(0.1, 0.1)
 Acc = Vector2(50, 50)
 DecelDeltaCounterBal = 30.0
 Decel = Vector2(0.8, 0.8)
