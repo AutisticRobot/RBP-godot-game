@@ -128,7 +128,10 @@ shape = SubResource("CircleShape2D_dfxuw")
 collision_layer = 16
 collision_mask = 16
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
+[node name="lake wall" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PackedVector2Array(274, -86, 298, 233, 718, 264, 711, 127, 802, 116, 795, 333, 219, 330, 192, -208, 811, -166, 800, 55, 711, 59, 700, -62)
+
+[node name="Ocean cant swim" type="CollisionPolygon2D" parent="Collisions"]
+polygon = PackedVector2Array(-116, 654, -120, 756, -208, 661, -285, 746, -288, 892, -272, 959, -161, 959, -116, 858, -110, 985, 17, 985, 33, 670, 525, 610, 1296, 315, 1414, 38, 1760, 38, 1757, -92, 1474, -85, 1390, -364, 725, -627, 68, -636, 51, -987, -127, -1000, -110, -703, -598, -631, -1000, -428, -1229, -254, -1233, -140, -1750, -131, -1750, 9, -1250, -25, -1237, 292, -996, 483, -521, 559, -539, 1091, -2000, 1086, -1971, -1150, 2048, -1135, 2010, 1081, -336, 1069, -623, 545)
 
 [connection signal="shopOpen" from="Shop Manager/Shop0" to="." method="onShopOpen"]
