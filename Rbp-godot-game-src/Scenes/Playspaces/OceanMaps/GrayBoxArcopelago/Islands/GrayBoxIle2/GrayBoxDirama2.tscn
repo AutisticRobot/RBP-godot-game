@@ -111,4 +111,12 @@ script = ExtResource("8_i3nax")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("9_reo54")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="LakeWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(700, 122, 714, 264, 295, 240, 263, -80, 698, -72, 700, 66, 794, 58, 797, -171, 193, -198, 223, 315, 786, 328, 797, 117)
+
+[node name="OceanWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-106, 661, -926, 477, -1186, 289, -1246, -39, -1714, -7, -1730, -143, -1230, -127, -1186, -339, -734, -547, -118, -643, -118, -999, 46, -995, 42, -639, 798, -583, 1230, -399, 1274, -123, 1734, -75, 1754, 45, 1274, 41, 1246, 301, 486, 597, 18, 641, 2126, 625, 2102, -1167, -1990, -1171, -2046, 737)
+
 [connection signal="shopOpen" from="ShopMan/Shop0" to="." method="onShopOpen"]
