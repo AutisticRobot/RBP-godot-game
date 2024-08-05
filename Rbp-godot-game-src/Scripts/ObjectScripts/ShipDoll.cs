@@ -5,6 +5,7 @@ public partial class ShipDoll : Node2D
 {
 	[Export] public inventory inv;
 	[Export] public int targeSceneID;
+			 public DockSpot DockSpot;
 
 
 	private Global global; 
@@ -34,5 +35,19 @@ public partial class ShipDoll : Node2D
 		GD.Print("Open Seaseme!");
 
 		global.OpenScene(targeSceneID);
+	}
+
+	public void DockAt(DockSpot newDock)
+	{
+		DockSpot = newDock;
+		Dock();
+	}
+
+	public void Dock()
+	{
+		Position = DockSpot.Position;
+		Rotation = DockSpot.Rotation;
+
+		DockSpot.isfilled = true;
 	}
 }

@@ -58,9 +58,9 @@ public partial class IslandClass : Node2D
 
 	}
 
-	public virtual Vector2 GetDockingPos()
+	public virtual DockSpot GetDock()
 	{
-		return PortCaptainLocal.getRandDock().Position;
+		return PortCaptainLocal.getRandDock();
 	}
 
 	public virtual void hideStandee()

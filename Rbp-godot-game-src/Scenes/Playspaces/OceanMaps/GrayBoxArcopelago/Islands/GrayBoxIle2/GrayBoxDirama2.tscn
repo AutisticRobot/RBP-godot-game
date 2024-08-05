@@ -104,7 +104,6 @@ texture = ExtResource("9_reo54")
 [node name="DockSpotB" type="Node2D" parent="PortCaptian"]
 modulate = Color(0.917647, 0.619608, 0.462745, 0.407843)
 position = Vector2(143, 819)
-rotation = -3.14159
 script = ExtResource("8_i3nax")
 
 [node name="Sprite2D" type="Sprite2D" parent="PortCaptian/DockSpotB"]
@@ -112,6 +111,8 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("9_reo54")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 16
 
 [node name="LakeWall" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(700, 122, 714, 264, 295, 240, 263, -80, 698, -72, 700, 66, 794, 58, 797, -171, 193, -198, 223, 315, 786, 328, 797, 117)

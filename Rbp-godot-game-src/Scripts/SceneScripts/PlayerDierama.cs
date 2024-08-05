@@ -42,7 +42,7 @@ public partial class PlayerDierama : SceneMan
 
 		player.Position = playerSartSpot;
 
-		shipDoll.Position = localIsland.GetDockingPos();
+		shipDoll.DockAt(localIsland.GetDock());
 
 		shopMenu.player = shipDoll;
 
