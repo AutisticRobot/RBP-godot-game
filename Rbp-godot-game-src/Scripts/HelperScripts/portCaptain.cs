@@ -9,13 +9,14 @@ public partial class portCaptain : Control
 	{
         allDocks = new();
         allDocks.EnsureCapacity(4);
-        Visible = false;
+        //Visible = false;
 
         foreach(Node child in GetChildren())
         {
             GD.Print(child.GetClass());
             if(child.GetType().ToString() == "DockSpot")
             {
+                child.GetChild<Node2D>(0).Visible = false;
                 allDocks.Add((DockSpot)GetChild(child.GetIndex()));
             }
         }

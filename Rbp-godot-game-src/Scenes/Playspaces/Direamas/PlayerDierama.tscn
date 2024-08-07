@@ -74,6 +74,6 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship(Needs Reworking)/StaticBody2D"]
-polygon = PackedVector2Array(-395, -135, -215, -555, -45, -710, 55, -680, 260, -510, 390, -350, 440, -140, 410, 335, 305, 585, 150, 700, -25, 745, -210, 695, -410, 415, -425, 240, -335, 245, -285, 530, -170, 670, 100, 675, 275, 535, 345, 255, 330, -220, 230, -430, 45, -620, -50, -595, -270, -265, -315, -125)
+polygon = PackedVector2Array(-420, -60, -215, -555, -45, -710, 55, -680, 260, -510, 390, -350, 440, -140, 410, 335, 305, 585, 150, 700, -25, 745, -210, 695, -410, 415, -425, 240, -335, 245, -285, 530, -170, 670, 100, 675, 275, 535, 345, 255, 330, -220, 230, -430, 45, -620, -50, -595, -270, -265, -310, -65)
 
 [connection signal="buttonPressed" from="Ship(Needs Reworking)/GroundButton" to="Ship(Needs Reworking)" method="onPress"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cmtqlcyybilf5"]
+[gd_scene load_steps=21 format=3 uid="uid://cmtqlcyybilf5"]
 
 [ext_resource type="Script" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle2/GrayBoxDirama2.cs" id="1_w87fs"]
 [ext_resource type="Texture2D" uid="uid://bge6ycox8or4t" path="res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/Islands/GrayBoxIle2/GrayBoxIsland2Dirama.png" id="2_sxlud"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/EconomyScripts/BasicPriceMod.cs" id="8_8xxya"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DockSpot.cs" id="8_i3nax"]
 [ext_resource type="Texture2D" uid="uid://d4e2rtc4yehby" path="res://Assets/Placeholders/Dingy.png" id="9_reo54"]
+[ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="12_pnx2a"]
 
 [sub_resource type="Resource" id="Resource_kim3u"]
 script = ExtResource("8_8xxya")
@@ -56,6 +57,9 @@ count = 10
 script = ExtResource("5_jgk76")
 inItems = Array[Object]([SubResource("Resource_vw01d"), SubResource("Resource_5fjjt"), SubResource("Resource_7lj3t"), SubResource("Resource_vpg7v"), SubResource("Resource_qydf2")])
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceo8p"]
+size = Vector2(44, 80)
+
 [node name="GrayBoxDirama" type="Node2D" node_paths=PackedStringArray("playerStandee", "PortCaptainLocal", "ShopManLocal")]
 script = ExtResource("1_w87fs")
 diramaUID = "uid://cmtqlcyybilf5"
@@ -91,24 +95,57 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("7_aebhm")
 
-[node name="DockSpotA" type="Node2D" parent="PortCaptian"]
-modulate = Color(0.917647, 0.619608, 0.462745, 0.407843)
-position = Vector2(-207, 819)
+[node name="DockSpotA" type="Node2D" parent="PortCaptian" node_paths=PackedStringArray("Bridge", "DockPlug")]
+position = Vector2(-244, 845)
 rotation = -3.14159
 script = ExtResource("8_i3nax")
+Bridge = NodePath("Sprite2D2")
+DockPlug = NodePath("DockPlug")
 
-[node name="Sprite2D" type="Sprite2D" parent="PortCaptian/DockSpotA"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("9_reo54")
-
-[node name="DockSpotB" type="Node2D" parent="PortCaptian"]
+[node name="ShipGhost" type="Sprite2D" parent="PortCaptian/DockSpotA"]
 modulate = Color(0.917647, 0.619608, 0.462745, 0.407843)
-position = Vector2(143, 819)
-script = ExtResource("8_i3nax")
-
-[node name="Sprite2D" type="Sprite2D" parent="PortCaptian/DockSpotB"]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("9_reo54")
+
+[node name="Sprite2D2" type="Sprite2D" parent="PortCaptian/DockSpotA"]
+z_index = 5
+position = Vector2(-100.113, 23.36)
+scale = Vector2(0.228295, 0.181372)
+texture = ExtResource("12_pnx2a")
+
+[node name="DockPlug" type="StaticBody2D" parent="PortCaptian/DockSpotA"]
+position = Vector2(-11, -1.99997)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortCaptian/DockSpotA/DockPlug"]
+position = Vector2(-100, 27)
+shape = SubResource("RectangleShape2D_ceo8p")
+
+[node name="DockSpotB" type="Node2D" parent="PortCaptian" node_paths=PackedStringArray("Bridge", "DockPlug")]
+position = Vector2(140, 841)
+script = ExtResource("8_i3nax")
+Bridge = NodePath("Sprite2D2")
+DockPlug = NodePath("DockPlug")
+
+[node name="ShipGhost" type="Sprite2D" parent="PortCaptian/DockSpotB"]
+modulate = Color(0.917647, 0.619608, 0.462745, 0.407843)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_reo54")
+
+[node name="Sprite2D2" type="Sprite2D" parent="PortCaptian/DockSpotB"]
+z_index = 5
+position = Vector2(-100.113, 23.36)
+scale = Vector2(0.228295, 0.181372)
+texture = ExtResource("12_pnx2a")
+
+[node name="DockPlug" type="StaticBody2D" parent="PortCaptian/DockSpotB"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortCaptian/DockSpotB/DockPlug"]
+position = Vector2(-100, 27)
+shape = SubResource("RectangleShape2D_ceo8p")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 16
@@ -118,6 +155,9 @@ collision_mask = 16
 polygon = PackedVector2Array(700, 122, 714, 264, 295, 240, 263, -80, 698, -72, 700, 66, 794, 58, 797, -171, 193, -198, 223, 315, 786, 328, 797, 117)
 
 [node name="OceanWall" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-106, 661, -926, 477, -1186, 289, -1246, -39, -1714, -7, -1730, -143, -1230, -127, -1186, -339, -734, -547, -118, -643, -118, -999, 46, -995, 42, -639, 798, -583, 1230, -399, 1274, -123, 1734, -75, 1754, 45, 1274, 41, 1246, 301, 486, 597, 18, 641, 2126, 625, 2102, -1167, -1990, -1171, -2046, 737)
+polygon = PackedVector2Array(-127, 653, -926, 477, -1186, 289, -1246, -39, -1714, -7, -1730, -143, -1230, -127, -1186, -339, -734, -547, -118, -643, -118, -999, 46, -995, 42, -639, 798, -583, 1230, -399, 1274, -123, 1734, -75, 1754, 45, 1274, 41, 1246, 301, 486, 597, 25, 648, 2126, 625, 2102, -1167, -1990, -1171, -2046, 737)
+
+[node name="DockWall" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-112, 853, -97, 966, 20, 978, 19, 889, 63, 887, 76, 1029, 253, 1012, 250, 681, 55, 697, 67, 833, 20, 842, 19, 643, 317, 629, 306, 1063, -385, 1058, -361, 643, -110, 649, -110, 788, -168, 792, -178, 688, -341, 700, -342, 1016, -177, 1019, -173, 853)
 
 [connection signal="shopOpen" from="ShopMan/Shop0" to="." method="onShopOpen"]
