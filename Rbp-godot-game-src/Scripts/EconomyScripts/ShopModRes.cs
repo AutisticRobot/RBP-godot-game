@@ -13,6 +13,6 @@ public partial class ShopModRes : Resource
     
     public virtual ShopInventory Mod(ShopInventory shop)
     {
-        return null;
+        return shop;
     }
 }
