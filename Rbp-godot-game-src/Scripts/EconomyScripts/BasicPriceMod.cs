@@ -14,8 +14,11 @@ public partial class BasicPriceMod : ShopModRes
         daysSenceUpdate = DebugCurDay - dayLastUpdate;
     }
 
-    public override ShopInventory Mod(ShopInventory shop)
+    public override ShopInventory Mod(ShopInventory inShop)
     {
+        ShopInventory shop = (ShopInventory)inShop.Duplicate(true);
+        
+        
         foreach(ShopItem item in shop)
         {
             GD.Print("inv of " + item.GetName() + " (" + item.ID + ") = " + item.count);
@@ -35,7 +38,7 @@ public partial class BasicPriceMod : ShopModRes
         }
 
 
-        return shop;
+        return inShop;
     }
 
 }

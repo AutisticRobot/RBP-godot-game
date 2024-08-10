@@ -11,8 +11,8 @@ public partial class ShopModRes : Resource
     public virtual void Prep()
     {}
     
-    public virtual ShopInventory Mod(ShopInventory shop)
+    public virtual ShopInventory Mod(ShopInventory inShop)
     {
-        return shop;
+        return (ShopInventory)inShop.Duplicate(true);
     }
 }
