@@ -25,8 +25,8 @@ public partial class shopObject : Sprite2D
 	{
 		hardInv.flushInItems();
 		//inv = hardInv;
-		//inv = modPrice.Mod(hardInv);
-		inv = modPrice.Mod(inv);
+		inv = modPrice.Mod(hardInv);
+		//inv = modPrice.Mod(inv);
 		inv.flushInItems();
 		if(hardInv[1] != null){GD.Print("hardInv:" + hardInv[1].SellPrice);}
 		EmitSignal(SignalName.shopOpen, inv);

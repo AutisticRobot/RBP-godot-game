@@ -2,6 +2,7 @@ using Godot;
 using Godot.Collections;
 using System;
 using System.Collections;
+using System.Linq;
 
 [GlobalClass]
 public partial class inventory : Resource, IEnumerable
@@ -176,9 +177,9 @@ public inventory()
 		return Count = Items.Count;
 	}
 
-	public Item ElementAt(int ID)
+	public Item ElementAt(int Index)
 	{
-		return this[ID];
+		return Items.ElementAt(Index).Value;
 	}
 
     public IEnumerator GetEnumerator()

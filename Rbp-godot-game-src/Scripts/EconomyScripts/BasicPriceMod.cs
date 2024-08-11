@@ -16,29 +16,40 @@ public partial class BasicPriceMod : ShopModRes
 
     public override ShopInventory Mod(ShopInventory inShop)
     {
-        ShopInventory shop = (ShopInventory)inShop.Duplicate(true);
+        ShopInventory shop = new();
         
-        
-        foreach(ShopItem item in shop)
+        for(int i=0;i<inShop.Count;i++)
         {
+            ShopItem item = (ShopItem)inShop.ElementAt(i);
+            ShopItem outItem = new()
+            {
+                ID = item.ID
+            };
+
             GD.Print("inv of " + item.GetName() + " (" + item.ID + ") = " + item.count);
             float varriayPercentage = (GD.Randf() % .1f) - .05f;
             GD.Print("varriation percentage: " + varriayPercentage);
 
-            item.count = (int)((float)item.count * (1 + varriayPercentage));
+            outItem.count = (int)(item.count * (1 + varriayPercentage));
 
             varriayPercentage = (GD.Randf() % .5f) - .25f;
 
-            item.SellPrice += (int)(10 * varriayPercentage);  
-            if(item.SellPrice <= 0){item.SellPrice = 0;}
+            outItem.SellPrice = item.SellPrice + (int)(10 * varriayPercentage);  
+            if(outItem.SellPrice <= 0){outItem.SellPrice = 0;}
 
             varriayPercentage = GD.Randf() % .25f;
 
-            item.buyPrice = (int)(item.SellPrice * (1 + varriayPercentage));
+            outItem.buyPrice = (int)(item.SellPrice * (1 + varriayPercentage));
+
+            if(outItem.buyPrice <= outItem.SellPrice)
+            {
+                outItem.buyPrice = outItem.SellPrice + 1;
+            }
+
+            shop.add(outItem);
         }
 
 
-        return inShop;
+        return shop;
     }
-
 }
