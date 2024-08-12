@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpxrf3hii40p0"]
+[gd_scene load_steps=13 format=3 uid="uid://cpxrf3hii40p0"]
 
 [ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="1_uyu8b"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShopMenu.cs" id="1_yli72"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/shopListing.cs" id="6_dutg0"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/BuyMultiInput.cs" id="6_mmso1"]
 [ext_resource type="Theme" uid="uid://ck7rw28kr5b6w" path="res://Resorces/SimpleStyles/new_theme.tres" id="6_vsed3"]
 [ext_resource type="PackedScene" uid="uid://blpmhko0wc8wm" path="res://Scenes/Prefabs/simplePrefabs/ShopListing.tscn" id="7_wwaq2"]
 
@@ -121,5 +122,29 @@ texture = SubResource("AtlasTexture_mkoo5")
 shopMan = NodePath("../..")
 itemID = 5
 
+[node name="BuyMultiInput" type="LineEdit" parent="ForeGround" node_paths=PackedStringArray("shop", "CurrentCountDisplay")]
+offset_left = 62.0
+offset_top = 304.0
+offset_right = 393.0
+offset_bottom = 381.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Enter New Buy Multi"
+script = ExtResource("6_mmso1")
+shop = NodePath("../..")
+CurrentCountDisplay = NodePath("Current Multi")
+dipPrefix = "Multi: "
+dipAffix = "x"
+
+[node name="Current Multi" type="Label" parent="ForeGround/BuyMultiInput"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 88.0
+offset_right = 292.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 32
+text = "1"
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.381206, 0.381353, 0.231935, 1)
+
+[connection signal="text_submitted" from="ForeGround/BuyMultiInput" to="ForeGround/BuyMultiInput" method="onTextEnter"]
