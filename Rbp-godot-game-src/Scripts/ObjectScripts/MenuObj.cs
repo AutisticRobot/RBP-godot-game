@@ -19,4 +19,7 @@ public partial class MenuObj : Control
 	{
 		Visible  = toState;
 	}
+
+	public virtual void shutdown()
+	{}
 }

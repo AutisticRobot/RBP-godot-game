@@ -60,5 +60,13 @@ public partial class MenuHandler : Control
 
 	}
 
+	public void shutDown()
+	{
+		if(curMenu != null)
+		{
+			curMenu.shutdown();
+		}
+
+	}
 
 }
