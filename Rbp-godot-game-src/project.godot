@@ -123,4 +123,5 @@ Reverse={
 [layer_names]
 
 2d_physics/layer_1="Interactitions"
+2d_physics/layer_2="PickUp-able"
 2d_physics/layer_5="Collisions"

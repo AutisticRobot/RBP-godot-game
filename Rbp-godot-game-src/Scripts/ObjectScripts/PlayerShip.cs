@@ -62,7 +62,7 @@ public partial class PlayerShip : CharacterBody2D
         	    X = (float)(Math.Sin(dir * (Math.PI / 180)) * speed * delta),
         	    Y = (float)(Math.Cos(dir * (Math.PI / 180)) * speed * delta)
         	};
-			GD.Print(speed);
+			//GD.Print(speed);
 			Velocity = vel;
 			MoveAndSlide();
 		}
@@ -116,6 +116,8 @@ public partial class PlayerShip : CharacterBody2D
 
 	public void getLoot(Area2D LBB)
 	{
+
+		GD.Print("loot name is" + LBB.Name);
 		if(LBB.Name == "Loot")
 		{
 		LootFloat loot = LBB.GetParent<LootFloat>();
