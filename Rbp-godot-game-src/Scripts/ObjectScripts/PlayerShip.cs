@@ -117,7 +117,6 @@ public partial class PlayerShip : CharacterBody2D
 	public void getLoot(Area2D LBB)
 	{
 
-		GD.Print("loot name is" + LBB.Name);
 		if(LBB.Name == "Loot")
 		{
 		LootFloat loot = LBB.GetParent<LootFloat>();
