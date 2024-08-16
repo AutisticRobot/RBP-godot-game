@@ -58,7 +58,7 @@ public partial class MapMain : SceneMan
 	{
 		data = (Dictionary)saveF.Load();
 
-		if(data != null)
+		if(data != null && !global.playerDataFilled)
 		{
 			GD.Print("found data containing save file");
 			player.Position = (Vector2)data["shipPos"];
