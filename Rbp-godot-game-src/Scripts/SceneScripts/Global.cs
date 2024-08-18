@@ -141,6 +141,11 @@ public partial class Global : Node
 		savePrefix = (String)Options["savPre"];
 	}
 
+	public void autoSave()//intented to be a reduced save for autosaving.
+	{
+		Save();
+	}
+
 	//Player save/load
 
 	public void SavePlayer()
@@ -200,6 +205,7 @@ public partial class Global : Node
 		if(curSceneMan != null)
 		{
 		curSceneMan._CloseScenePrep();
+		autoSave();
 		}
 
 	}
