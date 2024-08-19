@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://djt5vs0weqxwy"]
+
+[ext_resource type="Script" path="res://Resorces/munitions/CannonBall.cs" id="1_varq6"]
+[ext_resource type="Texture2D" uid="uid://kye5hy2x1i2r" path="res://Assets/Placeholders/CannonBall.png" id="1_wxxlt"]
+
+[node name="CannonBall" type="Node2D"]
+script = ExtResource("1_varq6")
+
+[node name="CannonBall" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_wxxlt")

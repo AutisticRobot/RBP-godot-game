@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://brhosk7gg0d81"]
+[gd_scene load_steps=8 format=3 uid="uid://brhosk7gg0d81"]
 
 [ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Resorces/ShipModels/SSDebug/ShipPlaceholder1.png" id="1_d8swp"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerShip.cs" id="2_wk8c6"]
 [ext_resource type="Texture2D" uid="uid://d3686dp3xa2a6" path="res://Assets/Placeholders/ArrowG.png" id="3_pxyi1"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ArrowG.cs" id="4_iq5ar"]
+[ext_resource type="PackedScene" uid="uid://djt5vs0weqxwy" path="res://Resorces/munitions/CannonBall.tscn" id="5_41jt3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_28l88"]
 radius = 3883.3
@@ -46,5 +47,8 @@ position = Vector2(-7, 23)
 shape = SubResource("CircleShape2D_toche")
 debug_color = Color(0.889743, 0.31651, 0.209498, 0.42)
 metadata/_edit_group_ = true
+
+[node name="CannonBall" parent="." instance=ExtResource("5_41jt3")]
+position = Vector2(117, -2)
 
 [connection signal="area_entered" from="PickupHitbox" to="." method="getLoot"]
