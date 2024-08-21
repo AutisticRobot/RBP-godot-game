@@ -3,8 +3,8 @@ using System;
 
 public partial class CannonBall : Node2D
 {
-	[Export] public float Gravity;
-	[Export] public bool ispaused;
+	[Export] public float Gravity = 0.1f;
+	[Export] public bool ispaused = true;
 
 	public float Dir;//in dagrees
 	public float Speed;
