@@ -18,6 +18,10 @@ public partial class PlayerShip : CharacterBody2D
 	[Export] public float Maxspeed;
 	[Export] public float dir;//in Dagrees
 
+	[Export] public MunitionRes ammoData;
+	[Export] public float ammoSpeed;
+	[Export] public string cannonBallUUID;
+
 	[Export] public inventory inv;
 	[Export] public SceneSave save;
 		public Dictionary data;
@@ -112,6 +116,10 @@ public partial class PlayerShip : CharacterBody2D
 			MoveTowardCursor();
 		}
 		speed = Math.Clamp(speed, Minspeed, Maxspeed);
+		if(Input.IsActionJustPressed("Shoot"))
+		{
+			FireCannons();
+		}
 	}
 
 	public void getLoot(Area2D LBB)
@@ -137,6 +145,26 @@ public partial class PlayerShip : CharacterBody2D
 		Vector2 relTar = (cursor.Position - Position);//.Normalized();
 
 		dir = (float)(Math.Atan2(relTar.X, relTar.Y) * (180/Math.PI));
+
+	}
+
+	public void FireCannons()
+	{
+		string ShotPath = ResourceUid.GetIdPath(ResourceUid.TextToId(cannonBallUUID));
+
+		CannonBall shot = (CannonBall)ResourceLoader.Load<PackedScene>(ShotPath).Instantiate();
+
+		shot.Specs = (MunitionRes)ammoData.Duplicate(true);
+		shot.Dir = dir;
+		shot.Speed = ammoSpeed;
+
+		shot.Position = new()
+        {
+            X = (float)(Math.Sin(dir * (Math.PI / 180)) * 70) + Position.X,
+            Y = (float)(Math.Cos(dir * (Math.PI / 180)) * 70) + Position.Y
+        };
+
+		GetParent().AddChild(shot);
 
 	}
 

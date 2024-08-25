@@ -34,18 +34,21 @@ public partial class CannonBall : Node2D
 		}else{
 			Visible = false;
 		}
+
 	}
 
 	public void splashCheck()
 	{
 		if(Specs.Height <= 0)
 		{
+			GD.Print("cannon shot hit water");
 			QueueFree();
 		}
 	}
 
 	public void HitObject(Node2D collObj)// damage to be handled by collited object.
 	{
-			QueueFree();
+		GD.Print("cannon shot hit object");
+		QueueFree();
 	}
 }
