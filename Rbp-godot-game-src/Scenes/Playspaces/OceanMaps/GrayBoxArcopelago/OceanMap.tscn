@@ -24,12 +24,12 @@ SaveFile = "oceanMap.sav"
 
 [sub_resource type="Resource" id="Resource_mlep2"]
 script = ExtResource("4_w3xr6")
-Gravity = -0.01
+Gravity = -0.03
 ispaused = false
 scaleMulti = 100.0
 WaterDisFromCam = 100.0
-Height = 90.0
-VirVel = 0.1
+Height = 10.0
+VirVel = 1.0
 dammage = 1
 
 [sub_resource type="Resource" id="Resource_noswe"]
@@ -102,6 +102,7 @@ Maxspeed = 20000.0
 ammoData = SubResource("Resource_mlep2")
 ammoSpeed = 100.0
 cannonBallUUID = "uid://djt5vs0weqxwy"
+gunCooldown = 1.0
 inv = SubResource("Resource_fuibc")
 save = SubResource("Resource_uw4md")
 

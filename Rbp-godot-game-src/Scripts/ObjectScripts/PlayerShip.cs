@@ -21,6 +21,8 @@ public partial class PlayerShip : CharacterBody2D
 	[Export] public MunitionRes ammoData;
 	[Export] public float ammoSpeed;
 	[Export] public string cannonBallUUID;
+	[Export] public float gunCooldown;
+	[Export] public float gunState;
 
 	[Export] public inventory inv;
 	[Export] public SceneSave save;
@@ -69,6 +71,7 @@ public partial class PlayerShip : CharacterBody2D
 			//GD.Print(speed);
 			Velocity = vel;
 			MoveAndSlide();
+			gunState -= (float)delta;
 		}
 		if(player)
 		{
@@ -118,7 +121,10 @@ public partial class PlayerShip : CharacterBody2D
 		speed = Math.Clamp(speed, Minspeed, Maxspeed);
 		if(Input.IsActionJustPressed("Shoot"))
 		{
-			FireCannons();
+			if(gunState <= 0)//cooldown check
+			{
+				FireCannons();
+			}
 		}
 	}
 
@@ -150,6 +156,7 @@ public partial class PlayerShip : CharacterBody2D
 
 	public void FireCannons()
 	{
+
 		string ShotPath = ResourceUid.GetIdPath(ResourceUid.TextToId(cannonBallUUID));
 
 		CannonBall shot = (CannonBall)ResourceLoader.Load<PackedScene>(ShotPath).Instantiate();
@@ -165,6 +172,8 @@ public partial class PlayerShip : CharacterBody2D
         };
 
 		GetParent().AddChild(shot);
+
+		gunState = gunCooldown;
 
 	}
 
