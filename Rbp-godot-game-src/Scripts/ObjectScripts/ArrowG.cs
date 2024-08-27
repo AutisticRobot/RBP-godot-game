@@ -24,8 +24,8 @@ public partial class ArrowG : Sprite2D
         };
 		Rotation = (float)((-player.dir + 180) * (Math.PI / 180));
 
-		Color Opacity = Modulate;
-		Opacity.A = Math.Clamp((player.speed*OpacityMulti)/player.Maxspeed, 0, 1);
-		Modulate = Opacity;
+		//Color Opacity = Modulate;
+		//Opacity.A = Math.Clamp((player.speed*OpacityMulti)/player.Maxspeed, 0, 1);
+		//Modulate = Opacity;
 	}
 }
