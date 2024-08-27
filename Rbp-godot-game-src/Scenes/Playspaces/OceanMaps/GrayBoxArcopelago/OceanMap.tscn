@@ -29,7 +29,7 @@ ispaused = false
 scaleMulti = 100.0
 WaterDisFromCam = 100.0
 Height = 10.0
-VirVel = 1.0
+VirVel = 2.0
 dammage = 1
 
 [sub_resource type="Resource" id="Resource_noswe"]
@@ -103,6 +103,7 @@ ammoData = SubResource("Resource_mlep2")
 ammoSpeed = 100.0
 cannonBallUUID = "uid://djt5vs0weqxwy"
 gunCooldown = 1.0
+cannonOffset = Vector2(40, 0)
 inv = SubResource("Resource_fuibc")
 save = SubResource("Resource_uw4md")
 

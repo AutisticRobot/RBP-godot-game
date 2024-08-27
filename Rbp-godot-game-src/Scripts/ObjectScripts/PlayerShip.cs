@@ -23,6 +23,7 @@ public partial class PlayerShip : CharacterBody2D
 	[Export] public string cannonBallUUID;
 	[Export] public float gunCooldown;
 	[Export] public float gunState;
+	[Export] public Vector2 cannonOffset;
 
 	[Export] public inventory inv;
 	[Export] public SceneSave save;
@@ -156,6 +157,7 @@ public partial class PlayerShip : CharacterBody2D
 
 	public void FireCannons()
 	{
+		GD.Print("shot dir: " + dir);
 
 		string ShotPath = ResourceUid.GetIdPath(ResourceUid.TextToId(cannonBallUUID));
 
@@ -165,16 +167,37 @@ public partial class PlayerShip : CharacterBody2D
 		shot.Dir = dir;
 		shot.Speed = ammoSpeed;
 
+		Vector2 offset = getCannonOffset();
+
 		shot.Position = new()
         {
-            X = (float)(Math.Sin(dir * (Math.PI / 180)) * 70) + Position.X,
-            Y = (float)(Math.Cos(dir * (Math.PI / 180)) * 70) + Position.Y
+            X = (float)Math.Sin(dir * (Math.PI / 180)) + Position.X + offset.X,
+            Y = (float)Math.Cos(dir * (Math.PI / 180)) + Position.Y + offset.Y 
         };
 
 		GetParent().AddChild(shot);
 
 		gunState = gunCooldown;
 
+	}
+
+	public Vector2 getCannonOffset()
+	{
+		if(dir >= 0)
+		{
+		return new() 
+		{
+			X = cannonOffset.X,
+			Y = cannonOffset.Y
+		};
+		}else
+		{
+		return new() 
+		{
+			X = -cannonOffset.X,
+			Y = -cannonOffset.Y
+		};
+		}
 	}
 
 }
