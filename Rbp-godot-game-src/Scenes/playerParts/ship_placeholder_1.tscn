@@ -1,15 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://brhosk7gg0d81"]
+[gd_scene load_steps=5 format=3 uid="uid://brhosk7gg0d81"]
 
-[ext_resource type="Texture2D" uid="uid://dv1xp334ej21j" path="res://Resorces/ShipModels/SSDebug/ShipPlaceholder1.png" id="1_d8swp"]
+[ext_resource type="PackedScene" uid="uid://qu4e5nv3byhk" path="res://Resorces/ShipModels/LogRaft/LogRaft.tscn" id="2_2v8gy"]
 [ext_resource type="Texture2D" uid="uid://chnwrleuljjml" path="res://Assets/Placeholders/ShipRose1.png" id="2_26psj"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerShip.cs" id="2_wk8c6"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ArrowG.cs" id="4_iq5ar"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_28l88"]
-radius = 3883.3
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_toche"]
-radius = 15.2971
 
 [node name="PlayerShip" type="CharacterBody2D"]
 collision_layer = 16
@@ -18,31 +12,14 @@ motion_mode = 1
 script = ExtResource("2_wk8c6")
 player = true
 debug = true
+ShipModel = ExtResource("2_2v8gy")
 
-[node name="ArrowG" type="Sprite2D" parent="."]
+[node name="ShipRoseTransform" type="Node2D" parent="."]
+scale = Vector2(1, 0.5)
+
+[node name="ArrowG" type="Sprite2D" parent="ShipRoseTransform"]
 modulate = Color(0.317647, 0.360784, 0.607843, 0.258824)
 show_behind_parent = true
 texture = ExtResource("2_26psj")
+offset = Vector2(2, 3)
 script = ExtResource("4_iq5ar")
-
-[node name="ShipSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_d8swp")
-
-[node name="PickupHitbox" type="Area2D" parent="."]
-scale = Vector2(0.01, 0.01)
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupHitbox"]
-position = Vector2(-300, -100)
-shape = SubResource("CircleShape2D_28l88")
-metadata/_edit_group_ = true
-
-[node name="HullHitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-7, 23)
-shape = SubResource("CircleShape2D_toche")
-debug_color = Color(0.889743, 0.31651, 0.209498, 0.42)
-metadata/_edit_group_ = true
-
-[connection signal="area_entered" from="PickupHitbox" to="." method="getLoot"]

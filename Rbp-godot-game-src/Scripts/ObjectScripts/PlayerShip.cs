@@ -10,6 +10,8 @@ public partial class PlayerShip : CharacterBody2D
 	[Export] public bool player;
 	[Export] public bool debug;
 
+	[Export] public PackedScene ShipModel;
+
 	[Export] public float brakeSpeed;
 	[Export] public float Acc;
 	[Export] public float TurnAcc;
@@ -36,6 +38,8 @@ public partial class PlayerShip : CharacterBody2D
 	public override void _Ready()
 	{
 		manager = GetOwner<SceneMan>();
+
+		LoadShipModel();
 
 		//inv ??= new();
 
@@ -198,6 +202,18 @@ public partial class PlayerShip : CharacterBody2D
 			Y = -cannonOffset.Y
 		};
 		}
+	}
+
+	public void LoadShipModel()
+	{
+		Node model = ShipModel.Instantiate();
+		AddChild(model);
+		foreach(Node node in model.GetChildren())
+		{
+			node.Owner = this;
+			node.Reparent(this);
+		}
+		model.QueueFree();
 	}
 
 }

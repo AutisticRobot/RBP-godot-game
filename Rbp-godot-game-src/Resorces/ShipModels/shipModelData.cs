@@ -5,6 +5,7 @@ using System;
 public partial class shipModelData : Resource
 {
     [Export] public Texture2D icoSprite;
+    [Export] public float spriteScale;
 	[Export] public float brakeSpeed;
 	[Export] public float Acc;
 	[Export] public float TurnAcc;
