@@ -8,7 +8,7 @@ radius = 15.2971
 [sub_resource type="CircleShape2D" id="CircleShape2D_fpw4w"]
 radius = 3883.3
 
-[node name="LogRaft" type="Node2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="LogRaft1" type="Sprite2D" parent="."]
 position = Vector2(-6, -1)
