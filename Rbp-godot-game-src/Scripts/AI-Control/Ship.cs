@@ -1,12 +1,19 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public partial class Ship : CharacterBody2D
 {
+			 public SceneMan manager;
+
+	[Export] public inventory inv;
+	[Export] public SceneSave save;
+		public Dictionary saveData;
 
 	[Export] public shipModelData data;
 	[Export] public shipInput input;
 
+    [Export] public Vector2 cannonOffset;
 			 public float dir;
     private object gunState;
 
@@ -25,7 +32,7 @@ public partial class Ship : CharacterBody2D
 		shot.Dir = dir;
 		shot.Speed = cannon.ammoSpeed;
 
-		Vector2 offset = data.getCannonOffset(dir);
+		Vector2 offset = getCannonOffset(dir);
 
 		shot.Position = new()
         {
@@ -38,18 +45,23 @@ public partial class Ship : CharacterBody2D
 
 	}
 
-
-	public void LoadShipModel()
+	public Vector2 getCannonOffset(float dir)
 	{
-		Node model = ShipModel.Instantiate();
-		AddChild(model);
-		foreach(Node node in model.GetChildren())
+		if(dir >= 0)
 		{
-			node.Owner = this;
-			node.Reparent(this);
+		return new() 
+		{
+			X = cannonOffset.X,
+			Y = cannonOffset.Y
+		};
+		}else
+		{
+		return new() 
+		{
+			X = -cannonOffset.X,
+			Y = -cannonOffset.Y
+		};
 		}
-		model.QueueFree();
 	}
-
 
 }

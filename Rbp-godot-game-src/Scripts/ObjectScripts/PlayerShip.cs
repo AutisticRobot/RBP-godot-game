@@ -158,4 +158,32 @@ public partial class PlayerShip : CharacterBody2D
 		dir = (float)(Math.Atan2(relTar.X, relTar.Y) * (180/Math.PI));
 
 	}
+
+	public void LoadShipModel()
+	{
+		Node model = ShipModel.Instantiate();
+		AddChild(model);
+		foreach(Node node in model.GetChildren())
+		{
+			node.Owner = this;
+			node.Reparent(this);
+		}
+		model.QueueFree();
+
+	public void LoadShipModel()
+	{
+		Node model = ShipModel.Instantiate();
+		AddChild(model);
+		foreach(Node node in model.GetChildren())
+		{
+			node.Owner = this;
+			node.Reparent(this);
+		}
+		model.QueueFree();
+	}
+
+
+	}
+
+
 }
