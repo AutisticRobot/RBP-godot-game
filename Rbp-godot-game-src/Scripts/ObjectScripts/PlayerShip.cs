@@ -128,28 +128,11 @@ public partial class PlayerShip : CharacterBody2D
 		{
 			if(gunState <= 0)//cooldown check
 			{
-				FireCannons();
+				//FireCannons();
 			}
 		}
 	}
 
-	public void getLoot(Area2D LBB)
-	{
-
-		if(LBB.Name == "Loot")
-		{
-		LootFloat loot = LBB.GetParent<LootFloat>();
-
-		loot.inv.flushInItems();
-
-		inv += loot.inv;
-		GD.Print(inv.Count);
-		GD.Print(loot.inv.Count);
-
-
-		loot.QueueFree();
-		}
-	}
 
 	public void MoveTowardCursor()
 	{
@@ -170,20 +153,9 @@ public partial class PlayerShip : CharacterBody2D
 		}
 		model.QueueFree();
 
-	public void LoadShipModel()
-	{
-		Node model = ShipModel.Instantiate();
-		AddChild(model);
-		foreach(Node node in model.GetChildren())
-		{
-			node.Owner = this;
-			node.Reparent(this);
-		}
-		model.QueueFree();
 	}
 
 
-	}
 
 
 }

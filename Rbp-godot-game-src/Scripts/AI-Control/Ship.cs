@@ -5,6 +5,7 @@ using System;
 public partial class Ship : CharacterBody2D
 {
 			 public SceneMan manager;
+			 private Global global; 
 
 	[Export] public inventory inv;
 	[Export] public SceneSave save;
@@ -17,6 +18,12 @@ public partial class Ship : CharacterBody2D
 			 public float dir;
     private object gunState;
 
+
+    public override void _Ready()
+    {
+		global = GetNode<Global>("/root/Global");
+		input.ship = this;
+    }
     public override void _PhysicsProcess(double delta)
 	{
 	}
@@ -61,6 +68,23 @@ public partial class Ship : CharacterBody2D
 			X = -cannonOffset.X,
 			Y = -cannonOffset.Y
 		};
+		}
+	}
+	public void getLoot(Area2D LBB)
+	{
+
+		if(LBB.Name == "Loot")
+		{
+		LootFloat loot = LBB.GetParent<LootFloat>();
+
+		loot.inv.flushInItems();
+
+		inv += loot.inv;
+		GD.Print(inv.Count);
+		GD.Print(loot.inv.Count);
+
+
+		loot.QueueFree();
 		}
 	}
 
