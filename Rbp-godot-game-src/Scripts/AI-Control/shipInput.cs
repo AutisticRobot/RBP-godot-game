@@ -4,4 +4,6 @@ using System;
 public partial class shipInput : Resource
 {
          public Ship ship;
+
+    public virtual void update(){}
 }

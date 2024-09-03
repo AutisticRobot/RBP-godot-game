@@ -24,9 +24,15 @@ public partial class Ship : CharacterBody2D
 		global = GetNode<Global>("/root/Global");
 		input.ship = this;
     }
+    public override void _Process(double delta)
+    {
+		input.update();
+    }
     public override void _PhysicsProcess(double delta)
 	{
 	}
+
+
 	public void FireCannons(cannonData cannon)
 	{
 		GD.Print("shot dir: " + dir);
