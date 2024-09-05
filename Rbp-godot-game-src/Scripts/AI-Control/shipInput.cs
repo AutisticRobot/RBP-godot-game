@@ -1,9 +1,14 @@
 using Godot;
 using System;
 
-public partial class shipInput : Resource
+public partial interface shipInput
 {
-         public Ship ship;
 
-    public virtual void update(){}
+    void start();
+    void update(double delta);
+
+    void setShip(Ship ship);
+
+    float getDir();
+    float getDirStr();
 }
