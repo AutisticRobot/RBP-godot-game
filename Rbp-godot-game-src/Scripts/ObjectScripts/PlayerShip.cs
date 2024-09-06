@@ -95,7 +95,7 @@ public partial class PlayerShip : CharacterBody2D
 	}
 
 	private void Pinput()
-	{
+	{/*
 		if(Input.IsActionPressed("Accelerate"))
 		{
 			speed += Acc;
@@ -111,7 +111,7 @@ public partial class PlayerShip : CharacterBody2D
 		if(Input.IsActionPressed("Tcw"))
 		{
 			dir -= TurnAcc;
-		}
+		}*/
 		if(Input.IsActionPressed("Brake"))
 		{
 			if(-brakeSpeed <= speed && speed <= brakeSpeed){speed = 0;}//set speed to 0 when braking at low speeds

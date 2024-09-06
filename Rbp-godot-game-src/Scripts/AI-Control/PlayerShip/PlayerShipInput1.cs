@@ -3,28 +3,35 @@ using System;
 
 public partial class PlayerShipInput1 : shipInput
 {
-    public float getSailCom()
+    public Ship ship;
+
+    public void start()
     {
         throw new NotImplementedException();
     }
-
-    public float getTurnDir()
+    public void update(double delta)
     {
         throw new NotImplementedException();
     }
 
     public void setShip(Ship ship)
     {
-        throw new NotImplementedException();
+        this.ship = ship;
     }
 
-    public void start()
+    public float getSailCom()
     {
-        throw new NotImplementedException();
+        return
+        Input.GetActionStrength("Accelerate") -
+        Input.GetActionStrength("Reverse");
     }
 
-    public void update(double delta)
+    public float getTurnDir()
     {
-        throw new NotImplementedException();
+        return
+        Input.GetActionStrength("Tcw") -
+        Input.GetActionStrength("Tccw");
     }
+
+
 }
