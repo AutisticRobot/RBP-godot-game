@@ -12,7 +12,7 @@ public partial class Ship : CharacterBody2D
 		public Dictionary saveData;
 
 	[Export] public shipModelData data;
-	[Export] public shipInput input;
+			 public shipInput input;
 
     [Export] public Vector2 cannonOffset;
 			 public float dir;
@@ -22,11 +22,11 @@ public partial class Ship : CharacterBody2D
     public override void _Ready()
     {
 		global = GetNode<Global>("/root/Global");
-		input.ship = this;
+		input.setShip(this);
     }
     public override void _Process(double delta)
     {
-		input.update();
+		input.update(delta);
     }
     public override void _PhysicsProcess(double delta)
 	{

@@ -3,12 +3,12 @@ using System;
 
 public partial class PlayerShipInput1 : shipInput
 {
-    public float getDir()
+    public float getSailCom()
     {
         throw new NotImplementedException();
     }
 
-    public float getDirStr()
+    public float getTurnDir()
     {
         throw new NotImplementedException();
     }

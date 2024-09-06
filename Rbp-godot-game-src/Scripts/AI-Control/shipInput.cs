@@ -9,6 +9,6 @@ public partial interface shipInput
 
     void setShip(Ship ship);
 
-    float getDir();
-    float getDirStr();
+    float getTurnDir();
+    float getSailCom();
 }
