@@ -32,6 +32,11 @@ public partial class PlayerShipInput1 : shipInput
         Input.GetActionStrength("Tcw") -
         Input.GetActionStrength("Tccw");
     }
+    
+    public bool getAncorState()
+    {
+        return Input.IsActionPressed("Brake");
+    }
 
 
 }

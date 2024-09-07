@@ -11,4 +11,5 @@ public partial interface shipInput
 
     float getTurnDir();
     float getSailCom();
+    bool getAncorState();
 }
