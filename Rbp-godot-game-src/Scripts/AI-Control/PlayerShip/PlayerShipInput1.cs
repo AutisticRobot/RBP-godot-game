@@ -7,11 +7,9 @@ public partial class PlayerShipInput1 : shipInput
 
     public void start()
     {
-        throw new NotImplementedException();
     }
     public void update(double delta)
     {
-        throw new NotImplementedException();
     }
 
     public void setShip(Ship ship)
@@ -36,6 +34,11 @@ public partial class PlayerShipInput1 : shipInput
     public bool getAncorState()
     {
         return Input.IsActionPressed("Brake");
+    }
+
+    public bool isFireCannon()
+    {
+		return Input.IsActionPressed("Shoot");
     }
 
 
