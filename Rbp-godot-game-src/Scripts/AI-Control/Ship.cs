@@ -16,12 +16,15 @@ public partial class Ship : CharacterBody2D
 
     [Export] public Vector2 cannonOffset;
 			 public float dir;
-    private object gunState;
+    		 private object gunState;
+			 public float sailState;
 
 
     public override void _Ready()
     {
 		global = GetNode<Global>("/root/Global");
+
+		input.start();
 		input.setShip(this);
     }
     public override void _Process(double delta)
@@ -30,6 +33,11 @@ public partial class Ship : CharacterBody2D
     }
     public override void _PhysicsProcess(double delta)
 	{
+		if(!manager.pausedScene)
+		{
+			dir += input.getTurnDir() * data.TurnAcc * (float)delta;
+			sailState += input.getSailCom() * data.SailAcc;
+		}
 	}
 
 

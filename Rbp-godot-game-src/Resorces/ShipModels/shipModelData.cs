@@ -8,6 +8,7 @@ public partial class shipModelData : Resource
     [Export] public float spriteScale;
 	[Export] public float brakeSpeed;
 	[Export] public float Acc;
+	[Export] public float SailAcc;
 	[Export] public float TurnAcc;
 	[Export] public float Minspeed;
 	[Export] public float Maxspeed;
