@@ -35,11 +35,19 @@ public partial class Ship : CharacterBody2D
 	{
 		if(!manager.pausedScene)
 		{
-			dir += input.getTurnDir() * data.TurnAcc * (float)delta;
-			sailState += input.getSailCom() * data.SailAcc;
+			TurnShip(input.getTurnDir(), delta);
+			CommandSail(input.getSailCom(), delta);
 		}
 	}
 
+	public void TurnShip(float turnStrength, double delta)
+	{
+		dir += turnStrength * data.TurnAcc * (float)delta;
+	}
+	public void CommandSail(float sailTarget, double delta)
+	{
+		sailState += sailTarget * (float)delta * data.SailAcc;
+	}
 
 	public void FireCannons(cannonData cannon)
 	{
