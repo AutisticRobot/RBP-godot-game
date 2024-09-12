@@ -1,0 +1,5 @@
+
+public partial class SaveMan
+{
+    
+}
