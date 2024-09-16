@@ -5,7 +5,9 @@ using Godot;
 public partial class SaveMan
 {
     public Array saveObjs;
+
     public Array decodedData;
+    public string metaData;
 
     public bool addToBeSaved(SaveInter save)
     {
@@ -21,7 +23,7 @@ public partial class SaveMan
 
     public string Encode(bool doSafetyCheck = false)
     {
-        string outData = "{";
+        string outData = "{" + metaData;
         bool firstObj = true;
         foreach(SaveInter obj in saveObjs)
         {
