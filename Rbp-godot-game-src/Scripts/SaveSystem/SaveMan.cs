@@ -30,6 +30,17 @@ public partial class SaveMan
             String strObj = obj.ToString();
             if(doSafetyCheck)
             {
+                int depth = 0;
+                foreach(char c in strObj)
+                {
+                    if(c == '{'){depth++;}
+                    if(c == '}'){depth--;}
+
+                    if(depth < 0)
+                    {
+                        return "fail";
+                    }
+                }
 
             }
 
