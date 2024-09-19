@@ -38,7 +38,7 @@ public partial class SaveMan
 
                     if(depth < 0)
                     {
-                        return "fail";
+                        throw new System.FormatException();
                     }
                 }
 

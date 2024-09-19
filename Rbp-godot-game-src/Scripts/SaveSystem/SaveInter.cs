@@ -5,6 +5,6 @@ public partial interface SaveInter
 {
     public void LoadIntoSaveMan(SaveMan man);
 
-    public String ToString();
-    public SaveInter FromString(String str);
+    public string ToString();
+    public SaveInter FromString(string str);
 }
