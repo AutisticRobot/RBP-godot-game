@@ -37,7 +37,17 @@ public partial class Ship : CharacterBody2D
 		{
 			TurnShip(input.getTurnDir(), delta);
 			CommandSail(input.getSailCom(), delta);
+
+			Velocity = calcVel(delta);
+			MoveAndSlide();
 		}
+	}
+
+	public Vector2 calcVel(double delta)
+	{
+		Vector2 vel = Velocity;
+
+		return vel;
 	}
 
 	public void TurnShip(float turnStrength, double delta)
