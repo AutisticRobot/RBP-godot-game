@@ -8,7 +8,7 @@ public partial class Ship : CharacterBody2D
 			 private Global global; 
 
 	[Export] public inventory inv;
-	[Export] public SceneSave save;
+			 public ShipSave save;
 		public Dictionary saveData;
 
 	[Export] public shipModelData data;
@@ -22,6 +22,7 @@ public partial class Ship : CharacterBody2D
 
     public override void _Ready()
     {
+		save = new(this);
 		global = GetNode<Global>("/root/Global");
 
 		input.start();

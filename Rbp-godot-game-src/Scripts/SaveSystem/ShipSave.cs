@@ -3,6 +3,11 @@ public class ShipSave : SaveInter
 {
     public Ship ship;
 
+    public ShipSave(Ship inShip)
+    {
+        ship = inShip;
+    }
+
     public void LoadIntoSaveMan(SaveMan man)
     {
         man.addToBeSaved(this);
