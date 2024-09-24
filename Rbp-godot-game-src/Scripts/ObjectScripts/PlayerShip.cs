@@ -2,16 +2,28 @@ using Godot;
 using Godot.Collections;
 using System;
 
-public partial class PlayerShip : CharacterBody2D
+public partial class PlayerShip : Ship
 {
-			 public SceneMan manager;
 	[Export] public Cursor cursor;
 
-	[Export] public bool player;
 	[Export] public bool debug;
 
 	[Export] public PackedScene ShipModel;
 
+
+    public override void _Ready()
+    {
+		save = new(this);
+		global = GetNode<Global>("/root/Global");
+
+		input.start();
+		input.setShip(this);
+    }
+    public override void _Process(double delta)
+    {
+		input.update(delta);
+    }
+	/*===========OLD SCRIPT FOR REFERENCE==============
 	[Export] public float brakeSpeed;
 	[Export] public float Acc;
 	[Export] public float TurnAcc;
@@ -61,7 +73,8 @@ public partial class PlayerShip : CharacterBody2D
 
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	// Called every frame. 'delta' is the elapsed time sinc
+e the previous frame.
 	public override void _Process(double delta)
 	{
 		//inv ??= new();
@@ -130,7 +143,7 @@ public partial class PlayerShip : CharacterBody2D
 			{
 				//FireCannons();
 			}
-		}*/
+		}
 	}
 
 
@@ -157,5 +170,5 @@ public partial class PlayerShip : CharacterBody2D
 
 
 
-
+*/
 }

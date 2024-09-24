@@ -5,7 +5,7 @@ using System;
 public partial class Ship : CharacterBody2D
 {
 			 public SceneMan manager;
-			 private Global global; 
+			 public Global global; 
 
 	[Export] public inventory inv;
 			 public ShipSave save;
