@@ -22,11 +22,6 @@ public partial class Ship : CharacterBody2D
 
     public override void _Ready()
     {
-		save = new(this);
-		global = GetNode<Global>("/root/Global");
-
-		input.start();
-		input.setShip(this);
     }
     public override void _Process(double delta)
     {
@@ -42,6 +37,15 @@ public partial class Ship : CharacterBody2D
 			Velocity = calcVel(delta);
 			MoveAndSlide();
 		}
+	}
+
+	public virtual void preLoad()
+	{
+		save = new(this);
+		global = GetNode<Global>("/root/Global");
+
+		input.start();
+		input.setShip(this);
 	}
 
 	public Vector2 calcVel(double delta)

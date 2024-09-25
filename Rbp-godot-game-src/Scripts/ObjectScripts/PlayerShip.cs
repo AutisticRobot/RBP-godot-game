@@ -13,16 +13,16 @@ public partial class PlayerShip : Ship
 
     public override void _Ready()
     {
-		save = new(this);
-		global = GetNode<Global>("/root/Global");
-
-		input.start();
-		input.setShip(this);
     }
     public override void _Process(double delta)
     {
 		input.update(delta);
     }
+	public override void preLoad()
+	{
+		base.preLoad();
+		input = new PlayerShipInput1();
+	}
 	/*===========OLD SCRIPT FOR REFERENCE==============
 	[Export] public float brakeSpeed;
 	[Export] public float Acc;
