@@ -4,7 +4,6 @@ using System.CodeDom.Compiler;
 
 public partial class ArrowG : Sprite2D
 {
-	[Export] public int Distance;
 	[Export] public float OpacityMulti = 1;
 
 	private PlayerShip player;
@@ -19,8 +18,8 @@ public partial class ArrowG : Sprite2D
 	{
         Position = new()
         {
-            X = ((float)(Math.Sin(player.dir * (Math.PI / 180)) * Distance)),
-            Y = ((float)(Math.Cos(player.dir * (Math.PI / 180)) * Distance))
+            X = ((float)(Math.Sin(player.dir * (Math.PI / 180)))),
+            Y = ((float)(Math.Cos(player.dir * (Math.PI / 180))))
         };
 		Rotation = (float)((-player.dir + 180) * (Math.PI / 180));
 

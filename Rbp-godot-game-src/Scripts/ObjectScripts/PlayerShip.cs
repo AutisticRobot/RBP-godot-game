@@ -9,6 +9,7 @@ public partial class PlayerShip : Ship
 	[Export] public bool debug;
 
 	[Export] public PackedScene ShipModel;
+			 public new PlayerShipInput1 input = new();
 
 
     public override void _Ready()
@@ -21,7 +22,8 @@ public partial class PlayerShip : Ship
 	public override void preLoad()
 	{
 		base.preLoad();
-		input = new PlayerShipInput1();
+		input.cursor = cursor;
+		
 	}
 	/*===========OLD SCRIPT FOR REFERENCE==============
 	[Export] public float brakeSpeed;

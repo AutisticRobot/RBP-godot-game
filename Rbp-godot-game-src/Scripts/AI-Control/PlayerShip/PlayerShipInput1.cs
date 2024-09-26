@@ -4,6 +4,7 @@ using System;
 public partial class PlayerShipInput1 : shipInput
 {
     public Ship ship;
+    public Cursor cursor;
 
     public void start()
     {
