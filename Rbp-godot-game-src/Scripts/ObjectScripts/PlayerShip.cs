@@ -5,6 +5,7 @@ using System;
 public partial class PlayerShip : Ship
 {
 	[Export] public Cursor cursor;
+			 public ShipSave save;
 
 	[Export] public bool debug;
 
@@ -21,7 +22,11 @@ public partial class PlayerShip : Ship
     }
 	public override void preLoad()
 	{
-		base.preLoad();
+		save = new(this);
+		global = GetNode<Global>("/root/Global");
+
+		input.start();
+		input.setShip(this);
 		input.cursor = cursor;
 		
 	}

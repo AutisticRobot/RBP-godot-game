@@ -13,11 +13,11 @@ public class ShipSave : SaveInter
         man.addToBeSaved(this);
     }
 
-    public SaveInter FromString(string str)
+    public virtual SaveInter FromString(string str)
     {
         throw new System.NotImplementedException();
     }
-    public string ToString()
+    public virtual string ToString()
     {
         throw new System.NotImplementedException();
     }
