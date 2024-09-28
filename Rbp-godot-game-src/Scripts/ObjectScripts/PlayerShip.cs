@@ -6,6 +6,7 @@ public partial class PlayerShip : Ship
 {
 	[Export] public Cursor cursor;
 			 public ShipSave save;
+	[Export] public string playerID;
 
 	[Export] public bool debug;
 
@@ -22,7 +23,7 @@ public partial class PlayerShip : Ship
     }
 	public override void preLoad()
 	{
-		save = new(this);
+		save = new playerShipSave(this, playerID);
 		global = GetNode<Global>("/root/Global");
 
 		input.start();

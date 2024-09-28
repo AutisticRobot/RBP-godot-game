@@ -8,7 +8,7 @@ public class ShipSave : SaveInter
         ship = inShip;
     }
 
-    public void LoadIntoSaveMan(SaveMan man)
+    public virtual void LoadIntoSaveMan(SaveMan man)
     {
         man.addToBeSaved(this);
     }
