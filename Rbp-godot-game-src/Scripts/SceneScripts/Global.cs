@@ -1,5 +1,6 @@
 using Godot;
 using Godot.Collections;
+using Microsoft.Win32.SafeHandles;
 using System;
 using System.Collections.Generic;
 
@@ -51,6 +52,7 @@ public partial class Global : Node
 
 
 	//player ship data
+	public SaveMan PlayerSaveMan = new();
 	public SceneSave PlayerSaveFile = new();
 	public bool playerDataFilled = false;
 	public float ShipDir;//in dagrees

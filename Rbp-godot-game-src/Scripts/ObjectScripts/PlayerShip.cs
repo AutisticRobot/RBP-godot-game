@@ -5,7 +5,6 @@ using System;
 public partial class PlayerShip : Ship
 {
 	[Export] public Cursor cursor;
-			 public ShipSave save;
 	[Export] public string playerID;
 
 	[Export] public bool debug;
@@ -25,6 +24,7 @@ public partial class PlayerShip : Ship
 	{
 		save = new playerShipSave(this, playerID);
 		global = GetNode<Global>("/root/Global");
+		save.LoadIntoSaveMan(global.PlayerSaveMan);
 
 		input.start();
 		input.setShip(this);
