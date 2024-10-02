@@ -43,5 +43,29 @@ public class modLoader
         }
         GD.Print(modID);
     }
+
+    public List<Resource> tryOpenFolder(string path, string fileExt, int layer = 0, int maxLayer = 5)// layer for recursion limiting
+    {
+        List<Resource> outList = new();
+
+        using DirAccess dir = DirAccess.Open(path);
+        if(dir != null)
+        {
+            dir.ListDirBegin();
+            string file = dir.GetNext();
+            while(file != "")
+            {
+                if(dir.CurrentIsDir() && layer <= maxLayer)// recursive file searching
+                {
+                    outList.AddRange(tryOpenFolder(file, fileExt, layer + 1, maxLayer));
+                }else if(file.GetExtension() == fileExt)// file load to output
+                {
+                    outList.Add(ResourceLoader.Load(file));
+                }
+                file = dir.GetNext();
+            }
+        }
+        return outList;
+    }
     
 }
