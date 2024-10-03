@@ -33,6 +33,9 @@ public partial class Global : Node
 \\\---------------------------------------------///
 \\\---------------------------------------------/*/
 
+	//Mod Data
+	public modLoader modLoader = new();
+
 	//Economy
 
 	//Scene Data

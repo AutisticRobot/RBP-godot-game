@@ -3,7 +3,7 @@ using Godot;
 
 public class modLoader
 {
-    public List<string> modsList = new();
+    public Godot.Collections.Dictionary modsList = new();
     public static string modsFolder = "user://mods/";
 
     public void Start()
@@ -39,7 +39,7 @@ public class modLoader
         {
             using FileAccess tmp = FileAccess.Open(path + "/modid.txt", FileAccess.ModeFlags.Read);
             modID = tmp.GetAsText();
-            modsList.Add(modID);
+            modsList.Add(modID, path);
         }
         GD.Print(modID);
     }
