@@ -1,6 +1,5 @@
 using Godot;
 using Godot.Collections;
-using Microsoft.Win32.SafeHandles;
 using System;
 using System.Collections.Generic;
 
@@ -22,6 +21,13 @@ public partial class Global : Node
 		"res://Scenes/Playspaces/options_screen.tscn",
 		"res://Scenes/Playspaces/Direamas/PlayerDierama.tscn",
 		"res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/OceanMap.tscn",
+	};
+
+	public Dictionary SceneDic = new() {
+		{"rbp:mainmenu", "res://Scenes/Playspaces/MainMenu.tscn"},
+		{"rbp:options","res://Scenes/Playspaces/options_screen.tscn"},
+		{"rbp:dirama","res://Scenes/Playspaces/Direamas/PlayerDierama.tscn"},
+		{"rbp:oceanmap1","res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/OceanMap.tscn"},
 	};
 /*/---------------------------------------------\\\
 ///---------------------------------------------\\\
