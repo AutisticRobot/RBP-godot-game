@@ -16,14 +16,8 @@ using System.Collections.Generic;
 
 public partial class Global : Node
 {
-	public List<String> SceneList = new() {
-		"res://Scenes/Playspaces/MainMenu.tscn",
-		"res://Scenes/Playspaces/options_screen.tscn",
-		"res://Scenes/Playspaces/Direamas/PlayerDierama.tscn",
-		"res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/OceanMap.tscn",
-	};
 
-	public Dictionary SceneDic = new() {
+	public Godot.Collections.Dictionary<string, string> SceneDic = new() {
 		{"rbp:mainmenu", "res://Scenes/Playspaces/MainMenu.tscn"},
 		{"rbp:options","res://Scenes/Playspaces/options_screen.tscn"},
 		{"rbp:dirama","res://Scenes/Playspaces/Direamas/PlayerDierama.tscn"},
@@ -47,11 +41,11 @@ public partial class Global : Node
 	//Scene Data
 	public SceneMan curSceneMan;
 	public string spawnDiramaUID;
-	public int lastSceneID;
+	public string lastSceneID;
 
 	//spam open scene prevention
 	private bool callRealOpenScene = false;
-	private int OpenSceneID;
+	private string OpenSceneID;
 
 	//Save Options
 	public string savePrefix = "user://saves/sav-1/";
@@ -195,7 +189,7 @@ public partial class Global : Node
 \\\---------------------------------------------///
 \\\---------------------------------------------/*/
 
-	public void OpenScene(int ID)
+	public void OpenScene(string ID)
 	{
 		lastSceneID = OpenSceneID;
 		OpenSceneID = ID;
@@ -206,8 +200,8 @@ public partial class Global : Node
 
 		closeCurentScene();
 
-		GD.Print("Go To Scene: " + SceneList[OpenSceneID]);
-		GetTree().ChangeSceneToFile(SceneList[OpenSceneID]);
+		GD.Print("Go To Scene: " + SceneDic[OpenSceneID]);
+		GetTree().ChangeSceneToFile(SceneDic[OpenSceneID]);
 
 	}
 

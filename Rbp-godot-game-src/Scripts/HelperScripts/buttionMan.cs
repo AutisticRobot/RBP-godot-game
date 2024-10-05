@@ -14,7 +14,7 @@ public partial class buttionMan : Control
 	public override void _Process(double delta)
 	{
 	}
-	public virtual void changeToSceneID(int ID)
+	public virtual void changeToSceneID(string ID)
 	{
 		global.OpenScene(ID);
 	}

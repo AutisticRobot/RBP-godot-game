@@ -3,7 +3,7 @@ using System;
 
 public partial class sceneChanger : Sprite2D
 {
-	[Export] public int changToSceneID;
+	[Export] public string changToSceneID;
 	[Export] public string text;
 
 	[Export] private buttionMan manager; 
