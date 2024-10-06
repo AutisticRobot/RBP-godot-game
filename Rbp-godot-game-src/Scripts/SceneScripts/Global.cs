@@ -35,6 +35,7 @@ public partial class Global : Node
 
 	//Mod Data
 	public modLoader modLoader = new();
+	public almanac almanac = new();
 
 	//Economy
 
