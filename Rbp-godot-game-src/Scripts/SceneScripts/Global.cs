@@ -17,12 +17,6 @@ using System.Collections.Generic;
 public partial class Global : Node
 {
 
-	public Godot.Collections.Dictionary<string, string> SceneDic = new() {
-		{"rbp:mainmenu", "res://Scenes/Playspaces/MainMenu.tscn"},
-		{"rbp:options","res://Scenes/Playspaces/options_screen.tscn"},
-		{"rbp:dirama","res://Scenes/Playspaces/Direamas/PlayerDierama.tscn"},
-		{"rbp:oceanmap1","res://Scenes/Playspaces/OceanMaps/GrayBoxArcopelago/OceanMap.tscn"},
-	};
 /*/---------------------------------------------\\\
 ///---------------------------------------------\\\
 [[[                                             ]]]
@@ -201,8 +195,8 @@ public partial class Global : Node
 
 		closeCurentScene();
 
-		GD.Print("Go To Scene: " + SceneDic[OpenSceneID]);
-		GetTree().ChangeSceneToFile(SceneDic[OpenSceneID]);
+		GD.Print("Go To Scene: " + almanac.SceneDir[OpenSceneID]);
+		GetTree().ChangeSceneToFile(almanac.SceneDir[OpenSceneID]);
 
 	}
 
