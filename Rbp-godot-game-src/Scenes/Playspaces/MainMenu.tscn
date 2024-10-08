@@ -33,13 +33,13 @@ script = ExtResource("3_t33a4")
 
 [node name="Option" parent="ButtonMan" node_paths=PackedStringArray("manager") instance=ExtResource("4_2dr02")]
 position = Vector2(983, 459)
-changToSceneID = 1
+changToSceneID = "rbp:options"
 text = "Options"
 manager = NodePath("..")
 
 [node name="start" parent="ButtonMan" node_paths=PackedStringArray("manager") instance=ExtResource("4_2dr02")]
 position = Vector2(989, 708)
-changToSceneID = 3
+changToSceneID = "rbp:oceanmap1"
 text = "Ready?"
 manager = NodePath("..")
 

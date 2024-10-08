@@ -35,7 +35,7 @@ public partial class IslandClass : Node2D
 	public void openSelfInDirama()
 	{
 		Global global = GetNode<Global>("/root/Global");
-			global.OpenScene(2);
+			global.OpenScene("rbp:dirama");
 			global.spawnDiramaUID = diramaUID;
 	}
 

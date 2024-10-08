@@ -29,7 +29,7 @@ public partial class MapMain : SceneMan
 
 		if(Input.IsActionJustPressed("enterMenu"))
 		{
-			global.OpenScene(1);
+			global.OpenScene("rbp:options");
 			// <=========================================================================[Put open menu code here
 		}
 	}
@@ -42,7 +42,7 @@ public partial class MapMain : SceneMan
 
 	public void playerDock(string IslandID)
 	{
-		global.OpenScene(2);
+		global.OpenScene("rbp:dirama");
 		global.spawnDiramaUID = IslandID;
 	}
 

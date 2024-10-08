@@ -17,7 +17,7 @@ public class ShipSave : SaveInter
     {
         throw new System.NotImplementedException();
     }
-    public virtual string ToString()
+    public override string ToString()
     {
         throw new System.NotImplementedException();
     }

@@ -4,7 +4,7 @@ using System;
 public partial class ShipDoll : Node2D
 {
 	[Export] public inventory inv;
-	[Export] public int targeSceneID;
+	[Export] public string targeSceneID;
 			 public DockSpot DockSpot;
 
 
