@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://qu4e5nv3byhk"]
+[gd_scene load_steps=5 format=3 uid="uid://qu4e5nv3byhk"]
 
 [ext_resource type="Texture2D" uid="uid://d0k8dcq2t28hc" path="res://Resorces/ShipModels/LogRaft/LogRaft1.png" id="1_04dbd"]
+[ext_resource type="Script" path="res://Scripts/AI-Control/Ship.cs" id="1_wsbep"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ee5cp"]
 radius = 15.2971
@@ -9,6 +10,7 @@ radius = 15.2971
 radius = 3883.3
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_wsbep")
 
 [node name="LogRaft1" type="Sprite2D" parent="."]
 position = Vector2(-6, -1)
