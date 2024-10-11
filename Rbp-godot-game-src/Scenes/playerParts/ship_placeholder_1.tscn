@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://qu4e5nv3byhk" path="res://Resorces/ShipModels/LogRaft/LogRaft.tscn" id="2_2v8gy"]
 [ext_resource type="Texture2D" uid="uid://chnwrleuljjml" path="res://Assets/Placeholders/ShipRose1.png" id="2_26psj"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerShip.cs" id="2_wk8c6"]
+[ext_resource type="Script" path="res://Scripts/AI-Control/PlayerShip/PlayerShip.cs" id="2_wk8c6"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ArrowG.cs" id="4_iq5ar"]
 
 [node name="PlayerShip" type="CharacterBody2D"]

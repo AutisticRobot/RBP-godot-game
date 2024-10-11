@@ -79,6 +79,7 @@ z_index = 1
 position = Vector2(2660, 1086)
 cursor = NodePath("../Navigation/Cursor")
 playerID = "001"
+ShipModelID = "rbp:lograft"
 inv = SubResource("Resource_fuibc")
 cannonOffset = Vector2(40, 0)
 

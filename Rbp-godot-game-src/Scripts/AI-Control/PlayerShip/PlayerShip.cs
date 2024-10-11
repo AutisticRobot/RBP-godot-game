@@ -9,7 +9,8 @@ public partial class PlayerShip : Ship
 
 	[Export] public bool debug;
 
-	[Export] public PackedScene ShipModel;
+	[Export] public string ShipModelID;
+			 public PackedScene ShipModel;
 			 public new PlayerShipInput1 input = new();
 
 
@@ -25,6 +26,7 @@ public partial class PlayerShip : Ship
 		save = new playerShipSave(this, playerID);
 		global = GetNode<Global>("/root/Global");
 		save.LoadIntoSaveMan(global.PlayerSaveMan);
+		ShipModel = ResourceLoader.Load<PackedScene>(global.almanac.ShipDir[ShipModelID]);
 
 		input.start();
 		input.setShip(this);
