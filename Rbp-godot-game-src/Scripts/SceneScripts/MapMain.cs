@@ -16,6 +16,8 @@ public partial class MapMain : SceneMan
 	public override void _Ready()
 	{
 		ScenePrep();
+		player.preLoad(this);
+
 		load();
 	}
 

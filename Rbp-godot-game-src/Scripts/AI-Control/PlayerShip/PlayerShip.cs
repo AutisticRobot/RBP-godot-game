@@ -10,8 +10,6 @@ public partial class PlayerShip : Ship
 	[Export] public bool debug;
 
 	[Export] public string ShipModelID;
-			 public PackedScene ShipModel;
-			 public new PlayerShipInput1 input = new();
 
 
     public override void _Ready()
@@ -21,18 +19,33 @@ public partial class PlayerShip : Ship
     {
 		input.update(delta);
     }
-	public override void preLoad()
+	public override void preLoad(SceneMan man)
 	{
+		manager = man;
+		global = manager.global;
+
 		save = new playerShipSave(this, playerID);
-		global = GetNode<Global>("/root/Global");
 		save.LoadIntoSaveMan(global.PlayerSaveMan);
-		ShipModel = ResourceLoader.Load<PackedScene>(global.almanac.ShipDir[ShipModelID]);
+
+		LoadShipModel(ShipModelID);
+
+		input = new PlayerShipInput1();
 
 		input.start();
 		input.setShip(this);
-		input.cursor = cursor;
+		((PlayerShipInput1)input).cursor = cursor;
 		
 	}
+	public void LoadShipModel(string ShipID)
+	{
+		string ShipPath = global.almanac.ShipDir[ShipModelID];
+
+		PackedScene ShipModel = ResourceLoader.Load<PackedScene>(ShipPath);
+
+		GD.Print(ShipModel);
+
+	}
+
 	/*===========OLD SCRIPT FOR REFERENCE==============
 	[Export] public float brakeSpeed;
 	[Export] public float Acc;

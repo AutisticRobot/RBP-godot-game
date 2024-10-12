@@ -39,10 +39,12 @@ public partial class Ship : CharacterBody2D
 		}
 	}
 
-	public virtual void preLoad()
+	public virtual void preLoad(SceneMan man)
 	{
+		manager = man;
+		global = manager.global;
+
 		save = new(this);
-		global = GetNode<Global>("/root/Global");
 
 		input.start();
 		input.setShip(this);
