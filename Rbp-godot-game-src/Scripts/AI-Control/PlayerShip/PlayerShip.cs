@@ -18,6 +18,7 @@ public partial class PlayerShip : Ship
     public override void _Process(double delta)
     {
 		input.update(delta);
+		GD.Print(Velocity);
     }
 	public override void preLoad(SceneMan man)
 	{
@@ -34,16 +35,24 @@ public partial class PlayerShip : Ship
 		input.start();
 		input.setShip(this);
 		((PlayerShipInput1)input).cursor = cursor;
-		
+
 	}
 	public void LoadShipModel(string ShipID)
 	{
 		string ShipPath = global.almanac.ShipDir[ShipModelID];
 
-		PackedScene ShipModel = ResourceLoader.Load<PackedScene>(ShipPath);
+		Node ShipModel = ResourceLoader.Load<PackedScene>(ShipPath).Instantiate();
 
-		GD.Print(ShipModel);
+		data = (shipModelData)ShipModel.Call(new StringName("getData"));
 
+		ShipModel.QueueFree();
+		foreach(Node node in ShipModel.GetChildren())
+		{
+			ShipModel.RemoveChild(node);
+			AddChild(node);
+
+			//node.Reparent(this);
+		}
 	}
 
 	/*===========OLD SCRIPT FOR REFERENCE==============

@@ -28,8 +28,8 @@ public partial class PlayerShipInput1 : shipInput
     public float getTurnDir()
     {
         return
-        Input.GetActionStrength("Tcw") -
-        Input.GetActionStrength("Tccw");
+        Input.GetActionStrength("Tccw")-
+        Input.GetActionStrength("Tcw");
     }
     
     public bool getAncorState()

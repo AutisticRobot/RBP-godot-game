@@ -127,4 +127,9 @@ public partial class Ship : CharacterBody2D
 		}
 	}
 
+	public shipModelData getData()
+	{
+		return data;
+	}
+
 }
