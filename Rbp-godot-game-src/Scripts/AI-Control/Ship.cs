@@ -18,6 +18,7 @@ public partial class Ship : CharacterBody2D
 			 public float dir;
     		 private object gunState;
 			 public float sailState;
+			 public float speed;
 
 
     public override void _Ready()
@@ -52,7 +53,17 @@ public partial class Ship : CharacterBody2D
 
 	public Vector2 calcVel(double delta)
 	{
-		Vector2 vel = Velocity;
+		speed += sailState * data.Acc;//<=======================TODO: ADD WIND/CURRENT CLAC HERE
+		speed = Math.Clamp(speed, data.Minspeed, data.Maxspeed);
+
+
+		Vector2 vel = new()
+        	{
+        	    X = (float)(Math.Sin(dir * (Math.PI / 180)) * speed * delta),
+        	    Y = (float)(Math.Cos(dir * (Math.PI / 180)) * speed * delta)
+        	};
+
+
 
 		return vel;
 	}

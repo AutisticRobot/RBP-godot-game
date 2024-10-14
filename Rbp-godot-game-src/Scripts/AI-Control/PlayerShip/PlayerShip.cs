@@ -18,7 +18,6 @@ public partial class PlayerShip : Ship
     public override void _Process(double delta)
     {
 		input.update(delta);
-		GD.Print(Velocity);
     }
 	public override void preLoad(SceneMan man)
 	{
