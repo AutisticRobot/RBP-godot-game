@@ -75,6 +75,7 @@ public partial class Ship : CharacterBody2D
 	public void CommandSail(float sailTarget, double delta)
 	{
 		sailState += sailTarget * (float)delta * data.SailAcc;
+		sailState = Math.Clamp(sailState, -1, 1);
 	}
 
 	public void FireCannons(cannonData cannon)
