@@ -70,7 +70,8 @@ public partial class Ship : CharacterBody2D
 
 	public void TurnShip(float turnStrength, double delta)
 	{
-		dir += turnStrength * data.TurnAcc * (float)delta;
+		dir += Math.Clamp(turnStrength, -1, 1) * data.TurnAcc * (float)delta;
+		dir = dir % 360;
 	}
 	public void CommandSail(float sailTarget, double delta)
 	{

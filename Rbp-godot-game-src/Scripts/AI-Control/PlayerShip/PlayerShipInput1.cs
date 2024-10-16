@@ -27,6 +27,10 @@ public partial class PlayerShipInput1 : shipInput
 
     public float getTurnDir()
     {
+        if(Input.IsActionPressed("L-click"))
+        {
+		    return dirTowardTar(cursor.Position - ship.Position);//.Normalized();
+        }
         return
         Input.GetActionStrength("Tccw")-
         Input.GetActionStrength("Tcw");
@@ -40,6 +44,19 @@ public partial class PlayerShipInput1 : shipInput
     public bool isFireCannon()
     {
 		return Input.IsActionPressed("Shoot");
+    }
+
+    public float dirTowardTar(Vector2 Target)
+    {
+		float targetDir = (float)(Math.Atan2(Target.X, Target.Y) * (180/Math.PI));
+
+        GD.Print(targetDir + ", " + ship.dir + ": " + (targetDir - ship.dir));
+
+        if(targetDir > ship.dir)
+        {
+            return 1;
+        }
+        return -1;
     }
 
 
