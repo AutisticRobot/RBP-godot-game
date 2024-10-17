@@ -50,10 +50,12 @@ public partial class PlayerShipInput1 : shipInput
     {
 		float targetDir = (float)(Math.Atan2(Target.X, Target.Y) * (180/Math.PI));
 
-        GD.Print(targetDir + ", " + ship.dir + ": " + (targetDir - ship.dir));
+        //fancy math to reduce comparisons down to only 1
+        targetDir -= ship.dir;
+        targetDir += 360;
+        targetDir %= 360;
 
-        if(targetDir > ship.dir)
-        {
+        if(targetDir < 180){
             return 1;
         }
         return -1;
