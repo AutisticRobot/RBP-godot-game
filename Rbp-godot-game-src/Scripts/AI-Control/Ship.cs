@@ -37,6 +37,7 @@ public partial class Ship : CharacterBody2D
 
 			Velocity = calcVel(delta);
 			MoveAndSlide();
+
 		}
 	}
 
@@ -53,6 +54,12 @@ public partial class Ship : CharacterBody2D
 
 	public Vector2 calcVel(double delta)
 	{
+		if(input.getAncorState())
+		{
+			speed = 0;
+			return new Vector2(0,0);
+		}
+
 		speed += sailState * data.Acc;//<=======================TODO: ADD WIND/CURRENT CLAC HERE
 		speed = Math.Clamp(speed, data.Minspeed, data.Maxspeed);
 
@@ -71,7 +78,7 @@ public partial class Ship : CharacterBody2D
 	public void TurnShip(float turnStrength, double delta)
 	{
 		dir += Math.Clamp(turnStrength, -1, 1) * data.TurnAcc * (float)delta;
-		dir = dir % 360;
+		dir = (dir + 360) % 360;
 	}
 	public void CommandSail(float sailTarget, double delta)
 	{

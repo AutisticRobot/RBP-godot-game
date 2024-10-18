@@ -48,14 +48,13 @@ public partial class PlayerShipInput1 : shipInput
 
     public float dirTowardTar(Vector2 Target)
     {
-		float targetDir = (float)(Math.Atan2(Target.X, Target.Y) * (180/Math.PI));
+		float targetDir = (float)(Math.Atan2(-Target.X, -Target.Y) * (180/Math.PI));
+        targetDir += 180;
 
-        //fancy math to reduce comparisons down to only 1
+
         targetDir -= ship.dir;
-        targetDir += 360;
-        targetDir %= 360;
 
-        if(targetDir < 180){
+        if((180 > targetDir && targetDir > 0) || -180 > targetDir){
             return 1;
         }
         return -1;
