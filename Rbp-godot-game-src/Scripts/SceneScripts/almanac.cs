@@ -7,6 +7,9 @@ public class almanac
     public Dictionary<string, string> ShipDir = new(){
 		{"rbp:lograft", "res://Resorces/ShipModels/LogRaft/LogRaft.tscn"}
 	};
+    public Dictionary<string, string> DireamaDir = new(){
+		{"rbp:lograft", "res://Resorces/ShipModels/LogRaft/LogRaftDirama.tscn"}
+	};
 	public Dictionary<string, string> SceneDir = new() {
 		{"rbp:mainmenu", "res://Scenes/Playspaces/MainMenu.tscn"},
 		{"rbp:options","res://Scenes/Playspaces/options_screen.tscn"},
