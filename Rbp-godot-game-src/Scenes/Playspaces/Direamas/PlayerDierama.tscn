@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d035eqqb0j6ig"]
+[gd_scene load_steps=12 format=3 uid="uid://d035eqqb0j6ig"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/PlayerDierama.cs" id="1_02cwl"]
 [ext_resource type="PackedScene" uid="uid://cf3wbghnlb262" path="res://Scenes/playerParts/playerLand.tscn" id="1_b1t7y"]
@@ -13,10 +13,6 @@
 script = ExtResource("2_tl3r2")
 SaveFolder = "dirama/"
 SaveFile = "sceneMan.sav"
-
-[sub_resource type="Resource" id="Resource_jy2n6"]
-script = ExtResource("6_u6kax")
-inItems = null
 
 [sub_resource type="Resource" id="Resource_gm18n"]
 script = ExtResource("6_u6kax")
@@ -40,7 +36,6 @@ Acc = Vector2(50, 50)
 DecelDeltaCounterBal = 30.0
 Decel = Vector2(0.8, 0.8)
 clampMulti = 8.0
-inv = SubResource("Resource_jy2n6")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerLand"]
 drag_left_margin = 0.32

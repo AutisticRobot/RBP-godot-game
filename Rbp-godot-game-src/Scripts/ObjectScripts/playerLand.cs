@@ -9,7 +9,7 @@ public partial class playerLand : CharacterBody2D
 	[Export] public float DecelDeltaCounterBal;
 	[Export] public Vector2 Decel;
 	[Export] public float clampMulti;
-	[Export] public inventory inv;//no use now, might be useful later
+	[Export] public Area2D FloorDetec;
 	public Vector2 speed;
 	private Global global; 
 	//[Export]
@@ -37,6 +37,9 @@ public partial class playerLand : CharacterBody2D
 
 			Velocity = speed;
 			MoveAndSlide();
+
+			if(FloorDetec.HasOverlappingAreas())
+			GD.Print("*Anti-Sink*");
 		}
 
 		// Save per frame

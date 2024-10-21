@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf3wbghnlb262"]
+[gd_scene load_steps=12 format=3 uid="uid://cf3wbghnlb262"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/playerLand.cs" id="1_pig2j"]
 [ext_resource type="Texture2D" uid="uid://dviuumctqbgu0" path="res://Assets/Placeholders/ARobot.png" id="2_5ye8j"]
@@ -33,11 +33,15 @@ radius = 15.1327
 [sub_resource type="CircleShape2D" id="CircleShape2D_spopj"]
 radius = 123.223
 
-[node name="PlayerLand" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8s3av"]
+radius = 26.0
+
+[node name="PlayerLand" type="CharacterBody2D" node_paths=PackedStringArray("FloorDetec")]
 collision_layer = 16
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_pig2j")
+FloorDetec = NodePath("CollisionShape2D/FloorStanding")
 
 [node name="Body" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
@@ -83,3 +87,10 @@ scale = Vector2(0.25, 0.25)
 [node name="PlayerHitbox" type="CollisionShape2D" parent="CollisionShape2D/InteractBox"]
 position = Vector2(-60, 540)
 shape = SubResource("CircleShape2D_spopj")
+
+[node name="FloorStanding" type="Area2D" parent="CollisionShape2D"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/FloorStanding"]
+shape = SubResource("CircleShape2D_8s3av")
