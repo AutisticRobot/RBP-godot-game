@@ -50,6 +50,7 @@ public partial class Global : Node
 
 
 	//player ship data
+	public string curShipID;
 	public SaveMan PlayerSaveMan = new();
 	public SceneSave PlayerSaveFile = new();
 	public bool playerDataFilled = false;
