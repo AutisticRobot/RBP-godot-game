@@ -1,7 +1,6 @@
 using Godot;
 using Godot.Collections;
 using System;
-using System.Collections.Generic;
 
 
 /*/---------------------------------------------\\\
@@ -30,6 +29,9 @@ public partial class Global : Node
 	//Mod Data
 	public modLoader modLoader = new();
 	public almanac almanac = new();
+
+	//Enitty data
+	public Dictionary<Vector2, diramaObj> diramaEntitys;
 
 	//Economy
 

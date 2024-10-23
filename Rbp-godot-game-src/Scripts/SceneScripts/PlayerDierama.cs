@@ -1,7 +1,5 @@
 using Godot;
 using System;
-using System.ComponentModel;
-using System.Net;
 
 public partial class PlayerDierama : SceneMan
 {
