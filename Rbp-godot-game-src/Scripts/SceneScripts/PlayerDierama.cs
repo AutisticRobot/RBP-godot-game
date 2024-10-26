@@ -102,6 +102,19 @@ public partial class PlayerDierama : SceneMan
 		
 	}
 
+	public void loadObjsFromGlobal()
+	{
+        foreach (diramaObjInter obj in global.diramaEntitys.Values)
+		{
+			//I am fucking blind guessing on what to do next. i hope I am on the right track.
+			loadDiramaObjIntoScene(obj);
+		}
 
+	}
+
+	public void loadDiramaObjIntoScene(diramaObjInter obj)
+	{
+
+	}
 
 }
