@@ -31,7 +31,7 @@ public partial class Global : Node
 	public almanac almanac = new();
 
 	//Enitty data
-	public System.Collections.Generic.Dictionary<string, diramaObjInter> diramaEntitys;
+	public System.Collections.Generic.Dictionary<string, diramaObjIns> diramaEntitys;
 
 	//Economy
 
