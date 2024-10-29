@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using Godot.Collections;
 
@@ -27,7 +28,9 @@ public class diramaObjIns
     }
     public static string Encode(diramaObjIns ins, bool sanitizeInput = true)
     {
-        string outstr = "";
+        ins.data.Add("ObjTypeID", ins.objTypeID);
+        ins.data.Add("ObjPosition", ins.Pos);
+        string outstr = Json.Stringify(ins.data);
         return outstr;
     }
     public static diramaObjIns Decode(string inData)
@@ -36,26 +39,13 @@ public class diramaObjIns
 		{
 			return null;
 		}
-		Dictionary outdat = new();
-		string inStr = inData;
-        int layer = 0;
+        
+        diramaObjIns outIns = new((Dictionary)Json.ParseString(inData));
+        outIns.objTypeID = (String)outIns.data["ObjTypeID"];
+        outIns.data.Remove("ObjTypeID");
+        outIns.Pos = (Vector2)outIns.data["ObjPosition"];
+        outIns.data.Remove("ObjPosition");
 
-        foreach(char a in inStr)
-        {
-            switch(a)
-            {
-            case'{':
-            layer ++;
-            break;
-            case'}':
-            layer--;
-            break;
-            default:
-            break;
-            };
-
-        }
-
-        return new(outdat);
+        return outIns;
     }
 }
