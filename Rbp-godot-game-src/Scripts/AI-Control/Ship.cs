@@ -56,8 +56,8 @@ public partial class Ship : CharacterBody2D
 	{
 		if(input.getAncorState())
 		{
-			speed = 0;
-			return new Vector2(0,0);
+			speed *= 0.95f;
+			//return new Vector2(0,0);
 		}
 
 		speed += sailState * data.Acc;//<=======================TODO: ADD WIND/CURRENT CLAC HERE
@@ -83,7 +83,7 @@ public partial class Ship : CharacterBody2D
 	public void CommandSail(float sailTarget, double delta)
 	{
 		sailState += sailTarget * (float)delta * data.SailAcc;
-		sailState = Math.Clamp(sailState, -1, 1);
+		sailState = Math.Clamp(sailState, 0, 1);
 	}
 
 	public void FireCannons(cannonData cannon)

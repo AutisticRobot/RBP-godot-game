@@ -54,6 +54,7 @@ public partial class PlayerShipInput1 : shipInput
 
         targetDir -= ship.dir;
 
+        if(5 > targetDir && targetDir > -5){return 0;}//doesent bother moving, if it would only end up jittering
         if((180 > targetDir && targetDir > 0) || -180 > targetDir){
             return 1;
         }
