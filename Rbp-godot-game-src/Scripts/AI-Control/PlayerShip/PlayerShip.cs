@@ -2,12 +2,15 @@ using Godot;
 using Godot.Collections;
 using System;
 
-public partial class PlayerShip : Ship
+public partial class PlayerShip : Node2D// : Ship
 {
 	[Export] public Cursor cursor;
 	[Export] public string playerID;
+			 public Ship ship;
 
 	[Export] public bool debug;
+			 public SceneMan manager;
+			 public Global global; 
 
 	[Export] public string ShipModelID;
 
@@ -17,34 +20,48 @@ public partial class PlayerShip : Ship
     }
     public override void _Process(double delta)
     {
-		input.update(delta);
+		this.GlobalPosition = ship.GlobalPosition;
+		//input.update(delta);
     }
-	public override void preLoad(SceneMan man)
+	
+	public void preLoad(SceneMan man)
 	{
 		manager = man;
 		global = manager.global;
 
-		save = new playerShipSave(this, playerID);
-		save.LoadIntoSaveMan(global.PlayerSaveMan);
 
-		LoadShipModel(ShipModelID);
+		ship = LoadShipModel(ShipModelID);
 
-		input = new PlayerShipInput1();
+		ship.input = new PlayerShipInput1();
 
-		input.start();
-		input.setShip(this);
-		((PlayerShipInput1)input).cursor = cursor;
+		ship.input.start();
+		ship.input.setShip(ship);
+		((PlayerShipInput1)ship.input).cursor = cursor;
+
+		ship.save = new playerShipSave(ship, playerID);
+		ship.save.LoadIntoSaveMan(global.PlayerSaveMan);
+
+		ship.Reparent(man);
+		this.Reparent(ship);
 
 	}
-	public void LoadShipModel(string ShipID)
+	
+	public Ship LoadShipModel(string ShipID)
 	{
 		string ShipPath = global.almanac.ShipDir[ShipModelID];
 
-		Node ShipModel = ResourceLoader.Load<PackedScene>(ShipPath).Instantiate();
+		Ship ShipModel = (Ship)ResourceLoader.Load<PackedScene>(ShipPath).Instantiate();
 
-		data = (shipModelData)ShipModel.Call(new StringName("getData"));
+		//data = (shipModelData)ShipModel.Call(new StringName("getData"));
 
-		ShipModel.QueueFree();
+		//ShipModel.QueueFree();
+		ShipModel.Position = new(0,0);
+
+		ShipModel.preLoad(manager);
+
+		AddChild(ShipModel);
+		return ShipModel;
+		/*
 		foreach(Node node in ShipModel.GetChildren())
 		{
 			ShipModel.RemoveChild(node);
@@ -52,6 +69,7 @@ public partial class PlayerShip : Ship
 
 			//node.Reparent(this);
 		}
+		*/
 	}
 
 	/*===========OLD SCRIPT FOR REFERENCE==============

@@ -45,11 +45,12 @@ public partial class Ship : CharacterBody2D
 	{
 		manager = man;
 		global = manager.global;
-
+/*
 		save = new(this);
 
 		input.start();
 		input.setShip(this);
+		*/
 	}
 
 	public Vector2 calcVel(double delta)

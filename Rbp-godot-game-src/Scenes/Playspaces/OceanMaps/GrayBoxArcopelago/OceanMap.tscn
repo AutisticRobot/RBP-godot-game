@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://18bfxerx8qpp"]
+[gd_scene load_steps=25 format=3 uid="uid://18bfxerx8qpp"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/MapMain.cs" id="1_egnfv"]
 [ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="2_0f5hq"]
@@ -20,15 +20,6 @@
 script = ExtResource("2_0f5hq")
 SaveFolder = ""
 SaveFile = "oceanMap.sav"
-
-[sub_resource type="Resource" id="Resource_noswe"]
-script = ExtResource("4_ja0gd")
-ID = 0
-count = 5
-
-[sub_resource type="Resource" id="Resource_fuibc"]
-script = ExtResource("5_h22au")
-inItems = Array[Object]([SubResource("Resource_noswe")])
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eup1r"]
 atlas = ExtResource("9_8jfod")
@@ -80,8 +71,6 @@ position = Vector2(2660, 1086)
 cursor = NodePath("../Navigation/Cursor")
 playerID = "001"
 ShipModelID = "rbp:lograft"
-inv = SubResource("Resource_fuibc")
-cannonOffset = Vector2(40, 0)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerShip"]
 position = Vector2(-3.05176e-05, 0)

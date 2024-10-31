@@ -16,6 +16,7 @@ public partial class MapMain : SceneMan
 	public override void _Ready()
 	{
 		ScenePrep();
+		
 		player.preLoad(this);
 
 		load();
@@ -50,9 +51,9 @@ public partial class MapMain : SceneMan
 
 	public void save()
 	{
-		global.ShipDir = player.dir;
-		global.ShipPos = player.Position;
-		global.playerHull = player.inv;
+		global.ShipDir = player.ship.dir;
+		global.ShipPos = player.ship.Position + player.Position;
+		global.playerHull = player.ship.inv;
 
 		global.playerDataFilled = true;
 
@@ -65,9 +66,9 @@ public partial class MapMain : SceneMan
 		data = (Dictionary)saveF.Load();
 
 
-		player.dir = global.ShipDir;
+		player.ship.dir = global.ShipDir;
 		player.Position = global.ShipPos;
-		player.inv = global.playerHull;
+		player.ship.inv = global.playerHull;
 
 		if(data != null)
 		{

@@ -18,10 +18,10 @@ public partial class ArrowG : Sprite2D
 	{
         Position = new()
         {
-            X = ((float)(Math.Sin(player.dir * (Math.PI / 180)))),
-            Y = ((float)(Math.Cos(player.dir * (Math.PI / 180))))
+            X = ((float)(Math.Sin(player.ship.dir * (Math.PI / 180)))),
+            Y = ((float)(Math.Cos(player.ship.dir * (Math.PI / 180))))
         };
-		Rotation = (float)((-player.dir + 180) * (Math.PI / 180));
+		Rotation = (float)((-player.ship.dir + 180) * (Math.PI / 180));
 
 		//Color Opacity = Modulate;
 		//Opacity.A = Math.Clamp((player.speed*OpacityMulti)/player.Maxspeed, 0, 1);

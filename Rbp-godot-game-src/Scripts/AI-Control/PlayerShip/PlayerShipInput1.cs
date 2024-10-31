@@ -29,7 +29,7 @@ public partial class PlayerShipInput1 : shipInput
     {
         if(Input.IsActionPressed("L-click"))
         {
-		    return dirTowardTar(cursor.Position - ship.Position);//.Normalized();
+		    return dirTowardTar(cursor.GlobalPosition - ship.GlobalPosition);//.Normalized();
         }
         return
         Input.GetActionStrength("Tccw")-

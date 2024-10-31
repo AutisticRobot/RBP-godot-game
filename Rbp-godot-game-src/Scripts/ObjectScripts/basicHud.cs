@@ -15,7 +15,7 @@ public partial class basicHud : Control
 	public override void _Process(double delta)
 	{
 		int i = -1;
-		foreach(Item item in ship.inv)
+		foreach(Item item in ship.ship.inv)
 		{
 			i++;
 			setLabelCont(i, item.GetName(), item.count);
