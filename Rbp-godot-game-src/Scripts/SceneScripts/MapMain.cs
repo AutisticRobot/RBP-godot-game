@@ -52,7 +52,7 @@ public partial class MapMain : SceneMan
 	public void save()
 	{
 		global.ShipDir = player.ship.dir;
-		global.ShipPos = player.ship.Position + player.Position;
+		global.ShipPos = player.ship.GlobalPosition;
 		global.playerHull = player.ship.inv;
 
 		global.playerDataFilled = true;

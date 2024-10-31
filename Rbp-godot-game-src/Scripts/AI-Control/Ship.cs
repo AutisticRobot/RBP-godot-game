@@ -38,6 +38,8 @@ public partial class Ship : CharacterBody2D
 			Velocity = calcVel(delta);
 			MoveAndSlide();
 
+			speed = GetPositionDelta().Length() * 3600;
+
 		}
 	}
 
