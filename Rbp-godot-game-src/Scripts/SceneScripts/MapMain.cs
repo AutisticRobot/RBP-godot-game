@@ -51,6 +51,7 @@ public partial class MapMain : SceneMan
 
 	public void save()
 	{
+		GD.Print(player.ship.dir);
 		global.ShipDir = player.ship.dir;
 		global.ShipPos = player.ship.GlobalPosition;
 		global.playerHull = player.ship.inv;
@@ -63,12 +64,13 @@ public partial class MapMain : SceneMan
 
 	public void load()
 	{
-		data = (Dictionary)saveF.Load();
+		data = saveF.Load();
 
 
 		player.ship.dir = global.ShipDir;
-		player.Position = global.ShipPos;
+		player.ship.Position = global.ShipPos;
 		player.ship.inv = global.playerHull;
+		GD.Print(player.ship.dir);
 
 		if(data != null)
 		{

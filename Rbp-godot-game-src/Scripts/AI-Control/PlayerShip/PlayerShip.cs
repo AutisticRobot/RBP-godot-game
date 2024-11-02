@@ -20,7 +20,7 @@ public partial class PlayerShip : Node2D// : Ship
     }
     public override void _Process(double delta)
     {
-		this.GlobalPosition = ship.GlobalPosition;
+		GlobalPosition = ship.GlobalPosition;
 		//input.update(delta);
     }
 	

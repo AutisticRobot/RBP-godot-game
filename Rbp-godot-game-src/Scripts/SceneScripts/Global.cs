@@ -157,6 +157,7 @@ public partial class Global : Node
 		fillPlayerSaveObject();
 
 			data["shipPos"] = ShipPos;
+			data["shipDir"] = ShipDir;
 			data["shipinv"] = playerHull.ToData();
 			PlayerSaveFile.Save(data);
 
@@ -168,6 +169,7 @@ public partial class Global : Node
 		Dictionary data = PlayerSaveFile.Load();
 
 		ShipPos = (Vector2)data["shipPos"];
+		ShipDir = (float)data["shipDir"];
 		playerHull.FromData(data["shipinv"]);
 	}
 
