@@ -1,4 +1,6 @@
 
+using Godot.Collections;
+
 public class ShipSave : SaveInter
 {
     public Ship ship;
@@ -13,11 +15,11 @@ public class ShipSave : SaveInter
         man.addToBeSaved(this);
     }
 
-    public virtual SaveInter FromString(string str)
+    public virtual void FromData(Dictionary InData)
     {
         throw new System.NotImplementedException();
     }
-    public override string ToString()
+    public virtual Dictionary ToData()
     {
         throw new System.NotImplementedException();
     }

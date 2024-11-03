@@ -52,6 +52,7 @@ public partial class Global : Node
 
 
 	//player ship data
+	public Dictionary PlayerData;
 	public string curShipID;
 	public SaveMan PlayerSaveMan = new();
 	public SceneSave PlayerSaveFile = new();

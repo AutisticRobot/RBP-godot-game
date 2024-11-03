@@ -58,6 +58,8 @@ public partial class MapMain : SceneMan
 
 		global.playerDataFilled = true;
 
+		global.PlayerData = player.ship.save.ToData();
+
 		saveF.Save(data);
 
 	}
@@ -66,20 +68,22 @@ public partial class MapMain : SceneMan
 	{
 		data = saveF.Load();
 
+		if(data != null)
+		{
+			GD.Print("found data containing save file");
+		}else{
+			GD.Print("only empty save file");
+			data = new();
+			return;
+		}
 
 		player.ship.dir = global.ShipDir;
 		player.ship.Position = global.ShipPos;
 		player.ship.inv = global.playerHull;
+
+		player.ship.save.FromData(global.PlayerData);
 		GD.Print(player.ship.dir);
 
-		if(data != null)
-		{
-			GD.Print("found data containing save file");
-
-		}else{
-			GD.Print("only empty save file");
-			data = new();
-		}
 
 
 
