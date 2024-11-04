@@ -18,6 +18,7 @@ public partial class shipModelData : Resource
     [Export] public inventory LoadWeight;
     [Export] public inventory LoadVolume;
     [Export] public float gunCooldown;
+    [Export] public Vector2 cannonOffset;
 
 
 }

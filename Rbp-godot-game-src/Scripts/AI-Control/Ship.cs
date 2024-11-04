@@ -7,16 +7,14 @@ public partial class Ship : CharacterBody2D
 			 public SceneMan manager;
 			 public Global global; 
 
-	[Export] public inventory inv;
-			 public ShipSave save;
-		public Dictionary saveData;
-
 	[Export] public shipModelData data;
+			 public ShipSave save;
 			 public shipInput input;
 
-    [Export] public Vector2 cannonOffset;
+	[Export] public string ShipModelID;
+	[Export] public inventory inv;
 			 public float dir;
-    		 private object gunState;
+    		 public float gunState;
 			 public float sailState;
 			 public float speed;
 
@@ -120,15 +118,15 @@ public partial class Ship : CharacterBody2D
 		{
 		return new() 
 		{
-			X = cannonOffset.X,
-			Y = cannonOffset.Y
+			X = data.cannonOffset.X,
+			Y = data.cannonOffset.Y
 		};
 		}else
 		{
 		return new() 
 		{
-			X = -cannonOffset.X,
-			Y = -cannonOffset.Y
+			X = -data.cannonOffset.X,
+			Y = -data.cannonOffset.Y
 		};
 		}
 	}
