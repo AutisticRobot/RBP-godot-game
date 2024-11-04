@@ -38,7 +38,7 @@ public partial class PlayerShip : Node2D// : Ship
 		ship.input.setShip(ship);
 		((PlayerShipInput1)ship.input).cursor = cursor;
 
-		ship.save = new playerShipSave(ship, playerID);
+		ship.save = new playerShipSave(this, playerID);
 		ship.save.LoadIntoSaveMan(global.PlayerSaveMan);
 
 		ship.Reparent(man);

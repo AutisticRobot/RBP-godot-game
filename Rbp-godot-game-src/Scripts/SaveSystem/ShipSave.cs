@@ -1,5 +1,3 @@
-
-using System.Numerics;
 using Godot.Collections;
 
 public class ShipSave : SaveInter
@@ -16,16 +14,6 @@ public class ShipSave : SaveInter
         man.addToBeSaved(this);
     }
 
-    public virtual void FromData(Dictionary InData)
-    {
-        ship.Position = new( (float)InData["posX"]
-                            ,(float)InData["posY"]);
-		ship.dir = (float)InData["dir"];
-		ship.speed = (float)InData["speed"];
-	    ship.inv = (inventory)InData["inv"];
-    	ship.gunState = (float)InData["gunState"];
-		ship.sailState = (float)InData["sailState"];
-    }
     public virtual Dictionary ToData()
     {
         return new(){
@@ -37,5 +25,15 @@ public class ShipSave : SaveInter
     	{"gunState", ship.gunState},
 		{"sailState", ship.sailState},
         };
+    }
+    public virtual void FromData(Dictionary InDat)
+    {
+        ship.Position = new( (float)InDat["posX"]
+                            ,(float)InDat["posY"]);
+		ship.dir = (float)InDat["dir"];
+		ship.speed = (float)InDat["speed"];
+	    ship.inv = (inventory)InDat["inv"];
+    	ship.gunState = (float)InDat["gunState"];
+		ship.sailState = (float)InDat["sailState"];
     }
 }
