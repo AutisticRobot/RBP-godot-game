@@ -1,11 +1,11 @@
 
-using System;
 using Godot;
+using Godot.Collections;
 
 public partial class SaveMan
 {
-    public Array saveObjs;
-
+    public System.Array saveObjs;
+    
     public Array decodedData;
     public string metaData;
 
@@ -21,8 +21,17 @@ public partial class SaveMan
         return false;
     }
 
-    public string Encode(bool doSafetyCheck = false)
+    public string Encode()//bool doSafetyCheck = false)
     {
+        Array saveDat = new(){metaData};//preadds the matadata
+
+        foreach (SaveInter item in saveObjs)
+        {
+            saveDat.Add(item.ToData());
+        }
+
+        return Json.Stringify(saveDat);
+        /* //Commenting out because it feels like a waste to delete
         string outData = "{" + metaData;
         bool firstObj = true;
         foreach(SaveInter obj in saveObjs)
@@ -55,9 +64,14 @@ public partial class SaveMan
 
         }
         return outData + "}";
+        */
     }
     public void Decode(string inData)
     {
+        decodedData = (Array)Json.ParseString(inData);
+        metaData = (string)decodedData[0];
+
+        /* //Commenting out because it feels like a waste to delete
         int layer = -1;
         string parStr = "";
         int objcount = 0;
@@ -85,5 +99,6 @@ public partial class SaveMan
 
         GD.Print(decodedData.GetValue(0));
         GD.Print(decodedData.GetValue(1));
+        */
     }
 }
