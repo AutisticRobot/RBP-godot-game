@@ -167,7 +167,7 @@ public partial class Global : Node
 	public void LoadPlayer()
 	{
 		fillPlayerSaveObject();
-		Dictionary data = PlayerSaveFile.Load();
+		Dictionary data = (Dictionary)PlayerSaveFile.Load();
 
 		ShipPos = (Vector2)data["shipPos"];
 		ShipDir = (float)data["shipDir"];

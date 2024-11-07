@@ -66,7 +66,7 @@ public partial class MapMain : SceneMan
 
 	public void load()
 	{
-		data = saveF.Load();
+		data = (Dictionary)saveF.Load();
 
 		if(data != null)
 		{
