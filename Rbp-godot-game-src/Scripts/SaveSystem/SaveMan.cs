@@ -4,10 +4,10 @@ using Godot.Collections;
 
 public partial class SaveMan
 {
-    public System.Array saveObjs;
+    public SaveInter[] saveObjs = System.Array.Empty<SaveInter>();
     
     public Array decodedData;
-    public string metaData;
+    public string metaData = "hi";
 
     public bool addToBeSaved(SaveInter save)
     {
@@ -70,6 +70,8 @@ public partial class SaveMan
     {
         decodedData = (Array)Json.ParseString(inData);
         metaData = (string)decodedData[0];
+        decodedData.Remove(metaData);
+        GD.Print("savedat: " + ((string)decodedData[0]).Left(25));
 
         /* //Commenting out because it feels like a waste to delete
         int layer = -1;

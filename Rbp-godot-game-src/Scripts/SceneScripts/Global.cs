@@ -105,12 +105,12 @@ public partial class Global : Node
 	{
 	    if (what == NotificationWMCloseRequest)
 		{
-			try
-			{
+            try
+            {
 				closeCurentScene();
 				SavePlayer();
-			}catch{
-				GD.Print("Could not close current scene. Shuting down anyway...");
+			}catch(SystemException e){
+				GD.PushError("Could not close current scene. Shuting down anyway...\n", e);
 			}
 	        GetTree().Quit(); // default behavior
 		}
@@ -157,21 +157,35 @@ public partial class Global : Node
 		Dictionary data = new();
 		fillPlayerSaveObject();
 
+		PlayerSaveFile.Save(PlayerSaveMan.Encode());
+		GD.Print("Save data" + PlayerSaveMan.Encode());
+
+/*
 			data["shipPos"] = ShipPos;
 			data["shipDir"] = ShipDir;
 			data["shipinv"] = playerHull.ToData();
 			PlayerSaveFile.Save(data);
+		*/
 
 	}
 
 	public void LoadPlayer()
 	{
 		fillPlayerSaveObject();
-		Dictionary data = (Dictionary)PlayerSaveFile.Load();
+		string data = (string)PlayerSaveFile.Load();
+		GD.Print("data:" + data);
+		if(data != "0")
+		{
+			PlayerSaveMan.Decode(data);
 
+			PlayerData = (Dictionary)PlayerSaveMan.decodedData[0];
+		}
+/*
+		Dictionary data = (Dictionary)PlayerSaveFile.Load();
 		ShipPos = (Vector2)data["shipPos"];
 		ShipDir = (float)data["shipDir"];
 		playerHull.FromData(data["shipinv"]);
+		*/
 	}
 
 	public void fillPlayerSaveObject()

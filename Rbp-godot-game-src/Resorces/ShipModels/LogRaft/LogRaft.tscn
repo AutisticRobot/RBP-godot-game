@@ -18,6 +18,7 @@ maxHealth = 100
 maxWeight = 1000
 maxVolume = 1000
 gunCooldown = 0.0
+cannonOffset = Vector2(0, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ee5cp"]
 radius = 15.2971
