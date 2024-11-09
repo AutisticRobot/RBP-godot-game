@@ -174,7 +174,7 @@ public partial class Global : Node
 		fillPlayerSaveObject();
 		string data = (string)PlayerSaveFile.Load();
 		GD.Print("data:" + data);
-		if(data != "0")
+		if(data.Length >= 8)
 		{
 			PlayerSaveMan.Decode(data);
 

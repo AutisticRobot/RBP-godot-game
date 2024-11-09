@@ -81,8 +81,15 @@ public partial class MapMain : SceneMan
 		player.ship.Position = global.ShipPos;
 		player.ship.inv = global.playerHull;
 
+		if(global.PlayerData != null)
+		{
+			GD.Print("found global player data containing save file");
 		player.ship.save.FromData(global.PlayerData);
 		GD.Print(player.ship.dir);
+		}else{
+			GD.Print("only empty global player save file");
+			return;
+		}
 
 
 

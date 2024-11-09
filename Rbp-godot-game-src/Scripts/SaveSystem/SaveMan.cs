@@ -4,7 +4,7 @@ using Godot.Collections;
 
 public partial class SaveMan
 {
-    public SaveInter[] saveObjs = System.Array.Empty<SaveInter>();
+    public SaveInter[] saveObjs = {null};
     
     public Array decodedData;
     public string metaData = "hi";
@@ -13,9 +13,10 @@ public partial class SaveMan
     {
         try
         {
-            saveObjs.SetValue(save, saveObjs.Length);
+            saveObjs.SetValue(save, 0);
             return true;
         }catch{
+            GD.PushError("Failed to add obj to save man");
 
         }
         return false;
@@ -25,6 +26,7 @@ public partial class SaveMan
     {
         Array saveDat = new(){metaData};//preadds the matadata
 
+            GD.Print("item add:" + saveObjs.Length);
         foreach (SaveInter item in saveObjs)
         {
             saveDat.Add(item.ToData());
@@ -71,7 +73,7 @@ public partial class SaveMan
         decodedData = (Array)Json.ParseString(inData);
         metaData = (string)decodedData[0];
         decodedData.Remove(metaData);
-        GD.Print("savedat: " + ((string)decodedData[0]).Left(25));
+        GD.Print("savedat: " + decodedData.ToString());
 
         /* //Commenting out because it feels like a waste to delete
         int layer = -1;

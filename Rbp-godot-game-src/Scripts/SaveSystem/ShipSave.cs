@@ -1,3 +1,4 @@
+using Godot;
 using Godot.Collections;
 
 public class ShipSave : SaveInter
@@ -21,7 +22,7 @@ public class ShipSave : SaveInter
         {"posY", ship.Position.Y},
 		{"dir", ship.dir},
 		{"speed", ship.speed},
-	    {"inv", ship.inv},
+	    {"inv", (string)ship.inv},
     	{"gunState", ship.gunState},
 		{"sailState", ship.sailState},
         };
