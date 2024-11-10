@@ -1,10 +1,11 @@
 
+using System.Collections.Generic;
 using Godot;
 using Godot.Collections;
 
 public partial class SaveMan
 {
-    public SaveInter[] saveObjs = {null};
+    public List<SaveInter> saveObjs = new();
     
     public Array decodedData;
     public string metaData = "hi";
@@ -13,7 +14,7 @@ public partial class SaveMan
     {
         try
         {
-            saveObjs.SetValue(save, 0);
+            saveObjs.Add(save);
             return true;
         }catch{
             GD.PushError("Failed to add obj to save man");
@@ -26,7 +27,6 @@ public partial class SaveMan
     {
         Array saveDat = new(){metaData};//preadds the matadata
 
-            GD.Print("item add:" + saveObjs.Length);
         foreach (SaveInter item in saveObjs)
         {
             saveDat.Add(item.ToData());
