@@ -179,6 +179,9 @@ public partial class Global : Node
 			PlayerSaveMan.Decode(data);
 
 			PlayerData = (Dictionary)PlayerSaveMan.decodedData[0];
+			inventory inv = new();
+			inv.FromData(PlayerData["inv"]);
+			GD.Print((string)inv);
 		}
 /*
 		Dictionary data = (Dictionary)PlayerSaveFile.Load();

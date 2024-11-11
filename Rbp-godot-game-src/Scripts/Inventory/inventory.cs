@@ -37,15 +37,17 @@ public inventory()
 	}
     static public explicit operator inventory(string inv)
 	{
+		GD.Print("invPars start");
 		if(inv.Length <= 2)
 		{
+			GD.Print("In inv too short to process");
 			return null;
 		}
 		inventory outinv = new();
 		string inStr = inv;
 
 		inStr = inStr.Substr(2,inStr.Length - 4);
-		//GD.Print("inv from str:" + inStr);
+		GD.Print("inv from str:" + inStr);
 		string[] allPart = inStr.Split("),(");
 
 		foreach(string str in allPart)
@@ -124,6 +126,7 @@ public inventory()
 
 	public static inventory operator+(inventory inv1, inventory inv2)
 	{
+		inv1 ??= new();
 
 		foreach (Item item in inv2)
 		{
@@ -135,11 +138,13 @@ public inventory()
 	}
 	public static inventory operator+(inventory inv, Item item)
 	{
+		inv ??= new();
 		inv.add(item);
 		return inv;
 	}
 	public static inventory operator-(inventory inv1, inventory inv2)
 	{
+		inv1 ??= new();
 
 		foreach (Item item in inv2)
 		{

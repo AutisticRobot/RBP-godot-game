@@ -141,8 +141,6 @@ public partial class Ship : CharacterBody2D
 	}
 	public void getLoot(LootFloat loot)
 	{
-		inv ??= new();
-
 		loot.inv.flushInItems();
 
 		inv += loot.inv;

@@ -33,7 +33,7 @@ public class ShipSave : SaveInter
                             ,(float)InDat["posY"]);
 		ship.dir = (float)InDat["dir"];
 		ship.speed = (float)InDat["speed"];
-	    ship.inv = (inventory)InDat["inv"];
+	    ship.inv.FromData((string)InDat["inv"]);
     	ship.gunState = (float)InDat["gunState"];
 		ship.sailState = (float)InDat["sailState"];
     }
