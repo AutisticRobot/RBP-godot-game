@@ -130,12 +130,18 @@ public partial class Ship : CharacterBody2D
 		};
 		}
 	}
-	public void getLoot(Area2D LBB)
+	public void pickUpEntered(Area2D area)
 	{
-
-		if(LBB.Name == "Loot")
+		GD.Print(area.Name);
+		if(area.Name == "Loot")
 		{
-		LootFloat loot = LBB.GetParent<LootFloat>();
+			getLoot(area.GetParent<LootFloat>());
+		}
+
+	}
+	public void getLoot(LootFloat loot)
+	{
+		inv ??= new();
 
 		loot.inv.flushInItems();
 
@@ -145,7 +151,6 @@ public partial class Ship : CharacterBody2D
 
 
 		loot.QueueFree();
-		}
 	}
 
 	public shipModelData getData()
