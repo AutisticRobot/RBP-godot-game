@@ -22,6 +22,21 @@ public partial class SaveMan
         }
         return false;
     }
+    public bool RemoveToBeSaved(int index)
+    {
+        try
+        {
+            if(saveObjs.Count > index)
+            {
+                saveObjs.RemoveAt(index);
+            }
+            return true;
+        }catch{
+            GD.PushError("Failed to add obj to save man");
+
+        }
+        return false;
+    }
 
     public string Encode()//bool doSafetyCheck = false)
     {

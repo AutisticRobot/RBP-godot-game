@@ -95,7 +95,10 @@ public partial class IslandClass : Node2D
 			GD.Print("island Class loaded a file: " + fileSave.SaveFile);
 
 			fileSave.Load();
-			ShopManLocal.loadShopsSaveData((Dictionary)((Dictionary)fileSave.Data)["shops"]);
+			if(((Dictionary)fileSave.Data).ContainsKey("shops"))
+			{
+				ShopManLocal.loadShopsSaveData((Dictionary)((Dictionary)fileSave.Data)["shops"]);
+			}
 		}
 	}
 

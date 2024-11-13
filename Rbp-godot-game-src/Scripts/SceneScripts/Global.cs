@@ -154,7 +154,6 @@ public partial class Global : Node
 
 	public void SavePlayer()
 	{
-		Dictionary data = new();
 		fillPlayerSaveObject();
 
 		PlayerSaveFile.Save(PlayerSaveMan.Encode());
@@ -215,6 +214,8 @@ public partial class Global : Node
 	}
 	private void RealOpenScene()
 	{
+		SavePlayer();
+		PlayerSaveMan.RemoveToBeSaved(0);
 
 		closeCurentScene();
 

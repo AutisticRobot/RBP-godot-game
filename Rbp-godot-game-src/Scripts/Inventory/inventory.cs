@@ -25,8 +25,9 @@ public inventory()
 ///		Save/Load  
 ///===================
 
-    static public explicit operator string(inventory inv)
+    static public implicit operator string(inventory inv)
 	{
+		inv ??= new();
 		string outstr = "(";
 		foreach(Item i in inv)
 		{

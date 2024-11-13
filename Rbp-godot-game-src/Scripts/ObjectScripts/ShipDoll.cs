@@ -13,9 +13,12 @@ public partial class ShipDoll : Node2D
 	public override void _Ready()
 	{
 		global = GetNode<Global>("/root/Global");
-		if(global.playerHull != null)
+		if(global.playerDataFilled && global.PlayerData.ContainsKey("inv"))
 		{
-			inv = global.playerHull;
+			GD.Print(global.PlayerData);
+			inv.FromData(global.PlayerData["inv"]);
+			GD.Print(global.PlayerData["inv"]);
+			GD.Print("found player inventory" + inv);
 		}
 	}
 
@@ -26,7 +29,7 @@ public partial class ShipDoll : Node2D
 
 	public void closeShip()
 	{
-		global.playerHull = inv;
+		global.PlayerData["inv"] = inv;
 		GD.Print("close shop");
 	}
 
