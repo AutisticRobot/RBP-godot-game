@@ -84,8 +84,7 @@ public inventory()
 
 		}catch(Exception e){
 
-			GD.Print(e);
-			GD.Print(data);
+			GD.PushError(e,data);
 			GD.Print("INv From Data broke");
 		}
 

@@ -29,8 +29,8 @@ public partial class ShipDoll : Node2D
 
 	public void closeShip()
 	{
-		global.PlayerData["inv"] = inv;
-		GD.Print("close shop");
+		global.PlayerData["inv"] = inv.ToData();
+		GD.Print("close ship");
 	}
 
 	public void onPress()

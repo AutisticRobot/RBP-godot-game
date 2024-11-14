@@ -134,5 +134,11 @@ public partial class ShopMenu : MenuObj
 		foreground.Visible = toState;
 		Visible = toState;
 	}
+	public void open(ShopInventory inv)
+	{
+		shop = inv;
+		foreground.Visible = true;
+		Visible = true;
+	}
 
 }
