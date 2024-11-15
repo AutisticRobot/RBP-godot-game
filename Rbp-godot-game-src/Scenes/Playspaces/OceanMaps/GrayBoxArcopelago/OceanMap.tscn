@@ -70,6 +70,8 @@ z_index = 1
 position = Vector2(2660, 1086)
 cursor = NodePath("../Navigation/Cursor")
 playerID = "001"
+widthScale = 10.0
+speedScale = 10.0
 ShipModelID = "rbp:lograft"
 
 [node name="Camera2D" type="Camera2D" parent="PlayerShip"]

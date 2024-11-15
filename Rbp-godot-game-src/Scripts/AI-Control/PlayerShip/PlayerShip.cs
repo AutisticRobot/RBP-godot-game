@@ -7,6 +7,10 @@ public partial class PlayerShip : Node2D// : Ship
 	[Export] public Cursor cursor;
 	[Export] public string playerID;
 			 public Ship ship;
+			 public Sprite2D shipSprite;
+			 public double time;//for wobble amt
+	[Export] public double widthScale;//for wobble amt
+	[Export] public double speedScale;//for wobble amt
 
 	[Export] public bool debug;
 			 public SceneMan manager;
@@ -15,12 +19,12 @@ public partial class PlayerShip : Node2D// : Ship
 	[Export] public string ShipModelID;
 
 
-    public override void _Ready()
-    {
-    }
     public override void _Process(double delta)
     {
 		GlobalPosition = ship.GlobalPosition;
+
+		time += delta * speedScale * ship.sailState;
+		shipSprite.RotationDegrees = (float)getShakeAmt(time,widthScale);
 		//input.update(delta);
     }
 	
@@ -43,6 +47,7 @@ public partial class PlayerShip : Node2D// : Ship
 
 		ship.Reparent(man);
 		this.Reparent(ship);
+		shipSprite = ship.GetChild<Sprite2D>(0);
 
 	}
 	
@@ -70,6 +75,11 @@ public partial class PlayerShip : Node2D// : Ship
 			//node.Reparent(this);
 		}
 		*/
+	}
+
+	public double getShakeAmt(double time, double scale)
+	{
+		return Math.Sin(time) * scale;
 	}
 
 	/*===========OLD SCRIPT FOR REFERENCE==============
