@@ -37,4 +37,14 @@ public class ShipSave : SaveInter
     	ship.gunState = (float)InDat["gunState"];
 		ship.sailState = (float)InDat["sailState"];
     }
+
+    public void unloadFromSaveMan(SaveMan man)
+    {
+        man.RemoveToBeSaved(ship.ID);
+    }
+
+    public string getID()
+    {
+        return ship.ID;
+    }
 }

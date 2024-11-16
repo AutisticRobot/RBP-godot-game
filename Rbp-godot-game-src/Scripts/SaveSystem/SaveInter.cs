@@ -4,8 +4,11 @@ using Godot.Collections;
 
 public partial interface SaveInter
 {
-    public void LoadIntoSaveMan(SaveMan man);
+    void LoadIntoSaveMan(SaveMan man);
+    void unloadFromSaveMan(SaveMan man);
 
-    public Dictionary ToData();
-    public void FromData(Dictionary inDat);
+    string getID();
+
+    Dictionary ToData();
+    void FromData(Dictionary inDat);
 }

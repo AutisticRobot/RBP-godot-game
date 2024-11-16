@@ -35,6 +35,7 @@ public partial class PlayerShip : Node2D// : Ship
 
 
 		ship = LoadShipModel(ShipModelID);
+		ship.ID = playerID;
 
 		ship.input = new PlayerShipInput1();
 

@@ -6,6 +6,7 @@ public partial class Ship : CharacterBody2D
 {
 			 public SceneMan manager;
 			 public Global global; 
+    [Export] public string ID;
 
 	[Export] public shipModelData data;
 			 public ShipSave save;

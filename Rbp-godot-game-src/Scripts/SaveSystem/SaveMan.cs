@@ -5,16 +5,16 @@ using Godot.Collections;
 
 public partial class SaveMan
 {
-    public List<SaveInter> saveObjs = new();
+    public System.Collections.Generic.Dictionary<string,SaveInter> saveObjs = new();
     
-    public Array decodedData;
+    public Dictionary decodedData;
     public string metaData = "hi";
 
     public bool addToBeSaved(SaveInter save)
     {
         try
         {
-            saveObjs.Add(save);
+            saveObjs.Add(save.getID(),save);
             return true;
         }catch{
             GD.PushError("Failed to add obj to save man");
@@ -22,13 +22,13 @@ public partial class SaveMan
         }
         return false;
     }
-    public bool RemoveToBeSaved(int index)
+    public bool RemoveToBeSaved(string ID)
     {
         try
         {
-            if(saveObjs.Count > index)
+            if(saveObjs.ContainsKey(ID))
             {
-                saveObjs.RemoveAt(index);
+                saveObjs.Remove(ID);
             }
             return true;
         }catch{
@@ -40,11 +40,11 @@ public partial class SaveMan
 
     public string Encode()//bool doSafetyCheck = false)
     {
-        Array saveDat = new(){metaData};//preadds the matadata
+        Dictionary saveDat = new(){{"meta",metaData}};//preadds the matadata
 
-        foreach (SaveInter item in saveObjs)
+        foreach (KeyValuePair<string,SaveInter> item in saveObjs)
         {
-            saveDat.Add(item.ToData());
+            saveDat.Add(item.Key, item.Value.ToData());
         }
 
         return Json.Stringify(saveDat);
@@ -85,8 +85,8 @@ public partial class SaveMan
     }
     public void Decode(string inData)
     {
-        decodedData = (Array)Json.ParseString(inData);
-        metaData = (string)decodedData[0];
+        decodedData = (Dictionary)Json.ParseString(inData);
+        metaData = (string)decodedData["meta"];
         decodedData.Remove(metaData);
         GD.Print("savedat: " + decodedData.ToString());
 
