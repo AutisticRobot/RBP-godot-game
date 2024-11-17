@@ -1,6 +1,7 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Collections.Generic;
 
 
 /*/---------------------------------------------\\\
@@ -31,6 +32,7 @@ public partial class Global : Node
 	public almanac almanac = new();
 
 	//Enitty data
+	public List<string> allIDs = new();
 	public System.Collections.Generic.Dictionary<string, diramaObjIns> diramaEntitys;
 
 	//Economy
@@ -215,7 +217,7 @@ public partial class Global : Node
 	private void RealOpenScene()
 	{
 		SavePlayer();
-		PlayerSaveMan.RemoveToBeSaved(0);
+		PlayerSaveMan.RemoveToBeSaved("001");
 
 		closeCurentScene();
 
