@@ -32,7 +32,7 @@ public partial class Global : Node
 	public almanac almanac = new();
 
 	//Enitty data
-	public List<string> allIDs = new();
+	public IDCord IDCordinator = new();
 	public System.Collections.Generic.Dictionary<string, diramaObjIns> diramaEntitys;
 
 	//Economy

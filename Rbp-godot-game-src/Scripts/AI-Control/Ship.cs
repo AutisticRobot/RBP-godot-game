@@ -46,6 +46,7 @@ public partial class Ship : CharacterBody2D
 	{
 		manager = man;
 		global = manager.global;
+		assignNewID();
 /*
 		save = new(this);
 
@@ -155,6 +156,19 @@ public partial class Ship : CharacterBody2D
 	public shipModelData getData()
 	{
 		return data;
+	}
+
+	public void assignNewID()
+	{
+		if(ID != null)
+		{
+			if(global.IDCordinator.IDExists(ID))
+			{
+				ID = global.IDCordinator.getNew();
+			}else{
+				global.IDCordinator.add(ID);
+			}
+		}
 	}
 
 }
