@@ -158,6 +158,12 @@ public partial class Ship : CharacterBody2D
 		return data;
 	}
 
+	public string TryAssignID(string inID)
+	{
+		ID = inID;
+		assignNewID();
+		return null;
+	}
 	public void assignNewID()
 	{
 		if(ID != null)
