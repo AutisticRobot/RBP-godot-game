@@ -38,7 +38,7 @@ public partial class SaveMan
         return false;
     }
 
-    public string Encode()//bool doSafetyCheck = false)
+    public Dictionary Encode()//bool doSafetyCheck = false)
     {
         Dictionary saveDat = new(){{"meta",metaData}};//preadds the matadata
 
@@ -47,7 +47,7 @@ public partial class SaveMan
             saveDat.Add(item.Key, item.Value.ToData());
         }
 
-        return Json.Stringify(saveDat);
+        return saveDat;
         /* //Commenting out because it feels like a waste to delete
         string outData = "{" + metaData;
         bool firstObj = true;
@@ -83,12 +83,11 @@ public partial class SaveMan
         return outData + "}";
         */
     }
-    public void Decode(string inData)
+    public void Decode(Dictionary inData)
     {
-        decodedData = (Dictionary)Json.ParseString(inData);
-        metaData = (string)decodedData["meta"];
-        decodedData.Remove(metaData);
-        GD.Print("savedat: " + decodedData.ToString());
+        metaData = (string)inData["meta"];
+        inData.Remove(metaData);
+        GD.Print("savedat: " + inData.ToString());
 
         /* //Commenting out because it feels like a waste to delete
         int layer = -1;

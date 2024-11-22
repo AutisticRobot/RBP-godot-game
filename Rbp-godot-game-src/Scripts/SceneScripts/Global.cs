@@ -54,7 +54,7 @@ public partial class Global : Node
 
 
 	//player ship data
-	public Dictionary PlayerData;
+	public Dictionary PlayerData = new();
 	public string curShipID;
 	public SaveMan PlayerSaveMan = new();
 	public SceneSave PlayerSaveFile = new();
@@ -158,7 +158,8 @@ public partial class Global : Node
 	{
 		fillPlayerSaveObject();
 
-		PlayerSaveFile.Save(PlayerSaveMan.Encode());
+		PlayerData.Merge(PlayerSaveMan.Encode(), true);
+		PlayerSaveFile.Save(Json.Stringify(PlayerData));
 		GD.Print("Save data" + PlayerSaveMan.Encode());
 
 /*
@@ -177,11 +178,12 @@ public partial class Global : Node
 		GD.Print("data:" + data);
 		if(data.Length >= 8)
 		{
-			PlayerSaveMan.Decode(data);
+			PlayerSaveMan.Decode((Dictionary)Json.ParseString(data));
 
-			PlayerData = (Dictionary)PlayerSaveMan.decodedData[0];
+			PlayerSaveMan.decodedData ??= new();
+			PlayerData.Merge(PlayerSaveMan.decodedData, true);
 			inventory inv = new();
-			inv.FromData(PlayerData["inv"]);
+			inv.FromData(((Dictionary)PlayerData["001"])["inv"]);
 			GD.Print((string)inv);
 		}
 /*
