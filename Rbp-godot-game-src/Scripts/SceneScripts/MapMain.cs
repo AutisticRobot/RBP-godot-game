@@ -58,7 +58,7 @@ public partial class MapMain : SceneMan
 
 		global.playerDataFilled = true;
 
-		global.PlayerData = player.ship.save.ToData();
+		global.Player1.Merge(player.ship.save.ToData(), true);
 
 		saveF.Save(data);
 
@@ -81,10 +81,10 @@ public partial class MapMain : SceneMan
 		player.ship.Position = global.ShipPos;
 		player.ship.inv = global.playerHull;
 
-		if(global.PlayerData != null)
+		if(global.Player1 != null)
 		{
 			GD.Print("found global player data containing save file");
-		player.ship.save.FromData(global.PlayerData);
+		player.ship.save.FromData(global.Player1);
 		GD.Print(player.ship.dir);
 		}else{
 			GD.Print("only empty global player save file");
