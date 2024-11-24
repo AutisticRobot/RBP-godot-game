@@ -159,6 +159,9 @@ public partial class Global : Node
 	{
 		fillPlayerSaveObject();
 
+		Player1 ??= new();
+		PlayerData ??= new();
+
 		PlayerData.Merge(PlayerSaveMan.Encode(), true);
 		PlayerData.Merge(Player1, true);
 		PlayerSaveFile.Save(Json.Stringify(PlayerData));
@@ -184,7 +187,13 @@ public partial class Global : Node
 
 			PlayerSaveMan.decodedData ??= new();
 			PlayerData.Merge(PlayerSaveMan.decodedData, true);
-			Player1.Merge((Dictionary)PlayerData["001"], true);
+			if(PlayerData.ContainsKey("001"))
+			{
+				Player1.Merge((Dictionary)Json.ParseString((string)PlayerData["001"]), true);
+			}else{
+				GD.Print("no 001 id in save");
+				GD.Print(PlayerSaveMan.decodedData);
+			}
 			inventory inv = new();
 			inv.FromData(Player1["inv"]);
 			GD.Print((string)inv);
