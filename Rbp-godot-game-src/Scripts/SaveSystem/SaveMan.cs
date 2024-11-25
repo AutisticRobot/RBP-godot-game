@@ -89,6 +89,8 @@ public partial class SaveMan
         inData.Remove(metaData);
         GD.Print("savedat: " + inData.ToString());
 
+        decodedData = inData;
+
         /* //Commenting out because it feels like a waste to delete
         int layer = -1;
         string parStr = "";
