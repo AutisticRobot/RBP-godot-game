@@ -17,6 +17,15 @@ public class IDCord
         allIDs.Remove(ID);
     }
 
+    public bool requestID(string inID)
+    {
+        if(IDExists(inID))
+        {
+            add(inID);
+            return true;
+        }
+        return false;
+    }
     public string getNew()
     {
         string outID = rand.Randi().ToString();
