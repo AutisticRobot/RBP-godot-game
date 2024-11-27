@@ -22,6 +22,7 @@ public partial class Ship : CharacterBody2D
 
     public override void _Ready()
     {
+		assignID();//here so that ID assignment occurs after loading (if from save) to maintain ID consistiantsy across sessions
     }
     public override void _Process(double delta)
     {
@@ -46,7 +47,6 @@ public partial class Ship : CharacterBody2D
 	{
 		manager = man;
 		global = manager.global;
-		assignNewID();
 /*
 		save = new(this);
 
@@ -161,18 +161,16 @@ public partial class Ship : CharacterBody2D
 	public string TryAssignID(string inID)
 	{
 		ID = inID;
-		assignNewID();
+		assignID();
 		return null;
 	}
-	public void assignNewID()
+	public void assignID()
 	{
 		if(ID != null)
 		{
-			if(global.IDCordinator.IDExists(ID))
+			if(!global.IDCordinator.requestID(ID))
 			{
 				ID = global.IDCordinator.getNew();
-			}else{
-				global.IDCordinator.add(ID);
 			}
 		}
 	}

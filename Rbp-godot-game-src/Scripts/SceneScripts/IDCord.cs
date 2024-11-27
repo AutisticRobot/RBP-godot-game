@@ -8,7 +8,7 @@ public class IDCord
     private RandomNumberGenerator rand = new();
 
 
-    public void add(string ID)
+    private void add(string ID)
     {
         allIDs.Add(ID);
     }
