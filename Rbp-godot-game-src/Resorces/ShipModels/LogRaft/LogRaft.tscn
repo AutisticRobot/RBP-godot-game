@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://qu4e5nv3byhk"]
+[gd_scene load_steps=11 format=3 uid="uid://qu4e5nv3byhk"]
 
 [ext_resource type="Texture2D" uid="uid://d0k8dcq2t28hc" path="res://Resorces/ShipModels/LogRaft/LogRaft1.png" id="1_04dbd"]
 [ext_resource type="Script" path="res://Scripts/AI-Control/Ship.cs" id="1_wsbep"]
 [ext_resource type="Script" path="res://Resorces/ShipModels/shipModelData.cs" id="3_phics"]
+[ext_resource type="Script" path="res://Resorces/munitions/MunitionRes.cs" id="4_yy2sr"]
+[ext_resource type="Script" path="res://Scripts/DataScrips/cannonData.cs" id="5_5sgjj"]
 
 [sub_resource type="Resource" id="Resource_fkhbx"]
 script = ExtResource("3_phics")
@@ -17,8 +19,25 @@ Maxspeed = 10000.0
 maxHealth = 100
 maxWeight = 1000
 maxVolume = 1000
-gunCooldown = 0.0
+gunCooldown = 0.1
 cannonOffset = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_df3tt"]
+script = ExtResource("4_yy2sr")
+Gravity = -0.1
+ispaused = false
+scaleMulti = 100.0
+WaterDisFromCam = 100.0
+Height = 50.0
+VirVel = 1.0
+dammage = 1
+shipHitHeight = 10.0
+
+[sub_resource type="Resource" id="Resource_gomet"]
+script = ExtResource("5_5sgjj")
+cannonBallUUID = "uid://djt5vs0weqxwy"
+ammoData = SubResource("Resource_df3tt")
+ammoSpeed = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ee5cp"]
 radius = 15.2971
@@ -31,6 +50,7 @@ collision_layer = 17
 collision_mask = 17
 script = ExtResource("1_wsbep")
 data = SubResource("Resource_fkhbx")
+activeCannon = SubResource("Resource_gomet")
 
 [node name="LogRaft1" type="Sprite2D" parent="."]
 position = Vector2(-6, -1)

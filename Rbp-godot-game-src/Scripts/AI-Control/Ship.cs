@@ -14,8 +14,9 @@ public partial class Ship : CharacterBody2D
 
 	[Export] public string ShipModelID;
 	[Export] public inventory inv;
+	[Export] public cannonData activeCannon;
 			 public float dir;
-    		 public float gunState;
+    		 public float gunState = 0;
 			 public float sailState;
 			 public float speed;
 
@@ -32,6 +33,8 @@ public partial class Ship : CharacterBody2D
 	{
 		if(!manager.pausedScene)
 		{
+			if(activeCannon != null && input.isFireCannon()){  FireCannons(activeCannon);  }
+
 			TurnShip(input.getTurnDir(), delta);
 			CommandSail(input.getSailCom(), delta);
 
@@ -39,6 +42,7 @@ public partial class Ship : CharacterBody2D
 			MoveAndSlide();
 
 			speed = GetPositionDelta().Length() * 3600;
+			gunState -= (float)delta;
 
 		}
 	}
@@ -91,26 +95,32 @@ public partial class Ship : CharacterBody2D
 
 	public void FireCannons(cannonData cannon)
 	{
-		GD.Print("shot dir: " + dir);
+		if(gunState <= 0)
+		{
+			GD.Print("shot dir: " + dir);
 
-		string ShotPath = ResourceUid.GetIdPath(ResourceUid.TextToId(cannon.cannonBallUUID));
+			string ShotPath = ResourceUid.GetIdPath(ResourceUid.TextToId(cannon.cannonBallUUID));
 
-		CannonBall shot = (CannonBall)ResourceLoader.Load<PackedScene>(ShotPath).Instantiate();
+			CannonBall shot = (CannonBall)ResourceLoader.Load<PackedScene>(ShotPath).Instantiate();
 
-		shot.Specs = (MunitionRes)cannon.ammoData.Duplicate(true);
-		shot.Dir = dir;
-		shot.Speed = cannon.ammoSpeed;
+			shot.Specs = (MunitionRes)cannon.ammoData.Duplicate(true);
+			shot.Dir = dir;
+			shot.Speed = cannon.ammoSpeed;
 
-		Vector2 offset = getCannonOffset(dir);
+			Vector2 offset = getCannonOffset(dir);
 
-		shot.Position = new()
-        {
-            X = (float)Math.Sin(dir * (Math.PI / 180)) + Position.X + offset.X,
-            Y = (float)Math.Cos(dir * (Math.PI / 180)) + Position.Y + offset.Y 
-        };
+			shot.Position = new()
+        	{
+        	    X = (float)Math.Sin(dir * (Math.PI / 180)) + Position.X + offset.X,
+        	    Y = (float)Math.Cos(dir * (Math.PI / 180)) + Position.Y + offset.Y 
+        	};
 
-		GetParent().AddChild(shot);
-		gunState = data.gunCooldown;
+			GetParent().AddChild(shot);
+			shot.preLoad();
+			gunState = data.gunCooldown;
+		}else{
+			GD.Print("cannon Is too hot" + gunState);
+		}
 
 	}
 

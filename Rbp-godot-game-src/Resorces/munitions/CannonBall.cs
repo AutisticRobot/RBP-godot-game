@@ -37,6 +37,17 @@ public partial class CannonBall : Node2D
 
 	}
 
+	public void preLoad()
+	{
+		if(Specs.Height < Specs.WaterDisFromCam)
+		{
+			float scale = Specs.scaleMulti / (Specs.WaterDisFromCam - Specs.Height);
+			Scale = new(scale,scale);
+		}else{
+			Visible = false;
+		}
+	}
+
 	public void splashCheck()
 	{
 		if(Specs.Height <= 0)
@@ -48,7 +59,10 @@ public partial class CannonBall : Node2D
 
 	public void HitObject(Node2D collObj)// damage to be handled by collited object.
 	{
-		GD.Print("cannon shot hit object");
-		QueueFree();
+		if(Specs.Height > (Specs.WaterDisFromCam - Specs.shipHitHeight))
+		{
+			GD.Print("cannon shot hit object");
+			QueueFree();
+		}
 	}
 }

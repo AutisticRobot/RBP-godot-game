@@ -13,4 +13,5 @@ public partial class MunitionRes : Resource
 	[Export] public float VirVel = 0;//virtical velocity
 
 	[Export] public int dammage = 1;
+	[Export] public float shipHitHeight = 10;
 }
