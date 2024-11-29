@@ -45,6 +45,10 @@ public partial class PlayerShipInput1 : shipInput
     {
 		return Input.IsActionPressed("Shoot");
     }
+    public Vector2 getCannonTarget()
+    {
+        return cursor.GlobalPosition - ship.GlobalPosition;
+    }
 
     public float dirTowardTar(Vector2 Target)
     {

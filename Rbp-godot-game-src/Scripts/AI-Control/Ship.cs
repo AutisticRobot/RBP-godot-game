@@ -97,14 +97,14 @@ public partial class Ship : CharacterBody2D
 	{
 		if(gunState <= 0)
 		{
-			GD.Print("shot dir: " + dir);
+			GD.Print("shot dir: " + Global.Vec2toDir(target));
 
 			string ShotPath = ResourceUid.GetIdPath(ResourceUid.TextToId(cannon.cannonBallUUID));
 
 			CannonBall shot = (CannonBall)ResourceLoader.Load<PackedScene>(ShotPath).Instantiate();
 
 			shot.Specs = (MunitionRes)cannon.ammoData.Duplicate(true);
-			shot.Dir = dir;
+			shot.Dir = Global.Vec2toDir(target);
 			shot.Speed = cannon.ammoSpeed;
 			shot.FSMomentium = Velocity;
 
