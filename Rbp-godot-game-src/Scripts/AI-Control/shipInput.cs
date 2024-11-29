@@ -13,4 +13,5 @@ public partial interface shipInput
     float getSailCom();
     bool getAncorState();
     bool isFireCannon();
+    Vector2 getCannonTarget();
 }

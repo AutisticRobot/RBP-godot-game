@@ -33,7 +33,7 @@ public partial class Ship : CharacterBody2D
 	{
 		if(!manager.pausedScene)
 		{
-			if(activeCannon != null && input.isFireCannon()){  FireCannons(activeCannon);  }
+			if(activeCannon != null && input.isFireCannon()){  FireCannons(activeCannon, input.getCannonTarget());  }
 
 			TurnShip(input.getTurnDir(), delta);
 			CommandSail(input.getSailCom(), delta);
@@ -93,7 +93,7 @@ public partial class Ship : CharacterBody2D
 		sailState = Math.Clamp(sailState, 0, 1);
 	}
 
-	public void FireCannons(cannonData cannon)
+	public void FireCannons(cannonData cannon, Vector2 target)
 	{
 		if(gunState <= 0)
 		{
@@ -106,6 +106,7 @@ public partial class Ship : CharacterBody2D
 			shot.Specs = (MunitionRes)cannon.ammoData.Duplicate(true);
 			shot.Dir = dir;
 			shot.Speed = cannon.ammoSpeed;
+			shot.FSMomentium = Velocity;
 
 			Vector2 offset = getCannonOffset(dir);
 

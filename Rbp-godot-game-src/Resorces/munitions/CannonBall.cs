@@ -5,6 +5,7 @@ public partial class CannonBall : Node2D
 {
 	[Export] public MunitionRes Specs;
 
+	public Vector2 FSMomentium;	
 	public float Dir = 0;//in dagrees
 	public float Speed = 0;
 
@@ -18,6 +19,12 @@ public partial class CannonBall : Node2D
         	{
         	    X = (float)(Math.Sin(Dir * (Math.PI / 180)) * Speed * delta),
         	    Y = (float)(Math.Cos(Dir * (Math.PI / 180)) * Speed * delta)
+        	};
+			Position += vel;
+        	vel = new()
+        	{
+        	    X = (float)(FSMomentium.X * delta),
+        	    Y = (float)(FSMomentium.Y * delta)
         	};
 			Position += vel;
 
