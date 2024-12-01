@@ -68,7 +68,7 @@ saveF = SubResource("Resource_23ueh")
 [node name="PlayerShip" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("3_hl75m")]
 z_index = 1
 position = Vector2(2660, 1086)
-cursor = NodePath("../Navigation/Cursor")
+cursor = NodePath("Cursor")
 playerID = "001"
 widthScale = 10.0
 speedScale = 10.0
@@ -87,17 +87,17 @@ offset_right = -722.0
 offset_bottom = -448.0
 ship = NodePath("../..")
 
-[node name="Navigation" type="Node2D" parent="." node_paths=PackedStringArray("PlayerShip")]
-script = ExtResource("8_dsigp")
-PlayerShip = NodePath("../PlayerShip")
-
-[node name="Cursor" type="Sprite2D" parent="Navigation" node_paths=PackedStringArray("nav")]
-position = Vector2(-5.96046e-08, 2.38419e-07)
+[node name="Cursor" type="Sprite2D" parent="PlayerShip" node_paths=PackedStringArray("nav")]
+position = Vector2(-2660, -1086)
 scale = Vector2(0.1, 0.1)
 texture = SubResource("AtlasTexture_eup1r")
 offset = Vector2(7.00195, -8.99902)
 script = ExtResource("10_3dn2q")
-nav = NodePath("..")
+nav = NodePath("../../Navigation")
+
+[node name="Navigation" type="Node2D" parent="." node_paths=PackedStringArray("PlayerShip")]
+script = ExtResource("8_dsigp")
+PlayerShip = NodePath("../PlayerShip")
 
 [node name="OceanMapV1" type="Sprite2D" parent="."]
 show_behind_parent = true

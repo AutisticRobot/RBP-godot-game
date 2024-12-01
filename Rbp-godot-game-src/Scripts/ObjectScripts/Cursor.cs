@@ -16,7 +16,7 @@ public partial class Cursor : Sprite2D
 		{
 			if(Input.IsActionPressed("L-click"))
 			{
-				Position = GetGlobalMousePosition();
+				GlobalPosition = GetGlobalMousePosition();
 			}
 		}
 	}
