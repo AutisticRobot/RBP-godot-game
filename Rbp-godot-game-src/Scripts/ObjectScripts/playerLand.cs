@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class playerLand : CharacterBody2D
+public partial class playerLand : NPCDoll
 {
 			 public SceneMan manager;
 	[Export] public bool paused;
@@ -9,7 +9,6 @@ public partial class playerLand : CharacterBody2D
 	[Export] public float DecelDeltaCounterBal;
 	[Export] public Vector2 Decel;
 	[Export] public float clampMulti;
-	[Export] public Area2D FloorDetec;
 	public Vector2 speed;
 	private Global global; 
 	//[Export]
