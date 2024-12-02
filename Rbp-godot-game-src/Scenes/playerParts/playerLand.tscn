@@ -83,13 +83,14 @@ debug_color = Color(0.788114, 0.427987, 0.126753, 0.42)
 [node name="InteractBox" type="Area2D" parent="CollisionShape2D"]
 position = Vector2(15, -148)
 scale = Vector2(0.25, 0.25)
+collision_layer = 0
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="CollisionShape2D/InteractBox"]
 position = Vector2(-60, 540)
 shape = SubResource("CircleShape2D_spopj")
 
 [node name="FloorStanding" type="Area2D" parent="CollisionShape2D"]
-collision_layer = 32
+collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/FloorStanding"]
