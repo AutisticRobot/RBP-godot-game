@@ -1,10 +1,11 @@
 
+using System.Collections.Generic;
 using Godot;
 
 public partial class NPCDoll : CharacterBody2D
 {
 	[Export] public Area2D FloorDetec;
-             public string[] FloorProertys;
+             public List<string> FloorProertys;
     public string ID;
 
 
@@ -13,8 +14,16 @@ public partial class NPCDoll : CharacterBody2D
         FloorProertys = GetFloorProerties(FloorDetec.GetOverlappingAreas());
     }
 
-    public string[] GetFloorProerties(Godot.Collections.Array<Area2D> inAreas)
+    public List<string> GetFloorProerties(Godot.Collections.Array<Area2D> inAreas)
     {
-        return null;
+        List<string> output = new();
+        foreach(Area2D floor in inAreas)
+        {
+            if(floor.HasMeta(new("prop")))
+            {
+                output.Add((string)floor.GetMeta("prop"));
+            }
+        }
+        return output;
     }
 }
