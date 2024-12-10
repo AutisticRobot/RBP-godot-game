@@ -4,12 +4,7 @@
 |                      IMMEDIATELY                      |
 *=======================================================*
 
-
-- require the player to go into the ship to be able to travel on the map.
--- draw a dirama-scale ship
-
-
-- special item in shop compatability.
+Compass rose on all ships (mabye only debug?)
 
 *=======================================================*
 |                                                       |
