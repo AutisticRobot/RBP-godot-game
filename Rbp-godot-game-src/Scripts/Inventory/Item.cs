@@ -18,7 +18,7 @@ public partial class Item : Resource
         this.count = count;
     }
 
-    public string GetName()
+    public new string GetName()
     {
         return GetName(ID);
     }
