@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Godot;
 
+[GlobalClass]
 public partial class status : Resource
 {
     [Export] public List<string> effects;

@@ -20,7 +20,12 @@ public partial class Ship : CharacterBody2D
 			 public float sailState;
 			 public float speed;
 
+	[Export] public status stat;
 
+
+	//#--------------------#
+	//#   Regular Funcs    #
+	//#--------------------#
     public override void _Ready()
     {
 		assignID();//here so that ID assignment occurs after loading (if from save) to maintain ID consistiantsy across sessions
@@ -58,6 +63,33 @@ public partial class Ship : CharacterBody2D
 		input.setShip(this);
 		*/
 	}
+	//#--------------------#
+	//#     Data Fucs      #
+	//#--------------------#
+
+	public Vector2 getCannonOffset(float dir)
+	{
+		if(dir >= 0)
+		{
+		return new() 
+		{
+			X = data.cannonOffset.X,
+			Y = data.cannonOffset.Y
+		};
+		}else
+		{
+		return new() 
+		{
+			X = -data.cannonOffset.X,
+			Y = -data.cannonOffset.Y
+		};
+		}
+	}
+
+	public shipModelData getData()
+	{
+		return data;
+	}
 
 	public Vector2 calcVel(double delta)
 	{
@@ -81,6 +113,9 @@ public partial class Ship : CharacterBody2D
 
 		return vel;
 	}
+	//#--------------------#
+	//#     Ship Control   #
+	//#--------------------#
 
 	public void TurnShip(float turnStrength, double delta)
 	{
@@ -125,24 +160,9 @@ public partial class Ship : CharacterBody2D
 
 	}
 
-	public Vector2 getCannonOffset(float dir)
-	{
-		if(dir >= 0)
-		{
-		return new() 
-		{
-			X = data.cannonOffset.X,
-			Y = data.cannonOffset.Y
-		};
-		}else
-		{
-		return new() 
-		{
-			X = -data.cannonOffset.X,
-			Y = -data.cannonOffset.Y
-		};
-		}
-	}
+	//#--------------------#
+	//# World Interactions #
+	//#--------------------#
 	public void pickUpEntered(Area2D area)
 	{
 		GD.Print(area.Name);
@@ -164,10 +184,9 @@ public partial class Ship : CharacterBody2D
 		loot.QueueFree();
 	}
 
-	public shipModelData getData()
-	{
-		return data;
-	}
+	//#--------------------#
+	//#   ID Management    #
+	//#--------------------#
 
 	public string TryAssignID(string inID)
 	{
@@ -184,6 +203,41 @@ public partial class Ship : CharacterBody2D
 				ID = global.IDCordinator.getNew();
 			}
 		}
+	}
+
+	//#--------------------#
+	//#   Statuses fucs    #
+	//#--------------------#
+
+	public void healthCheck()
+	{
+		if(stat.health == 0)
+		{
+			//Die();
+		}
+	}
+
+	public int Damage(int inDam)//damages ship, returnes actuial damage taken
+	{
+		if(stat.health < inDam)
+		{
+			inDam = stat.health;//reuse of inDam var as output
+			stat.health = 0;
+		}else{
+		stat.health -= inDam;
+		}
+		return inDam;
+	}
+	public int heal(int inHeal)//heals ship, returnes actuial health given
+	{
+		if(data.maxHealth < (inHeal + stat.health))
+		{
+			inHeal = data.maxHealth - stat.health;//reuse of inHeal var as output
+			stat.health = data.maxHealth;
+		}else{
+		stat.health += inHeal;
+		}
+		return inHeal;
 	}
 
 }
