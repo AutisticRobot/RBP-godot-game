@@ -184,6 +184,19 @@ public partial class Ship : CharacterBody2D
 		loot.QueueFree();
 	}
 
+	public void sink()
+	{
+		//create loot Float (LF)
+		LootFloat lf = new();
+		//move LF to cur pos
+		lf.Position = Position;
+		//LF w/h cur inv
+		lf.inv = inv;
+		//kill self		
+		QueueFree();
+
+	}
+
 	//#--------------------#
 	//#   ID Management    #
 	//#--------------------#
