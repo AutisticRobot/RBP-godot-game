@@ -20,7 +20,7 @@ public partial class Ship : CharacterBody2D
 			 public float sailState;
 			 public float speed;
 
-	[Export] public status stat;
+	[Export] public status stat = new();
 
 
 	//#--------------------#
@@ -49,6 +49,11 @@ public partial class Ship : CharacterBody2D
 			speed = GetPositionDelta().Length() * 3600;
 			gunState -= (float)delta;
 
+			if(stat.health <= 0)
+			{
+				sink();
+			}
+
 		}
 	}
 
@@ -56,6 +61,9 @@ public partial class Ship : CharacterBody2D
 	{
 		manager = man;
 		global = manager.global;
+
+		
+		stat.health = data.maxHealth;//sets default health to max
 /*
 		save = new(this);
 
