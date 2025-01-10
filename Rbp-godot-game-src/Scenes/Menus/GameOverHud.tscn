@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://80ypy3n3fmyb"]
+
+[node name="GameOverHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 100
+layout_mode = 0
+offset_left = -56.0
+offset_top = -67.0
+offset_right = -16.0
+offset_bottom = -27.0
+scale = Vector2(54.0448, 31.7461)
+color = Color(0.25098, 0, 0, 0.501961)
+
+[node name="You Died" type="Label" parent="."]
+z_index = 200
+offset_left = 341.0
+offset_top = 109.0
+offset_right = 1444.0
+offset_bottom = 458.0
+theme_override_colors/font_color = Color(0.627451, 0, 0, 1)
+theme_override_font_sizes/font_size = 256
+text = "You Died"
+
+[node name="Ha!" type="Label" parent="You Died"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 278.0
+offset_right = 1114.0
+offset_bottom = 627.0
+theme_override_colors/font_color = Color(0.625575, 7.46027e-07, 1.44392e-07, 1)
+theme_override_font_sizes/font_size = 128
+text = "HAHA!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
