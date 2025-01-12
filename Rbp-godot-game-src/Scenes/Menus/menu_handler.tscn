@@ -12,7 +12,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_lms0t")
 defaultMenu = NodePath("PausedMenu")
-MenusList = [NodePath("PausedMenu"), NodePath("ShopMenu")]
+MenusList = [NodePath("PausedMenu"), NodePath("ShopMenu"), NodePath("GameOverHud")]
 
 [node name="ShopMenu" parent="." instance=ExtResource("2_lbjk4")]
 visible = false

@@ -12,21 +12,28 @@ public partial class PlayerShip : Node2D// : Ship
 	[Export] public double widthScale;//for wobble amt
 	[Export] public double speedScale;//for wobble amt
 
-	[Export] public bool debug;
+	[Export] public bool debug = true;
+	[Export] public bool playerDed = false;
 			 public SceneMan manager;
 			 public Global global; 
 
 	[Export] public string ShipModelID;
 
 
-    public override void _Process(double delta)
-    {
-		GlobalPosition = ship.GlobalPosition;
 
-		time += delta * speedScale * ship.sailState;
-		shipSprite.RotationDegrees = (float)getShakeAmt(time,widthScale);
-		//input.update(delta);
+    public override void _PhysicsProcess(double delta)
+    {
+		if(!playerDed)
+		{
+			GlobalPosition = ship.GlobalPosition;
+
+			time += delta * speedScale * ship.sailState;
+			shipSprite.RotationDegrees = (float)getShakeAmt(time,widthScale);
+			//input.update(delta);
+		}
     }
+
+    
 	
 	public void preLoad(SceneMan man)
 	{

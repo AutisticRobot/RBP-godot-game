@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://80ypy3n3fmyb"]
+[gd_scene load_steps=2 format=3 uid="uid://80ypy3n3fmyb"]
+
+[ext_resource type="Script" path="res://Scripts/HelperScripts/GameOverObj.cs" id="1_1kt3g"]
 
 [node name="GameOverHud" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1kt3g")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 100
@@ -20,6 +23,7 @@ color = Color(0.25098, 0, 0, 0.501961)
 
 [node name="You Died" type="Label" parent="."]
 z_index = 200
+layout_mode = 0
 offset_left = 341.0
 offset_top = 109.0
 offset_right = 1444.0
