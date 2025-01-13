@@ -45,7 +45,6 @@ public partial class PlayerShip : Node2D// : Ship
 		ship.ID = playerID;
 
 		ship.input = new PlayerShipInput1();
-
 		ship.input.start();
 		ship.input.setShip(ship);
 		((PlayerShipInput1)ship.input).cursor = cursor;
@@ -56,6 +55,8 @@ public partial class PlayerShip : Node2D// : Ship
 		ship.Reparent(man);
 		this.Reparent(ship);
 		shipSprite = ship.GetChild<Sprite2D>(0);
+
+		ship.ShipDeath += PlayerDies;
 
 	}
 	
@@ -88,6 +89,11 @@ public partial class PlayerShip : Node2D// : Ship
 	public double getShakeAmt(double time, double scale)
 	{
 		return Math.Sin(time) * scale;
+	}
+
+	public void PlayerDies()
+	{
+		playerDed = true;
 	}
 
 	/*===========OLD SCRIPT FOR REFERENCE==============

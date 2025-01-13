@@ -22,6 +22,8 @@ public partial class Ship : CharacterBody2D
 
 	[Export] public status stat = new();
 
+	[Signal] public delegate void ShipDeathEventHandler();
+
 
 	//#--------------------#
 	//#   Regular Funcs    #
@@ -232,9 +234,11 @@ public partial class Ship : CharacterBody2D
 
 	public void healthCheck()
 	{
-		if(stat.health == 0)
+		if(stat.health <= 0)
 		{
+			EmitSignal(SignalName.ShipDeath);
 			//Die();
+			QueueFree();
 		}
 	}
 
