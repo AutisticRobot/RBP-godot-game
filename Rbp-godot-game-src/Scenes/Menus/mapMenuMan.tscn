@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bacqtia26t03y"]
+
+[ext_resource type="PackedScene" uid="uid://bbk6pg52bu4a3" path="res://Scenes/Menus/PausedMenu.tscn" id="1_jhwpp"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/MapHudMan.cs" id="1_mtwl7"]
+[ext_resource type="PackedScene" uid="uid://80ypy3n3fmyb" path="res://Scenes/Menus/GameOverHud.tscn" id="2_b3sd1"]
+[ext_resource type="PackedScene" uid="uid://c0h1hd8wuaxly" path="res://Scenes/Menus/basicHud.tscn" id="3_5ou1o"]
+
+[node name="MapMenuMan" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mtwl7")
+
+[node name="PausedMenu" parent="." instance=ExtResource("1_jhwpp")]
+visible = false
+layout_mode = 1
+
+[node name="GameOverHud" parent="." instance=ExtResource("2_b3sd1")]
+visible = false
+layout_mode = 1
+
+[node name="Control" parent="." instance=ExtResource("3_5ou1o")]
+layout_mode = 1

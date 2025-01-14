@@ -1,12 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://18bfxerx8qpp"]
+[gd_scene load_steps=24 format=3 uid="uid://18bfxerx8qpp"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/MapMain.cs" id="1_egnfv"]
 [ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="2_0f5hq"]
 [ext_resource type="PackedScene" uid="uid://brhosk7gg0d81" path="res://Scenes/playerParts/ship_placeholder_1.tscn" id="3_hl75m"]
+[ext_resource type="PackedScene" uid="uid://bacqtia26t03y" path="res://Scenes/Menus/mapMenuMan.tscn" id="4_38smt"]
 [ext_resource type="Script" path="res://Scripts/Inventory/Item.cs" id="4_ja0gd"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory.cs" id="5_h22au"]
-[ext_resource type="PackedScene" uid="uid://bbk6pg52bu4a3" path="res://Scenes/Menus/PausedMenu.tscn" id="6_lh8tv"]
-[ext_resource type="PackedScene" uid="uid://c0h1hd8wuaxly" path="res://Scenes/Prefabs/majorPrefabs/basicHud.tscn" id="7_nakbu"]
 [ext_resource type="Script" path="res://Scripts/HelperScripts/NavMan.cs" id="8_dsigp"]
 [ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="9_8jfod"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Cursor.cs" id="10_3dn2q"]
@@ -62,7 +61,7 @@ inItems = Array[Object]([SubResource("Resource_rk22d"), SubResource("Resource_v7
 [node name="OceanMap" type="Node2D" node_paths=PackedStringArray("player", "pauseMenu")]
 script = ExtResource("1_egnfv")
 player = NodePath("PlayerShip")
-pauseMenu = NodePath("PlayerShip/Camera2D/PausedMenu")
+pauseMenu = NodePath("")
 saveF = SubResource("Resource_23ueh")
 
 [node name="PlayerShip" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("3_hl75m")]
@@ -77,15 +76,7 @@ ShipModelID = "rbp:lograft"
 [node name="Camera2D" type="Camera2D" parent="PlayerShip"]
 position = Vector2(-3.05176e-05, 0)
 
-[node name="PausedMenu" parent="PlayerShip/Camera2D" instance=ExtResource("6_lh8tv")]
-visible = false
-
-[node name="Hud" parent="PlayerShip/Camera2D" node_paths=PackedStringArray("ship") instance=ExtResource("7_nakbu")]
-offset_left = -722.0
-offset_top = -448.0
-offset_right = -722.0
-offset_bottom = -448.0
-ship = NodePath("../..")
+[node name="MapMenuMan" parent="PlayerShip/Camera2D" instance=ExtResource("4_38smt")]
 
 [node name="Cursor" type="Sprite2D" parent="PlayerShip" node_paths=PackedStringArray("nav")]
 position = Vector2(-2660, -1086)
