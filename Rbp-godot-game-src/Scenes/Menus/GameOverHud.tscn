@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://80ypy3n3fmyb"]
+[gd_scene load_steps=7 format=3 uid="uid://80ypy3n3fmyb"]
 
 [ext_resource type="Script" path="res://Scripts/HelperScripts/GameOverObj.cs" id="1_1kt3g"]
+[ext_resource type="Script" path="res://Scripts/HelperScripts/buttionMan.cs" id="2_11dv3"]
+[ext_resource type="PackedScene" uid="uid://cbyrmnivy13ks" path="res://Scenes/Prefabs/simplePrefabs/sceneChangeButton.tscn" id="2_sfj6t"]
+[ext_resource type="Texture2D" uid="uid://bydo4lnhmtbh7" path="res://Assets/Placeholders/ButtionBoaard.png" id="4_qdshj"]
+[ext_resource type="Theme" uid="uid://ck7rw28kr5b6w" path="res://Resorces/SimpleStyles/new_theme.tres" id="5_xs5ne"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fj3ka"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
 
 [node name="GameOverHud" type="Control"]
 layout_mode = 3
@@ -10,6 +19,45 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1kt3g")
+
+[node name="ButtonMan" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_11dv3")
+
+[node name="ToMainMenu" parent="ButtonMan" node_paths=PackedStringArray("manager") instance=ExtResource("2_sfj6t")]
+z_index = 200
+position = Vector2(1353, 809)
+changToSceneID = "0"
+text = "Main Menu"
+manager = NodePath("..")
+
+[node name="start" type="Sprite2D" parent="ButtonMan"]
+z_index = 200
+position = Vector2(497, 812)
+scale = Vector2(1, 0.511719)
+texture = ExtResource("4_qdshj")
+
+[node name="Label" type="Label" parent="ButtonMan/start"]
+offset_left = -213.0
+offset_top = -101.618
+offset_right = 221.0
+offset_bottom = 62.3817
+theme = ExtResource("5_xs5ne")
+text = "Respawn"
+label_settings = SubResource("LabelSettings_fj3ka")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ButtonMan/start"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -255.0
+offset_top = -121.16
+offset_right = -247.0
+offset_bottom = -113.16
+scale = Vector2(61.36, 27.7334)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 100
@@ -43,3 +91,5 @@ theme_override_font_sizes/font_size = 128
 text = "HAHA!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="ButtonMan/start/Button" to="." method="RespawnPress"]
