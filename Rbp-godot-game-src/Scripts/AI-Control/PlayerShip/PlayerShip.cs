@@ -96,6 +96,11 @@ public partial class PlayerShip : Node2D// : Ship
 		playerDed = true;
 	}
 
+	public void Respawn()
+	{
+
+	}
+
 	/*===========OLD SCRIPT FOR REFERENCE==============
 	[Export] public float brakeSpeed;
 	[Export] public float Acc;

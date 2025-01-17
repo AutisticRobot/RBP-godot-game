@@ -58,10 +58,9 @@ count = 5
 script = ExtResource("5_h22au")
 inItems = Array[Object]([SubResource("Resource_rk22d"), SubResource("Resource_v75vc"), SubResource("Resource_38y3e"), SubResource("Resource_hkkgx"), SubResource("Resource_rnjbu"), SubResource("Resource_pcvvy")])
 
-[node name="OceanMap" type="Node2D" node_paths=PackedStringArray("player", "pauseMenu")]
+[node name="OceanMap" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_egnfv")
 player = NodePath("PlayerShip")
-pauseMenu = NodePath("")
 saveF = SubResource("Resource_23ueh")
 
 [node name="PlayerShip" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("3_hl75m")]
@@ -124,5 +123,6 @@ position = Vector2(-687, -72)
 [node name="OceanObject5" parent="." instance=ExtResource("15_qhnwn")]
 position = Vector2(117, -415)
 
+[connection signal="Respawn" from="PlayerShip/Camera2D/MapMenuMan" to="PlayerShip" method="Respawn"]
 [connection signal="dock" from="GrayBoxIsleV1" to="." method="playerDock"]
 [connection signal="dock" from="GrayBoxIsleV2" to="." method="playerDock"]
