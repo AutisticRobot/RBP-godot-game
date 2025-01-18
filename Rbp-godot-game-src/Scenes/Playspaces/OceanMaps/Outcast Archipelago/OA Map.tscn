@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0xfgkc6kcrnh"]
+
+[ext_resource type="Texture2D" uid="uid://dcejkqlxnemov" path="res://Assets/Placeholders/OceanMapV1.png" id="1_17rtt"]
+[ext_resource type="PackedScene" uid="uid://brhosk7gg0d81" path="res://Scenes/playerParts/PlayerScriptKit.tscn" id="2_7q2wm"]
+
+[node name="OAMap" type="Node2D"]
+
+[node name="OceanMapV1" type="Sprite2D" parent="."]
+position = Vector2(-3, -3)
+texture = ExtResource("1_17rtt")
+
+[node name="PlayerScriptKit" parent="." instance=ExtResource("2_7q2wm")]

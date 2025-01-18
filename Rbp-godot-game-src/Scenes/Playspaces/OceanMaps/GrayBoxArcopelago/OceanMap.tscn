@@ -1,14 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://18bfxerx8qpp"]
+[gd_scene load_steps=19 format=3 uid="uid://18bfxerx8qpp"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/MapMain.cs" id="1_egnfv"]
 [ext_resource type="Script" path="res://Scripts/SaveSystem/SceneSave.cs" id="2_0f5hq"]
-[ext_resource type="PackedScene" uid="uid://brhosk7gg0d81" path="res://Scenes/playerParts/ship_placeholder_1.tscn" id="3_hl75m"]
-[ext_resource type="PackedScene" uid="uid://bacqtia26t03y" path="res://Scenes/Menus/mapMenuMan.tscn" id="4_38smt"]
+[ext_resource type="PackedScene" uid="uid://brhosk7gg0d81" path="res://Scenes/playerParts/PlayerScriptKit.tscn" id="3_hl75m"]
 [ext_resource type="Script" path="res://Scripts/Inventory/Item.cs" id="4_ja0gd"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory.cs" id="5_h22au"]
-[ext_resource type="Script" path="res://Scripts/HelperScripts/NavMan.cs" id="8_dsigp"]
-[ext_resource type="Texture2D" uid="uid://cbee7wptmvckj" path="res://Assets/Placeholders/resourceIcons.png" id="9_8jfod"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/Cursor.cs" id="10_3dn2q"]
 [ext_resource type="Texture2D" uid="uid://dcejkqlxnemov" path="res://Assets/Placeholders/OceanMapV1.png" id="11_0u728"]
 [ext_resource type="PackedScene" uid="uid://ct77st4wccs35" path="res://Scenes/Prefabs/majorPrefabs/islandPrefabV1.tscn" id="12_3ckva"]
 [ext_resource type="PackedScene" uid="uid://dqjgej3qvkd4c" path="res://Scenes/Prefabs/simplePrefabs/LootFloat.tscn" id="13_vqmu1"]
@@ -19,10 +15,6 @@
 script = ExtResource("2_0f5hq")
 SaveFolder = ""
 SaveFile = "oceanMap.sav"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eup1r"]
-atlas = ExtResource("9_8jfod")
-region = Rect2(67, 43, 332, 291)
 
 [sub_resource type="Resource" id="Resource_rk22d"]
 script = ExtResource("4_ja0gd")
@@ -60,10 +52,10 @@ inItems = Array[Object]([SubResource("Resource_rk22d"), SubResource("Resource_v7
 
 [node name="OceanMap" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_egnfv")
-player = NodePath("PlayerShip")
+player = NodePath("PlayerScriptKit")
 saveF = SubResource("Resource_23ueh")
 
-[node name="PlayerShip" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("3_hl75m")]
+[node name="PlayerScriptKit" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("3_hl75m")]
 z_index = 1
 position = Vector2(2660, 1086)
 cursor = NodePath("Cursor")
@@ -71,23 +63,6 @@ playerID = "001"
 widthScale = 10.0
 speedScale = 10.0
 ShipModelID = "rbp:lograft"
-
-[node name="Camera2D" type="Camera2D" parent="PlayerShip"]
-position = Vector2(-3.05176e-05, 0)
-
-[node name="MapMenuMan" parent="PlayerShip/Camera2D" instance=ExtResource("4_38smt")]
-
-[node name="Cursor" type="Sprite2D" parent="PlayerShip" node_paths=PackedStringArray("nav")]
-position = Vector2(-2660, -1086)
-scale = Vector2(0.1, 0.1)
-texture = SubResource("AtlasTexture_eup1r")
-offset = Vector2(7.00195, -8.99902)
-script = ExtResource("10_3dn2q")
-nav = NodePath("../../Navigation")
-
-[node name="Navigation" type="Node2D" parent="." node_paths=PackedStringArray("PlayerShip")]
-script = ExtResource("8_dsigp")
-PlayerShip = NodePath("../PlayerShip")
 
 [node name="OceanMapV1" type="Sprite2D" parent="."]
 show_behind_parent = true
@@ -123,6 +98,5 @@ position = Vector2(-687, -72)
 [node name="OceanObject5" parent="." instance=ExtResource("15_qhnwn")]
 position = Vector2(117, -415)
 
-[connection signal="Respawn" from="PlayerShip/Camera2D/MapMenuMan" to="PlayerShip" method="Respawn"]
 [connection signal="dock" from="GrayBoxIsleV1" to="." method="playerDock"]
 [connection signal="dock" from="GrayBoxIsleV2" to="." method="playerDock"]
