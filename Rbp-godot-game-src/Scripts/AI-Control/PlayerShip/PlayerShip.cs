@@ -18,7 +18,7 @@ public partial class PlayerShip : Node2D// : Ship
 			 public Global global; 
 
 	[Export] public string ShipModelID;
-	[Export] public RespawnPoint curRespawnPoint;
+	[Export] public Vector2 curRespawnPoint;
 
 
     public override void _PhysicsProcess(double delta)
@@ -28,7 +28,7 @@ public partial class PlayerShip : Node2D// : Ship
 			GlobalPosition = ship.GlobalPosition;
 
 			time += delta * speedScale * ship.sailState;
-			shipSprite.RotationDegrees = (float)getShakeAmt(time,widthScale);
+			shipSprite.RotationDegrees = (float)GetShakeAmt(time,widthScale);
 			//input.update(delta);
 		}
     }
@@ -86,7 +86,7 @@ public partial class PlayerShip : Node2D// : Ship
 		*/
 	}
 
-	public double getShakeAmt(double time, double scale)
+	public double GetShakeAmt(double time, double scale)
 	{
 		return Math.Sin(time) * scale;
 	}
@@ -96,9 +96,15 @@ public partial class PlayerShip : Node2D// : Ship
 		playerDed = true;
 	}
 
+	public void SetSpawn(RespawnPoint RP){SetSpawn(RP.Position);}
+	public void SetSpawn(Vector2 RP)
+	{
+		curRespawnPoint = RP;
+	}
+
 	public void Respawn()
 	{
-		Position = curRespawnPoint.Position;
+		Position = curRespawnPoint;
 		playerDed = false;
 	}
 
