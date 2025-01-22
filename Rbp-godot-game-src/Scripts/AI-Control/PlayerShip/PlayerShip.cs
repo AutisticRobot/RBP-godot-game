@@ -18,7 +18,8 @@ public partial class PlayerShip : Node2D// : Ship
 			 public Global global; 
 
 	[Export] public string ShipModelID;
-	[Export] public Vector2 curRespawnPoint;
+			 public Vector2 curRespawnPoint;
+	[Export] public RespawnPoint EditorSpawnPoint;
 
 
     public override void _PhysicsProcess(double delta)
@@ -57,7 +58,12 @@ public partial class PlayerShip : Node2D// : Ship
 		shipSprite = ship.GetChild<Sprite2D>(0);
 
 		ship.ShipDeath += PlayerDies;
-
+		
+		if(debug){debugLoad();}
+	}
+	public void debugLoad()
+	{
+		SetSpawn(EditorSpawnPoint);
 	}
 	
 	public Ship LoadShipModel(string ShipID)
