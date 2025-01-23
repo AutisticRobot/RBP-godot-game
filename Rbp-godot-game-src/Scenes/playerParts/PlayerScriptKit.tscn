@@ -12,8 +12,9 @@
 atlas = ExtResource("5_a1ork")
 region = Rect2(67, 43, 332, 291)
 
-[node name="PlayerScriptKit" type="Node2D"]
+[node name="PlayerScriptKit" type="Node2D" node_paths=PackedStringArray("cursor")]
 script = ExtResource("2_wk8c6")
+cursor = NodePath("Cursor")
 
 [node name="ShipRoseTransform" type="Node2D" parent="."]
 scale = Vector2(1, 0.5)

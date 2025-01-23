@@ -1,12 +1,106 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0xfgkc6kcrnh"]
+[gd_scene load_steps=11 format=3 uid="uid://d0xfgkc6kcrnh"]
 
 [ext_resource type="Texture2D" uid="uid://dcejkqlxnemov" path="res://Assets/Placeholders/OceanMapV1.png" id="1_17rtt"]
 [ext_resource type="PackedScene" uid="uid://brhosk7gg0d81" path="res://Scenes/playerParts/PlayerScriptKit.tscn" id="2_7q2wm"]
+[ext_resource type="PackedScene" uid="uid://bgkj4mmp7h36d" path="res://Scenes/Prefabs/simplePrefabs/SpawnPoint.tscn" id="3_qsgjw"]
+[ext_resource type="Texture2D" uid="uid://c4xgivhqtqkh6" path="res://Assets/Placeholders/DOOMIsland.png" id="4_r70lx"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/island.cs" id="5_wmhjv"]
+[ext_resource type="Script" path="res://Resorces/SceneObects/GroundButton.cs" id="6_mcmga"]
 
-[node name="OAMap" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_fiw2l"]
+radius = 211.002
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u6u53"]
+radius = 165.245
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbkdm"]
+size = Vector2(217, 181)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w6sxx"]
+radius = 19.0
+
+[node name="OutcastArchipelagoMap" type="Node2D"]
 
 [node name="OceanMapV1" type="Sprite2D" parent="."]
 position = Vector2(-3, -3)
+scale = Vector2(10, 10)
 texture = ExtResource("1_17rtt")
 
-[node name="PlayerScriptKit" parent="." instance=ExtResource("2_7q2wm")]
+[node name="PlayerScriptKit" parent="." node_paths=PackedStringArray("EditorSpawnPoint") instance=ExtResource("2_7q2wm")]
+EditorSpawnPoint = NodePath("../Default Spawn Point")
+
+[node name="Default Spawn Point" parent="." instance=ExtResource("3_qsgjw")]
+position = Vector2(1829, -912)
+
+[node name="SkullIslandChunck" type="Node" parent="."]
+
+[node name="SkullIsland" type="Sprite2D" parent="SkullIslandChunck"]
+position = Vector2(-1, -2)
+texture = ExtResource("4_r70lx")
+offset = Vector2(88, 119)
+script = ExtResource("5_wmhjv")
+
+[node name="GroundButton" type="Area2D" parent="SkullIslandChunck/SkullIsland"]
+script = ExtResource("6_mcmga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkullIslandChunck/SkullIsland/GroundButton"]
+position = Vector2(92, 39)
+shape = SubResource("CircleShape2D_fiw2l")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SkullIslandChunck/SkullIsland"]
+position = Vector2(60, 77)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkullIslandChunck/SkullIsland/StaticBody2D"]
+position = Vector2(25, -32)
+rotation = 1.38148
+shape = SubResource("CircleShape2D_u6u53")
+debug_color = Color(0.788114, 0.427987, 0.126753, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SkullIslandChunck/SkullIsland/StaticBody2D"]
+position = Vector2(30.5, 107.5)
+shape = SubResource("RectangleShape2D_bbkdm")
+debug_color = Color(0.788235, 0.427451, 0.12549, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="SkullIslandChunck/SkullIsland/StaticBody2D"]
+position = Vector2(-141, 164)
+shape = SubResource("CircleShape2D_w6sxx")
+debug_color = Color(0.788235, 0.427451, 0.12549, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="SkullIslandChunck/SkullIsland/StaticBody2D"]
+position = Vector2(-159, 251)
+shape = SubResource("CircleShape2D_w6sxx")
+debug_color = Color(0.788235, 0.427451, 0.12549, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="SkullIslandChunck/SkullIsland/StaticBody2D"]
+position = Vector2(-110, 245)
+shape = SubResource("CircleShape2D_w6sxx")
+debug_color = Color(0.788235, 0.427451, 0.12549, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="SkullIslandChunck/SkullIsland/StaticBody2D"]
+position = Vector2(-37, 275)
+shape = SubResource("CircleShape2D_w6sxx")
+debug_color = Color(0.788235, 0.427451, 0.12549, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="SkullIslandChunck/SkullIsland/StaticBody2D"]
+position = Vector2(30, 281)
+shape = SubResource("CircleShape2D_w6sxx")
+debug_color = Color(0.788235, 0.427451, 0.12549, 0.419608)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="SkullIslandChunck/SkullIsland/StaticBody2D"]
+position = Vector2(102, 277)
+shape = SubResource("CircleShape2D_w6sxx")
+debug_color = Color(0.788235, 0.427451, 0.12549, 0.419608)
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="SkullIslandChunck/SkullIsland/StaticBody2D"]
+position = Vector2(166, 267)
+shape = SubResource("CircleShape2D_w6sxx")
+debug_color = Color(0.788235, 0.427451, 0.12549, 0.419608)
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="SkullIslandChunck/SkullIsland/StaticBody2D"]
+position = Vector2(201, 187)
+shape = SubResource("CircleShape2D_w6sxx")
+debug_color = Color(0.788235, 0.427451, 0.12549, 0.419608)
+
+[connection signal="buttonPressed" from="SkullIslandChunck/SkullIsland/GroundButton" to="SkullIslandChunck/SkullIsland" method="onDock"]
