@@ -20,6 +20,7 @@ public partial class PlayerShip : Node2D// : Ship
 	[Export] public string ShipModelID;
 			 public Vector2 curRespawnPoint;
 	[Export] public RespawnPoint EditorSpawnPoint;
+	[Export] public RespawnPoint DefaultSpawnPoint;
 
 
     public override void _PhysicsProcess(double delta)
@@ -110,7 +111,11 @@ public partial class PlayerShip : Node2D// : Ship
 
 	public void Respawn()
 	{
-		Position = curRespawnPoint;
+		try{
+			Position = curRespawnPoint;
+		}catch{
+			Position = DefaultSpawnPoint.Position;
+		}
 		playerDed = false;
 	}
 

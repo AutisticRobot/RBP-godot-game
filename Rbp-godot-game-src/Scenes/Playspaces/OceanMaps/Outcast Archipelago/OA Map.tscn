@@ -26,8 +26,9 @@ position = Vector2(-3, -3)
 scale = Vector2(10, 10)
 texture = ExtResource("1_17rtt")
 
-[node name="PlayerScriptKit" parent="." node_paths=PackedStringArray("EditorSpawnPoint") instance=ExtResource("2_7q2wm")]
+[node name="PlayerScriptKit" parent="." node_paths=PackedStringArray("EditorSpawnPoint", "DefaultSpawnPoint") instance=ExtResource("2_7q2wm")]
 EditorSpawnPoint = NodePath("../Default Spawn Point")
+DefaultSpawnPoint = NodePath("../Default Spawn Point")
 
 [node name="Default Spawn Point" parent="." instance=ExtResource("3_qsgjw")]
 position = Vector2(1829, -912)
