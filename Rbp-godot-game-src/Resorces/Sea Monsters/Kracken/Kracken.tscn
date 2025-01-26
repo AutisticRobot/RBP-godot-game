@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6qe5noxtqrik"]
+
+[ext_resource type="Texture2D" uid="uid://p2ur66rygw3p" path="res://Assets/Placeholders/KrackenHead.png" id="1_bjsp5"]
+[ext_resource type="PackedScene" uid="uid://chtkllsdkhpr4" path="res://Resorces/Sea Monsters/Kracken/Tenticke.tscn" id="2_7kdrq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qos0k"]
+radius = 50.0
+height = 157.413
+
+[node name="Kracken" type="Node2D"]
+
+[node name="KrackenHead" type="Sprite2D" parent="."]
+position = Vector2(-5, -11)
+texture = ExtResource("1_bjsp5")
+
+[node name="Area2D" type="Area2D" parent="KrackenHead"]
+position = Vector2(5, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KrackenHead/Area2D"]
+top_level = true
+position = Vector2(-4, 63)
+rotation = -1.55775
+shape = SubResource("CapsuleShape2D_qos0k")
+
+[node name="Tenticke" parent="." instance=ExtResource("2_7kdrq")]
+position = Vector2(-260, 167)
+
+[node name="Tenticke2" parent="." instance=ExtResource("2_7kdrq")]
+position = Vector2(-252, -135)
+
+[node name="Tenticke3" parent="." instance=ExtResource("2_7kdrq")]
+position = Vector2(261, 169)
+
+[node name="Tenticke4" parent="." instance=ExtResource("2_7kdrq")]
+position = Vector2(255, -125)
