@@ -1,13 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://chtkllsdkhpr4"]
+[gd_scene load_steps=6 format=3 uid="uid://chtkllsdkhpr4"]
 
 [ext_resource type="Texture2D" uid="uid://b1dn8jgjaqlvl" path="res://Assets/Placeholders/KrackenTenticle.png" id="1_5a7nq"]
-[ext_resource type="Script" path="res://Resorces/Sea Monsters/Kracken/Tenticke.cs" id="1_8bhlw"]
+[ext_resource type="Script" path="res://Scripts/AI-Control/AggroShip/Tenticke.cs" id="1_h6kcp"]
+[ext_resource type="Script" path="res://Scripts/Inventory/status.cs" id="2_jenap"]
+
+[sub_resource type="Resource" id="Resource_x50j1"]
+script = ExtResource("2_jenap")
+health = 0
+AccModPer = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2enng"]
 radius = 20.025
 
 [node name="Tenticke" type="Node2D"]
-script = ExtResource("1_8bhlw")
+script = ExtResource("1_h6kcp")
+stat = SubResource("Resource_x50j1")
 
 [node name="KrackenTenticle" type="Sprite2D" parent="."]
 position = Vector2(-4, -5)

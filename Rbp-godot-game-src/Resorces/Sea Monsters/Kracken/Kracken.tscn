@@ -1,15 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6qe5noxtqrik"]
+[gd_scene load_steps=9 format=3 uid="uid://b6qe5noxtqrik"]
 
 [ext_resource type="Texture2D" uid="uid://p2ur66rygw3p" path="res://Assets/Placeholders/KrackenHead.png" id="1_bjsp5"]
-[ext_resource type="Script" path="res://Resorces/Sea Monsters/Kracken/Kracken.cs" id="1_qq0f3"]
+[ext_resource type="Script" path="res://Scripts/AI-Control/AggroShip/Kracken.cs" id="1_tputv"]
+[ext_resource type="Script" path="res://Scripts/Inventory/status.cs" id="2_7dirm"]
 [ext_resource type="PackedScene" uid="uid://chtkllsdkhpr4" path="res://Resorces/Sea Monsters/Kracken/Tenticke.tscn" id="2_7kdrq"]
+[ext_resource type="Script" path="res://Resorces/ShipModels/shipModelData.cs" id="3_sfidv"]
+
+[sub_resource type="Resource" id="Resource_avbaw"]
+script = ExtResource("3_sfidv")
+icoSprite = ExtResource("1_bjsp5")
+spriteScale = 1.0
+brakeSpeed = 0.0
+Acc = 0.0
+SailAcc = 0.0
+TurnAcc = 0.0
+Minspeed = 0.0
+Maxspeed = 0.0
+maxHealth = 200
+maxWeight = 0
+maxVolume = 0
+gunCooldown = 1.0
+cannonOffset = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_x50j1"]
+script = ExtResource("2_7dirm")
+health = 0
+AccModPer = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qos0k"]
 radius = 50.0
 height = 157.413
 
-[node name="Kracken" type="Node2D"]
-script = ExtResource("1_qq0f3")
+[node name="Kracken" type="Node2D" node_paths=PackedStringArray("tents")]
+script = ExtResource("1_tputv")
+tents = [NodePath("Tenticke"), NodePath("Tenticke2"), NodePath("Tenticke3"), NodePath("Tenticke4")]
+data = SubResource("Resource_avbaw")
+ShipModelID = "krckan"
+stat = SubResource("Resource_x50j1")
 
 [node name="KrackenHead" type="Sprite2D" parent="."]
 position = Vector2(-5, -11)
